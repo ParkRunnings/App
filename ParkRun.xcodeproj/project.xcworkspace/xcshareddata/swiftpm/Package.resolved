@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "barcodekit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/quoimec/BarcodeKit.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "e9803cbc66a59b6db6f0dffa4445c870e50e6eb0"
+      }
+    }
+  ],
+  "version" : 2
+}
