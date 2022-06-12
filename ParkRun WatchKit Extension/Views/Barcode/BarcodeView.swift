@@ -9,20 +9,11 @@ import SwiftUI
 
 struct BarcodeView: View {
   
-    @Environment(\.managedObjectContext) var context
-    
-    @FetchRequest(sortDescriptors: []) var runners: FetchedResults<Runner>
+    @EnvironmentObject var runner: RunnerController
     
     var body: some View {
         
-        List(content: {
-            
-            ForEach(runners, content: { runner in
-                BarcodeCardElement(number: runner.number)
-            })
-            
-        })
-        .listStyle(.elliptical)
+        BarcodeCardElement(number: runner.a_number)
         
     }
     

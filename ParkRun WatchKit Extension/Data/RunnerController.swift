@@ -11,27 +11,73 @@ class RunnerController: NSObject, ObservableObject {
     
     static let shared = RunnerController()
     
+    var current: Runner?
+    
+    @Published var number: String!
+    @Published var a_number: String!
+    @Published var name: String!
+    
+    override init() {
+        
+        super.init()
+        
+        current = self.fetch()
+        self.update()
+        
+    }
+    
+    func fetch() -> Runner? {
+        
+        let context = DataController.shared.container.viewContext
+        
+        guard let number = MetaController.shared.runner_number else { return nil }
+        
+        let request = Runner.request()
+        request.predicate = NSPredicate(format: "number = %@", argumentArray: [number])
+        
+        guard let runner = try! context.fetch(request).first else {
+            MetaController.shared.runner_number = nil
+            DataController.shared.save()
+            return nil
+        }
+        
+        return runner
+        
+    }
+    
+    func update() {
+        
+        number = current?.number ?? "?"
+        a_number = current?.a_number ?? "A?"
+        name = current?.name ?? "-"
+       
+    }
+    
     func scrape(number: String) async throws -> Runner {
+        
+        var parkrun_request = URLRequest(url: URL(string: "https://www.parkrun.com.au/parkrunner/\(number)/all/")!)
+        parkrun_request.timeoutInterval = 10
         
         let html = try await scrape_catch(request: {
             return await String(
-                decoding: try DataController.shared.request(body: URLRequest(url: URL(string: "https://www.parkrun.com.au/parkrunner/\(number)/all/")!)),
+                decoding: try DataController.shared.request(body: parkrun_request),
                 as: UTF8.self
             )
         })
         
-        var request = URLRequest(url: URL(string: "https://australia-southeast1-park-run.cloudfunctions.net/get_runner_remote")!)
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.httpMethod = "POST"
+        var scrape_request = URLRequest(url: URL(string: "https://australia-southeast1-park-run.cloudfunctions.net/get_runner_remote")!)
+        scrape_request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        scrape_request.addValue("application/json", forHTTPHeaderField: "Accept")
+        scrape_request.httpMethod = "POST"
+        scrape_request.timeoutInterval = 10
         
-        request.httpBody = try! JSONEncoder().encode([
+        scrape_request.httpBody = try! JSONEncoder().encode([
             "content": html,
             "number": number
         ])
         
         return try await scrape_catch(request: {
-            return try await DataController.shared.json(body: request, as: Runner.self)
+            return try await DataController.shared.json(body: scrape_request, as: Runner.self)
         })
         
     }
@@ -45,7 +91,7 @@ class RunnerController: NSObject, ObservableObject {
             switch error.code {
 
                 case .notConnectedToInternet:
-                throw RunnerControllerError.scrape(title: "Network Offline")
+                throw RunnerControllerError.scrape(title: "Internet offline")
 
                 default:
                 throw RunnerControllerError.scrape(title: "Unknown Network Error")

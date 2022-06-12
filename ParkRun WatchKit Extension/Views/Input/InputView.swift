@@ -9,7 +9,9 @@ import SwiftUI
 
 struct InputView: View {
 
+    @Environment(\.managedObjectContext) var context
     @Environment(\.presentationMode) var presentation
+    
     @EnvironmentObject var meta: MetaController
     
     @State private var number: String = ""
@@ -20,7 +22,6 @@ struct InputView: View {
     }).chunked(into: 3)
     
     @State private var runner: Runner?
-    @State private var error: String?
     @State private var polling_for: String?
     @State private var nav_confirmation: Bool = false
     @State private var nav_help: Bool = false
@@ -62,14 +63,14 @@ struct InputView: View {
                                             
                                             if runner_.number == polling_for {
                                                 runner = runner_
-                                                error = nil
                                                 polling_for = nil
                                             }
                                             
                                         } catch RunnerControllerError.scrape(let title) {
-                                            runner = nil
-                                            error = title
+                                            
+                                            runner = Runner.init(context: context, number: number, error: title)
                                             polling_for = nil
+                                        
                                         }
                                         
                                     })
@@ -97,8 +98,10 @@ struct InputView: View {
                 .padding(.top, 6)
             
         })
-            .sheet(isPresented: $nav_confirmation, content: {
-                InputConfirmationElement(number: number, runner: $runner, error: $error)
+            .sheet(isPresented: $nav_confirmation, onDismiss: {
+                if meta.setup_barcode { presentation.wrappedValue.dismiss() }
+            }, content: {
+                InputConfirmationElement(runner: $runner, nav_confirmation: $nav_confirmation)
                     .toolbar(content: {
                         ToolbarItem(id: "x", placement: .cancellationAction, showsByDefault: false, content: {
                             Text("")
@@ -110,7 +113,6 @@ struct InputView: View {
             .edgesIgnoringSafeArea(.bottom)
             .onAppear(perform: {
                 runner = nil
-                error = nil
                 polling_for = nil
                 nav_confirmation = false
                 nav_help = false

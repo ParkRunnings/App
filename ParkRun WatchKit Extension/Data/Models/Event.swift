@@ -23,6 +23,9 @@ public class Event: NSManagedObject, Identifiable, Decodable {
     
     static private let CoreName = "Event"
     
+    var hour: Int { get { Int(start.split(separator: ":")[0])! } }
+    var minute: Int { get { Int(start.split(separator: ":")[1])! } }
+    
     enum CodingKeys: CodingKey {
         case uuid, country, name, latitude, longitude, start, timezone
     }
@@ -87,6 +90,93 @@ public class Event: NSManagedObject, Identifiable, Decodable {
     public func coordinates() -> CLLocation {
         return CLLocation(latitude: self.latitude, longitude: self.longitude)
     }
+    
+    func time_progress() -> Double {
+        
+        func fractional(hour: Int, minute: Int) -> Double {
+            // A simple method for representing an time as a fraction
+            return Double(hour) + (Double(minute) / 60)
+        }
+        
+        let calendar = Calendar(identifier: .iso8601)
+        let timezone = TimeZone(identifier: timezone)!
+        
+        // Reference for day of week Saturday
+        let saturday = 7
+        
+        // Get current date and it's components for the event timezone
+        var now = Date.now
+        var now_components = calendar.dateComponents(in: timezone, from: now)
+        
+        // If the current date is within an hour of the event starting, roll the current date back a day
+        if now_components.weekday! == saturday && fractional(hour: hour, minute: minute) - fractional(hour: now_components.hour!, minute: now_components.minute!) > -1 {
+            now_components.weekday! -= 1
+            now_components.hour! -= 1
+            now = calendar.date(from: now_components)!
+        }
+        
+        // The date component filters to apply when searching for event dates
+        let match_components = DateComponents(
+            calendar: calendar,
+            timeZone: timezone,
+            hour: hour,
+            minute: minute,
+            second: 0,
+            nanosecond: 0,
+            weekday: saturday
+        )
+        
+        // Find the next and previous events
+        let next = calendar.nextDate(after: now, matching: match_components, matchingPolicy: .nextTime, direction: .forward)!
+        let previous = calendar.nextDate(after: now, matching: match_components, matchingPolicy: .nextTime, direction: .backward)!
+        
+        let base = floor(now.timeIntervalSince(previous) / 3600.0) / (next.timeIntervalSince(previous) / 3600.0)
+        let scaled = pow(base - 0.005, 3) + 0.02
+//
+//        y=\left(x-0.005\right)^{3}+0.02
+        
+        return scaled
+        
+    }
+ 
+    func distance_progress() -> Double {
+        return pow(1 - (distance / 1000000).clamped(to: 0...1), 50)
+    }
+    
+    func distance_display() -> String {
+
+        func display_fraction(places: Int) -> String {
+            
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .decimal
+            formatter.decimalSeparator = "."
+            formatter.maximumFractionDigits = places
+            formatter.minimumFractionDigits = places
+            
+            return formatter.string(for: Double(distance)/1000.0)!
+            
+        }
+
+        switch Int(distance) {
+
+            case 0 ..< 10000:
+            return display_fraction(places: 2)
+
+            case 1000 ..< 100000:
+            return display_fraction(places: 1)
+            
+            case 100000 ..< 1000000:
+            return display_fraction(places: 0)
+
+            case 1000000 ... Int.max:
+            return "999+"
+            
+            default:
+            return "?"
+        }
+        
+    }
+    
     
 }
 

@@ -1,5 +1,5 @@
 //
-//  HomeListElement.swift
+//  EventListElement.swift
 //  ParkRun WatchKit Extension
 //
 //  Created by Charlie on 5/5/2022.
@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct HomeListElement: View {
+struct EventListElement: View {
     
     @EnvironmentObject var meta: MetaController
     @EnvironmentObject var location: LocationController
     
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Environment(\.presentationMode) var presentation
     
     @FetchRequest var events: FetchedResults<Event>
 
@@ -33,10 +33,10 @@ struct HomeListElement: View {
             TitleElement(title: "Events", subtitle: location.enabled ? nil : "Enable location services to find nearby events")
             
             ForEach(events, content: { event in
-                HomeEventElement(name: event.name, country: event.country, meters: Int(event.distance))
+                EventEventElement(name: event.name, country: event.country, meters: Int(event.distance))
                     .onTapGesture(perform: {
                         meta.update_home(event: event)
-                        presentationMode.wrappedValue.dismiss()
+                        presentation.wrappedValue.dismiss()
                     })
             })
             
@@ -47,9 +47,9 @@ struct HomeListElement: View {
     
 }
 
-struct HomeListElement_Previews: PreviewProvider {
+struct EventListElement_Previews: PreviewProvider {
     static var previews: some View {
-        HomeListElement(search: "Shit")
+        EventListElement(search: "Shit")
     }
 }
 

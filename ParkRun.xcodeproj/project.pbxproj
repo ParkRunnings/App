@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB1DBAC828506B7B0059025D /* ProgressElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1DBAC728506B7B0059025D /* ProgressElements.swift */; };
 		CB279145281A01C700D2E65E /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB279144281A01C700D2E65E /* LocationController.swift */; };
 		CB279149281BA70E00D2E65E /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB279148281BA70E00D2E65E /* Codable.swift */; };
-		CB430A5628237F4A00B7EB8C /* HomeListElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB430A5528237F4A00B7EB8C /* HomeListElement.swift */; };
+		CB430A5628237F4A00B7EB8C /* EventListElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB430A5528237F4A00B7EB8C /* EventListElement.swift */; };
 		CB430A592823DF0B00B7EB8C /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB430A582823DF0B00B7EB8C /* HelpView.swift */; };
 		CB4D46DD281BD6BB00B3BF4A /* ParkRun.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB4D46DB281BD6BB00B3BF4A /* ParkRun.xcdatamodeld */; };
 		CB4D46E3281CD36500B3BF4A /* master.json in Resources */ = {isa = PBXBuildFile; fileRef = CB4D46E2281CD36500B3BF4A /* master.json */; };
@@ -23,13 +24,15 @@
 		CB4D46FC281E397E00B3BF4A /* TextElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D46FB281E397E00B3BF4A /* TextElements.swift */; };
 		CB4D46FE281E3B6800B3BF4A /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D46FD281E3B6800B3BF4A /* WelcomeView.swift */; };
 		CB4D4700281EA1FF00B3BF4A /* GeneralElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D46FF281EA1FF00B3BF4A /* GeneralElements.swift */; };
-		CB4D4703281FABFF00B3BF4A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D4702281FABFF00B3BF4A /* HomeView.swift */; };
-		CB4D4706281FB04C00B3BF4A /* HomeEventElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D4705281FB04C00B3BF4A /* HomeEventElement.swift */; };
+		CB4D4703281FABFF00B3BF4A /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D4702281FABFF00B3BF4A /* EventView.swift */; };
+		CB4D4706281FB04C00B3BF4A /* EventEventElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D4705281FB04C00B3BF4A /* EventEventElement.swift */; };
 		CB82E79C28277043000881BA /* InputConfirmationElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82E79B28277043000881BA /* InputConfirmationElement.swift */; };
 		CB82E79E28278261000881BA /* RunnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82E79D28278261000881BA /* RunnerController.swift */; };
 		CB82E7A028288513000881BA /* ProfileElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82E79F28288513000881BA /* ProfileElements.swift */; };
 		CB8A399E2830DE8B008A7474 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8A399D2830DE8B008A7474 /* Errors.swift */; };
 		CB8A39A02830F7EA008A7474 /* ButtonElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8A399F2830F7EA008A7474 /* ButtonElements.swift */; };
+		CB920531285194C700C9A693 /* Refreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB920530285194C700C9A693 /* Refreshable.swift */; };
+		CB9205332851FB2E00C9A693 /* MainProgressElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9205322851FB2E00C9A693 /* MainProgressElement.swift */; };
 		CBAE8F0E27F7CECE00A66830 /* ParkRun.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CBAE8F0D27F7CECE00A66830 /* ParkRun.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CBAE8F1327F7CED000A66830 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBAE8F1227F7CED000A66830 /* Assets.xcassets */; };
 		CBAE8F1927F7CED100A66830 /* ParkRun WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CBAE8F1827F7CED100A66830 /* ParkRun WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -43,15 +46,6 @@
 		CBAE8F3727F7CED100A66830 /* ParkRunTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE8F3627F7CED100A66830 /* ParkRunTests.swift */; };
 		CBAE8F4127F7CED100A66830 /* ParkRunUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE8F4027F7CED100A66830 /* ParkRunUITests.swift */; };
 		CBAE8F4327F7CED100A66830 /* ParkRunUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE8F4227F7CED100A66830 /* ParkRunUITestsLaunchTests.swift */; };
-		CBAE8F7A27F90D3000A66830 /* MainLocationElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE8F7927F90D3000A66830 /* MainLocationElement.swift */; };
-		CBAE8F7B27F90D3000A66830 /* MainLocationElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE8F7927F90D3000A66830 /* MainLocationElement.swift */; };
-		CBAE8F7C27F90D3000A66830 /* MainLocationElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE8F7927F90D3000A66830 /* MainLocationElement.swift */; };
-		CBAE8F7E27F96DE700A66830 /* MainTitleElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE8F7D27F96DE700A66830 /* MainTitleElement.swift */; };
-		CBAE8F7F27F96DE700A66830 /* MainTitleElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE8F7D27F96DE700A66830 /* MainTitleElement.swift */; };
-		CBAE8F8027F96DE700A66830 /* MainTitleElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE8F7D27F96DE700A66830 /* MainTitleElement.swift */; };
-		CBAE8F8327FA6C2200A66830 /* MainCardElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE8F8227FA6C2200A66830 /* MainCardElement.swift */; };
-		CBAE8F8427FA6C2200A66830 /* MainCardElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE8F8227FA6C2200A66830 /* MainCardElement.swift */; };
-		CBAE8F8527FA6C2200A66830 /* MainCardElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE8F8227FA6C2200A66830 /* MainCardElement.swift */; };
 		CBE106B527FE5405008AF35B /* BarcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE106B427FE5405008AF35B /* BarcodeView.swift */; };
 		CBE106BE27FE55F2008AF35B /* BarcodeCardElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE106BD27FE55F2008AF35B /* BarcodeCardElement.swift */; };
 		CBE106BF27FE55F2008AF35B /* BarcodeCardElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE106BD27FE55F2008AF35B /* BarcodeCardElement.swift */; };
@@ -63,7 +57,7 @@
 		CBE106C927FEA10E008AF35B /* InputButtonElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE106C727FEA10E008AF35B /* InputButtonElement.swift */; };
 		CBE106CA27FEA10E008AF35B /* InputButtonElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE106C727FEA10E008AF35B /* InputButtonElement.swift */; };
 		CBE6C1CE280109C90080CDC8 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE6C1CD280109C90080CDC8 /* DataController.swift */; };
-		CBE6C1D2280151960080CDC8 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE6C1D1280151960080CDC8 /* Array.swift */; };
+		CBE6C1D2280151960080CDC8 /* Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE6C1D1280151960080CDC8 /* Values.swift */; };
 		CBE6C1D4280155F40080CDC8 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE6C1D3280155F40080CDC8 /* Types.swift */; };
 		CBE6C1D6280158A30080CDC8 /* Colour.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE6C1D5280158A30080CDC8 /* Colour.swift */; };
 		CBE6C21528024D880080CDC8 /* BarcodeKit in Frameworks */ = {isa = PBXBuildFile; productRef = CBE6C21428024D880080CDC8 /* BarcodeKit */; };
@@ -130,9 +124,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CB1DBAC728506B7B0059025D /* ProgressElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressElements.swift; sourceTree = "<group>"; };
 		CB279144281A01C700D2E65E /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		CB279148281BA70E00D2E65E /* Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
-		CB430A5528237F4A00B7EB8C /* HomeListElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListElement.swift; sourceTree = "<group>"; };
+		CB430A5528237F4A00B7EB8C /* EventListElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListElement.swift; sourceTree = "<group>"; };
 		CB430A582823DF0B00B7EB8C /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		CB4D46DC281BD6BB00B3BF4A /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
 		CB4D46E2281CD36500B3BF4A /* master.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = master.json; sourceTree = "<group>"; };
@@ -146,13 +141,15 @@
 		CB4D46FB281E397E00B3BF4A /* TextElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextElements.swift; sourceTree = "<group>"; };
 		CB4D46FD281E3B6800B3BF4A /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		CB4D46FF281EA1FF00B3BF4A /* GeneralElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralElements.swift; sourceTree = "<group>"; };
-		CB4D4702281FABFF00B3BF4A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		CB4D4705281FB04C00B3BF4A /* HomeEventElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEventElement.swift; sourceTree = "<group>"; };
+		CB4D4702281FABFF00B3BF4A /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
+		CB4D4705281FB04C00B3BF4A /* EventEventElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEventElement.swift; sourceTree = "<group>"; };
 		CB82E79B28277043000881BA /* InputConfirmationElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputConfirmationElement.swift; sourceTree = "<group>"; };
 		CB82E79D28278261000881BA /* RunnerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerController.swift; sourceTree = "<group>"; };
 		CB82E79F28288513000881BA /* ProfileElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileElements.swift; sourceTree = "<group>"; };
 		CB8A399D2830DE8B008A7474 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		CB8A399F2830F7EA008A7474 /* ButtonElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonElements.swift; sourceTree = "<group>"; };
+		CB920530285194C700C9A693 /* Refreshable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refreshable.swift; sourceTree = "<group>"; };
+		CB9205322851FB2E00C9A693 /* MainProgressElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProgressElement.swift; sourceTree = "<group>"; };
 		CBAE8F0927F7CECE00A66830 /* ParkRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBAE8F0D27F7CECE00A66830 /* ParkRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBAE8F1227F7CED000A66830 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -171,15 +168,12 @@
 		CBAE8F3C27F7CED100A66830 /* ParkRunUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParkRunUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBAE8F4027F7CED100A66830 /* ParkRunUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkRunUITests.swift; sourceTree = "<group>"; };
 		CBAE8F4227F7CED100A66830 /* ParkRunUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkRunUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		CBAE8F7927F90D3000A66830 /* MainLocationElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLocationElement.swift; sourceTree = "<group>"; };
-		CBAE8F7D27F96DE700A66830 /* MainTitleElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTitleElement.swift; sourceTree = "<group>"; };
-		CBAE8F8227FA6C2200A66830 /* MainCardElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCardElement.swift; sourceTree = "<group>"; };
 		CBE106B427FE5405008AF35B /* BarcodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeView.swift; sourceTree = "<group>"; };
 		CBE106BD27FE55F2008AF35B /* BarcodeCardElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCardElement.swift; sourceTree = "<group>"; };
 		CBE106C227FEA09F008AF35B /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		CBE106C727FEA10E008AF35B /* InputButtonElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputButtonElement.swift; sourceTree = "<group>"; };
 		CBE6C1CD280109C90080CDC8 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
-		CBE6C1D1280151960080CDC8 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		CBE6C1D1280151960080CDC8 /* Values.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Values.swift; sourceTree = "<group>"; };
 		CBE6C1D3280155F40080CDC8 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		CBE6C1D5280158A30080CDC8 /* Colour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colour.swift; sourceTree = "<group>"; };
 		CBE6C21728024DFE0080CDC8 /* Runner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Runner.swift; sourceTree = "<group>"; };
@@ -263,6 +257,7 @@
 				CB4D46FF281EA1FF00B3BF4A /* GeneralElements.swift */,
 				CB82E79F28288513000881BA /* ProfileElements.swift */,
 				CB8A399F2830F7EA008A7474 /* ButtonElements.swift */,
+				CB1DBAC728506B7B0059025D /* ProgressElements.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -275,22 +270,30 @@
 			path = Welcome;
 			sourceTree = "<group>";
 		};
-		CB4D4701281FAB4800B3BF4A /* Home */ = {
+		CB4D4701281FAB4800B3BF4A /* Event */ = {
 			isa = PBXGroup;
 			children = (
-				CB4D4702281FABFF00B3BF4A /* HomeView.swift */,
+				CB4D4702281FABFF00B3BF4A /* EventView.swift */,
 				CB4D4704281FB02700B3BF4A /* Elements */,
 			);
-			path = Home;
+			path = Event;
 			sourceTree = "<group>";
 		};
 		CB4D4704281FB02700B3BF4A /* Elements */ = {
 			isa = PBXGroup;
 			children = (
-				CB4D4705281FB04C00B3BF4A /* HomeEventElement.swift */,
-				CB430A5528237F4A00B7EB8C /* HomeListElement.swift */,
+				CB4D4705281FB04C00B3BF4A /* EventEventElement.swift */,
+				CB430A5528237F4A00B7EB8C /* EventListElement.swift */,
 			);
 			path = Elements;
+			sourceTree = "<group>";
+		};
+		CB92052F285194A100C9A693 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CB920530285194C700C9A693 /* Refreshable.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		CBAE8F0227F7CECE00A66830 = {
@@ -373,7 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				CB430A572823DEFF00B7EB8C /* Help */,
-				CB4D4701281FAB4800B3BF4A /* Home */,
+				CB4D4701281FAB4800B3BF4A /* Event */,
 				CB4D46FA281E395000B3BF4A /* Welcome */,
 				CB4D46E8281D177700B3BF4A /* Setup */,
 				CBAE8F8127FA6B6900A66830 /* Main */,
@@ -403,9 +406,7 @@
 		CBE106B227FE5206008AF35B /* Elements */ = {
 			isa = PBXGroup;
 			children = (
-				CBAE8F8227FA6C2200A66830 /* MainCardElement.swift */,
-				CBAE8F7D27F96DE700A66830 /* MainTitleElement.swift */,
-				CBAE8F7927F90D3000A66830 /* MainLocationElement.swift */,
+				CB9205322851FB2E00C9A693 /* MainProgressElement.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -472,7 +473,7 @@
 		CBE6C1D0280151880080CDC8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				CBE6C1D1280151960080CDC8 /* Array.swift */,
+				CBE6C1D1280151960080CDC8 /* Values.swift */,
 				CBE6C1D5280158A30080CDC8 /* Colour.swift */,
 				CBE6C2CE28039CC60080CDC8 /* View.swift */,
 				CB279148281BA70E00D2E65E /* Codable.swift */,
@@ -484,6 +485,7 @@
 		CBE6C21628024DEC0080CDC8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CB92052F285194A100C9A693 /* Common */,
 				CBE6C21728024DFE0080CDC8 /* Runner.swift */,
 				CBE6C219280259B80080CDC8 /* Event.swift */,
 				CB4D46E4281CD95D00B3BF4A /* Meta.swift */,
@@ -723,6 +725,7 @@
 			files = (
 				CB82E79E28278261000881BA /* RunnerController.swift in Sources */,
 				CBE6C1CE280109C90080CDC8 /* DataController.swift in Sources */,
+				CB1DBAC828506B7B0059025D /* ProgressElements.swift in Sources */,
 				CB279145281A01C700D2E65E /* LocationController.swift in Sources */,
 				CB279149281BA70E00D2E65E /* Codable.swift in Sources */,
 				CBE6C21828024DFE0080CDC8 /* Runner.swift in Sources */,
@@ -731,25 +734,24 @@
 				CB8A39A02830F7EA008A7474 /* ButtonElements.swift in Sources */,
 				CBE6C21D28026ACB0080CDC8 /* EventController.swift in Sources */,
 				CBAE8F2227F7CED100A66830 /* NotificationController.swift in Sources */,
-				CB4D4703281FABFF00B3BF4A /* HomeView.swift in Sources */,
+				CB4D4703281FABFF00B3BF4A /* EventView.swift in Sources */,
 				CBE6C1D6280158A30080CDC8 /* Colour.swift in Sources */,
 				CBE6C2CF28039CC60080CDC8 /* View.swift in Sources */,
 				CBE106BE27FE55F2008AF35B /* BarcodeCardElement.swift in Sources */,
-				CBAE8F7A27F90D3000A66830 /* MainLocationElement.swift in Sources */,
 				CBE6C21A280259B80080CDC8 /* Event.swift in Sources */,
 				CBAE8F2027F7CED100A66830 /* MainView.swift in Sources */,
 				CBE106C327FEA09F008AF35B /* InputView.swift in Sources */,
-				CBE6C1D2280151960080CDC8 /* Array.swift in Sources */,
+				CB920531285194C700C9A693 /* Refreshable.swift in Sources */,
+				CBE6C1D2280151960080CDC8 /* Values.swift in Sources */,
 				CB4D46E7281CDB0300B3BF4A /* MetaController.swift in Sources */,
 				CB82E79C28277043000881BA /* InputConfirmationElement.swift in Sources */,
 				CB4D46DD281BD6BB00B3BF4A /* ParkRun.xcdatamodeld in Sources */,
 				CB4D46F5281D25C800B3BF4A /* Prefix.swift in Sources */,
 				CB82E7A028288513000881BA /* ProfileElements.swift in Sources */,
 				CB4D46FC281E397E00B3BF4A /* TextElements.swift in Sources */,
-				CBAE8F7E27F96DE700A66830 /* MainTitleElement.swift in Sources */,
 				CB8A399E2830DE8B008A7474 /* Errors.swift in Sources */,
 				CB4D46F9281DDA0400B3BF4A /* SetupDetailsElement.swift in Sources */,
-				CBAE8F8327FA6C2200A66830 /* MainCardElement.swift in Sources */,
+				CB9205332851FB2E00C9A693 /* MainProgressElement.swift in Sources */,
 				CBAE8F2627F7CED100A66830 /* ComplicationController.swift in Sources */,
 				CBAE8F1E27F7CED100A66830 /* ParkRunApp.swift in Sources */,
 				CBAE8F2427F7CED100A66830 /* NotificationView.swift in Sources */,
@@ -758,10 +760,10 @@
 				CB4D46EF281D1A8300B3BF4A /* CardElement.swift in Sources */,
 				CB4D46F7281D2BC300B3BF4A /* DesignController.swift in Sources */,
 				CBE6C1D4280155F40080CDC8 /* Types.swift in Sources */,
-				CB430A5628237F4A00B7EB8C /* HomeListElement.swift in Sources */,
+				CB430A5628237F4A00B7EB8C /* EventListElement.swift in Sources */,
 				CB4D46E5281CD95D00B3BF4A /* Meta.swift in Sources */,
 				CBE106B527FE5405008AF35B /* BarcodeView.swift in Sources */,
-				CB4D4706281FB04C00B3BF4A /* HomeEventElement.swift in Sources */,
+				CB4D4706281FB04C00B3BF4A /* EventEventElement.swift in Sources */,
 				CB4D4700281EA1FF00B3BF4A /* GeneralElements.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -770,13 +772,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBAE8F7F27F96DE700A66830 /* MainTitleElement.swift in Sources */,
 				CBE106BF27FE55F2008AF35B /* BarcodeCardElement.swift in Sources */,
 				CBAE8F3727F7CED100A66830 /* ParkRunTests.swift in Sources */,
-				CBAE8F7B27F90D3000A66830 /* MainLocationElement.swift in Sources */,
 				CBE106C427FEA09F008AF35B /* InputView.swift in Sources */,
 				CBE106C927FEA10E008AF35B /* InputButtonElement.swift in Sources */,
-				CBAE8F8427FA6C2200A66830 /* MainCardElement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -784,13 +783,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBAE8F8527FA6C2200A66830 /* MainCardElement.swift in Sources */,
 				CBE106C027FE55F2008AF35B /* BarcodeCardElement.swift in Sources */,
 				CBE106CA27FEA10E008AF35B /* InputButtonElement.swift in Sources */,
-				CBAE8F8027F96DE700A66830 /* MainTitleElement.swift in Sources */,
 				CBE106C527FEA09F008AF35B /* InputView.swift in Sources */,
 				CBAE8F4327F7CED100A66830 /* ParkRunUITestsLaunchTests.swift in Sources */,
-				CBAE8F7C27F90D3000A66830 /* MainLocationElement.swift in Sources */,
 				CBAE8F4127F7CED100A66830 /* ParkRunUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -938,7 +934,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"ParkRun WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				ENABLE_PREVIEWS = YES;
@@ -947,6 +943,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = ParkRun;
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = ParkRun_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To find nearby ParkRun events";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -970,7 +967,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"ParkRun WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				ENABLE_PREVIEWS = YES;
@@ -979,6 +976,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = ParkRun;
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = ParkRun_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To find nearby ParkRun events";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

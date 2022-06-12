@@ -13,7 +13,7 @@ enum InputButtonType: Int {
 
 enum SetupCardType: Int, CaseIterable {
     
-    case barcode = 1, location, event
+    case barcode = 1, location, event, complete
     
     static func all() -> Array<SetupCardType> {
         return SetupCardType.allCases.sorted(by: { $0.rawValue < $1.rawValue })

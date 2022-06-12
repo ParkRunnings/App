@@ -11,14 +11,19 @@ import SwiftUI
 struct ParkRunApp: App {
 
     @SceneBuilder var body: some Scene {
-        WindowGroup {
-            NavigationView {
+        
+        WindowGroup(content: {
+          
+            NavigationView(content: {
                 MainView()
-                    .environment(\.managedObjectContext, DataController.shared.container.viewContext)
-                    .environmentObject(MetaController.shared)
-                    .environmentObject(LocationController.shared)
-            }
-        }
+            })
+            .environment(\.managedObjectContext, DataController.shared.container.viewContext)
+            .environmentObject(MetaController.shared)
+            .environmentObject(LocationController.shared)
+            .environmentObject(EventController.shared)
+            .environmentObject(RunnerController.shared)
+             
+        })
 
         WKNotificationScene(controller: NotificationController.self, category: "myCategory")
     }

@@ -9,87 +9,126 @@ import CoreData
 
 class MetaController: NSObject, ObservableObject {
     
+    private var current: Meta!
+    
     static let shared = MetaController()
+    static let id = "parkrun-meta"
     
-    static private let id = "parkrun-meta"
-    private var meta: Meta
+    @Published var runner_number: String? {
+        didSet {
+            setup_barcode = runner_number != nil
+            current.refresh(ref: &current.runner_number, value: runner_number)
+        }
+    }
+    @Published var event_home: UUID? {
+        didSet {
+            setup_home = event_home != nil
+            current.refresh(ref: &current.event_home, value: event_home)
+        }
+    }
+    @Published var event_master: String? {
+        didSet {
+            current.refresh(ref: &current.event_master, value: event_master)
+        }
+    }
+    @Published var setup: Bool! {
+        didSet {
+            current.refresh(ref: &current.setup, value: setup)
+        }
+    }
     
-    @Published var setup: Bool
-    @Published var setup_barcode: Bool
-    @Published var setup_location: Bool
-    @Published var setup_home: Bool
-    
+    @Published var setup_barcode: Bool! { didSet { update_setup_complete() } }
+    @Published var setup_location: Bool! { didSet { update_setup_complete() } }
+    @Published var setup_home: Bool! { didSet { update_setup_complete() } }
+    @Published var setup_complete: Bool!
+
     override init() {
-                
+        super.init()
+        refresh()
+        
+        current.launches += 1
+        
+        DataController.shared.save()
+        
+    }
+    
+    func fetch() -> Meta {
+        
         let context = DataController.shared.container.viewContext
         
         let meta_request = Meta.request()
         meta_request.predicate = NSPredicate(format: "id = %@", argumentArray: [MetaController.id])
         
-        if let saved = try! context.fetch(meta_request).first {
-            self.meta = saved
-            self.meta.launches += 1
+        if let meta = try! context.fetch(meta_request).first {
+            return meta
         } else {
-            
-            self.meta = Meta(
-                context: context,
-                id: MetaController.id,
-                setup: false,
-                launches: 1,
-                created: Date.now
-            )
-            
+            let meta = Meta(context: context, id: MetaController.id)
+            DataController.shared.save()
+            return meta
         }
         
-        if self.meta.event_master == nil {
-            
-            let json = try! Data(contentsOf: Bundle.main.url(forResource: "master", withExtension: "json")!)
-            
-            let decoder = JSONDecoder()
-            decoder.userInfo[CodingUserInfoKey.context] = context
-            
-            let data = try! decoder.decode(EventMeta.self, from: json)
-            self.meta.event_master = data.state
-            
-            print("Loaded master data from local")
-            
-        }
+    }
+    
+    func update() {
         
-        let setup_barcode_ = self.meta.runner_number != nil
-        let setup_location_ = LocationController.shared.status != .notDetermined
-        let setup_home_ = self.meta.event_home != nil
+        runner_number = current.runner_number
+        event_home = current.event_home
         
-        let setup_ = setup_barcode_ && setup_location_ && setup_home_
+        setup_barcode = current.runner_number != nil
+        setup_location = LocationController.shared.status != .notDetermined
+        setup_home = current.event_home != nil
+        setup_complete = setup_barcode && setup_location && setup_home
+        setup = current.setup && setup_complete
         
-        if setup_ != self.meta.setup {
-            self.meta.setup = setup_
-        }
+    }
+    
+    func refresh() {
         
-        self.setup = self.meta.setup
-        self.setup_barcode = setup_barcode_
-        self.setup_location = setup_location_
-        self.setup_home = setup_home_
-       
+        current = self.fetch()
+        self.update()
+        
+    }
+    
+    func reset() {
+        
+        let context = DataController.shared.container.viewContext
+        
+        context.delete(current)
+        refresh()
+        
+        current.launches += 1
+        
         DataController.shared.save()
+        
+        print(current.created)
         
     }
     
     func complete_setup() {
-        
-        meta.setup = true
-        self.setup = self.meta.setup
-        
+        setup = true
         DataController.shared.save()
+    }
+    
+    func update_setup_complete() {
+        
+        guard let setup_barcode = setup_barcode, let setup_location = setup_location, let setup_home = setup_home else { return }
+        
+        setup_complete = setup_barcode && setup_location && setup_home
         
     }
     
     func update_home(event: Event) {
-        
-        self.meta.event_home = event.uuid
-        self.setup_home = true
-        
+        event_home = event.uuid
         DataController.shared.save()
-        
+        EventController.shared.current = event
+        EventController.shared.update()
+    }
+    
+    func update_runner(runner: Runner) {
+        runner_number = runner.number
+        DataController.shared.save()
+        RunnerController.shared.current = runner
+        RunnerController.shared.update()
     }
     
 }

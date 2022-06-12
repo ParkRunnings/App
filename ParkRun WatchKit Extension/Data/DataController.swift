@@ -40,7 +40,7 @@ class DataController: ObservableObject {
         
         let response = try await request(body: body)
         
-        print(String(data: response, encoding: .utf8))
+        print(String(data: response, encoding: .utf8)!)
         
         let context = DataController.shared.container.viewContext
                 
@@ -49,8 +49,6 @@ class DataController: ObservableObject {
                 
         let data = try! decoder.decode(T.self, from: response)
                 
-        try! context.save()
-            
         return data
         
     }
@@ -65,6 +63,7 @@ class DataController: ObservableObject {
         if context.hasChanges {
             try! context.save()
         }
+        
     }
     
 }

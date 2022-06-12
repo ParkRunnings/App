@@ -11,17 +11,15 @@ import CoreLocation
 class LocationController: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     static let shared = LocationController()
-    private let manager: CLLocationManager
+    private let manager: CLLocationManager = CLLocationManager()
     private var polling: Bool = false
     
     @Published var enabled: Bool
     @Published var status: CLAuthorizationStatus
     @Published var location: CLLocation?
-    @Published var closest: Event?
     
     override init() {
         
-        manager = CLLocationManager()
         status = manager.authorizationStatus
         enabled = LocationController.check_enabled(status: manager.authorizationStatus)
         
@@ -58,6 +56,7 @@ class LocationController: NSObject, ObservableObject, CLLocationManagerDelegate 
     func start() {
         
         if enabled && !polling {
+            print("Started polling")
             manager.startUpdatingLocation()
             polling = true
         } else if enabled && polling {
@@ -67,12 +66,15 @@ class LocationController: NSObject, ObservableObject, CLLocationManagerDelegate 
     }
     
     func stop() {
+        print("Stopped polling")
         manager.stopUpdatingLocation()
+        polling = false
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         
         status = manager.authorizationStatus
+        
         enabled = LocationController.check_enabled(status: manager.authorizationStatus)
         MetaController.shared.setup_location = status != .notDetermined
         
@@ -90,13 +92,14 @@ class LocationController: NSObject, ObservableObject, CLLocationManagerDelegate 
         
         let current = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
 
+        print("Current location: \(current)")
+        
         EventController.shared.update_distance(current: current)
         self.location = current
         
         stop()
         
     }
-    
     
     func scrape_locations() {
         
@@ -144,10 +147,6 @@ class LocationController: NSObject, ObservableObject, CLLocationManagerDelegate 
             print("Downloaded for uuid: \(uuid) \(event)")
             
             try! context.save()
-            
-            DispatchQueue.main.async{
-                self.closest = event
-            }
             
         })
         

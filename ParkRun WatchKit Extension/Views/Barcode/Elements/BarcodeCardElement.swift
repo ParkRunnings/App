@@ -11,6 +11,23 @@ import BarcodeKit
 struct BarcodeCardElement: View {
     
     let number: String
+    let icon: String
+    
+    init(number: String) {
+        
+        self.number = number
+        
+        switch number {
+            
+            case "A5181034": // Atticus
+            self.icon = "mustache.fill"
+            
+            default:
+            self.icon = "person.crop.circle"
+            
+        }
+        
+    }
   
     var body: some View {
         
@@ -22,11 +39,11 @@ struct BarcodeCardElement: View {
                 .renderingMode(.original)
                 .resizable()
                 .clipped()
+                .aspectRatio(3/1, contentMode: .fit)
                 .cornerRadius(4)
-                .aspectRatio(2/1, contentMode: .fit)
                 .padding(.horizontal, 14.0)
                 .padding(.top, 20.0)
-            
+                
             HStack(content: {
                 
                 Text(number)
@@ -39,7 +56,7 @@ struct BarcodeCardElement: View {
                     
                 Spacer()
                 
-                Image(systemName: "person.crop.circle")
+                Image(systemName: icon)
                     .font(Font.system(
                         size: 18,
                         weight: .bold,
@@ -48,7 +65,7 @@ struct BarcodeCardElement: View {
                 
             })
             .padding(14.0)
-            .foregroundColor(Color(red: 0.15, green: 0.15, blue: 0.1))
+            .foregroundColor(Colour(hex: "#A9AEBE"))
             
         })
         

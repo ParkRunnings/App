@@ -112,14 +112,26 @@ struct CardHalf: View {
     
     var body: some View {
         
-        CardIcon(symbol: symbol)
-            .padding(.all, 14.0)
-            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 50, alignment: .center)
-            .background(
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(colour)
-                    .shadow(radius: 3)
-            )
+        ButtonElement(colour: colour, radius: 20, content: {
+            CardIcon(symbol: symbol)
+                .padding(.all, 14.0)
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 50, alignment: .center)
+        })
+        
+    }
+    
+}
+
+struct CardMicro: View {
+    
+    let symbol: String
+    
+    var body: some View {
+        
+        ButtonElement(colour: Colour.clear, radius: 0, content: {
+            CardIcon(symbol: symbol)
+                .opacity(0.5)
+        })
         
     }
     

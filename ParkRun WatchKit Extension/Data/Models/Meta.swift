@@ -10,12 +10,12 @@ import CoreData
 import CoreLocation
 
 @objc(Meta)
-public class Meta: NSManagedObject, Identifiable {
+public class Meta: NSManagedObject, Identifiable, Refreshable {
     
     @NSManaged public var id: String
-    @NSManaged public var setup: Bool
     @NSManaged public var launches: Int32
     @NSManaged public var created: Date
+    @NSManaged public var setup: Bool
     @NSManaged public var event_master: String?
     @NSManaged public var event_home: UUID?
     @NSManaged public var runner_number: String?
@@ -25,12 +25,12 @@ public class Meta: NSManagedObject, Identifiable {
     public init(
         context: NSManagedObjectContext,
         id: String,
-        setup: Bool,
         launches: Int32,
         created: Date,
-        event_master: String? = nil,
-        event_home: UUID? = nil,
-        runner_number: String? = nil
+        setup: Bool,
+        event_master: String?,
+        event_home: UUID?,
+        runner_number: String?
     ) {
         
         super.init(
@@ -39,12 +39,45 @@ public class Meta: NSManagedObject, Identifiable {
         )
         
         self.id = id
-        self.setup = setup
         self.launches = launches
         self.created = created
         self.event_master = event_master
         self.event_home = event_home
         self.runner_number = runner_number
+ 
+    }
+//
+//    private init() {
+//
+//        super.init(entity: NSEntityDescription(
+//
+//            .entity(forEntityName: <#T##String#>, in: <#T##NSManagedObjectContext#>), insertInto: nil)
+//
+//        self.id = "loading-meta"
+//        self.launches = 0
+//        self.created = Date.now
+//        self.setup = false
+//        self.event_master = nil
+//        self.event_home = nil
+//        self.runner_number = nil
+//
+//    }
+//
+    convenience init(
+        context: NSManagedObjectContext,
+        id: String
+    ) {
+        
+        self.init(
+            context: context,
+            id: id,
+            launches: 0,
+            created: Date.now,
+            setup: false,
+            event_master: nil,
+            event_home: nil,
+            runner_number: nil
+        )
         
     }
    

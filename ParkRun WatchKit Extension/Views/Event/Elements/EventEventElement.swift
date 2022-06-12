@@ -1,5 +1,5 @@
 //
-//  HomeEventElement.swift
+//  EventEventElement.swift
 //  ParkRun WatchKit Extension
 //
 //  Created by Charlie on 2/5/2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeEventElement: View {
+struct EventEventElement: View {
 
     var name: String
     var country: String
@@ -70,9 +70,9 @@ struct HomeEventElement: View {
 struct EachEventElement_Previews: PreviewProvider {
 
     static var previews: some View {
-        HomeEventElement(name: "Cooks River", country: "Australia", meters: 9)
-        HomeEventElement(name: "Cooks River", country: "Australia", meters: 919)
-        HomeEventElement(name: "Frankston Nature Conservation Reserve", country: "Australia", meters: 91999999)
+        EventEventElement(name: "Cooks River", country: "Australia", meters: 9)
+        EventEventElement(name: "Cooks River", country: "Australia", meters: 919)
+        EventEventElement(name: "Frankston Nature Conservation Reserve", country: "Australia", meters: 91999999)
     }
 
 }

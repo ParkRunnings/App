@@ -26,9 +26,11 @@
     </entity>
     <entity name="Runner" representedClassName="Runner" syncable="YES">
         <attribute name="created" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="error" optional="YES" attributeType="String"/>
         <attribute name="fastest" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="number" attributeType="String"/>
+        <attribute name="refreshed" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="runs" optional="YES" attributeType="String"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
@@ -39,6 +41,6 @@
     <elements>
         <element name="Event" positionX="132.04296875" positionY="16.40625" width="128" height="149"/>
         <element name="Meta" positionX="-185.9921875" positionY="-135.65625" width="128" height="134"/>
-        <element name="Runner" positionX="-532.65234375" positionY="-4.71484375" width="128" height="104"/>
+        <element name="Runner" positionX="-532.65234375" positionY="-4.71484375" width="128" height="134"/>
     </elements>
 </model>

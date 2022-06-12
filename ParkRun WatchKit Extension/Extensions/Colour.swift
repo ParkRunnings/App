@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import UIKit
 
 typealias Colour = Color
 
@@ -38,6 +39,27 @@ extension Color {
             green: Double(g) / 255,
             blue:  Double(b) / 255,
             opacity: Double(a) / 255
+        )
+        
+    }
+    
+    func darken(percentage: Double) -> Colour {
+        
+        let multiplier = 1.0 - percentage
+        
+        guard var components = UIColor(self).cgColor.components, components.count >= 3 else {
+            fatalError()
+        }
+        
+        if components.count == 3 {
+            components.append(1.0)
+        }
+        
+        return Colour(
+            red: Double(components[0]) * multiplier,
+            green: Double(components[1]) * multiplier,
+            blue: Double(components[2]) * multiplier,
+            opacity: Double(components[3])
         )
         
     }

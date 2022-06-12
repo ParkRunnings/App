@@ -1,5 +1,5 @@
 //
-//  HomeView.swift
+//  EventView.swift
 //  ParkRun WatchKit Extension
 //
 //  Created by Charlie on 2/5/2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct EventView: View {
     
     @State var search: String = ""
     
@@ -15,7 +15,7 @@ struct HomeView: View {
         
         VStack(alignment: .leading, spacing: 0, content: {
             
-            HomeListElement(search: search)
+            EventListElement(search: search)
             
         })
         .searchable(text: $search)
@@ -24,8 +24,8 @@ struct HomeView: View {
     
 }
 
-struct HomeView_Previews: PreviewProvider {
+struct EventView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(search: "Poopybutthole")
+        EventView(search: "Poopybutthole")
     }
 }

@@ -9,76 +9,81 @@ import SwiftUI
 
 struct InputConfirmationElement: View {
     
+    @EnvironmentObject var meta: MetaController
+    
     @Environment(\.presentationMode) var presentation
     
-    var number: String
     @Binding var runner: Runner?
-    @Binding var error: String?
+    @Binding var nav_confirmation: Bool
     
     var body: some View {
         
-        if runner == nil && error == nil {
+        if let runner = runner {
             
-            ProgressView()
-                .progressViewStyle(CircularProgressViewStyle())
-        
-        } else {
-            
-            VStack(alignment: .leading, spacing: 0, content: {
+            ZStack(alignment: .bottom, content: {
                 
                 List(content: {
                     
                     VStack(alignment: .leading, spacing: 2, content: {
                        
-                        HalfTitleTextElement(text: runner?.name ?? "Unknown Runner")
+                        HalfTitleTextElement(text: runner.display_name)
                             .padding(.trailing, 6)
                         
-                        MiniAthleteTextElement(text: "A\(number)")
+                        MiniAthleteTextElement(text: runner.a_number)
                             .opacity(0.5)
                         
                     })
                     .listRowPlatterColor(.clear)
                     .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                     
-                    if let error = error {
-                        
-                        SubtitleTextElement(text: error + ", add runner anyway?")
-                        
-                    }
-                    
-                    if let runner = runner {
-                        
+                    if let error = runner.error {
+                        SubtitleTextElement(text: error + "\n\nWe were not able to get this runners details right now. Add anyway?")
+                            .padding(.bottom, 10)
+                    } else {
                         VStack(alignment: .leading, spacing: 3, content: {
                             
-                            ProfileStat(stat: "Runs", value: runner.runs ?? "-")
-                            
-                            ProfileStat(stat: "Fastest", value: runner.fastest ?? "-")
+                            ProfileStat(stat: "Runs", value: runner.display_runs)
+                            ProfileStat(stat: "Fastest", value: runner.display_fastest)
                             
                         })
                         .padding(.trailing, 10)
                         .listRowPlatterColor(.clear)
                         .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-                        
                     }
                     
-                    ListOverscroll()
+                    BarcodeCardElement(number: runner.a_number)
+                    
+                    ListOverscroll(height: 60)
                     
                 })
-                .padding(.bottom, -10)
+                .listStyle(.plain)
                 
+                ListBottomBlur()
+                    .ignoresSafeArea(.all, edges: .bottom)
+                    .frame(height: 80, alignment: .bottom)
+                    .padding(.bottom, 20)
                 
                 HStack(alignment: .top, spacing: 4, content: {
-                    
+
                     CardHalf(symbol: "trash.circle.fill", colour: Colour(hex: "#CE4F30"))
-                    CardHalf(symbol: "person.crop.circle.fill.badge.plus", colour: Colour(hex: "#45BA70"))
-                    
+                        .simultaneousGesture(TapGesture().onEnded({ nav_confirmation = false }))
+
+                    CardHalf(symbol: "person.crop.circle.fill.badge.plus", colour: Colour(hex: "#5BD96F"))
+                        .simultaneousGesture(TapGesture().onEnded({
+                            meta.update_runner(runner: runner)
+                            presentation.wrappedValue.dismiss()
+                        }))
+
                 })
-                .padding(.bottom, -20)
                 
             })
+            .padding(.bottom, -20)
             
             
             
+        } else {
+            ProgressView()
+                .progressViewStyle(CircularProgressViewStyle())
         }
         
     }
@@ -89,15 +94,13 @@ struct InputConfirmationElement_Previews: PreviewProvider {
     static var previews: some View {
         
         InputConfirmationElement(
-            number: "12345",
-            runner: .constant(Runner(context: DataController.shared.container.viewContext, number: "12345", name: "Charles Schacher", fastest: "23:55", runs: "12")),
-            error: .constant(nil)
+            runner: .constant(Runner(context: DataController.shared.container.viewContext, number: "12345", name: "Charles Schacher", runs: "12", fastest: "23:55", error: nil, created: Date.now, refreshed: Date.now)),
+            nav_confirmation: .constant(true)
         )
         
         InputConfirmationElement(
-            number: "ABC123",
             runner: .constant(nil),
-            error: .constant("Network error")
+            nav_confirmation: .constant(true)
         )
         
     }

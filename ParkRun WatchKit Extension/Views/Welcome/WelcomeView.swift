@@ -15,7 +15,7 @@ struct WelcomeView: View {
         
         NavigationView(content: {
             
-            VStack(alignment: .leading, spacing: 0, content: {
+            VStack(alignment: .leading, content: {
                 
 //                NavigationLink(destination: SetupView(), isActive: $nav_continue, label: {})
 //                    .buttonStyle(PlainButtonStyle())
@@ -29,22 +29,26 @@ struct WelcomeView: View {
                         .padding(.bottom, 10)
                     
                 })
-                .padding(.bottom, -10)
+                    .padding(.bottom, -20)
                 
                 ButtonNavigation(active: $nav_continue, button: {
                     CardShort(title: "Continue", symbol: "arrow.forward.circle", colour: Colour(hex: "#31D78B"), min_alpha: 1.0)
-                }, destination: { SetupView() })
+                }, destination: {
+                    SetupView()
+                })
                     .simultaneousGesture(
                         TapGesture().onEnded({
                             print("Tap gesture")
                             nav_continue = true
                         })
                     )
+                    .background(content: {
+                        ListBottomBlur()
+                            .padding(.bottom, -10)
+                            .padding(.top, -20)
+                    })
                     .padding(.bottom, -20)
-                
             })
-            
-            
             
         })
         .onAppear(perform: {
