@@ -32,8 +32,8 @@ struct InputView: View {
         
             HStack(alignment: .center, spacing: 0, content: {
                 
-                AthleteTextElement(text: "A")
-                AthleteTextElement(text: "\($number.wrappedValue)")
+                InputAthleteTextElement(text: "A")
+                InputAthleteTextElement(text: "\($number.wrappedValue)")
                 
             })
                 .padding(.bottom, 6)
@@ -94,7 +94,8 @@ struct InputView: View {
             
             })
             
-            ButtonNavigation(active: $nav_help, button: { HelpTextElement(text: "Help") }, destination: { HelpView() })
+            ButtonNavigation(active: $nav_help, button: { InputHelpTextElement(text: "Help") }, destination: { HelpView() })
+                .simultaneousGesture(TapGesture().onEnded({ nav_help = true }))
                 .padding(.top, 6)
             
         })

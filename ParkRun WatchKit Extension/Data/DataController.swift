@@ -28,17 +28,22 @@ class DataController: ObservableObject {
 
     }
     
-    func request(body: URLRequest) async throws -> Data {
-            
+    func request(body: inout URLRequest) async throws -> Data {
+        
+        body.timeoutInterval = 10
+        
         let (response, _) = try await URLSession.shared.data(for: body)
         
         return response
         
     }
 
-    func json<T: Decodable>(body: URLRequest, as: T.Type) async throws -> T {
+    func json<T: Decodable>(request body: inout URLRequest, as: T.Type) async throws -> T {
         
-        let response = try await request(body: body)
+        body.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        body.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        let response = try await request(body: &body)
         
         print(String(data: response, encoding: .utf8)!)
         
@@ -46,6 +51,7 @@ class DataController: ObservableObject {
                 
         let decoder = JSONDecoder()
         decoder.userInfo[CodingUserInfoKey.context] = context
+        decoder.dateDecodingStrategy = .iso8601
                 
         let data = try! decoder.decode(T.self, from: response)
                 

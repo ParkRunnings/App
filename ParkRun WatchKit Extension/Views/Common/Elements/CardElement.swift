@@ -10,18 +10,20 @@ import SwiftUI
 
 struct CardIcon: View {
     
+    @EnvironmentObject var design: DesignController
+    
     let symbol: String
     
     var body: some View {
    
         Image(systemName: symbol)
             .font(Font.system(
-                size: 20,
+                size: design.size(text: .card_icon),
                 weight: .bold,
                 design: .default
             ))
             .foregroundColor(Colour(hex: "#FFFFFF"))
-            .frame(width: 20, height: 20)
+            .frame(width: design.size(text: .card_icon), height: design.size(text: .card_icon))
         
     }
     
@@ -51,18 +53,18 @@ struct CardContent: View {
 
 struct CardShort: View {
     
+    @EnvironmentObject var design: DesignController
+    
     let title: String
     let symbol: String
     let colour: Colour
     
-    var min_alpha: CGFloat? = nil
-    
     var body: some View {
         
-        ButtonElement(colour: colour, radius: 20, min_alpha: min_alpha, content: {
+        ButtonElement(colour: colour, radius: design.size(size: .card_short_radius), content: {
             CardContent(title: title, symbol: symbol)
-            .padding(.horizontal, 14.0)
-            .padding(.vertical, 12.0)
+            .padding(.horizontal, design.size(size: .card_short_horizontal))
+            .padding(.vertical, design.size(size: .card_short_vertical))
         })
         
     }
@@ -71,16 +73,18 @@ struct CardShort: View {
 
 struct CardMedium: View {
     
+    @EnvironmentObject var design: DesignController
+    
     let title: String
     let symbol: String
     let colour: Colour
     
     var body: some View {
         
-        ButtonElement(colour: colour, radius: 24, content: {
+        ButtonElement(colour: colour, radius: design.size(size: .card_medium_radius), content: {
             CardContent(title: title, symbol: symbol)
-            .frame(height: 50, alignment: .bottom)
-            .padding(.all, 14.0)
+            .frame(height: design.size(size: .card_medium_height), alignment: .bottom)
+            .padding(.all, design.size(size: .card_medium_padding))
         })
         
     }
@@ -89,16 +93,18 @@ struct CardMedium: View {
 
 struct CardTall: View {
     
+    @EnvironmentObject var design: DesignController
+    
     let title: String
     let symbol: String
     let colour: Colour
     
     var body: some View {
         
-        ButtonElement(colour: colour, radius: 24, content: {
+        ButtonElement(colour: colour, radius: design.size(size: .card_tall_radius), content: {
             CardContent(title: title, symbol: symbol)
-            .frame(height: 72, alignment: .bottom)
-            .padding(.all, 14.0)
+            .frame(height: design.size(size: .card_tall_height), alignment: .bottom)
+            .padding(.all, design.size(size: .card_tall_padding))
         })
         
     }
@@ -107,15 +113,17 @@ struct CardTall: View {
 
 struct CardHalf: View {
     
+    @EnvironmentObject var design: DesignController
+    
     let symbol: String
     let colour: Colour
     
     var body: some View {
         
-        ButtonElement(colour: colour, radius: 20, content: {
+        ButtonElement(colour: colour, radius: design.size(size: .card_half_radius), content: {
             CardIcon(symbol: symbol)
-                .padding(.all, 14.0)
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 50, alignment: .center)
+                .padding(.all, design.size(size: .card_half_padding))
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: design.size(size: .card_half_height), alignment: .center)
         })
         
     }

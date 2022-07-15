@@ -20,6 +20,8 @@ public class Event: NSManagedObject, Identifiable, Decodable {
     @NSManaged public var start: String
     @NSManaged public var timezone: String
     @NSManaged public var distance: Double
+    @NSManaged public var state: String
+    @NSManaged public var refreshed: Date
     
     static private let CoreName = "Event"
     
@@ -27,7 +29,7 @@ public class Event: NSManagedObject, Identifiable, Decodable {
     var minute: Int { get { Int(start.split(separator: ":")[1])! } }
     
     enum CodingKeys: CodingKey {
-        case uuid, country, name, latitude, longitude, start, timezone
+        case uuid, country, name, latitude, longitude, start, timezone, state, refreshed
     }
     
     public init(
@@ -39,7 +41,9 @@ public class Event: NSManagedObject, Identifiable, Decodable {
         longitude: Double,
         start: String,
         timezone: String,
-        distance: Double
+        distance: Double,
+        state: String,
+        refreshed: Date
     ) {
         
         let entity = NSEntityDescription.entity(forEntityName: Event.CoreName, in: context)!
@@ -53,6 +57,8 @@ public class Event: NSManagedObject, Identifiable, Decodable {
         self.start = start
         self.timezone = timezone
         self.distance = distance
+        self.state = state
+        self.refreshed = refreshed
         
     }
     
@@ -64,16 +70,20 @@ public class Event: NSManagedObject, Identifiable, Decodable {
             fatalError()
         }
         
+        let uuid = try! container.decode(UUID.self, forKey: .uuid)
+        
         self.init(
             context: context,
-            uuid: try! container.decode(UUID.self, forKey: .uuid),
+            uuid: uuid,
             name: try! container.decode(String.self, forKey: .name),
             country: try! container.decode(String.self, forKey: .country),
             latitude: try! container.decode(Double.self, forKey: .latitude),
             longitude: try! container.decode(Double.self, forKey: .longitude),
             start: try! container.decode(String.self, forKey: .start),
             timezone: try! container.decode(String.self, forKey: .timezone),
-            distance: -1
+            distance: -1,
+            state: try! container.decode(String.self, forKey: .state),
+            refreshed: try! container.decode(Date.self, forKey: .refreshed)
         )
         
     }
@@ -99,7 +109,7 @@ public class Event: NSManagedObject, Identifiable, Decodable {
         }
         
         let calendar = Calendar(identifier: .iso8601)
-        let timezone = TimeZone(identifier: timezone)!
+        let timezone = TimeZone(identifier: self.timezone)!
         
         // Reference for day of week Saturday
         let saturday = 7
@@ -132,8 +142,6 @@ public class Event: NSManagedObject, Identifiable, Decodable {
         
         let base = floor(now.timeIntervalSince(previous) / 3600.0) / (next.timeIntervalSince(previous) / 3600.0)
         let scaled = pow(base - 0.005, 3) + 0.02
-//
-//        y=\left(x-0.005\right)^{3}+0.02
         
         return scaled
         

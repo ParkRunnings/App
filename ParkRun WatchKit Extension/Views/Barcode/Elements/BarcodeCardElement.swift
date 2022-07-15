@@ -10,6 +10,8 @@ import BarcodeKit
 
 struct BarcodeCardElement: View {
     
+    @EnvironmentObject var design: DesignController
+    
     let number: String
     let icon: String
     
@@ -41,37 +43,29 @@ struct BarcodeCardElement: View {
                 .clipped()
                 .aspectRatio(3/1, contentMode: .fit)
                 .cornerRadius(4)
-                .padding(.horizontal, 14.0)
-                .padding(.top, 20.0)
+                .padding(.horizontal, design.size(size: .barcode_horizontal_padding))
+                .padding(.top, design.size(size: .barcode_vertical_padding))
                 
             HStack(content: {
                 
-                Text(number)
-                    .font(Font.system(
-                        size: 17,
-                        weight: .bold,
-                        design: .monospaced
-                    ))
-                    .italic()
+                AthleteNumberTextElement(text: number, colour: "#A9AEBE")
                     
                 Spacer()
                 
                 Image(systemName: icon)
                     .font(Font.system(
-                        size: 18,
+                        size: design.size(text: .card_icon),
                         weight: .bold,
                         design: .default
                     ))
+                    .foregroundColor(Colour(hex: "#A9AEBE"))
                 
             })
-            .padding(14.0)
-            .foregroundColor(Colour(hex: "#A9AEBE"))
+            .padding(design.size(size: .barcode_horizontal_padding))
             
         })
-        
-        
         .background(
-            RoundedRectangle(cornerRadius: 24)
+            RoundedRectangle(cornerRadius: design.size(size: .barcode_card_radius))
                 .fill(Color.white)
                 .shadow(radius: 3)
         )

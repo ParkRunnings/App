@@ -9,6 +9,8 @@ import SwiftUI
 
 struct InputButtonElement: View {
    
+    @EnvironmentObject var design: DesignController
+    
     let type: InputButtonType
     
     var body: some View {
@@ -19,7 +21,7 @@ struct InputButtonElement: View {
                 
             case .confirm, .delete:
                 Image(systemName: type == .confirm ? "checkmark.circle.fill" : "delete.left.fill")
-                    .font(Font.system(size: 15, weight: .black))
+                    .font(Font.system(size: design.size(text: .input_icon), weight: .black))
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
                     .foregroundColor(type == .confirm ? Color(red: 0.56, green: 0.87, blue: 0.44) : Color(red: 0.95, green: 0.43, blue: 0.43))
                 
@@ -27,7 +29,7 @@ struct InputButtonElement: View {
                 Text("\(type.rawValue)")
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
                     .foregroundColor(Color(red: 1.00, green: 1.00, blue: 1.00))
-                    .font(Font.system(size: 22, weight: .heavy, design: .rounded))
+                    .font(Font.system(size: design.size(text: .input_digit), weight: .heavy, design: .rounded))
             }
         
         })

@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import UIKit
 
 @main
 struct ParkRunApp: App {
-
+    
+    @Environment(\.scenePhase) var phase
+    
     @SceneBuilder var body: some Scene {
         
         WindowGroup(content: {
@@ -22,6 +25,30 @@ struct ParkRunApp: App {
             .environmentObject(LocationController.shared)
             .environmentObject(EventController.shared)
             .environmentObject(RunnerController.shared)
+            .environmentObject(SyncController.shared)
+            .environmentObject(DesignController.shared)
+            .onChange(of: phase, perform: { new in
+                
+                switch new {
+                    
+                    case .active:
+                    print("Active")
+                    SyncController.shared.start()
+                    SyncController.shared.fire(source: .foreground)
+                    
+                    case .background:
+                    print("Background")
+                    
+                    case .inactive:
+                    print("Inactive")
+                    SyncController.shared.fire(source: .background)
+                    SyncController.shared.end()
+                    
+                    default: print("Hi")
+                    
+                }
+
+            })
              
         })
 

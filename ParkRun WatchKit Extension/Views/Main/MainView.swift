@@ -12,13 +12,17 @@ import CoreLocation
 struct MainView: View {
     
     @Environment(\.managedObjectContext) var context
+    @Environment(\.openURL) private var openURL
+    
     @EnvironmentObject var location: LocationController
     @EnvironmentObject var meta: MetaController
     @EnvironmentObject var runner: RunnerController
     @EnvironmentObject var event: EventController
+    @EnvironmentObject var design: DesignController
     
     @State private var nav_barcode: Bool = false
     @State private var nav_event: Bool = false
+    @State private var nav_map: Bool = false
     
     
     var body: some View {
@@ -29,7 +33,7 @@ struct MainView: View {
                 
                 TitleTextElement(text: event.name)
                 
-                HStack(alignment: .center, spacing: 10, content: {
+                HStack(alignment: .center, spacing: design.size(size: .progress_item_spacing), content: {
                     
                     MainTimeProgress(progress: $event.time_progress, start: $event.start)
                     
@@ -56,6 +60,26 @@ struct MainView: View {
                 .simultaneousGesture(TapGesture().onEnded({ nav_barcode = true }))
                 .padding(.bottom, 4)
             
+            if event.image {
+                
+                ButtonNavigation(active: $nav_map, button: {
+                    CardTall(title: "View Course", symbol: "map.fill", colour: Colour(hex: "#B64EC2"))
+                }, destination: { MapView(uuid: event.uuid) })
+                    .simultaneousGesture(TapGesture().onEnded({ nav_map = true }))
+                    .padding(.bottom, 4)
+                
+            }
+            
+            if let coordinates = event.coordinates {
+                
+                CardTall(title: "Get Directions", symbol: "location.fill", colour: Colour(hex: "#6BB866"))
+                    .simultaneousGesture(TapGesture().onEnded({
+                        openURL(URL(string: "http://maps.apple.com/?q=\(coordinates.0),\(coordinates.1)&ll=\(coordinates.0),\(coordinates.1)&z=15")!)
+                    }))
+                    .padding(.bottom, 4)
+                
+            }
+            
             CardTall(title: "Reset App", symbol: "trash.fill", colour: Colour(hex: "#949494"))
                 .simultaneousGesture(TapGesture().onEnded({ meta.reset() }))
                 .padding(.bottom, 4)
@@ -72,11 +96,10 @@ struct MainView: View {
                         Text("")
                     })
                 })
-//                .navigationBarBackButtonHidden(true)
-//                .navigationBarHidden(true)
         })
         .onLoad(perform: {
-            location.start()
+            location.register_sync()
+            event.register_sync()
         })
         
     }

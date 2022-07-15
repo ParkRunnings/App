@@ -9,31 +9,18 @@ import SwiftUI
 
 struct TitleTextElement: View {
     
-    let text: String
-    
-    var body: some View {
-        
-        Text(text)
-            .font(Font.system(size: 28, weight: .heavy, design: .default))
-            .foregroundColor(Colour(hex: "#FFFFFF"))
-            .listRowPlatterColor(.clear)
-            .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-        
-    }
-    
-}
-
-struct HalfTitleTextElement: View {
+    @EnvironmentObject var design: DesignController
     
     let text: String
     
     var body: some View {
         
         Text(text)
-            .font(Font.system(size: 22, weight: .heavy, design: .default))
+            .font(Font.system(size: design.size(text: .title), weight: .heavy, design: .default))
             .foregroundColor(Colour(hex: "#FFFFFF"))
             .listRowPlatterColor(.clear)
             .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+            .lineLimit(2)
         
     }
     
@@ -41,12 +28,14 @@ struct HalfTitleTextElement: View {
 
 struct SubtitleTextElement: View {
     
+    @EnvironmentObject var design: DesignController
+    
     let text: String
     
     var body: some View {
         
         Text(.init(text))
-            .font(Font.system(size: 15, weight: .bold, design: .default))
+            .font(Font.system(size: design.size(text: .subtitle), weight: .bold, design: .default))
             .italic()
             .foregroundColor(Colour(hex: "#7D7D7D"))
             .tint(Colour(hex: "#0785CF"))
@@ -59,12 +48,14 @@ struct SubtitleTextElement: View {
 
 struct HeadingTextElement: View {
     
+    @EnvironmentObject var design: DesignController
+    
     let text: String
     
     var body: some View {
         
         Text(text)
-            .font(Font.system(size: 17, weight: .bold, design: .default))
+            .font(Font.system(size: design.size(text: .heading), weight: .bold, design: .default))
             .foregroundColor(Colour(hex: "#FFFFFF"))
             .listRowPlatterColor(.clear)
             .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
@@ -74,6 +65,8 @@ struct HeadingTextElement: View {
 }
 
 struct SubheadingTextElement: View {
+    
+    @EnvironmentObject var design: DesignController
     
     let text: String
     let colour: String
@@ -91,7 +84,7 @@ struct SubheadingTextElement: View {
     var body: some View {
         
         Text(.init(text))
-            .font(Font.system(size: 15, weight: .medium, design: .default))
+            .font(Font.system(size: design.size(text: .subheading), weight: .medium, design: .default))
             .italic()
             .foregroundColor(Colour(hex: colour))
             .tint(Colour(hex: "#0785CF"))
@@ -102,7 +95,9 @@ struct SubheadingTextElement: View {
     
 }
 
-struct HelpTextElement: View {
+struct InputHelpTextElement: View {
+    
+    @EnvironmentObject var design: DesignController
     
     let text: String
     let colour: String
@@ -115,7 +110,7 @@ struct HelpTextElement: View {
     var body: some View {
         
         Text(.init(text))
-            .font(Font.system(size: 13, weight: .medium, design: .default))
+            .font(Font.system(size: design.size(text: .input_help), weight: .medium, design: .default))
             .italic()
             .foregroundColor(Colour(hex: colour))
             .tint(Colour(hex: "#0785CF"))
@@ -126,7 +121,9 @@ struct HelpTextElement: View {
     
 }
 
-struct AthleteTextElement: View {
+struct InputAthleteTextElement: View {
+    
+    @EnvironmentObject var design: DesignController
     
     let text: String
     let colour: String
@@ -139,7 +136,7 @@ struct AthleteTextElement: View {
     var body: some View {
         
         Text(.init(text))
-            .font(Font.system(size: 18, weight: .heavy, design: .monospaced))
+            .font(Font.system(size: design.size(text: .input_athlete), weight: .heavy, design: .monospaced))
             .foregroundColor(Colour(hex: colour))
             .lineLimit(nil)
             .listRowPlatterColor(.clear)
@@ -149,20 +146,40 @@ struct AthleteTextElement: View {
     
 }
 
-struct MiniAthleteTextElement: View {
+struct AthleteNameTextElement: View {
+    
+    @EnvironmentObject var design: DesignController
+    
+    let text: String
+    
+    var body: some View {
+        
+        Text(text)
+            .font(Font.system(size: design.size(text: .athlete_name), weight: .heavy, design: .default))
+            .foregroundColor(Colour(hex: "#FFFFFF"))
+            .listRowPlatterColor(.clear)
+            .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+        
+    }
+    
+}
+
+struct AthleteNumberTextElement: View {
+    
+    @EnvironmentObject var design: DesignController
     
     let text: String
     let colour: String
     
-    init(text: String) {
+    init(text: String, colour: String = "#FFFFFF") {
         self.text = text
-        self.colour = "#FFFFFF"
+        self.colour = colour
     }
     
     var body: some View {
         
         Text(.init(text))
-            .font(Font.system(size: 12, weight: .heavy, design: .monospaced))
+            .font(Font.system(size: design.size(text: .athlete_number), weight: .heavy, design: .monospaced))
             .foregroundColor(Colour(hex: colour))
             .lineLimit(nil)
             .listRowPlatterColor(.clear)
@@ -173,6 +190,8 @@ struct MiniAthleteTextElement: View {
 }
 
 struct ProgressTextElement: View {
+    
+    @EnvironmentObject var design: DesignController
     
     let text: String
     let colour: String
@@ -187,7 +206,7 @@ struct ProgressTextElement: View {
         Text(text)
             .italic()
             .monospacedDigit()
-            .font(Font.system(size: 12, weight: .bold))
+            .font(Font.system(size: design.size(text: .progress_detail), weight: .bold))
             .foregroundColor(Colour(hex: colour))
             .lineLimit(1)
             .listRowPlatterColor(.clear)
@@ -235,9 +254,9 @@ struct TextElements_Previews: PreviewProvider {
 //
 //        SubheadingTextElement(text: "This is some subheading content")
 //
-//        AthleteTextElement(text: "A123456")
+//        InputAthleteTextElement(text: "A123456")
 //
-//        MiniAthleteTextElement(text: "A123456")
+//        AthleteNumberTextElement(text: "A123456")
 //
 //        TitleElement(title: "Testing", subtitle: "Poopy butthole")
         

@@ -21,7 +21,7 @@ struct ProfileStat: View {
             
             Spacer()
             
-            MiniAthleteTextElement(text: value)
+            AthleteNumberTextElement(text: value)
                 
             
         })

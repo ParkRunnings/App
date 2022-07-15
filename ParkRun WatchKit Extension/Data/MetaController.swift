@@ -73,6 +73,7 @@ class MetaController: NSObject, ObservableObject {
         
         runner_number = current.runner_number
         event_home = current.event_home
+        event_master = current.event_master
         
         setup_barcode = current.runner_number != nil
         setup_location = LocationController.shared.status != .notDetermined
@@ -120,8 +121,7 @@ class MetaController: NSObject, ObservableObject {
     func update_home(event: Event) {
         event_home = event.uuid
         DataController.shared.save()
-        EventController.shared.current = event
-        EventController.shared.update()
+        EventController.shared.update(event: event)
     }
     
     func update_runner(runner: Runner) {

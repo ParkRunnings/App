@@ -10,6 +10,7 @@ import SwiftUI
 struct EventListElement: View {
     
     @EnvironmentObject var meta: MetaController
+    @EnvironmentObject var event: EventController
     @EnvironmentObject var location: LocationController
     
     @Environment(\.presentationMode) var presentation
@@ -32,12 +33,12 @@ struct EventListElement: View {
             
             TitleElement(title: "Events", subtitle: location.enabled ? nil : "Enable location services to find nearby events")
             
-            ForEach(events, content: { event in
-                EventEventElement(name: event.name, country: event.country, meters: Int(event.distance))
-                    .onTapGesture(perform: {
-                        meta.update_home(event: event)
+            ForEach(events, content: { each in
+                EventLocationElement(name: each.name, country: each.country, meters: Int(each.distance))
+                    .simultaneousGesture(TapGesture().onEnded({
+                        meta.update_home(event: each)
                         presentation.wrappedValue.dismiss()
-                    })
+                    }))
             })
             
         })

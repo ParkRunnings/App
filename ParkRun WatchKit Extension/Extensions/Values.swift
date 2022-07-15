@@ -24,3 +24,13 @@ extension Double {
     }
 
 }
+
+extension Date {
+    
+    static func - (lhs: Self, rhs: Self) -> TimeInterval {
+        
+        return Double(Calendar.current.dateComponents([.second], from: lhs, to: rhs).second ?? 0)
+        
+    }
+
+}

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MainTimeProgress: View {
     
+    @EnvironmentObject var design: DesignController
+    
     @Binding var progress: Double
     @Binding var start: String
     
@@ -16,9 +18,9 @@ struct MainTimeProgress: View {
         
         ZStack(alignment: .leading, content: {
             
-            ProgressCircleElement(progress: $progress, colour: Colour(hex: "#E62E6B"), line: 7)
-                .frame(width: 36, height: 36)
-                .padding(.leading, 22)
+            ProgressCircleElement(progress: $progress, colour: Colour(hex: "#E62E6B"), line: design.size(size: .progress_circle_line))
+                .frame(width: design.size(size: .progress_circle_size), height: design.size(size: .progress_circle_size))
+                .padding(.leading, design.size(size: .progress_time_leading))
             
             VStack(alignment: .leading, spacing: -2, content: {
                 ProgressTextElement(text: "SAT", colour: "#858585")
@@ -35,6 +37,8 @@ struct MainTimeProgress: View {
 
 struct MainDistanceProgress: View {
     
+    @EnvironmentObject var design: DesignController
+    
     @Binding var progress: Double
     @Binding var distance: String
     
@@ -42,9 +46,9 @@ struct MainDistanceProgress: View {
         
         ZStack(alignment: .leading, content: {
             
-            ProgressCircleElement(progress: $progress, colour: Colour(hex: "#23CF54"), line: 7)
-                .frame(width: 36, height: 36)
-                .padding(.leading, 16)
+            ProgressCircleElement(progress: $progress, colour: Colour(hex: "#23CF54"), line: design.size(size: .progress_circle_line))
+                .frame(width: design.size(size: .progress_circle_size), height: design.size(size: .progress_circle_size))
+                .padding(.leading, design.size(size: .progress_distance_leading))
             
             VStack(alignment: .leading, spacing: 0, content: {
                 ProgressTextElement(text: distance)

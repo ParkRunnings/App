@@ -1,12 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Course" representedClassName="Course" syncable="YES">
+        <attribute name="finish" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="Array&lt;Double&gt;"/>
+        <attribute name="image" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="mid" attributeType="String"/>
+        <attribute name="refreshed" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="route" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="Array&lt;Array&lt;Double&gt;&gt;"/>
+        <attribute name="start" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="Array&lt;Double&gt;"/>
+        <attribute name="state" attributeType="String"/>
+        <attribute name="uuid" attributeType="UUID" usesScalarValueType="NO"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="uuid"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="CourseImage" representedClassName="CourseImage" syncable="YES">
+        <attribute name="data" optional="YES" attributeType="Binary"/>
+        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="uuid"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
     <entity name="Event" representedClassName="Event" syncable="YES">
         <attribute name="country" attributeType="String"/>
         <attribute name="distance" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String"/>
+        <attribute name="refreshed" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="start" attributeType="String"/>
+        <attribute name="state" attributeType="String"/>
         <attribute name="timezone" attributeType="String"/>
         <attribute name="uuid" attributeType="UUID" usesScalarValueType="NO"/>
         <uniquenessConstraints>
@@ -39,8 +65,10 @@
         </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="Event" positionX="132.04296875" positionY="16.40625" width="128" height="149"/>
+        <element name="Course" positionX="-324" positionY="0" width="128" height="149"/>
+        <element name="Event" positionX="132.04296875" positionY="16.40625" width="128" height="179"/>
         <element name="Meta" positionX="-185.9921875" positionY="-135.65625" width="128" height="134"/>
         <element name="Runner" positionX="-532.65234375" positionY="-4.71484375" width="128" height="134"/>
+        <element name="CourseImage" positionX="-324" positionY="18" width="128" height="59"/>
     </elements>
 </model>

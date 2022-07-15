@@ -10,6 +10,7 @@ import SwiftUI
 struct InputConfirmationElement: View {
     
     @EnvironmentObject var meta: MetaController
+    @EnvironmentObject var design: DesignController
     
     @Environment(\.presentationMode) var presentation
     
@@ -26,10 +27,10 @@ struct InputConfirmationElement: View {
                     
                     VStack(alignment: .leading, spacing: 2, content: {
                        
-                        HalfTitleTextElement(text: runner.display_name)
+                        AthleteNameTextElement(text: runner.display_name)
                             .padding(.trailing, 6)
                         
-                        MiniAthleteTextElement(text: runner.a_number)
+                        AthleteNumberTextElement(text: runner.a_number)
                             .opacity(0.5)
                         
                     })
@@ -53,15 +54,15 @@ struct InputConfirmationElement: View {
                     
                     BarcodeCardElement(number: runner.a_number)
                     
-                    ListOverscroll(height: 60)
+                    ListOverscroll(height: design.size(size: .confirmation_over_scroll))
                     
                 })
                 .listStyle(.plain)
                 
                 ListBottomBlur()
                     .ignoresSafeArea(.all, edges: .bottom)
-                    .frame(height: 80, alignment: .bottom)
-                    .padding(.bottom, 20)
+                    .frame(height: design.size(size: .confirmation_blur_height), alignment: .bottom)
+                    .padding(.bottom, design.size(size: .button_bottom_margin))
                 
                 HStack(alignment: .top, spacing: 4, content: {
 
@@ -77,7 +78,7 @@ struct InputConfirmationElement: View {
                 })
                 
             })
-            .padding(.bottom, -20)
+            .padding(.bottom, -design.size(size: .button_bottom_margin))
             
             
             

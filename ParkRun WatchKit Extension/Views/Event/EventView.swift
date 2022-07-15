@@ -26,6 +26,6 @@ struct EventView: View {
 
 struct EventView_Previews: PreviewProvider {
     static var previews: some View {
-        EventView(search: "Poopybutthole")
+        EventView()
     }
 }

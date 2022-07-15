@@ -9,6 +9,8 @@ import SwiftUI
 
 struct WelcomeView: View {
     
+    @EnvironmentObject var design: DesignController
+    
     @State private var nav_continue: Bool = false
     
     var body: some View {
@@ -16,9 +18,6 @@ struct WelcomeView: View {
         NavigationView(content: {
             
             VStack(alignment: .leading, content: {
-                
-//                NavigationLink(destination: SetupView(), isActive: $nav_continue, label: {})
-//                    .buttonStyle(PlainButtonStyle())
                 
                 List(content: {
                     
@@ -29,10 +28,10 @@ struct WelcomeView: View {
                         .padding(.bottom, 10)
                     
                 })
-                    .padding(.bottom, -20)
+                    .padding(.bottom, -design.size(size: .button_bottom_margin))
                 
                 ButtonNavigation(active: $nav_continue, button: {
-                    CardShort(title: "Continue", symbol: "arrow.forward.circle", colour: Colour(hex: "#31D78B"), min_alpha: 1.0)
+                    CardShort(title: "Continue", symbol: "arrow.forward.circle", colour: Colour(hex: "#31D78B"))
                 }, destination: {
                     SetupView()
                 })
@@ -45,9 +44,9 @@ struct WelcomeView: View {
                     .background(content: {
                         ListBottomBlur()
                             .padding(.bottom, -10)
-                            .padding(.top, -20)
+                            .padding(.top, -design.size(size: .button_bottom_margin))
                     })
-                    .padding(.bottom, -20)
+                    .padding(.bottom, -design.size(size: .button_bottom_margin))
             })
             
         })

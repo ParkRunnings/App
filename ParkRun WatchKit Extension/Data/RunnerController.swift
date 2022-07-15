@@ -56,20 +56,16 @@ class RunnerController: NSObject, ObservableObject {
     func scrape(number: String) async throws -> Runner {
         
         var parkrun_request = URLRequest(url: URL(string: "https://www.parkrun.com.au/parkrunner/\(number)/all/")!)
-        parkrun_request.timeoutInterval = 10
         
         let html = try await scrape_catch(request: {
             return await String(
-                decoding: try DataController.shared.request(body: parkrun_request),
+                decoding: try DataController.shared.request(body: &parkrun_request),
                 as: UTF8.self
             )
         })
         
         var scrape_request = URLRequest(url: URL(string: "https://australia-southeast1-park-run.cloudfunctions.net/get_runner_remote")!)
-        scrape_request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        scrape_request.addValue("application/json", forHTTPHeaderField: "Accept")
         scrape_request.httpMethod = "POST"
-        scrape_request.timeoutInterval = 10
         
         scrape_request.httpBody = try! JSONEncoder().encode([
             "content": html,
@@ -77,7 +73,7 @@ class RunnerController: NSObject, ObservableObject {
         ])
         
         return try await scrape_catch(request: {
-            return try await DataController.shared.json(body: scrape_request, as: Runner.self)
+            return try await DataController.shared.json(request: &scrape_request, as: Runner.self)
         })
         
     }

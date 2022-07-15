@@ -1,5 +1,5 @@
 //
-//  EventEventElement.swift
+//  EventLocationElement.swift
 //  ParkRun WatchKit Extension
 //
 //  Created by Charlie on 2/5/2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EventEventElement: View {
+struct EventLocationElement: View {
 
     var name: String
     var country: String
@@ -43,25 +43,27 @@ struct EventEventElement: View {
     
     var body: some View {
         
-        VStack(alignment: .leading, spacing: 4, content: {
+        ButtonElement(colour: Colour.clear, radius: 0, content: {
             
-            HeadingTextElement(text: name)
-                .padding(.trailing, 10)
-            
-            HStack(alignment: .bottom, spacing: 0, content: {
+            VStack(alignment: .leading, spacing: 4, content: {
                 
-                SubheadingTextElement(text: country)
+                HeadingTextElement(text: name)
+                    .padding(.trailing, 10)
                 
-                Spacer()
+                HStack(alignment: .bottom, spacing: 0, content: {
+                    
+                    SubheadingTextElement(text: country)
+                    
+                    Spacer()
+                    
+                    SubheadingTextElement(text: distance, colour: "#51C48E")
+                    
+                })
                 
-                SubheadingTextElement(text: distance, colour: "#51C48E")
                 
             })
             
-            
         })
-        .listRowPlatterColor(.clear)
-        .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
         
     }
     
@@ -70,9 +72,9 @@ struct EventEventElement: View {
 struct EachEventElement_Previews: PreviewProvider {
 
     static var previews: some View {
-        EventEventElement(name: "Cooks River", country: "Australia", meters: 9)
-        EventEventElement(name: "Cooks River", country: "Australia", meters: 919)
-        EventEventElement(name: "Frankston Nature Conservation Reserve", country: "Australia", meters: 91999999)
+        EventLocationElement(name: "Cooks River", country: "Australia", meters: 9)
+        EventLocationElement(name: "Cooks River", country: "Australia", meters: 919)
+        EventLocationElement(name: "Frankston Nature Conservation Reserve", country: "Australia", meters: 91999999)
     }
 
 }
