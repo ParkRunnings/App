@@ -171,7 +171,6 @@
 		CBAE8F2527F7CED100A66830 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		CBAE8F2727F7CED100A66830 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBAE8F2A27F7CED100A66830 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		CBAE8F2C27F7CED100A66830 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBAE8F2D27F7CED100A66830 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		CBAE8F3227F7CED100A66830 /* ParkRunTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParkRunTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBAE8F3627F7CED100A66830 /* ParkRunTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkRunTests.swift; sourceTree = "<group>"; };
@@ -361,7 +360,6 @@
 				CBAE8F2327F7CED100A66830 /* NotificationView.swift */,
 				CBAE8F2527F7CED100A66830 /* ComplicationController.swift */,
 				CBAE8F2727F7CED100A66830 /* Assets.xcassets */,
-				CBAE8F2C27F7CED100A66830 /* Info.plist */,
 				CBAE8F2D27F7CED100A66830 /* PushNotificationPayload.apns */,
 				CBAE8F2927F7CED100A66830 /* Preview Content */,
 			);
@@ -967,7 +965,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"ParkRun WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				ENABLE_PREVIEWS = YES;
@@ -976,7 +974,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = ParkRun;
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = ParkRun_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "For finding nearby races";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "For finding nearby events";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1000,7 +998,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"ParkRun WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				ENABLE_PREVIEWS = YES;
@@ -1009,7 +1007,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = ParkRun;
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = ParkRun_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "For finding nearby races";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "For finding nearby events";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1036,7 +1034,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = ParkRun_WatchKit_Extension;
@@ -1068,7 +1066,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = ParkRun_WatchKit_Extension;
@@ -1096,7 +1094,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1117,7 +1115,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

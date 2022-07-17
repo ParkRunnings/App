@@ -19,7 +19,7 @@ struct BarcodeView: View {
         
         VStack(content: {
             BarcodeCardElement(number: runner.a_number, ratio: design.size(size: .barcode_rotated_ratio))
-                .rotationEffect(Angle(degrees: 90))
+                .rotationEffect(Angle(degrees: design.wrist == .right ? 90 : -90 ))
         }).onAppear(perform: {
             WKExtension.shared().isAutorotating = true
         }).onDisappear(perform: {

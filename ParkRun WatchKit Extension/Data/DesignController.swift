@@ -14,11 +14,13 @@ class DesignController: NSObject, ObservableObject {
     
     let watch: Watch!
     let group: WatchGroup!
+    let wrist: WKInterfaceDeviceWristLocation
     
     override init() {
         
         watch = Watch(rawValue: WKInterfaceDevice.current().screenBounds.size)!
         group = WatchGroup(watch: watch)
+        wrist = WKInterfaceDevice.current().wristLocation
         
     }
     
