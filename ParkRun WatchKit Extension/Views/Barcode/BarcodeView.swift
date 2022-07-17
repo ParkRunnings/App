@@ -13,18 +13,19 @@ struct BarcodeView: View {
     @Environment(\.isLuminanceReduced) var isLuminanceReduced
     
     @EnvironmentObject var runner: RunnerController
+    @EnvironmentObject var design: DesignController
     
     var body: some View {
         
         VStack(content: {
-            BarcodeCardElement(number: runner.a_number)
+            BarcodeCardElement(number: runner.a_number, ratio: design.size(size: .barcode_rotated_ratio))
                 .rotationEffect(Angle(degrees: 90))
         }).onAppear(perform: {
             WKExtension.shared().isAutorotating = true
         }).onDisappear(perform: {
             WKExtension.shared().isAutorotating = false
         })
-        .padding(.top, 30)
+        .padding(.top, design.size(size: .barcode_rotated_margin))
     }
     
 }

@@ -38,7 +38,7 @@ struct InputConfirmationElement: View {
                     .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                     
                     if let error = runner.error {
-                        SubtitleTextElement(text: error + "\n\nWe were not able to get this runners details right now. Add anyway?")
+                        SubtitleTextElement(text: error + "\n\nWe were not able to find this runner. Add anyway?")
                             .padding(.bottom, 10)
                     } else {
                         VStack(alignment: .leading, spacing: 3, content: {

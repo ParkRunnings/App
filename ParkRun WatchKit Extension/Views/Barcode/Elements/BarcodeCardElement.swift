@@ -14,15 +14,29 @@ struct BarcodeCardElement: View {
     
     let number: String
     let icon: String
+    let ratio: Double
     
-    init(number: String) {
+    init(number: String, ratio: Double = 3/1) {
         
         self.number = number
+        self.ratio = ratio
         
         switch number {
             
             case "A5181034": // Atticus
-            self.icon = "mustache.fill"
+            self.icon = "hare.fill"
+            
+            case "A237765":  // Liam
+            self.icon = "leaf.fill"
+            
+            case "A239172":  // Calvin
+            self.icon = "tortoise.fill"
+            
+            case "A5318642": // Rhys
+            self.icon = "x.squareroot"
+            
+            case "A5470914": // Charlie
+            self.icon = "ant.fill"
             
             default:
             self.icon = "person.crop.circle"
@@ -41,7 +55,7 @@ struct BarcodeCardElement: View {
                 .renderingMode(.original)
                 .resizable()
                 .clipped()
-                .aspectRatio(3/1, contentMode: .fit)
+                .aspectRatio(ratio, contentMode: design.group == .square ? .fit :  .fill)
                 .cornerRadius(4)
                 .padding(.horizontal, design.size(size: .barcode_horizontal_padding))
                 .padding(.top, design.size(size: .barcode_vertical_padding))

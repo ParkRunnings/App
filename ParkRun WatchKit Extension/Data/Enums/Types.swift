@@ -53,7 +53,7 @@ enum SizeElement {
     case card_medium_height, card_medium_padding, card_medium_radius
     case card_tall_height, card_tall_radius, card_tall_padding
     case card_half_height, card_half_radius, card_half_padding
-    case barcode_card_radius, barcode_horizontal_padding, barcode_vertical_padding
+    case barcode_card_radius, barcode_horizontal_padding, barcode_vertical_padding, barcode_rotated_ratio, barcode_rotated_margin
     case confirmation_blur_height, confirmation_over_scroll
     case progress_circle_size, progress_circle_line, progress_time_leading, progress_distance_leading, progress_item_spacing
     
@@ -115,17 +115,20 @@ extension Watch: RawRepresentable {
 
 enum WatchGroup {
     
-    case large, small
+    case square, large_curved, small_curved
     
     init(watch: Watch) {
         
         switch watch {
             
-            case .w38, .w40, .w41, .w42:
-            self = .small
+            case .w38, .w42:
+            self = .square
+            
+            case .w40, .w41:
+            self = .small_curved
             
             case .w44, .w45:
-            self = .large
+            self = .large_curved
             
         }
         

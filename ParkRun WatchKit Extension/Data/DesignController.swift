@@ -26,41 +26,53 @@ class DesignController: NSObject, ObservableObject {
 
         switch (text, group!) {
             
-            case (.title, .large): return 28
-            case (.title, .small): return 20
+            case (.title, .large_curved): return 28
+            case (.title, .small_curved): return 24
+            case (.title, .square): return 20
                 
-            case (.subtitle, .large): return 15
-            case (.subtitle, .small): return 12
+            case (.subtitle, .large_curved): return 15
+            case (.subtitle, .small_curved): return 13
+            case (.subtitle, .square): return 12
                 
-            case (.heading, .large): return 17
-            case (.heading, .small): return 12
+            case (.heading, .large_curved): return 17
+            case (.heading, .small_curved): return 14
+            case (.heading, .square): return 12
                 
-            case (.subheading, .large): return 15
-            case (.subheading, .small): return 11
+            case (.subheading, .large_curved): return 15
+            case (.subheading, .small_curved): return 12
+            case (.subheading, .square): return 11
                 
-            case (.card_icon, .large): return 20
-            case (.card_icon, .small): return 15
+            case (.card_icon, .large_curved): return 20
+            case (.card_icon, .small_curved): return 17
+            case (.card_icon, .square): return 15
                 
-            case (.input_digit, .large): return 22
-            case (.input_digit, .small): return 15
+            case (.input_digit, .large_curved): return 22
+            case (.input_digit, .small_curved): return 18
+            case (.input_digit, .square): return 15
                 
-            case (.input_icon, .large): return 15
-            case (.input_icon, .small): return 10
+            case (.input_icon, .large_curved): return 15
+            case (.input_icon, .small_curved): return 12
+            case (.input_icon, .square): return 10
                 
-            case (.input_athlete, .large): return 18
-            case (.input_athlete, .small): return 12
+            case (.input_athlete, .large_curved): return 18
+            case (.input_athlete, .small_curved): return 14
+            case (.input_athlete, .square): return 12
                 
-            case (.input_help, .large): return 13
-            case (.input_help, .small): return 9
+            case (.input_help, .large_curved): return 13
+            case (.input_help, .small_curved): return 11
+            case (.input_help, .square): return 9
                 
-            case (.athlete_name, .large): return 18
-            case (.athlete_name, .small): return 14
+            case (.athlete_name, .large_curved): return 18
+            case (.athlete_name, .small_curved): return 16
+            case (.athlete_name, .square): return 14
                 
-            case (.athlete_number, .large): return 12
-            case (.athlete_number, .small): return 9
+            case (.athlete_number, .large_curved): return 12
+            case (.athlete_number, .small_curved): return 10
+            case (.athlete_number, .square): return 9
                 
-            case (.progress_detail, .large): return 12
-            case (.progress_detail, .small): return 9
+            case (.progress_detail, .large_curved): return 12
+            case (.progress_detail, .small_curved): return 10
+            case (.progress_detail, .square): return 9
             
         }
 
@@ -70,74 +82,105 @@ class DesignController: NSObject, ObservableObject {
         
         switch (size, group!) {
             
-            case (.button_bottom_margin, .large): return 20
-            case (.button_bottom_margin, .small): return 0
+            case (.button_bottom_margin, .large_curved): return 20
+            case (.button_bottom_margin, .small_curved): return 20
+            case (.button_bottom_margin, .square): return 0
                 
-            case (.card_short_vertical, .large): return 14
-            case (.card_short_vertical, .small): return 8
+            case (.card_short_vertical, .large_curved): return 14
+            case (.card_short_vertical, .small_curved): return 10
+            case (.card_short_vertical, .square): return 8
                 
-            case (.card_short_horizontal, .large): return 12
-            case (.card_short_horizontal, .small): return 10
+            case (.card_short_horizontal, .large_curved): return 12
+            case (.card_short_horizontal, .small_curved): return 10
+            case (.card_short_horizontal, .square): return 10
                 
-            case (.card_short_radius, .large): return 20
-            case (.card_short_radius, .small): return 14
+            case (.card_short_radius, .large_curved): return 20
+            case (.card_short_radius, .small_curved): return 16
+            case (.card_short_radius, .square): return 14
                 
-            case (.card_medium_height, .large): return 50
-            case (.card_medium_height, .small): return 40
+            case (.card_medium_height, .large_curved): return 50
+            case (.card_medium_height, .small_curved): return 46
+            case (.card_medium_height, .square): return 40
                 
-            case (.card_medium_padding, .large): return 14
-            case (.card_medium_padding, .small): return 12
+            case (.card_medium_padding, .large_curved): return 14
+            case (.card_medium_padding, .small_curved): return 13
+            case (.card_medium_padding, .square): return 12
                 
-            case (.card_medium_radius, .large): return 24
-            case (.card_medium_radius, .small): return 18
+            case (.card_medium_radius, .large_curved): return 24
+            case (.card_medium_radius, .small_curved): return 22
+            case (.card_medium_radius, .square): return 18
                 
-            case (.card_tall_height, .large): return 72
-            case (.card_tall_height, .small): return 54
+            case (.card_tall_height, .large_curved): return 72
+            case (.card_tall_height, .small_curved): return 60
+            case (.card_tall_height, .square): return 54
                 
-            case (.card_tall_radius, .large): return 24
-            case (.card_tall_radius, .small): return 16
+            case (.card_tall_radius, .large_curved): return 24
+            case (.card_tall_radius, .small_curved): return 20
+            case (.card_tall_radius, .square): return 16
                 
-            case (.card_tall_padding, .large): return 14
-            case (.card_tall_padding, .small): return 10
+            case (.card_tall_padding, .large_curved): return 14
+            case (.card_tall_padding, .small_curved): return 12
+            case (.card_tall_padding, .square): return 10
                 
-            case (.card_half_height, .large): return 50
-            case (.card_half_height, .small): return 30
+            case (.card_half_height, .large_curved): return 50
+            case (.card_half_height, .small_curved): return 40
+            case (.card_half_height, .square): return 30
                 
-            case (.card_half_radius, .large): return 20
-            case (.card_half_radius, .small): return 14
+            case (.card_half_radius, .large_curved): return 20
+            case (.card_half_radius, .small_curved): return 16
+            case (.card_half_radius, .square): return 14
                 
-            case (.card_half_padding, .large): return 14
-            case (.card_half_padding, .small): return 10
+            case (.card_half_padding, .large_curved): return 14
+            case (.card_half_padding, .small_curved): return 12
+            case (.card_half_padding, .square): return 10
                 
-            case (.barcode_card_radius, .large): return 24
-            case (.barcode_card_radius, .small): return 16
+            case (.barcode_card_radius, .large_curved): return 24
+            case (.barcode_card_radius, .small_curved): return 22
+            case (.barcode_card_radius, .square): return 16
                 
-            case (.barcode_horizontal_padding, .large): return 14
-            case (.barcode_horizontal_padding, .small): return 10
+            case (.barcode_horizontal_padding, .large_curved): return 14
+            case (.barcode_horizontal_padding, .small_curved): return 12
+            case (.barcode_horizontal_padding, .square): return 10
                 
-            case (.barcode_vertical_padding, .large): return 20
-            case (.barcode_vertical_padding, .small): return 14
+            case (.barcode_vertical_padding, .large_curved): return 20
+            case (.barcode_vertical_padding, .small_curved): return 16
+            case (.barcode_vertical_padding, .square): return 14
+            
+            case (.barcode_rotated_ratio, .large_curved): return 2.4/1
+            case (.barcode_rotated_ratio, .small_curved): return 2/1
+            case (.barcode_rotated_ratio, .square): return 2.4/1
+            
+            case (.barcode_rotated_margin, .large_curved): return 30
+            case (.barcode_rotated_margin, .small_curved): return 20
+            case (.barcode_rotated_margin, .square): return 10
                 
-            case (.confirmation_blur_height, .large): return 80
-            case (.confirmation_blur_height, .small): return 50
+            case (.confirmation_blur_height, .large_curved): return 80
+            case (.confirmation_blur_height, .small_curved): return 60
+            case (.confirmation_blur_height, .square): return 50
                 
-            case (.confirmation_over_scroll, .large): return 60
-            case (.confirmation_over_scroll, .small): return 40
+            case (.confirmation_over_scroll, .large_curved): return 60
+            case (.confirmation_over_scroll, .small_curved): return 50
+            case (.confirmation_over_scroll, .square): return 40
                 
-            case (.progress_circle_size, .large): return 36
-            case (.progress_circle_size, .small): return 32
+            case (.progress_circle_size, .large_curved): return 36
+            case (.progress_circle_size, .small_curved): return 34
+            case (.progress_circle_size, .square): return 32
                 
-            case (.progress_circle_line, .large): return 7
-            case (.progress_circle_line, .small): return 5
+            case (.progress_circle_line, .large_curved): return 7
+            case (.progress_circle_line, .small_curved): return 6
+            case (.progress_circle_line, .square): return 5
                 
-            case (.progress_time_leading, .large): return 22
-            case (.progress_time_leading, .small): return 15
+            case (.progress_time_leading, .large_curved): return 22
+            case (.progress_time_leading, .small_curved): return 17
+            case (.progress_time_leading, .square): return 15
                 
-            case (.progress_distance_leading, .large): return 16
-            case (.progress_distance_leading, .small): return 9
+            case (.progress_distance_leading, .large_curved): return 16
+            case (.progress_distance_leading, .small_curved): return 12
+            case (.progress_distance_leading, .square): return 9
                 
-            case (.progress_item_spacing, .large): return 10
-            case (.progress_item_spacing, .small): return 4
+            case (.progress_item_spacing, .large_curved): return 10
+            case (.progress_item_spacing, .small_curved): return 6
+            case (.progress_item_spacing, .square): return 4
             
         }
         

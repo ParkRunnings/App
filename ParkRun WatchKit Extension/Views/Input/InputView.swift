@@ -78,7 +78,7 @@ struct InputView: View {
                                 case (.delete, 1 ... .max):
                                     number.removeLast()
                 
-                                case (.delete, 0), (.confirm, 0):
+                                case (.delete, 0), (.confirm, 0), (.zero, 0):
                                     break
                 
                                 default:
