@@ -161,7 +161,7 @@
 		CB920530285194C700C9A693 /* Refreshable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refreshable.swift; sourceTree = "<group>"; };
 		CB9205322851FB2E00C9A693 /* MainProgressElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProgressElement.swift; sourceTree = "<group>"; };
 		CB9CFEA3285FF8C500002E71 /* master.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = master.json; sourceTree = "<group>"; };
-		CBAE8F0927F7CECE00A66830 /* Park Runnings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Park Runnings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBAE8F0927F7CECE00A66830 /* ParkRunnings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkRunnings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBAE8F0D27F7CECE00A66830 /* Park Runnings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Park Runnings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBAE8F1227F7CED000A66830 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBAE8F1827F7CED100A66830 /* ParkRunnings WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ParkRunnings WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -333,7 +333,7 @@
 		CBAE8F0A27F7CECE00A66830 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CBAE8F0927F7CECE00A66830 /* Park Runnings.app */,
+				CBAE8F0927F7CECE00A66830 /* ParkRunnings.app */,
 				CBAE8F0D27F7CECE00A66830 /* Park Runnings.app */,
 				CBAE8F1827F7CED100A66830 /* ParkRunnings WatchKit Extension.appex */,
 				CBAE8F3227F7CED100A66830 /* ParkRunningsTests.xctest */,
@@ -542,7 +542,7 @@
 				CBCBB1A628A630D3008CCABB /* BarcodeKit */,
 			);
 			productName = ParkRun;
-			productReference = CBAE8F0927F7CECE00A66830 /* Park Runnings.app */;
+			productReference = CBAE8F0927F7CECE00A66830 /* ParkRunnings.app */;
 			productType = "com.apple.product-type.application.watchapp2-container";
 		};
 		CBAE8F0C27F7CECE00A66830 /* ParkRunnings WatchKit App */ = {
@@ -1100,7 +1100,7 @@
 				);
 				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = schacher.ParkRunnings;
-				PRODUCT_NAME = "Park Runnings";
+				PRODUCT_NAME = ParkRunnings;
 				SWIFT_OBJC_BRIDGING_HEADER = "ParkRun WatchKit Extension/Views/Title/ParkRun-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1121,7 +1121,7 @@
 				);
 				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = schacher.ParkRunnings;
-				PRODUCT_NAME = "Park Runnings";
+				PRODUCT_NAME = ParkRunnings;
 				SWIFT_OBJC_BRIDGING_HEADER = "ParkRun WatchKit Extension/Views/Title/ParkRun-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
