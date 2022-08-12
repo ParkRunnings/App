@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import SwiftSoup
 
 @objc(Runner)
 public class Runner: NSManagedObject, Identifiable, Decodable {
@@ -72,6 +73,62 @@ public class Runner: NSManagedObject, Identifiable, Decodable {
             runs: (try? container.decode(String.self, forKey: .runs)) ?? existing?.runs,
             fastest: (try? container.decode(String.self, forKey: .fastest)) ?? existing?.fastest,
             error: try? container.decode(String.self, forKey: .error),
+            created: existing?.created ?? Date.now,
+            refreshed: Date.now
+        )
+        
+    }
+    
+    
+    
+    convenience public init(context: NSManagedObjectContext, number: String, html: String) throws {
+        
+        // Test Cases: 8906
+        // Test: 34513
+        // Test: 5129578
+        // Test: 8569
+        
+        let existing = Runner.fetch(context: context, number: number)
+        let soup = try SwiftSoup.parse(html)
+        
+        var name: String?
+        var runs: String?
+        var fastest: String?
+        var scrape_error: String?
+        
+        do {
+            
+            if let raw_name = try soup.select("h2").first()?.text().namecased() {
+                name = raw_name
+            } else {
+                throw RunnerControllerError.scrape(title: "No name")
+            }
+            
+            if let raw_runs = try soup.select("h3").first()?.text().strip(), let regex_match = try NSRegularExpression(pattern: "(\\d+)").firstMatch(in: raw_runs, range: NSRange(location: 0, length: raw_runs.utf16.count)) {
+                runs = String(raw_runs[Range(regex_match.range, in: raw_runs)!])
+            } else {
+                throw RunnerControllerError.scrape(title: "No run count")
+            }
+            
+            if let raw_tables = try? soup.select("table"),
+               let raw_table = raw_tables.filter({ (try? $0.select("caption").text().strip()) ?? "" == "Summary Stats for All Locations" }).first,
+               let raw_column = try? raw_table.select("thead").first()?.select("tr").first()?.select("th").map({ try? $0.text().strip() }).firstIndex(of: "Fastest"),
+               let raw_row = try? raw_table.select("tbody").select("tr").map({ try? $0.select("td").first()?.text().strip() }).firstIndex(of: "Time"),
+               let raw_fastest = try? raw_table.select("tbody").select("tr")[raw_row].select("td")[raw_column].text().strip() {
+                fastest = raw_fastest
+            }
+            
+        } catch {
+            scrape_error = "A scraping error occured."
+        }
+        
+        self.init(
+            context: context,
+            number: number,
+            name: name ?? existing?.name,
+            runs: runs ?? existing?.runs,
+            fastest: fastest ?? existing?.fastest,
+            error: scrape_error,
             created: existing?.created ?? Date.now,
             refreshed: Date.now
         )

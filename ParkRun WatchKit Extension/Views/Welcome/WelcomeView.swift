@@ -23,7 +23,11 @@ struct WelcomeView: View {
                     
                     TitleElement(
                         title: "Welcome",
-                        subtitle: "ParkRun is an organised weekly 5km run, held in parks all around the world.\n\nTo use this app you need to already have a ParkRun account and barcode.\n\nIf you don’t, you can sign up for free at [parkrun.com](https://parkrun.com)."
+                        subtitle: [
+                            "Park Runnings is an unoffical Apple Watch companion for ParkRun - an organised weekly 5km run",
+                            "To use this app you need to already have a ParkRun account and barcode.",
+                            "If you don’t, you can sign up for free at [parkrun.com](https://parkrun.com)"
+                        ].joined(separator: "\n\n")
                     )
                         .padding(.bottom, 10)
                     

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CBAE8F0C27F7CECE00A66830"
-               BuildableName = "ParkRun.app"
+               BuildableName = "Park Runnings.app"
                BlueprintName = "ParkRun WatchKit App"
                ReferencedContainer = "container:ParkRun.xcodeproj">
             </BuildableReference>
@@ -29,7 +29,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CBAE8F0827F7CECE00A66830"
-               BuildableName = "ParkRun.app"
+               BuildableName = "Park Runnings.app"
                BlueprintName = "ParkRun"
                ReferencedContainer = "container:ParkRun.xcodeproj">
             </BuildableReference>
@@ -56,18 +56,16 @@
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "8"
       notificationPayloadFile = "ParkRun WatchKit Extension/PushNotificationPayload.apns">
-      <RemoteRunnable
-         runnableDebuggingMode = "2"
-         BundleIdentifier = "com.apple.Carousel"
-         RemotePath = "/(null)">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CBAE8F0C27F7CECE00A66830"
-            BuildableName = "ParkRun.app"
+            BuildableName = "Park Runnings.app"
             BlueprintName = "ParkRun WatchKit App"
             ReferencedContainer = "container:ParkRun.xcodeproj">
          </BuildableReference>
-      </RemoteRunnable>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -77,27 +75,16 @@
       debugDocumentVersioning = "YES"
       launchAutomaticallySubstyle = "8"
       notificationPayloadFile = "ParkRun WatchKit Extension/PushNotificationPayload.apns">
-      <RemoteRunnable
-         runnableDebuggingMode = "2"
-         BundleIdentifier = "com.apple.Carousel"
-         RemotePath = "/(null)">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CBAE8F0C27F7CECE00A66830"
-            BuildableName = "ParkRun.app"
+            BuildableName = "Park Runnings.app"
             BlueprintName = "ParkRun WatchKit App"
             ReferencedContainer = "container:ParkRun.xcodeproj">
          </BuildableReference>
-      </RemoteRunnable>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CBAE8F0C27F7CECE00A66830"
-            BuildableName = "ParkRun.app"
-            BlueprintName = "ParkRun WatchKit App"
-            ReferencedContainer = "container:ParkRun.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

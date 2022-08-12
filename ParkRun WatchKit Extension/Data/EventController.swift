@@ -28,8 +28,6 @@ class EventController: NSObject, ObservableObject {
     @Published var image: Bool!
     @Published var coordinates: (Double, Double)?
     
-    private var previous: CLLocation?
-    
     override init() {
         super.init()
         
@@ -115,18 +113,25 @@ class EventController: NSObject, ObservableObject {
     func update(new: CLLocation) {
         
         let request = Event.request()
-        
-        // If the new location is not significantly displaced from the previous location, only update the home event
-        if previous?.distance(from: new) ?? Double.infinity < 500 {
-            request.predicate = NSPredicate(format: "uuid = %@", argumentArray: [uuid!])
-        } else {
-            previous = new
-        }
-        
         let context = DataController.shared.container.viewContext
             
         for event in try! context.fetch(request) {
             event.distance = new.distance(from: CLLocation(latitude: event.latitude, longitude: event.longitude))
+        }
+            
+        try! context.save()
+            
+        refresh()
+        
+    }
+    
+    func clear() {
+        
+        let request = Event.request()
+        let context = DataController.shared.container.viewContext
+            
+        for event in try! context.fetch(request) {
+            event.distance = -1
         }
             
         try! context.save()

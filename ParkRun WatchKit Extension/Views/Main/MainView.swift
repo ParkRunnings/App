@@ -38,6 +38,7 @@ struct MainView: View {
                     MainTimeProgress(progress: $event.time_progress, start: $event.start)
                     
                     MainDistanceProgress(progress: $event.distance_progress, distance: $event.distance_display)
+                        .hidden(!location.enabled)
                     
                     Spacer()
                     

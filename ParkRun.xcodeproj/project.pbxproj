@@ -34,10 +34,11 @@
 		CB82E7A028288513000881BA /* ProfileElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82E79F28288513000881BA /* ProfileElements.swift */; };
 		CB8A399E2830DE8B008A7474 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8A399D2830DE8B008A7474 /* Errors.swift */; };
 		CB8A39A02830F7EA008A7474 /* ButtonElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8A399F2830F7EA008A7474 /* ButtonElements.swift */; };
+		CB8E296E28A4ED7700ABBF24 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = CB8E296D28A4ED7700ABBF24 /* SwiftSoup */; };
 		CB920531285194C700C9A693 /* Refreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB920530285194C700C9A693 /* Refreshable.swift */; };
 		CB9205332851FB2E00C9A693 /* MainProgressElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9205322851FB2E00C9A693 /* MainProgressElement.swift */; };
 		CB9CFEA4285FF8C500002E71 /* master.json in Resources */ = {isa = PBXBuildFile; fileRef = CB9CFEA3285FF8C500002E71 /* master.json */; };
-		CBAE8F0E27F7CECE00A66830 /* ParkRun.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CBAE8F0D27F7CECE00A66830 /* ParkRun.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CBAE8F0E27F7CECE00A66830 /* Park Runnings.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CBAE8F0D27F7CECE00A66830 /* Park Runnings.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CBAE8F1327F7CED000A66830 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBAE8F1227F7CED000A66830 /* Assets.xcassets */; };
 		CBAE8F1927F7CED100A66830 /* ParkRun WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CBAE8F1827F7CED100A66830 /* ParkRun WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CBAE8F1E27F7CED100A66830 /* ParkRunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE8F1D27F7CED100A66830 /* ParkRunApp.swift */; };
@@ -122,7 +123,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				CBAE8F0E27F7CECE00A66830 /* ParkRun.app in Embed Watch Content */,
+				CBAE8F0E27F7CECE00A66830 /* Park Runnings.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,8 +161,8 @@
 		CB920530285194C700C9A693 /* Refreshable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refreshable.swift; sourceTree = "<group>"; };
 		CB9205322851FB2E00C9A693 /* MainProgressElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProgressElement.swift; sourceTree = "<group>"; };
 		CB9CFEA3285FF8C500002E71 /* master.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = master.json; sourceTree = "<group>"; };
-		CBAE8F0927F7CECE00A66830 /* ParkRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CBAE8F0D27F7CECE00A66830 /* ParkRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBAE8F0927F7CECE00A66830 /* Park Runnings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Park Runnings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBAE8F0D27F7CECE00A66830 /* Park Runnings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Park Runnings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBAE8F1227F7CED000A66830 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBAE8F1827F7CED100A66830 /* ParkRun WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ParkRun WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBAE8F1D27F7CED100A66830 /* ParkRunApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkRunApp.swift; sourceTree = "<group>"; };
@@ -199,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBE6C21528024D880080CDC8 /* BarcodeKit in Frameworks */,
+				CB8E296E28A4ED7700ABBF24 /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,8 +333,8 @@
 		CBAE8F0A27F7CECE00A66830 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CBAE8F0927F7CECE00A66830 /* ParkRun.app */,
-				CBAE8F0D27F7CECE00A66830 /* ParkRun.app */,
+				CBAE8F0927F7CECE00A66830 /* Park Runnings.app */,
+				CBAE8F0D27F7CECE00A66830 /* Park Runnings.app */,
 				CBAE8F1827F7CED100A66830 /* ParkRun WatchKit Extension.appex */,
 				CBAE8F3227F7CED100A66830 /* ParkRunTests.xctest */,
 				CBAE8F3C27F7CED100A66830 /* ParkRunUITests.xctest */,
@@ -354,7 +356,6 @@
 				CBE6C1D0280151880080CDC8 /* Extensions */,
 				CBE6C1CC280109AB0080CDC8 /* Data */,
 				CBAE8F7127F90C7700A66830 /* Views */,
-				CBE6C1C428001CE80080CDC8 /* Models */,
 				CBAE8F1D27F7CED100A66830 /* ParkRunApp.swift */,
 				CBAE8F2127F7CED100A66830 /* NotificationController.swift */,
 				CBAE8F2327F7CED100A66830 /* NotificationView.swift */,
@@ -466,13 +467,6 @@
 			path = Elements;
 			sourceTree = "<group>";
 		};
-		CBE6C1C428001CE80080CDC8 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		CBE6C1CC280109AB0080CDC8 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -545,9 +539,10 @@
 			name = ParkRun;
 			packageProductDependencies = (
 				CBE106AC27FD56FB008AF35B /* BarcodeKit */,
+				CB8E296C28A4ED6900ABBF24 /* SwiftSoup */,
 			);
 			productName = ParkRun;
-			productReference = CBAE8F0927F7CECE00A66830 /* ParkRun.app */;
+			productReference = CBAE8F0927F7CECE00A66830 /* Park Runnings.app */;
 			productType = "com.apple.product-type.application.watchapp2-container";
 		};
 		CBAE8F0C27F7CECE00A66830 /* ParkRun WatchKit App */ = {
@@ -564,7 +559,7 @@
 			);
 			name = "ParkRun WatchKit App";
 			productName = "ParkRun WatchKit App";
-			productReference = CBAE8F0D27F7CECE00A66830 /* ParkRun.app */;
+			productReference = CBAE8F0D27F7CECE00A66830 /* Park Runnings.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
 		CBAE8F1727F7CED100A66830 /* ParkRun WatchKit Extension */ = {
@@ -582,6 +577,7 @@
 			name = "ParkRun WatchKit Extension";
 			packageProductDependencies = (
 				CBE6C21428024D880080CDC8 /* BarcodeKit */,
+				CB8E296D28A4ED7700ABBF24 /* SwiftSoup */,
 			);
 			productName = "ParkRun WatchKit Extension";
 			productReference = CBAE8F1827F7CED100A66830 /* ParkRun WatchKit Extension.appex */;
@@ -665,6 +661,7 @@
 			mainGroup = CBAE8F0227F7CECE00A66830;
 			packageReferences = (
 				CBE106AB27FD56FB008AF35B /* XCRemoteSwiftPackageReference "BarcodeKit" */,
+				CB8E296B28A4ED6900ABBF24 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 			);
 			productRefGroup = CBAE8F0A27F7CECE00A66830 /* Products */;
 			projectDirPath = "";
@@ -971,7 +968,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ParkRun WatchKit Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = ParkRun;
+				INFOPLIST_KEY_CFBundleDisplayName = "Park Runnings";
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = ParkRun_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "For finding nearby events";
@@ -1004,7 +1001,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ParkRun WatchKit Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = ParkRun;
+				INFOPLIST_KEY_CFBundleDisplayName = "Park Runnings";
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = ParkRun_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "For finding nearby events";
@@ -1046,7 +1043,7 @@
 				);
 				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = schacher.ParkRun.watchkitapp;
-				PRODUCT_NAME = ParkRun;
+				PRODUCT_NAME = "Park Runnings";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1078,7 +1075,7 @@
 				);
 				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = schacher.ParkRun.watchkitapp;
-				PRODUCT_NAME = ParkRun;
+				PRODUCT_NAME = "Park Runnings";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1103,7 +1100,7 @@
 				);
 				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = schacher.ParkRun;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Park Runnings";
 				SWIFT_OBJC_BRIDGING_HEADER = "ParkRun WatchKit Extension/Views/Title/ParkRun-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1124,7 +1121,7 @@
 				);
 				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = schacher.ParkRun;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Park Runnings";
 				SWIFT_OBJC_BRIDGING_HEADER = "ParkRun WatchKit Extension/Views/Title/ParkRun-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
@@ -1270,6 +1267,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		CB8E296B28A4ED6900ABBF24 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		CBE106AB27FD56FB008AF35B /* XCRemoteSwiftPackageReference "BarcodeKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/quoimec/BarcodeKit.git";
@@ -1281,6 +1286,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CB8E296C28A4ED6900ABBF24 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CB8E296B28A4ED6900ABBF24 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+		CB8E296D28A4ED7700ABBF24 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CB8E296B28A4ED6900ABBF24 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
 		CBE106AC27FD56FB008AF35B /* BarcodeKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CBE106AB27FD56FB008AF35B /* XCRemoteSwiftPackageReference "BarcodeKit" */;

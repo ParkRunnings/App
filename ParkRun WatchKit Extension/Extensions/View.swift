@@ -61,5 +61,9 @@ extension View {
     func onTouchUpDown(down: @escaping () -> Void, up: @escaping () -> Void) -> some View {
         modifier(OnTouchUpDown(down: down, up: up))
     }
+    
+    func hidden(_ hide: Bool) -> some View {
+        opacity(hide ? 0 : 1)
+    }
 
 }

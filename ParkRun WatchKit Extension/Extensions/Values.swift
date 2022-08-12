@@ -34,3 +34,29 @@ extension Date {
     }
 
 }
+
+extension String {
+    
+    func strip() -> Self {
+        
+        return self.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+    }
+    
+    func namecased() -> Self {
+        
+        var names = self.lowercased().split(separator: " ").map({ String($0) })
+        
+        for index in names.indices {
+            for separator in ["-", "'"] {
+                names[index] = names[index].split(separator: Character(separator)).map({ $0.capitalized }).joined(separator: separator)
+            }
+        }
+        
+        return names.joined(separator: " ")
+        
+    }
+    
+    
+    
+}

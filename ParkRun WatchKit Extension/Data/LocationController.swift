@@ -55,6 +55,9 @@ class LocationController: NSObject, ObservableObject, CLLocationManagerDelegate 
     
     func start() {
         
+        status = manager.authorizationStatus
+        enabled = LocationController.check_enabled(status: manager.authorizationStatus)
+        
         if enabled && !polling {
             manager.startUpdatingLocation()
             polling = true
@@ -88,6 +91,10 @@ class LocationController: NSObject, ObservableObject, CLLocationManagerDelegate 
         
         enabled = LocationController.check_enabled(status: manager.authorizationStatus)
         MetaController.shared.setup_location = status != .notDetermined
+        
+        if !enabled {
+            EventController.shared.clear()
+        }
         
         register_sync()
         

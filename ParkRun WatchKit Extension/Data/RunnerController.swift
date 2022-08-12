@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import SwiftSoup
 
 class RunnerController: NSObject, ObservableObject {
     
@@ -64,17 +65,7 @@ class RunnerController: NSObject, ObservableObject {
             )
         })
         
-        var scrape_request = URLRequest(url: URL(string: "https://australia-southeast1-park-run.cloudfunctions.net/get_runner_remote")!)
-        scrape_request.httpMethod = "POST"
-        
-        scrape_request.httpBody = try! JSONEncoder().encode([
-            "content": html,
-            "number": number
-        ])
-        
-        return try await scrape_catch(request: {
-            return try await DataController.shared.json(request: &scrape_request, as: Runner.self)
-        })
+        return try Runner(context: DataController.shared.container.viewContext, number: number, html: html)
         
     }
     

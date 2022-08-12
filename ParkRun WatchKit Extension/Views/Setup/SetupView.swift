@@ -49,7 +49,7 @@ struct SetupView: View {
                 SetupDetailsElement(
                     step: .location,
                     header: "Location",
-                    details: "Grant location access to find nearby events",
+                    details: "Location access to find nearby events",
                     complete: $meta.setup_location
                 )
                 .id(SetupCardType.location)

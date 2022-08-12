@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import UIKit
+import WatchKit
 
 struct EventListElement: View {
     
@@ -14,6 +16,7 @@ struct EventListElement: View {
     @EnvironmentObject var location: LocationController
     
     @Environment(\.presentationMode) var presentation
+    @Environment(\.openURL) private var openURL
     
     @FetchRequest var events: FetchedResults<Event>
 
@@ -31,7 +34,7 @@ struct EventListElement: View {
         
         List(content: {
             
-            TitleElement(title: "Events", subtitle: location.enabled ? nil : "Enable location services to find nearby events")
+            TitleElement(title: "Events", subtitle: location.enabled ? nil : "Enable location services on your iPhone for nearby event sorting")
             
             ForEach(events, content: { each in
                 EventLocationElement(name: each.name, country: each.country, meters: Int(each.distance))
