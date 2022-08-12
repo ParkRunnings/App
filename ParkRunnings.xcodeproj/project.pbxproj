@@ -47,21 +47,13 @@
 		CBAE8F2627F7CED100A66830 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE8F2527F7CED100A66830 /* ComplicationController.swift */; };
 		CBAE8F2827F7CED100A66830 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBAE8F2727F7CED100A66830 /* Assets.xcassets */; };
 		CBAE8F2B27F7CED100A66830 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBAE8F2A27F7CED100A66830 /* Preview Assets.xcassets */; };
-		CBAE8F3727F7CED100A66830 /* ParkRunTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE8F3627F7CED100A66830 /* ParkRunTests.swift */; };
-		CBAE8F4127F7CED100A66830 /* ParkRunUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE8F4027F7CED100A66830 /* ParkRunUITests.swift */; };
-		CBAE8F4327F7CED100A66830 /* ParkRunUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE8F4227F7CED100A66830 /* ParkRunUITestsLaunchTests.swift */; };
 		CBCBB1A828A630EF008CCABB /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = CBCBB1A728A630EF008CCABB /* SwiftSoup */; };
 		CBCBB1AA28A630EF008CCABB /* BarcodeKit in Frameworks */ = {isa = PBXBuildFile; productRef = CBCBB1A928A630EF008CCABB /* BarcodeKit */; };
+		CBCBB1BD28A642D5008CCABB /* RunnerController_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCBB1BC28A642D5008CCABB /* RunnerController_Tests.swift */; };
 		CBE106B527FE5405008AF35B /* BarcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE106B427FE5405008AF35B /* BarcodeView.swift */; };
 		CBE106BE27FE55F2008AF35B /* BarcodeCardElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE106BD27FE55F2008AF35B /* BarcodeCardElement.swift */; };
-		CBE106BF27FE55F2008AF35B /* BarcodeCardElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE106BD27FE55F2008AF35B /* BarcodeCardElement.swift */; };
-		CBE106C027FE55F2008AF35B /* BarcodeCardElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE106BD27FE55F2008AF35B /* BarcodeCardElement.swift */; };
 		CBE106C327FEA09F008AF35B /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE106C227FEA09F008AF35B /* InputView.swift */; };
-		CBE106C427FEA09F008AF35B /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE106C227FEA09F008AF35B /* InputView.swift */; };
-		CBE106C527FEA09F008AF35B /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE106C227FEA09F008AF35B /* InputView.swift */; };
 		CBE106C827FEA10E008AF35B /* InputButtonElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE106C727FEA10E008AF35B /* InputButtonElement.swift */; };
-		CBE106C927FEA10E008AF35B /* InputButtonElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE106C727FEA10E008AF35B /* InputButtonElement.swift */; };
-		CBE106CA27FEA10E008AF35B /* InputButtonElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE106C727FEA10E008AF35B /* InputButtonElement.swift */; };
 		CBE6C1CE280109C90080CDC8 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE6C1CD280109C90080CDC8 /* DataController.swift */; };
 		CBE6C1D2280151960080CDC8 /* Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE6C1D1280151960080CDC8 /* Values.swift */; };
 		CBE6C1D4280155F40080CDC8 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE6C1D3280155F40080CDC8 /* Types.swift */; };
@@ -89,19 +81,12 @@
 			remoteGlobalIDString = CBAE8F1727F7CED100A66830;
 			remoteInfo = "ParkRun WatchKit Extension";
 		};
-		CBAE8F3327F7CED100A66830 /* PBXContainerItemProxy */ = {
+		CBCBB1B728A64210008CCABB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CBAE8F0327F7CECE00A66830 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = CBAE8F1727F7CED100A66830;
-			remoteInfo = "ParkRun WatchKit Extension";
-		};
-		CBAE8F3D27F7CED100A66830 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CBAE8F0327F7CECE00A66830 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CBAE8F0C27F7CECE00A66830;
-			remoteInfo = "ParkRun WatchKit App";
+			remoteInfo = "ParkRunnings WatchKit Extension";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -173,11 +158,8 @@
 		CBAE8F2727F7CED100A66830 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBAE8F2A27F7CED100A66830 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CBAE8F2D27F7CED100A66830 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		CBAE8F3227F7CED100A66830 /* ParkRunningsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParkRunningsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CBAE8F3627F7CED100A66830 /* ParkRunTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkRunTests.swift; sourceTree = "<group>"; };
-		CBAE8F3C27F7CED100A66830 /* ParkRunningsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParkRunningsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CBAE8F4027F7CED100A66830 /* ParkRunUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkRunUITests.swift; sourceTree = "<group>"; };
-		CBAE8F4227F7CED100A66830 /* ParkRunUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkRunUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CBCBB1B328A64210008CCABB /* ParkRunnings Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ParkRunnings Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBCBB1BC28A642D5008CCABB /* RunnerController_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerController_Tests.swift; sourceTree = "<group>"; };
 		CBE106B427FE5405008AF35B /* BarcodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeView.swift; sourceTree = "<group>"; };
 		CBE106BD27FE55F2008AF35B /* BarcodeCardElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCardElement.swift; sourceTree = "<group>"; };
 		CBE106C227FEA09F008AF35B /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
@@ -204,14 +186,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CBAE8F2F27F7CED100A66830 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CBAE8F3927F7CED100A66830 /* Frameworks */ = {
+		CBCBB1B028A64210008CCABB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -323,8 +298,7 @@
 			children = (
 				CBAE8F1127F7CECE00A66830 /* ParkRunnings WatchKit App */,
 				CBAE8F1C27F7CED100A66830 /* ParkRunnings WatchKit Extension */,
-				CBAE8F3527F7CED100A66830 /* ParkRunningTests */,
-				CBAE8F3F27F7CED100A66830 /* ParkRunningUITests */,
+				CBCBB1B428A64210008CCABB /* ParkRunnings Tests */,
 				CBAE8F0A27F7CECE00A66830 /* Products */,
 				CBE106AD27FD575B008AF35B /* Frameworks */,
 			);
@@ -336,8 +310,7 @@
 				CBAE8F0927F7CECE00A66830 /* ParkRunnings.app */,
 				CBAE8F0D27F7CECE00A66830 /* Park Runnings.app */,
 				CBAE8F1827F7CED100A66830 /* ParkRunnings WatchKit Extension.appex */,
-				CBAE8F3227F7CED100A66830 /* ParkRunningsTests.xctest */,
-				CBAE8F3C27F7CED100A66830 /* ParkRunningsUITests.xctest */,
+				CBCBB1B328A64210008CCABB /* ParkRunnings Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -375,23 +348,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		CBAE8F3527F7CED100A66830 /* ParkRunningTests */ = {
-			isa = PBXGroup;
-			children = (
-				CBAE8F3627F7CED100A66830 /* ParkRunTests.swift */,
-			);
-			path = ParkRunningTests;
-			sourceTree = "<group>";
-		};
-		CBAE8F3F27F7CED100A66830 /* ParkRunningUITests */ = {
-			isa = PBXGroup;
-			children = (
-				CBAE8F4027F7CED100A66830 /* ParkRunUITests.swift */,
-				CBAE8F4227F7CED100A66830 /* ParkRunUITestsLaunchTests.swift */,
-			);
-			path = ParkRunningUITests;
-			sourceTree = "<group>";
-		};
 		CBAE8F7127F90C7700A66830 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,6 +371,14 @@
 				CBE106B227FE5206008AF35B /* Elements */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		CBCBB1B428A64210008CCABB /* ParkRunnings Tests */ = {
+			isa = PBXGroup;
+			children = (
+				CBCBB1BC28A642D5008CCABB /* RunnerController_Tests.swift */,
+			);
+			path = "ParkRunnings Tests";
 			sourceTree = "<group>";
 		};
 		CBE106AD27FD575B008AF35B /* Frameworks */ = {
@@ -583,41 +547,23 @@
 			productReference = CBAE8F1827F7CED100A66830 /* ParkRunnings WatchKit Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
-		CBAE8F3127F7CED100A66830 /* ParkRunningsTests */ = {
+		CBCBB1B228A64210008CCABB /* ParkRunnings Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CBAE8F5127F7CED100A66830 /* Build configuration list for PBXNativeTarget "ParkRunningsTests" */;
+			buildConfigurationList = CBCBB1B928A64210008CCABB /* Build configuration list for PBXNativeTarget "ParkRunnings Tests" */;
 			buildPhases = (
-				CBAE8F2E27F7CED100A66830 /* Sources */,
-				CBAE8F2F27F7CED100A66830 /* Frameworks */,
-				CBAE8F3027F7CED100A66830 /* Resources */,
+				CBCBB1AF28A64210008CCABB /* Sources */,
+				CBCBB1B028A64210008CCABB /* Frameworks */,
+				CBCBB1B128A64210008CCABB /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				CBAE8F3427F7CED100A66830 /* PBXTargetDependency */,
+				CBCBB1B828A64210008CCABB /* PBXTargetDependency */,
 			);
-			name = ParkRunningsTests;
-			productName = ParkRunTests;
-			productReference = CBAE8F3227F7CED100A66830 /* ParkRunningsTests.xctest */;
+			name = "ParkRunnings Tests";
+			productName = "ParkRunnings Tests";
+			productReference = CBCBB1B328A64210008CCABB /* ParkRunnings Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		CBAE8F3B27F7CED100A66830 /* ParkRunningsUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CBAE8F5427F7CED100A66830 /* Build configuration list for PBXNativeTarget "ParkRunningsUITests" */;
-			buildPhases = (
-				CBAE8F3827F7CED100A66830 /* Sources */,
-				CBAE8F3927F7CED100A66830 /* Frameworks */,
-				CBAE8F3A27F7CED100A66830 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CBAE8F3E27F7CED100A66830 /* PBXTargetDependency */,
-			);
-			name = ParkRunningsUITests;
-			productName = ParkRunUITests;
-			productReference = CBAE8F3C27F7CED100A66830 /* ParkRunningsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -626,7 +572,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1330;
+				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
 					CBAE8F0827F7CECE00A66830 = {
@@ -640,13 +586,9 @@
 					CBAE8F1727F7CED100A66830 = {
 						CreatedOnToolsVersion = 13.3;
 					};
-					CBAE8F3127F7CED100A66830 = {
-						CreatedOnToolsVersion = 13.3;
+					CBCBB1B228A64210008CCABB = {
+						CreatedOnToolsVersion = 13.4.1;
 						TestTargetID = CBAE8F1727F7CED100A66830;
-					};
-					CBAE8F3B27F7CED100A66830 = {
-						CreatedOnToolsVersion = 13.3;
-						TestTargetID = CBAE8F0C27F7CECE00A66830;
 					};
 				};
 			};
@@ -670,8 +612,7 @@
 				CBAE8F0827F7CECE00A66830 /* ParkRunnings */,
 				CBAE8F0C27F7CECE00A66830 /* ParkRunnings WatchKit App */,
 				CBAE8F1727F7CED100A66830 /* ParkRunnings WatchKit Extension */,
-				CBAE8F3127F7CED100A66830 /* ParkRunningsTests */,
-				CBAE8F3B27F7CED100A66830 /* ParkRunningsUITests */,
+				CBCBB1B228A64210008CCABB /* ParkRunnings Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -703,14 +644,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CBAE8F3027F7CED100A66830 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CBAE8F3A27F7CED100A66830 /* Resources */ = {
+		CBCBB1B128A64210008CCABB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -796,26 +730,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CBAE8F2E27F7CED100A66830 /* Sources */ = {
+		CBCBB1AF28A64210008CCABB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBE106BF27FE55F2008AF35B /* BarcodeCardElement.swift in Sources */,
-				CBAE8F3727F7CED100A66830 /* ParkRunTests.swift in Sources */,
-				CBE106C427FEA09F008AF35B /* InputView.swift in Sources */,
-				CBE106C927FEA10E008AF35B /* InputButtonElement.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CBAE8F3827F7CED100A66830 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CBE106C027FE55F2008AF35B /* BarcodeCardElement.swift in Sources */,
-				CBE106CA27FEA10E008AF35B /* InputButtonElement.swift in Sources */,
-				CBE106C527FEA09F008AF35B /* InputView.swift in Sources */,
-				CBAE8F4327F7CED100A66830 /* ParkRunUITestsLaunchTests.swift in Sources */,
-				CBAE8F4127F7CED100A66830 /* ParkRunUITests.swift in Sources */,
+				CBCBB1BD28A642D5008CCABB /* RunnerController_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -832,15 +751,10 @@
 			target = CBAE8F1727F7CED100A66830 /* ParkRunnings WatchKit Extension */;
 			targetProxy = CBAE8F1A27F7CED100A66830 /* PBXContainerItemProxy */;
 		};
-		CBAE8F3427F7CED100A66830 /* PBXTargetDependency */ = {
+		CBCBB1B828A64210008CCABB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CBAE8F1727F7CED100A66830 /* ParkRunnings WatchKit Extension */;
-			targetProxy = CBAE8F3327F7CED100A66830 /* PBXContainerItemProxy */;
-		};
-		CBAE8F3E27F7CED100A66830 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CBAE8F0C27F7CECE00A66830 /* ParkRunnings WatchKit App */;
-			targetProxy = CBAE8F3D27F7CED100A66830 /* PBXContainerItemProxy */;
+			targetProxy = CBCBB1B728A64210008CCABB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1127,17 +1041,16 @@
 			};
 			name = Release;
 		};
-		CBAE8F5227F7CED100A66830 /* Debug */ = {
+		CBCBB1BA28A64210008CCABB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = schacher.ParkRunTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "schacher.ParkRunnings-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -1148,61 +1061,22 @@
 			};
 			name = Debug;
 		};
-		CBAE8F5327F7CED100A66830 /* Release */ = {
+		CBCBB1BB28A64210008CCABB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = schacher.ParkRunTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "schacher.ParkRunnings-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParkRunnings WatchKit Extension.appex/ParkRunnings WatchKit Extension";
-				WATCHOS_DEPLOYMENT_TARGET = 8.5;
-			};
-			name = Release;
-		};
-		CBAE8F5527F7CED100A66830 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = JW5G6WB9V7;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = schacher.ParkRunUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				TEST_TARGET_NAME = "ParkRun WatchKit App";
-				WATCHOS_DEPLOYMENT_TARGET = 8.5;
-			};
-			name = Debug;
-		};
-		CBAE8F5627F7CED100A66830 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = JW5G6WB9V7;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = schacher.ParkRunUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				TEST_TARGET_NAME = "ParkRun WatchKit App";
 				WATCHOS_DEPLOYMENT_TARGET = 8.5;
 			};
 			name = Release;
@@ -1246,20 +1120,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CBAE8F5127F7CED100A66830 /* Build configuration list for PBXNativeTarget "ParkRunningsTests" */ = {
+		CBCBB1B928A64210008CCABB /* Build configuration list for PBXNativeTarget "ParkRunnings Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CBAE8F5227F7CED100A66830 /* Debug */,
-				CBAE8F5327F7CED100A66830 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CBAE8F5427F7CED100A66830 /* Build configuration list for PBXNativeTarget "ParkRunningsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CBAE8F5527F7CED100A66830 /* Debug */,
-				CBAE8F5627F7CED100A66830 /* Release */,
+				CBCBB1BA28A64210008CCABB /* Debug */,
+				CBCBB1BB28A64210008CCABB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

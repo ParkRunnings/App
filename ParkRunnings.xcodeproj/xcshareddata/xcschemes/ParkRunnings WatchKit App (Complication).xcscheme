@@ -29,7 +29,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CBAE8F0827F7CECE00A66830"
-               BuildableName = "Park Runnings.app"
+               BuildableName = "ParkRunnings.app"
                BlueprintName = "ParkRunnings"
                ReferencedContainer = "container:ParkRunnings.xcodeproj">
             </BuildableReference>

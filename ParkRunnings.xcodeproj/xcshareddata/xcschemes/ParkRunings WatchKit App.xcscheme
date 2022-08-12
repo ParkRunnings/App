@@ -29,7 +29,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CBAE8F0827F7CECE00A66830"
-               BuildableName = "Park Runnings.app"
+               BuildableName = "ParkRunnings.app"
                BlueprintName = "ParkRunnings"
                ReferencedContainer = "container:ParkRunnings.xcodeproj">
             </BuildableReference>
@@ -46,19 +46,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CBAE8F3127F7CED100A66830"
-               BuildableName = "ParkRunningsTests.xctest"
-               BlueprintName = "ParkRunningsTests"
-               ReferencedContainer = "container:ParkRunnings.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CBAE8F3B27F7CED100A66830"
-               BuildableName = "ParkRunningsUITests.xctest"
-               BlueprintName = "ParkRunningsUITests"
+               BlueprintIdentifier = "CBCBB1B228A64210008CCABB"
+               BuildableName = "ParkRunnings Tests.xctest"
+               BlueprintName = "ParkRunnings Tests"
                ReferencedContainer = "container:ParkRunnings.xcodeproj">
             </BuildableReference>
          </TestableReference>

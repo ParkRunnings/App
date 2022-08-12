@@ -83,11 +83,6 @@ public class Runner: NSManagedObject, Identifiable, Decodable {
     
     convenience public init(context: NSManagedObjectContext, number: String, html: String) throws {
         
-        // Test Cases: 8906
-        // Test: 34513
-        // Test: 5129578
-        // Test: 8569
-        
         let existing = Runner.fetch(context: context, number: number)
         let soup = try SwiftSoup.parse(html)
         
@@ -98,7 +93,7 @@ public class Runner: NSManagedObject, Identifiable, Decodable {
         
         do {
             
-            if let raw_name = try soup.select("h2").first()?.text().namecased() {
+            if let raw_name = try soup.select("h2").first()?.text().namecased(), raw_name != "" {
                 name = raw_name
             } else {
                 throw RunnerControllerError.scrape(title: "No name")
@@ -106,8 +101,6 @@ public class Runner: NSManagedObject, Identifiable, Decodable {
             
             if let raw_runs = try soup.select("h3").first()?.text().strip(), let regex_match = try NSRegularExpression(pattern: "(\\d+)").firstMatch(in: raw_runs, range: NSRange(location: 0, length: raw_runs.utf16.count)) {
                 runs = String(raw_runs[Range(regex_match.range, in: raw_runs)!])
-            } else {
-                throw RunnerControllerError.scrape(title: "No run count")
             }
             
             if let raw_tables = try? soup.select("table"),
