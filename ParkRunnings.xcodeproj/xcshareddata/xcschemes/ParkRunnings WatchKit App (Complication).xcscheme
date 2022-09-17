@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CBAE8F0C27F7CECE00A66830"
-               BuildableName = "Park Runnings.app"
+               BuildableName = "ParkRunnings.app"
                BlueprintName = "ParkRunnings WatchKit App"
                ReferencedContainer = "container:ParkRunnings.xcodeproj">
             </BuildableReference>
@@ -60,7 +60,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CBAE8F0C27F7CECE00A66830"
-            BuildableName = "Park Runnings.app"
+            BuildableName = "ParkRunnings.app"
             BlueprintName = "ParkRunnings WatchKit App"
             ReferencedContainer = "container:ParkRunnings.xcodeproj">
          </BuildableReference>
@@ -78,7 +78,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CBAE8F0C27F7CECE00A66830"
-            BuildableName = "Park Runnings.app"
+            BuildableName = "ParkRunnings.app"
             BlueprintName = "ParkRunnings WatchKit App"
             ReferencedContainer = "container:ParkRunnings.xcodeproj">
          </BuildableReference>

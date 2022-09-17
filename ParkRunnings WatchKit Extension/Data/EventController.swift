@@ -16,14 +16,16 @@ class EventController: NSObject, ObservableObject {
     private var event: Event?
     private var course: Course?
     
+    private var target = "master" // "tests/master_e"
+    
     @Published var uuid: UUID!
     @Published var name: String!
     @Published var distance: Double!
-    @Published var start: String!
     
+    @Published var time_display: String!
     @Published var time_progress: Double!
-    @Published var distance_progress: Double!
     @Published var distance_display: String!
+    @Published var distance_progress: Double!
     
     @Published var image: Bool!
     @Published var coordinates: (Double, Double)?
@@ -35,25 +37,6 @@ class EventController: NSObject, ObservableObject {
         course = fetch()
         refresh()
         
-        if MetaController.shared.event_master == nil {
-            
-            let context = DataController.shared.container.viewContext
-            
-            let json = try! Data(contentsOf: Bundle.main.url(forResource: "master", withExtension: "json")!)
-
-            let decoder = JSONDecoder()
-            decoder.userInfo[CodingUserInfoKey.context] = context
-            decoder.dateDecodingStrategy = .iso8601
-            
-            let data = try! decoder.decode(EventMeta.self, from: json)
-            MetaController.shared.event_master = data.state
-            
-            DataController.shared.save()
-            
-            print("Loaded master data from local")
-            
-        }
-
     }
     
     func fetch() -> Event? {
@@ -84,20 +67,31 @@ class EventController: NSObject, ObservableObject {
         let request = Course.request()
         request.predicate = NSPredicate(format: "uuid = %@", argumentArray: [event.uuid])
         
-        let course = try? context.fetch(request).first
-        
-        return course
+        if let course = try? context.fetch(request).first {
+            return course
+        } else {
+            
+            Task(operation: {
+                guard let course = await scrape_course() else { return }
+                DispatchQueue.main.async(execute: { [weak self] in
+                    guard let self = self else { return }
+                    self.update(course: course)
+                })
+            })
+            
+            return nil
+            
+        }
         
     }
     
-    func update(event event_: Event) {
+    func update(event: Event) {
         
-        event = event_
+        self.event = event
         DataController.shared.save()
         course = fetch()
         
         refresh()
-        sync()
         
     }
     
@@ -140,42 +134,172 @@ class EventController: NSObject, ObservableObject {
         
     }
     
-    func scrape() async -> Course? {
-       
-        guard let event = event else { fatalError() }
-
-        var request = URLRequest(url: URL(string: "https://storage.googleapis.com/parkrun-au/maps/\(event.uuid.description.lowercased()).json")!)
-
-        return try? await DataController.shared.json(request: &request, as: Course.self)
+    // Scraping methods
+    
+    func scrape_course() async -> Course? {
+        
+        guard let event = event, let course = try? await DataController.shared.json(
+            url: "https://storage.googleapis.com/parkrun-au/maps/\(event.uuid.string()).json",
+            as: Course.self
+        ) else { return nil }
+        
+        DataController.shared.save()
+        
+        return course
+        
+    }
+    
+    func scrape_master() async -> EventMeta? {
+        
+        // Scrape the event master data
+        guard let master = try? await DataController.shared.json(
+            url: "https://storage.googleapis.com/parkrun-au/\(self.target).json",
+            as: EventMeta.self
+        ) else { return nil }
+        
+        let request = Event.request()
+        let context = DataController.shared.container.viewContext
+        
+        // Current event UUIDs for fast lookup
+        let lookup = Set(master.events.map({ $0.uuid }))
+        
+        DispatchQueue.main.async(execute: {
+            
+            // Refresh the new master event state
+            MetaController.shared.event_master = master.state
+            
+            // Check if the users home event has been deleted from the remote server
+            if let event_home = MetaController.shared.event_home, !lookup.contains(event_home) {
+                print("Home event has been deleted from remote server")
+                MetaController.shared.event_home = nil
+                EventController.shared.event = nil
+            }
+            
+            DataController.shared.save()
+            
+            if let current = LocationController.shared.current {
+                EventController.shared.update(new: current)
+            }
+            
+            DataController.shared.save()
+            MetaController.shared.refresh()
+            
+            if let existing = try? context.fetch(request) {
+                
+                for index in 0 ..< existing.count {
+                    
+                    let event = existing[index]
+                    
+                    // Check if the lookup does not contains the existing uuid, meaning it has been removed from the remote server
+                    if !lookup.contains(event.uuid) {
+                        context.delete(event)
+                    }
+                    
+                }
+                
+                DataController.shared.save()
+                
+            }
+            
+        })
+        
+        return master
+        
+    }
+    
+    func scrape_master_state() async -> MasterState? {
+        
+        guard let master_state = try? await DataController.shared.json(
+            url: "https://storage.googleapis.com/parkrun-au/state/\(self.target).json",
+            as: MasterState.self
+        ) else { return nil }
+        
+        return master_state
+        
+    }
+    
+    func scrape_event_state() async -> EventState? {
+        
+        guard let event = event, let event_state = try? await DataController.shared.json(
+            url: "https://storage.googleapis.com/parkrun-au/state/\(event.uuid.string()).json",
+            as: EventState.self
+        ) else { return nil }
+        
+        return event_state
         
     }
     
     func sync() {
         
-        if event != nil && course == nil {
+        if MetaController.shared.event_master == nil {
             
-            Task(operation: {
-                
-                if let course = await scrape() {
-                    DispatchQueue.main.async(execute: { [weak self] in
-                        guard let self = self else { return }
-                        self.update(course: course)
-                    })
-                }
-                
-            })
+            let context = DataController.shared.container.viewContext
+            
+            let json = try! Data(contentsOf: Bundle.main.url(forResource: "master", withExtension: "json")!)
+
+            let decoder = JSONDecoder()
+            decoder.userInfo[CodingUserInfoKey.context] = context
+            decoder.dateDecodingStrategy = .iso8601
+            
+            let data = try! decoder.decode(EventMeta.self, from: json)
+            MetaController.shared.event_master = data.state
+            
+            DataController.shared.save()
+            
+            if let current = LocationController.shared.current {
+                EventController.shared.update(new: current)
+            }
+            
+            print("Loaded master data from local")
             
         }
         
+        Task(operation: {
+            
+            var state_change: Bool = false
+            
+            if let master_state = await scrape_master_state(), master_state.state != MetaController.shared.event_master  {
+                
+                print("Master data is out of date, starting refresh")
+                _ = await scrape_master()
+                state_change = true
+                print("Finished master data refresh")
+                
+            }
+            
+            if let event_state = await scrape_event_state(), event_state.course != course?.state {
+                
+                print("Course data is out of date, starting refresh")
+                course = await scrape_course()
+                state_change = true
+                print("Finished course data refresh")
+                
+            }
+            
+            if state_change {
+                
+                DispatchQueue.main.async(execute: { [weak self] in
+                    
+                    guard let self = self else { return }
+                    
+                    if let event: Event = self.fetch() {
+                        self.update(event: event)
+                    }
+                    
+                })
+                
+            }
+            
+        })
     }
     
     func register_sync() {
         
         SyncController.shared.add(
-            id: "event-scrape",
+            id: "event-sync",
             method: sync,
             sources: [.register, .foreground],
-            schedule: SyncSchedule(base: 300)
+            schedule: SyncSchedule(base: MetaController.simulator ? 10 : 1800)
         )
         
     }
@@ -185,11 +309,11 @@ class EventController: NSObject, ObservableObject {
         uuid = event?.uuid ?? UUID(uuidString: "00000000-0000-0000-0000-000000000000")!
         name = event?.name ?? "-"
         distance = event?.distance ?? 0
-        start = event?.start ?? "?"
         
+        time_display = event?.time_display() ?? ""
         time_progress = event?.time_progress() ?? 0.0
-        distance_progress = event?.distance_progress() ?? 0.0
         distance_display = event?.distance_display() ?? "?"
+        distance_progress = event?.distance_progress() ?? 0.0
         
         image = course?.image ?? false
         
@@ -200,24 +324,5 @@ class EventController: NSObject, ObservableObject {
         }
         
     }
-    
-    
-    
-//    func scrape_master() {
-//
-//        // To-Do: Add scenario handling for no-network events to ensure that location updates start getting called
-//
-//        var request = URLRequest(url: URL(string: "https://storage.googleapis.com/parkrun-au/master.json")!)
-//
-//        let data = try! await DataController.shared.json(request: &request, as: EventMeta.self)
-//
-//        print("Downloaded \(data.events.count) location points")
-//        print("Refreshed \(data.refreshed)")
-//
-//        try! context.save()
-//
-//        LocationController.shared.start()
-//
-//    }
     
 }

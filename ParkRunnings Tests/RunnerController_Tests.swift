@@ -18,10 +18,13 @@ class RunnerController_Tests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-//    func testExample() throws {
-//
-//    }
-//
+    struct RunnerTest {
+        var number: String
+        var name: String? = nil
+        var runs: String? = nil
+        var fastest: String? = nil
+    }
+    
     func test_namecased() throws {
         
         let tests: Array<(String, String)> = [
@@ -40,19 +43,19 @@ class RunnerController_Tests: XCTestCase {
     
     func test_runner_scrape_normal() async throws {
         
-        let tests: Array<(String, String)> = [
-            ("5470914", "Charlie Schacher"),
-            ("237765", "Liam Doyle"),
-            ("8906", "Neal Jordan-Caws"),
-            ("8569", "Sean O'Reilly")
+        let tests: Array<(RunnerTest)> = [
+            RunnerTest(number: "5470914", name: "Charlie Schacher"),
+            RunnerTest(number: "237765", name: "Liam Doyle"),
+            RunnerTest(number: "8906", name: "Neal Jordan-Caws"),
+            RunnerTest(number: "8569", name: "Sean O'Reilly")
         ]
      
-        for (number, name) in tests {
+        for test in tests {
             
-            let runner = try await RunnerController.shared.scrape(number: number)
+            let runner = try await RunnerController.shared.scrape(number: test.number)
             
-            XCTAssertEqual(runner.number, number)
-            XCTAssertEqual(runner.name, name)
+            XCTAssertEqual(runner.number, test.number)
+            XCTAssertEqual(runner.name, test.name)
             XCTAssertNotNil(runner.runs)
             XCTAssertNotNil(runner.fastest)
             XCTAssertNil(runner.error)
@@ -63,39 +66,59 @@ class RunnerController_Tests: XCTestCase {
     
     func test_runner_scrape_no_runs() async throws {
         
-        let tests: Array<(String, String)> = [
-            ("34513", "Julia Carter")
+        let tests: Array<(RunnerTest)> = [
+            RunnerTest(number: "34513", name: "Julia Carter", runs: nil, fastest: nil)
         ]
         
-        for (number, name) in tests {
+        for test in tests {
             
-            let runner = try await RunnerController.shared.scrape(number: number)
+            let runner = try await RunnerController.shared.scrape(number: test.number)
             
-            XCTAssertEqual(runner.number, number)
-            XCTAssertEqual(runner.name, name)
-            XCTAssertNil(runner.runs)
-            XCTAssertNil(runner.fastest)
+            XCTAssertEqual(runner.number, test.number)
+            XCTAssertEqual(runner.name, test.name)
+            XCTAssertEqual(runner.runs, test.runs)
+            XCTAssertEqual(runner.fastest, test.fastest)
             XCTAssertNil(runner.error)
         
         }
         
     }
     
+    func test_runner_scrape_fastest() async throws {
+        
+        let tests: Array<(RunnerTest)> = [
+            RunnerTest(number: "237765", name: "Liam Doyle", fastest: "20:44")
+        ]
+     
+        for test in tests {
+            
+            let runner = try await RunnerController.shared.scrape(number: test.number)
+            
+            XCTAssertEqual(runner.number, test.number)
+            XCTAssertEqual(runner.name, test.name)
+            XCTAssertNotNil(runner.runs)
+            XCTAssertEqual(runner.fastest, test.fastest)
+            XCTAssertNil(runner.error)
+            
+        }
+        
+    }
+    
     func test_runner_scrape_failing() async throws {
         
-        let tests: Array<String> = [
-            "1",
-            "1000000000"
+        let tests: Array<RunnerTest> = [
+            RunnerTest(number: "1"),
+            RunnerTest(number: "1000000000")
         ]
         
-        for number in tests {
+        for test in tests {
             
-            let runner = try await RunnerController.shared.scrape(number: number)
+            let runner = try await RunnerController.shared.scrape(number: test.number)
             
-            XCTAssertEqual(runner.number, number)
-            XCTAssertNil(runner.name)
-            XCTAssertNil(runner.runs)
-            XCTAssertNil(runner.fastest)
+            XCTAssertEqual(runner.number, test.number)
+            XCTAssertEqual(runner.name, test.name)
+            XCTAssertEqual(runner.runs, test.runs)
+            XCTAssertEqual(runner.fastest, test.fastest)
             XCTAssertNotNil(runner.error)
         
         }

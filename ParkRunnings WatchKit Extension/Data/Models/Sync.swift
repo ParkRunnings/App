@@ -116,6 +116,11 @@ struct SyncMethod {
             if counter >= ticks { call() }
             
             case .foreground:
+            
+            if id == "event-sync" {
+                print("event-sync ticks: ", schedule.ticks(start: last ?? Date.now, end: Date.now, frequency: frequency), ticks)
+            }
+            
             if schedule.ticks(start: last ?? Date.now, end: Date.now, frequency: frequency) >= ticks { call() }
             
             case .background:

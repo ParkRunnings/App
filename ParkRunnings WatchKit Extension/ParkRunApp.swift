@@ -32,19 +32,14 @@ struct ParkRunApp: App {
                 switch new {
                     
                     case .active:
-                    print("Active")
                     SyncController.shared.start()
                     SyncController.shared.fire(source: .foreground)
                     
                     case .background:
-                    print("Background")
-                    
-                    case .inactive:
-                    print("Inactive")
                     SyncController.shared.fire(source: .background)
                     SyncController.shared.end()
                     
-                    default: print("Hi")
+                    default: break
                     
                 }
 

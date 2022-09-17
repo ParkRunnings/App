@@ -16,7 +16,7 @@ public class Meta: NSManagedObject, Identifiable, Refreshable {
     @NSManaged public var launches: Int32
     @NSManaged public var created: Date
     @NSManaged public var setup: Bool
-    @NSManaged public var event_master: String?
+    @NSManaged public var event_master: UUID?
     @NSManaged public var event_home: UUID?
     @NSManaged public var runner_number: String?
     
@@ -28,7 +28,7 @@ public class Meta: NSManagedObject, Identifiable, Refreshable {
         launches: Int32,
         created: Date,
         setup: Bool,
-        event_master: String?,
+        event_master: UUID?,
         event_home: UUID?,
         runner_number: String?
     ) {

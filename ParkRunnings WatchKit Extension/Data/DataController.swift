@@ -37,7 +37,7 @@ class DataController: ObservableObject {
         return response
         
     }
-
+    
     func json<T: Decodable>(request body: inout URLRequest, as: T.Type) async throws -> T {
         
         body.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -45,17 +45,22 @@ class DataController: ObservableObject {
         
         let response = try await request(body: &body)
         
-        print(String(data: response, encoding: .utf8)!)
-        
         let context = DataController.shared.container.viewContext
                 
         let decoder = JSONDecoder()
         decoder.userInfo[CodingUserInfoKey.context] = context
         decoder.dateDecodingStrategy = .iso8601
                 
-        let data = try! decoder.decode(T.self, from: response)
-                
-        return data
+        return try! decoder.decode(T.self, from: response)
+               
+    }
+    
+    func json<T: Decodable>(url: String, as: T.Type) async throws -> T {
+        
+        var request = URLRequest(url: URL(string: url)!)
+        request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
+        
+        return try! await self.json(request: &request, as: T.self)
         
     }
     

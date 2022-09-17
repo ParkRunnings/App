@@ -12,7 +12,7 @@ class MetaController: NSObject, ObservableObject {
     private var current: Meta!
     
     static let shared = MetaController()
-    static let id = "parkrun-meta"
+    static let id = "parkrunnings-meta"
     
     @Published var runner_number: String? {
         didSet {
@@ -26,7 +26,7 @@ class MetaController: NSObject, ObservableObject {
             current.refresh(ref: &current.event_home, value: event_home)
         }
     }
-    @Published var event_master: String? {
+    @Published var event_master: UUID? {
         didSet {
             current.refresh(ref: &current.event_master, value: event_master)
         }
@@ -41,6 +41,14 @@ class MetaController: NSObject, ObservableObject {
     @Published var setup_location: Bool! { didSet { update_setup_complete() } }
     @Published var setup_home: Bool! { didSet { update_setup_complete() } }
     @Published var setup_complete: Bool!
+    
+    static var simulator: Bool! {
+        #if targetEnvironment(simulator)
+            return true
+        #else
+            return false
+        #endif
+    }
 
     override init() {
         super.init()

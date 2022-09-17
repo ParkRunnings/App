@@ -9,7 +9,10 @@ import Foundation
 
 class SyncController: NSObject, ObservableObject {
     
-    static let shared = SyncController(frequency: 30, tolerance: 5)
+    static let shared = SyncController(
+        frequency: MetaController.simulator ? 10 : 30,
+        tolerance: 5
+    )
     
     private var store: Array<SyncMethod> = []
     private let frequency: Double

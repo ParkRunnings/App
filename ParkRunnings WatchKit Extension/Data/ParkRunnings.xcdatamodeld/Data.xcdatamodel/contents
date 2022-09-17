@@ -7,7 +7,7 @@
         <attribute name="refreshed" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="route" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="Array&lt;Array&lt;Double&gt;&gt;"/>
         <attribute name="start" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="Array&lt;Double&gt;"/>
-        <attribute name="state" attributeType="String"/>
+        <attribute name="state" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="uuid" attributeType="UUID" usesScalarValueType="NO"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
@@ -32,7 +32,8 @@
         <attribute name="name" attributeType="String"/>
         <attribute name="refreshed" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="start" attributeType="String"/>
-        <attribute name="state" attributeType="String"/>
+        <attribute name="start_dst" optional="YES" attributeType="String"/>
+        <attribute name="state" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="timezone" attributeType="String"/>
         <attribute name="uuid" attributeType="UUID" usesScalarValueType="NO"/>
         <uniquenessConstraints>
@@ -44,7 +45,7 @@
     <entity name="Meta" representedClassName="Meta" syncable="YES">
         <attribute name="created" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="event_home" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="event_master" optional="YES" attributeType="String"/>
+        <attribute name="event_master" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="id" attributeType="String"/>
         <attribute name="launches" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="runner_number" optional="YES" attributeType="String"/>
@@ -67,7 +68,7 @@
     <elements>
         <element name="Course" positionX="-324" positionY="0" width="128" height="149"/>
         <element name="CourseImage" positionX="-324" positionY="18" width="128" height="59"/>
-        <element name="Event" positionX="132.04296875" positionY="16.40625" width="128" height="179"/>
+        <element name="Event" positionX="132.04296875" positionY="16.40625" width="128" height="194"/>
         <element name="Meta" positionX="-185.9921875" positionY="-135.65625" width="128" height="134"/>
         <element name="Runner" positionX="-532.65234375" positionY="-4.71484375" width="128" height="134"/>
     </elements>

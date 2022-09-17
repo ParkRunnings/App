@@ -17,7 +17,7 @@ public class Course: NSManagedObject, Identifiable, Decodable {
     @NSManaged public var finish: Array<Double>
     @NSManaged public var route: Array<Array<Double>>
     @NSManaged public var image: Bool
-    @NSManaged public var state: String
+    @NSManaged public var state: UUID
     @NSManaged public var refreshed: Date
     
     static private let CoreName = "Course"
@@ -34,7 +34,7 @@ public class Course: NSManagedObject, Identifiable, Decodable {
         finish: Array<Double>,
         route: Array<Array<Double>>,
         image: Bool,
-        state: String,
+        state: UUID,
         refreshed: Date
     ) {
         
@@ -71,7 +71,7 @@ public class Course: NSManagedObject, Identifiable, Decodable {
             finish: try! container.decode(Array<Double>.self, forKey: .finish),
             route: try! container.decode(Array<Array<Double>>.self, forKey: .route),
             image: true,
-            state: try! container.decode(String.self, forKey: .state),
+            state: try! container.decode(UUID.self, forKey: .state),
             refreshed: try! container.decode(Date.self, forKey: .refreshed)
         )
         

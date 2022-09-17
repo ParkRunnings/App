@@ -18,18 +18,22 @@ public class Event: NSManagedObject, Identifiable, Decodable {
     @NSManaged public var latitude: Double
     @NSManaged public var longitude: Double
     @NSManaged public var start: String
+    @NSManaged public var start_dst: String
     @NSManaged public var timezone: String
     @NSManaged public var distance: Double
-    @NSManaged public var state: String
+    @NSManaged public var state: UUID
     @NSManaged public var refreshed: Date
     
     static private let CoreName = "Event"
     
-    var hour: Int { get { Int(start.split(separator: ":")[0])! } }
-    var minute: Int { get { Int(start.split(separator: ":")[1])! } }
+    var hour: Int { get { return Int(start.split(separator: ":")[0])! }}
+    var minute: Int { get { return Int(start.split(separator: ":")[1])! }}
     
+    var hour_dst: Int { get { return Int(start_dst.split(separator: ":")[0])! }}
+    var minute_dst: Int { get { return Int(start_dst.split(separator: ":")[1])! }}
+
     enum CodingKeys: CodingKey {
-        case uuid, country, name, latitude, longitude, start, timezone, state, refreshed
+        case uuid, country, name, latitude, longitude, start, start_dst, timezone, state, refreshed
     }
     
     public init(
@@ -40,9 +44,10 @@ public class Event: NSManagedObject, Identifiable, Decodable {
         latitude: Double,
         longitude: Double,
         start: String,
+        start_dst: String,
         timezone: String,
         distance: Double,
-        state: String,
+        state: UUID,
         refreshed: Date
     ) {
         
@@ -55,6 +60,7 @@ public class Event: NSManagedObject, Identifiable, Decodable {
         self.latitude = latitude
         self.longitude = longitude
         self.start = start
+        self.start_dst = start_dst
         self.timezone = timezone
         self.distance = distance
         self.state = state
@@ -80,9 +86,10 @@ public class Event: NSManagedObject, Identifiable, Decodable {
             latitude: try! container.decode(Double.self, forKey: .latitude),
             longitude: try! container.decode(Double.self, forKey: .longitude),
             start: try! container.decode(String.self, forKey: .start),
+            start_dst: try! container.decode(String.self, forKey: .start_dst),
             timezone: try! container.decode(String.self, forKey: .timezone),
             distance: -1,
-            state: try! container.decode(String.self, forKey: .state),
+            state: try! container.decode(UUID.self, forKey: .state),
             refreshed: try! container.decode(Date.self, forKey: .refreshed)
         )
         
@@ -101,7 +108,7 @@ public class Event: NSManagedObject, Identifiable, Decodable {
         return CLLocation(latitude: self.latitude, longitude: self.longitude)
     }
     
-    func time_progress() -> Double {
+    func dates() -> (Date, Date) {
         
         func fractional(hour: Int, minute: Int) -> Double {
             // A simple method for representing an time as a fraction
@@ -118,8 +125,10 @@ public class Event: NSManagedObject, Identifiable, Decodable {
         var now = Date.now
         var now_components = calendar.dateComponents(in: timezone, from: now)
         
+        let fractional_start = timezone.isDaylightSavingTime(for: Date.now) ? fractional(hour: hour_dst, minute: minute_dst) : fractional(hour: hour, minute: minute)
+        
         // If the current date is within an hour of the event starting, roll the current date back a day
-        if now_components.weekday! == saturday && fractional(hour: hour, minute: minute) - fractional(hour: now_components.hour!, minute: now_components.minute!) > -1 {
+        if now_components.weekday! == saturday && fractional_start - fractional(hour: now_components.hour!, minute: now_components.minute!) > -1 {
             now_components.weekday! -= 1
             now_components.hour! -= 1
             now = calendar.date(from: now_components)!
@@ -137,10 +146,42 @@ public class Event: NSManagedObject, Identifiable, Decodable {
         )
         
         // Find the next and previous events
-        let next = calendar.nextDate(after: now, matching: match_components, matchingPolicy: .nextTime, direction: .forward)!
-        let previous = calendar.nextDate(after: now, matching: match_components, matchingPolicy: .nextTime, direction: .backward)!
+        var next = calendar.nextDate(after: now, matching: match_components, matchingPolicy: .nextTime, direction: .forward)!
+        var previous = calendar.nextDate(after: now, matching: match_components, matchingPolicy: .nextTime, direction: .backward)!
         
-        let base = floor(now.timeIntervalSince(previous) / 3600.0) / (next.timeIntervalSince(previous) / 3600.0)
+        // If the next event is occuring in DST, switch to DST dates
+        if timezone.isDaylightSavingTime(for: next) {
+            next = next.update_start(hour: hour_dst, minute: minute_dst)
+        }
+        
+        // If the previous event occured in DST, switch to DST dates
+        if timezone.isDaylightSavingTime(for: previous) {
+            previous = previous.update_start(hour: hour_dst, minute: minute_dst)
+        }
+        
+        return (previous, next)
+        
+    }
+    
+    func time_display() -> String {
+        
+        let dates = dates()
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        
+        return formatter.string(from: dates.1)
+        
+    }
+    
+    func time_progress() -> Double {
+        
+        let dates = dates()
+        
+        let previous = dates.0
+        let next = dates.1
+        
+        let base = floor(Date.now.timeIntervalSince(previous) / 3600.0) / (next.timeIntervalSince(previous) / 3600.0)
         let scaled = pow(base - 0.005, 3) + 0.02
         
         return scaled
@@ -191,14 +232,14 @@ public class Event: NSManagedObject, Identifiable, Decodable {
 class EventMeta: Decodable {
     
     let events: Array<Event>
-    let state: String
+    let state: UUID
     let refreshed: String
     
     enum CodingKeys: CodingKey {
         case events, state, refreshed
     }
     
-    init(events: Array<Event>, state: String, refreshed: String) {
+    init(events: Array<Event>, state: UUID, refreshed: String) {
         self.events = events
         self.state = state
         self.refreshed = refreshed
@@ -212,7 +253,7 @@ class EventMeta: Decodable {
         
         self.init(
             events: try! container.decode(Array<Event>.self, forKey: .events),
-            state: try! container.decode(String.self, forKey: .state),
+            state: try! container.decode(UUID.self, forKey: .state),
             refreshed: try! container.decode(String.self, forKey: .refreshed)
         )
         

@@ -29,7 +29,13 @@ extension Date {
     
     static func - (lhs: Self, rhs: Self) -> TimeInterval {
         
-        return Double(Calendar.current.dateComponents([.second], from: lhs, to: rhs).second ?? 0)
+        return Double(Calendar.current.dateComponents([.second], from: rhs, to: lhs).second ?? 0)
+        
+    }
+    
+    func update_start(hour: Int, minute: Int) -> Self {
+        
+        return Calendar.current.date(bySettingHour: hour, minute: minute, second: 0, of: self)!
         
     }
 
@@ -57,6 +63,12 @@ extension String {
         
     }
     
+}
+
+extension UUID {
     
+    func string() -> String {
+        return self.description.lowercased()
+    }
     
 }

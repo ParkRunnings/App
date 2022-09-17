@@ -35,7 +35,7 @@ struct MainView: View {
                 
                 HStack(alignment: .center, spacing: design.size(size: .progress_item_spacing), content: {
                     
-                    MainTimeProgress(progress: $event.time_progress, start: $event.start)
+                    MainTimeProgress(progress: .constant(0.75), start: $event.time_display)
                     
                     MainDistanceProgress(progress: $event.distance_progress, distance: $event.distance_display)
                         .hidden(!location.enabled)
