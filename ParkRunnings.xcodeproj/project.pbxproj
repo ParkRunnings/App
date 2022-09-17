@@ -7,109 +7,90 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CB1DBAC828506B7B0059025D /* ProgressElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1DBAC728506B7B0059025D /* ProgressElements.swift */; };
-		CB279145281A01C700D2E65E /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB279144281A01C700D2E65E /* LocationController.swift */; };
-		CB279149281BA70E00D2E65E /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB279148281BA70E00D2E65E /* Codable.swift */; };
-		CB37CD6028684AF100A7AE33 /* SyncController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB37CD5F28684AF100A7AE33 /* SyncController.swift */; };
-		CB430A5628237F4A00B7EB8C /* EventListElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB430A5528237F4A00B7EB8C /* EventListElement.swift */; };
-		CB430A592823DF0B00B7EB8C /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB430A582823DF0B00B7EB8C /* HelpView.swift */; };
-		CB4D46DD281BD6BB00B3BF4A /* ParkRunnings.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB4D46DB281BD6BB00B3BF4A /* ParkRunnings.xcdatamodeld */; };
-		CB4D46E5281CD95D00B3BF4A /* Meta.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D46E4281CD95D00B3BF4A /* Meta.swift */; };
-		CB4D46E7281CDB0300B3BF4A /* MetaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D46E6281CDB0300B3BF4A /* MetaController.swift */; };
-		CB4D46EA281D179000B3BF4A /* SetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D46E9281D179000B3BF4A /* SetupView.swift */; };
-		CB4D46EF281D1A8300B3BF4A /* CardElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D46EE281D1A8300B3BF4A /* CardElement.swift */; };
-		CB4D46F5281D25C800B3BF4A /* Prefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D46F4281D25C800B3BF4A /* Prefix.swift */; };
-		CB4D46F7281D2BC300B3BF4A /* DesignController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D46F6281D2BC300B3BF4A /* DesignController.swift */; };
-		CB4D46F9281DDA0400B3BF4A /* SetupDetailsElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D46F8281DDA0400B3BF4A /* SetupDetailsElement.swift */; };
-		CB4D46FC281E397E00B3BF4A /* TextElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D46FB281E397E00B3BF4A /* TextElements.swift */; };
-		CB4D46FE281E3B6800B3BF4A /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D46FD281E3B6800B3BF4A /* WelcomeView.swift */; };
-		CB4D4700281EA1FF00B3BF4A /* GeneralElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D46FF281EA1FF00B3BF4A /* GeneralElements.swift */; };
-		CB4D4703281FABFF00B3BF4A /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D4702281FABFF00B3BF4A /* EventView.swift */; };
-		CB4D4706281FB04C00B3BF4A /* EventLocationElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D4705281FB04C00B3BF4A /* EventLocationElement.swift */; };
-		CB54FA6A286EA2D1008BA45F /* Sync.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB54FA69286EA2D1008BA45F /* Sync.swift */; };
-		CB7483072855E2BB00BB0C48 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7483062855E2BB00BB0C48 /* MapView.swift */; };
-		CB7483112855EB8D00BB0C48 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7483102855EB8D00BB0C48 /* Course.swift */; };
-		CB82E79C28277043000881BA /* InputConfirmationElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82E79B28277043000881BA /* InputConfirmationElement.swift */; };
-		CB82E79E28278261000881BA /* RunnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82E79D28278261000881BA /* RunnerController.swift */; };
-		CB82E7A028288513000881BA /* ProfileElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82E79F28288513000881BA /* ProfileElements.swift */; };
-		CB8A399E2830DE8B008A7474 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8A399D2830DE8B008A7474 /* Errors.swift */; };
-		CB8A39A02830F7EA008A7474 /* ButtonElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8A399F2830F7EA008A7474 /* ButtonElements.swift */; };
-		CB920531285194C700C9A693 /* Refreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB920530285194C700C9A693 /* Refreshable.swift */; };
-		CB9205332851FB2E00C9A693 /* MainProgressElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9205322851FB2E00C9A693 /* MainProgressElement.swift */; };
-		CB9CFEA4285FF8C500002E71 /* master.json in Resources */ = {isa = PBXBuildFile; fileRef = CB9CFEA3285FF8C500002E71 /* master.json */; };
-		CBA1500D28AA1A3000D5B30D /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1500C28AA1A3000D5B30D /* State.swift */; };
-		CBAE8F0E27F7CECE00A66830 /* ParkRunnings.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CBAE8F0D27F7CECE00A66830 /* ParkRunnings.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		CBAE8F1327F7CED000A66830 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBAE8F1227F7CED000A66830 /* Assets.xcassets */; };
-		CBAE8F1927F7CED100A66830 /* ParkRunnings WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CBAE8F1827F7CED100A66830 /* ParkRunnings WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		CBAE8F1E27F7CED100A66830 /* ParkRunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE8F1D27F7CED100A66830 /* ParkRunApp.swift */; };
-		CBAE8F2027F7CED100A66830 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE8F1F27F7CED100A66830 /* MainView.swift */; };
-		CBAE8F2227F7CED100A66830 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE8F2127F7CED100A66830 /* NotificationController.swift */; };
-		CBAE8F2427F7CED100A66830 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE8F2327F7CED100A66830 /* NotificationView.swift */; };
-		CBAE8F2627F7CED100A66830 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE8F2527F7CED100A66830 /* ComplicationController.swift */; };
-		CBAE8F2827F7CED100A66830 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBAE8F2727F7CED100A66830 /* Assets.xcassets */; };
-		CBAE8F2B27F7CED100A66830 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBAE8F2A27F7CED100A66830 /* Preview Assets.xcassets */; };
-		CBCBB1A828A630EF008CCABB /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = CBCBB1A728A630EF008CCABB /* SwiftSoup */; };
-		CBCBB1AA28A630EF008CCABB /* BarcodeKit in Frameworks */ = {isa = PBXBuildFile; productRef = CBCBB1A928A630EF008CCABB /* BarcodeKit */; };
-		CBCBB1BD28A642D5008CCABB /* RunnerController_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCBB1BC28A642D5008CCABB /* RunnerController_Tests.swift */; };
-		CBE106B527FE5405008AF35B /* BarcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE106B427FE5405008AF35B /* BarcodeView.swift */; };
-		CBE106BE27FE55F2008AF35B /* BarcodeCardElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE106BD27FE55F2008AF35B /* BarcodeCardElement.swift */; };
-		CBE106C327FEA09F008AF35B /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE106C227FEA09F008AF35B /* InputView.swift */; };
-		CBE106C827FEA10E008AF35B /* InputButtonElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE106C727FEA10E008AF35B /* InputButtonElement.swift */; };
-		CBE6C1CE280109C90080CDC8 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE6C1CD280109C90080CDC8 /* DataController.swift */; };
-		CBE6C1D2280151960080CDC8 /* Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE6C1D1280151960080CDC8 /* Values.swift */; };
-		CBE6C1D4280155F40080CDC8 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE6C1D3280155F40080CDC8 /* Types.swift */; };
-		CBE6C1D6280158A30080CDC8 /* Colour.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE6C1D5280158A30080CDC8 /* Colour.swift */; };
-		CBE6C21828024DFE0080CDC8 /* Runner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE6C21728024DFE0080CDC8 /* Runner.swift */; };
-		CBE6C21A280259B80080CDC8 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE6C219280259B80080CDC8 /* Event.swift */; };
-		CBE6C21D28026ACB0080CDC8 /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE6C21C28026ACB0080CDC8 /* EventController.swift */; };
-		CBE6C2CF28039CC60080CDC8 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE6C2CE28039CC60080CDC8 /* View.swift */; };
-		CBFCB3CE28616D4F004FE1A1 /* CourseImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFCB3CD28616D4F004FE1A1 /* CourseImage.swift */; };
-		CBFCB3D2286173B2004FE1A1 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = CBFCB3D1286173B2004FE1A1 /* map.png */; };
+		CB0C858828D574D60063AAFB /* PushNotificationPayload.apns in Resources */ = {isa = PBXBuildFile; fileRef = CB0C853A28D574D60063AAFB /* PushNotificationPayload.apns */; };
+		CB0C858928D574D60063AAFB /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C853B28D574D60063AAFB /* ComplicationController.swift */; };
+		CB0C858A28D574D60063AAFB /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C853C28D574D60063AAFB /* NotificationController.swift */; };
+		CB0C858B28D574D60063AAFB /* ParkRunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C853D28D574D60063AAFB /* ParkRunApp.swift */; };
+		CB0C858C28D574D60063AAFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB0C853E28D574D60063AAFB /* Assets.xcassets */; };
+		CB0C858D28D574D60063AAFB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB0C854028D574D60063AAFB /* Preview Assets.xcassets */; };
+		CB0C858E28D574D60063AAFB /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C854228D574D60063AAFB /* View.swift */; };
+		CB0C858F28D574D60063AAFB /* Colour.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C854328D574D60063AAFB /* Colour.swift */; };
+		CB0C859028D574D60063AAFB /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C854428D574D60063AAFB /* Codable.swift */; };
+		CB0C859128D574D60063AAFB /* Prefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C854528D574D60063AAFB /* Prefix.swift */; };
+		CB0C859228D574D60063AAFB /* Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C854628D574D60063AAFB /* Values.swift */; };
+		CB0C859328D574D60063AAFB /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C854728D574D60063AAFB /* NotificationView.swift */; };
+		CB0C859428D574D60063AAFB /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C854928D574D60063AAFB /* LocationController.swift */; };
+		CB0C859528D574D60063AAFB /* RunnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C854A28D574D60063AAFB /* RunnerController.swift */; };
+		CB0C859628D574D60063AAFB /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C854B28D574D60063AAFB /* DataController.swift */; };
+		CB0C859728D574D60063AAFB /* ParkRunnings.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB0C854C28D574D60063AAFB /* ParkRunnings.xcdatamodeld */; };
+		CB0C859828D574D60063AAFB /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C854F28D574D60063AAFB /* Errors.swift */; };
+		CB0C859928D574D60063AAFB /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C855028D574D60063AAFB /* Types.swift */; };
+		CB0C859A28D574D60063AAFB /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C855228D574D60063AAFB /* Event.swift */; };
+		CB0C859B28D574D60063AAFB /* Sync.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C855328D574D60063AAFB /* Sync.swift */; };
+		CB0C859C28D574D60063AAFB /* Meta.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C855428D574D60063AAFB /* Meta.swift */; };
+		CB0C859D28D574D60063AAFB /* Runner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C855528D574D60063AAFB /* Runner.swift */; };
+		CB0C859E28D574D60063AAFB /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C855628D574D60063AAFB /* State.swift */; };
+		CB0C859F28D574D60063AAFB /* Refreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C855828D574D60063AAFB /* Refreshable.swift */; };
+		CB0C85A028D574D60063AAFB /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C855928D574D60063AAFB /* Course.swift */; };
+		CB0C85A128D574D60063AAFB /* CourseImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C855A28D574D60063AAFB /* CourseImage.swift */; };
+		CB0C85A228D574D60063AAFB /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = CB0C855C28D574D60063AAFB /* map.png */; };
+		CB0C85A328D574D60063AAFB /* master.json in Resources */ = {isa = PBXBuildFile; fileRef = CB0C855D28D574D60063AAFB /* master.json */; };
+		CB0C85A428D574D60063AAFB /* DesignController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C855E28D574D60063AAFB /* DesignController.swift */; };
+		CB0C85A528D574D60063AAFB /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C855F28D574D60063AAFB /* EventController.swift */; };
+		CB0C85A628D574D60063AAFB /* SyncController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C856028D574D60063AAFB /* SyncController.swift */; };
+		CB0C85A728D574D60063AAFB /* MetaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C856128D574D60063AAFB /* MetaController.swift */; };
+		CB0C85A828D574D60063AAFB /* InputButtonElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C856528D574D60063AAFB /* InputButtonElement.swift */; };
+		CB0C85A928D574D60063AAFB /* InputConfirmationElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C856628D574D60063AAFB /* InputConfirmationElement.swift */; };
+		CB0C85AA28D574D60063AAFB /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C856728D574D60063AAFB /* InputView.swift */; };
+		CB0C85AB28D574D60063AAFB /* SetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C856928D574D60063AAFB /* SetupView.swift */; };
+		CB0C85AC28D574D60063AAFB /* SetupDetailsElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C856B28D574D60063AAFB /* SetupDetailsElement.swift */; };
+		CB0C85AD28D574D60063AAFB /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C856D28D574D60063AAFB /* WelcomeView.swift */; };
+		CB0C85AE28D574D60063AAFB /* GeneralElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C857028D574D60063AAFB /* GeneralElements.swift */; };
+		CB0C85AF28D574D60063AAFB /* TextElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C857128D574D60063AAFB /* TextElements.swift */; };
+		CB0C85B028D574D60063AAFB /* CardElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C857228D574D60063AAFB /* CardElement.swift */; };
+		CB0C85B128D574D60063AAFB /* ProgressElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C857328D574D60063AAFB /* ProgressElements.swift */; };
+		CB0C85B228D574D60063AAFB /* ProfileElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C857428D574D60063AAFB /* ProfileElements.swift */; };
+		CB0C85B328D574D60063AAFB /* ButtonElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C857528D574D60063AAFB /* ButtonElements.swift */; };
+		CB0C85B428D574D60063AAFB /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C857728D574D60063AAFB /* MapView.swift */; };
+		CB0C85B528D574D60063AAFB /* BarcodeCardElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C857A28D574D60063AAFB /* BarcodeCardElement.swift */; };
+		CB0C85B628D574D60063AAFB /* BarcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C857B28D574D60063AAFB /* BarcodeView.swift */; };
+		CB0C85B728D574D60063AAFB /* MainProgressElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C857E28D574D60063AAFB /* MainProgressElement.swift */; };
+		CB0C85B828D574D60063AAFB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C857F28D574D60063AAFB /* MainView.swift */; };
+		CB0C85B928D574D60063AAFB /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C858128D574D60063AAFB /* EventView.swift */; };
+		CB0C85BA28D574D60063AAFB /* EventLocationElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C858328D574D60063AAFB /* EventLocationElement.swift */; };
+		CB0C85BB28D574D60063AAFB /* EventListElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C858428D574D60063AAFB /* EventListElement.swift */; };
+		CB0C85BC28D574D60063AAFB /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C858628D574D60063AAFB /* HelpView.swift */; };
+		CB0C85C028D575C80063AAFB /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = CB0C85BF28D575C80063AAFB /* SwiftSoup */; };
+		CB0C85C228D575C80063AAFB /* BarcodeKit in Frameworks */ = {isa = PBXBuildFile; productRef = CB0C85C128D575C80063AAFB /* BarcodeKit */; };
+		CB40D13228D5723000995E8B /* ParkRunnings Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CB40D13128D5723000995E8B /* ParkRunnings Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CB40D14828D5723000995E8B /* RunnerController_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB40D14728D5723000995E8B /* RunnerController_Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		CBAE8F0F27F7CECE00A66830 /* PBXContainerItemProxy */ = {
+		CB40D13328D5723000995E8B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CBAE8F0327F7CECE00A66830 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = CBAE8F0C27F7CECE00A66830;
-			remoteInfo = "ParkRun WatchKit App";
+			remoteGlobalIDString = CB40D13028D5723000995E8B;
+			remoteInfo = "ParkRunnings Watch App";
 		};
-		CBAE8F1A27F7CED100A66830 /* PBXContainerItemProxy */ = {
+		CB40D14428D5723000995E8B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CBAE8F0327F7CECE00A66830 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = CBAE8F1727F7CED100A66830;
-			remoteInfo = "ParkRun WatchKit Extension";
-		};
-		CBCBB1B728A64210008CCABB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CBAE8F0327F7CECE00A66830 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CBAE8F1727F7CED100A66830;
-			remoteInfo = "ParkRunnings WatchKit Extension";
+			remoteGlobalIDString = CB40D13028D5723000995E8B;
+			remoteInfo = "ParkRunnings Watch App";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		CBAE8F4927F7CED100A66830 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				CBAE8F1927F7CED100A66830 /* ParkRunnings WatchKit Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CBAE8F4D27F7CED100A66830 /* Embed Watch Content */ = {
+		CB40D15828D5723000995E8B /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				CBAE8F0E27F7CECE00A66830 /* ParkRunnings.app in Embed Watch Content */,
+				CB40D13228D5723000995E8B /* ParkRunnings Watch App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -117,78 +98,77 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		CB1DBAC728506B7B0059025D /* ProgressElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressElements.swift; sourceTree = "<group>"; };
-		CB279144281A01C700D2E65E /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
-		CB279148281BA70E00D2E65E /* Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
-		CB37CD5F28684AF100A7AE33 /* SyncController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncController.swift; sourceTree = "<group>"; };
-		CB430A5528237F4A00B7EB8C /* EventListElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListElement.swift; sourceTree = "<group>"; };
-		CB430A582823DF0B00B7EB8C /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
-		CB4D46DC281BD6BB00B3BF4A /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
-		CB4D46E4281CD95D00B3BF4A /* Meta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meta.swift; sourceTree = "<group>"; };
-		CB4D46E6281CDB0300B3BF4A /* MetaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaController.swift; sourceTree = "<group>"; };
-		CB4D46E9281D179000B3BF4A /* SetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupView.swift; sourceTree = "<group>"; };
-		CB4D46EE281D1A8300B3BF4A /* CardElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardElement.swift; sourceTree = "<group>"; };
-		CB4D46F4281D25C800B3BF4A /* Prefix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prefix.swift; sourceTree = "<group>"; };
-		CB4D46F6281D2BC300B3BF4A /* DesignController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignController.swift; sourceTree = "<group>"; };
-		CB4D46F8281DDA0400B3BF4A /* SetupDetailsElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupDetailsElement.swift; sourceTree = "<group>"; };
-		CB4D46FB281E397E00B3BF4A /* TextElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextElements.swift; sourceTree = "<group>"; };
-		CB4D46FD281E3B6800B3BF4A /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
-		CB4D46FF281EA1FF00B3BF4A /* GeneralElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralElements.swift; sourceTree = "<group>"; };
-		CB4D4702281FABFF00B3BF4A /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
-		CB4D4705281FB04C00B3BF4A /* EventLocationElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLocationElement.swift; sourceTree = "<group>"; };
-		CB54FA69286EA2D1008BA45F /* Sync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sync.swift; sourceTree = "<group>"; };
-		CB7483062855E2BB00BB0C48 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		CB7483102855EB8D00BB0C48 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
-		CB82E79B28277043000881BA /* InputConfirmationElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputConfirmationElement.swift; sourceTree = "<group>"; };
-		CB82E79D28278261000881BA /* RunnerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerController.swift; sourceTree = "<group>"; };
-		CB82E79F28288513000881BA /* ProfileElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileElements.swift; sourceTree = "<group>"; };
-		CB8A399D2830DE8B008A7474 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
-		CB8A399F2830F7EA008A7474 /* ButtonElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonElements.swift; sourceTree = "<group>"; };
-		CB920530285194C700C9A693 /* Refreshable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refreshable.swift; sourceTree = "<group>"; };
-		CB9205322851FB2E00C9A693 /* MainProgressElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProgressElement.swift; sourceTree = "<group>"; };
-		CB9CFEA3285FF8C500002E71 /* master.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = master.json; sourceTree = "<group>"; };
-		CBA1500C28AA1A3000D5B30D /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
-		CBAE8F0927F7CECE00A66830 /* ParkRunnings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkRunnings.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CBAE8F0D27F7CECE00A66830 /* ParkRunnings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkRunnings.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CBAE8F1227F7CED000A66830 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CBAE8F1827F7CED100A66830 /* ParkRunnings WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ParkRunnings WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CBAE8F1D27F7CED100A66830 /* ParkRunApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkRunApp.swift; sourceTree = "<group>"; };
-		CBAE8F1F27F7CED100A66830 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		CBAE8F2127F7CED100A66830 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
-		CBAE8F2327F7CED100A66830 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
-		CBAE8F2527F7CED100A66830 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
-		CBAE8F2727F7CED100A66830 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CBAE8F2A27F7CED100A66830 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		CBAE8F2D27F7CED100A66830 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		CBCBB1B328A64210008CCABB /* ParkRunnings Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ParkRunnings Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CBCBB1BC28A642D5008CCABB /* RunnerController_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerController_Tests.swift; sourceTree = "<group>"; };
-		CBE106B427FE5405008AF35B /* BarcodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeView.swift; sourceTree = "<group>"; };
-		CBE106BD27FE55F2008AF35B /* BarcodeCardElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCardElement.swift; sourceTree = "<group>"; };
-		CBE106C227FEA09F008AF35B /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
-		CBE106C727FEA10E008AF35B /* InputButtonElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputButtonElement.swift; sourceTree = "<group>"; };
-		CBE6C1CD280109C90080CDC8 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
-		CBE6C1D1280151960080CDC8 /* Values.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Values.swift; sourceTree = "<group>"; };
-		CBE6C1D3280155F40080CDC8 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
-		CBE6C1D5280158A30080CDC8 /* Colour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colour.swift; sourceTree = "<group>"; };
-		CBE6C21728024DFE0080CDC8 /* Runner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Runner.swift; sourceTree = "<group>"; };
-		CBE6C219280259B80080CDC8 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		CBE6C21C28026ACB0080CDC8 /* EventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
-		CBE6C2CE28039CC60080CDC8 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
-		CBFCB3CD28616D4F004FE1A1 /* CourseImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseImage.swift; sourceTree = "<group>"; };
-		CBFCB3D1286173B2004FE1A1 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
+		CB0C853A28D574D60063AAFB /* PushNotificationPayload.apns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		CB0C853B28D574D60063AAFB /* ComplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		CB0C853C28D574D60063AAFB /* NotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		CB0C853D28D574D60063AAFB /* ParkRunApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkRunApp.swift; sourceTree = "<group>"; };
+		CB0C853E28D574D60063AAFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CB0C854028D574D60063AAFB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CB0C854228D574D60063AAFB /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		CB0C854328D574D60063AAFB /* Colour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colour.swift; sourceTree = "<group>"; };
+		CB0C854428D574D60063AAFB /* Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
+		CB0C854528D574D60063AAFB /* Prefix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prefix.swift; sourceTree = "<group>"; };
+		CB0C854628D574D60063AAFB /* Values.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Values.swift; sourceTree = "<group>"; };
+		CB0C854728D574D60063AAFB /* NotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		CB0C854928D574D60063AAFB /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
+		CB0C854A28D574D60063AAFB /* RunnerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunnerController.swift; sourceTree = "<group>"; };
+		CB0C854B28D574D60063AAFB /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		CB0C854D28D574D60063AAFB /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
+		CB0C854F28D574D60063AAFB /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		CB0C855028D574D60063AAFB /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		CB0C855228D574D60063AAFB /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		CB0C855328D574D60063AAFB /* Sync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sync.swift; sourceTree = "<group>"; };
+		CB0C855428D574D60063AAFB /* Meta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meta.swift; sourceTree = "<group>"; };
+		CB0C855528D574D60063AAFB /* Runner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Runner.swift; sourceTree = "<group>"; };
+		CB0C855628D574D60063AAFB /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		CB0C855828D574D60063AAFB /* Refreshable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Refreshable.swift; sourceTree = "<group>"; };
+		CB0C855928D574D60063AAFB /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		CB0C855A28D574D60063AAFB /* CourseImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseImage.swift; sourceTree = "<group>"; };
+		CB0C855C28D574D60063AAFB /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
+		CB0C855D28D574D60063AAFB /* master.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = master.json; sourceTree = "<group>"; };
+		CB0C855E28D574D60063AAFB /* DesignController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignController.swift; sourceTree = "<group>"; };
+		CB0C855F28D574D60063AAFB /* EventController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
+		CB0C856028D574D60063AAFB /* SyncController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncController.swift; sourceTree = "<group>"; };
+		CB0C856128D574D60063AAFB /* MetaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaController.swift; sourceTree = "<group>"; };
+		CB0C856528D574D60063AAFB /* InputButtonElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputButtonElement.swift; sourceTree = "<group>"; };
+		CB0C856628D574D60063AAFB /* InputConfirmationElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputConfirmationElement.swift; sourceTree = "<group>"; };
+		CB0C856728D574D60063AAFB /* InputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		CB0C856928D574D60063AAFB /* SetupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupView.swift; sourceTree = "<group>"; };
+		CB0C856B28D574D60063AAFB /* SetupDetailsElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupDetailsElement.swift; sourceTree = "<group>"; };
+		CB0C856D28D574D60063AAFB /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		CB0C857028D574D60063AAFB /* GeneralElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralElements.swift; sourceTree = "<group>"; };
+		CB0C857128D574D60063AAFB /* TextElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextElements.swift; sourceTree = "<group>"; };
+		CB0C857228D574D60063AAFB /* CardElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardElement.swift; sourceTree = "<group>"; };
+		CB0C857328D574D60063AAFB /* ProgressElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressElements.swift; sourceTree = "<group>"; };
+		CB0C857428D574D60063AAFB /* ProfileElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileElements.swift; sourceTree = "<group>"; };
+		CB0C857528D574D60063AAFB /* ButtonElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonElements.swift; sourceTree = "<group>"; };
+		CB0C857728D574D60063AAFB /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		CB0C857A28D574D60063AAFB /* BarcodeCardElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeCardElement.swift; sourceTree = "<group>"; };
+		CB0C857B28D574D60063AAFB /* BarcodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeView.swift; sourceTree = "<group>"; };
+		CB0C857E28D574D60063AAFB /* MainProgressElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainProgressElement.swift; sourceTree = "<group>"; };
+		CB0C857F28D574D60063AAFB /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		CB0C858128D574D60063AAFB /* EventView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
+		CB0C858328D574D60063AAFB /* EventLocationElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventLocationElement.swift; sourceTree = "<group>"; };
+		CB0C858428D574D60063AAFB /* EventListElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListElement.swift; sourceTree = "<group>"; };
+		CB0C858628D574D60063AAFB /* HelpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
+		CB0C85C528D593780063AAFB /* ParkRunnings-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "ParkRunnings-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		CB40D12C28D5722F00995E8B /* ParkRunnings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkRunnings.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB40D13128D5723000995E8B /* ParkRunnings Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ParkRunnings Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB40D14328D5723000995E8B /* ParkRunnings Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ParkRunnings Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB40D14728D5723000995E8B /* RunnerController_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerController_Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		CBAE8F1527F7CED100A66830 /* Frameworks */ = {
+		CB40D12E28D5723000995E8B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBCBB1AA28A630EF008CCABB /* BarcodeKit in Frameworks */,
-				CBCBB1A828A630EF008CCABB /* SwiftSoup in Frameworks */,
+				CB0C85C228D575C80063AAFB /* BarcodeKit in Frameworks */,
+				CB0C85C028D575C80063AAFB /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CBCBB1B028A64210008CCABB /* Frameworks */ = {
+		CB40D14028D5723000995E8B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -198,109 +178,264 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CB430A572823DEFF00B7EB8C /* Help */ = {
+		CB0C853928D574D60063AAFB /* ParkRunnings Watch App */ = {
 			isa = PBXGroup;
 			children = (
-				CB430A582823DF0B00B7EB8C /* HelpView.swift */,
+				CB0C85C528D593780063AAFB /* ParkRunnings-Watch-App-Info.plist */,
+				CB0C853A28D574D60063AAFB /* PushNotificationPayload.apns */,
+				CB0C853B28D574D60063AAFB /* ComplicationController.swift */,
+				CB0C853C28D574D60063AAFB /* NotificationController.swift */,
+				CB0C853D28D574D60063AAFB /* ParkRunApp.swift */,
+				CB0C854728D574D60063AAFB /* NotificationView.swift */,
+				CB0C853E28D574D60063AAFB /* Assets.xcassets */,
+				CB0C853F28D574D60063AAFB /* Preview Content */,
+				CB0C854828D574D60063AAFB /* Data */,
+				CB0C854128D574D60063AAFB /* Extensions */,
+				CB0C856228D574D60063AAFB /* Views */,
 			);
-			path = Help;
+			path = "ParkRunnings Watch App";
 			sourceTree = "<group>";
 		};
-		CB4D46DE281CD21A00B3BF4A /* Local */ = {
+		CB0C853F28D574D60063AAFB /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				CBFCB3D1286173B2004FE1A1 /* map.png */,
-				CB9CFEA3285FF8C500002E71 /* master.json */,
+				CB0C854028D574D60063AAFB /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CB0C854128D574D60063AAFB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CB0C854228D574D60063AAFB /* View.swift */,
+				CB0C854328D574D60063AAFB /* Colour.swift */,
+				CB0C854428D574D60063AAFB /* Codable.swift */,
+				CB0C854528D574D60063AAFB /* Prefix.swift */,
+				CB0C854628D574D60063AAFB /* Values.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CB0C854828D574D60063AAFB /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				CB0C854C28D574D60063AAFB /* ParkRunnings.xcdatamodeld */,
+				CB0C854928D574D60063AAFB /* LocationController.swift */,
+				CB0C854A28D574D60063AAFB /* RunnerController.swift */,
+				CB0C854B28D574D60063AAFB /* DataController.swift */,
+				CB0C855E28D574D60063AAFB /* DesignController.swift */,
+				CB0C855F28D574D60063AAFB /* EventController.swift */,
+				CB0C856028D574D60063AAFB /* SyncController.swift */,
+				CB0C856128D574D60063AAFB /* MetaController.swift */,
+				CB0C854E28D574D60063AAFB /* Enums */,
+				CB0C855128D574D60063AAFB /* Models */,
+				CB0C855B28D574D60063AAFB /* Local */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		CB0C854E28D574D60063AAFB /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				CB0C854F28D574D60063AAFB /* Errors.swift */,
+				CB0C855028D574D60063AAFB /* Types.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		CB0C855128D574D60063AAFB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CB0C855228D574D60063AAFB /* Event.swift */,
+				CB0C855328D574D60063AAFB /* Sync.swift */,
+				CB0C855428D574D60063AAFB /* Meta.swift */,
+				CB0C855528D574D60063AAFB /* Runner.swift */,
+				CB0C855628D574D60063AAFB /* State.swift */,
+				CB0C855728D574D60063AAFB /* Common */,
+				CB0C855928D574D60063AAFB /* Course.swift */,
+				CB0C855A28D574D60063AAFB /* CourseImage.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CB0C855728D574D60063AAFB /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CB0C855828D574D60063AAFB /* Refreshable.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		CB0C855B28D574D60063AAFB /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				CB0C855C28D574D60063AAFB /* map.png */,
+				CB0C855D28D574D60063AAFB /* master.json */,
 			);
 			path = Local;
 			sourceTree = "<group>";
 		};
-		CB4D46E8281D177700B3BF4A /* Setup */ = {
+		CB0C856228D574D60063AAFB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CB4D46E9281D179000B3BF4A /* SetupView.swift */,
-				CB4D46EB281D182E00B3BF4A /* Elements */,
+				CB0C856328D574D60063AAFB /* Input */,
+				CB0C856828D574D60063AAFB /* Setup */,
+				CB0C856C28D574D60063AAFB /* Welcome */,
+				CB0C856E28D574D60063AAFB /* Common */,
+				CB0C857628D574D60063AAFB /* Map */,
+				CB0C857828D574D60063AAFB /* Barcode */,
+				CB0C857C28D574D60063AAFB /* Main */,
+				CB0C858028D574D60063AAFB /* Event */,
+				CB0C858528D574D60063AAFB /* Help */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CB0C856328D574D60063AAFB /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				CB0C856428D574D60063AAFB /* Elements */,
+				CB0C856728D574D60063AAFB /* InputView.swift */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
+		CB0C856428D574D60063AAFB /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				CB0C856528D574D60063AAFB /* InputButtonElement.swift */,
+				CB0C856628D574D60063AAFB /* InputConfirmationElement.swift */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
+		CB0C856828D574D60063AAFB /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				CB0C856928D574D60063AAFB /* SetupView.swift */,
+				CB0C856A28D574D60063AAFB /* Elements */,
 			);
 			path = Setup;
 			sourceTree = "<group>";
 		};
-		CB4D46EB281D182E00B3BF4A /* Elements */ = {
+		CB0C856A28D574D60063AAFB /* Elements */ = {
 			isa = PBXGroup;
 			children = (
-				CB4D46F8281DDA0400B3BF4A /* SetupDetailsElement.swift */,
+				CB0C856B28D574D60063AAFB /* SetupDetailsElement.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
 		};
-		CB4D46EC281D1A3700B3BF4A /* Common */ = {
+		CB0C856C28D574D60063AAFB /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
-				CB4D46ED281D1A6500B3BF4A /* Elements */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		CB4D46ED281D1A6500B3BF4A /* Elements */ = {
-			isa = PBXGroup;
-			children = (
-				CB4D46EE281D1A8300B3BF4A /* CardElement.swift */,
-				CB4D46FB281E397E00B3BF4A /* TextElements.swift */,
-				CB4D46FF281EA1FF00B3BF4A /* GeneralElements.swift */,
-				CB82E79F28288513000881BA /* ProfileElements.swift */,
-				CB8A399F2830F7EA008A7474 /* ButtonElements.swift */,
-				CB1DBAC728506B7B0059025D /* ProgressElements.swift */,
-			);
-			path = Elements;
-			sourceTree = "<group>";
-		};
-		CB4D46FA281E395000B3BF4A /* Welcome */ = {
-			isa = PBXGroup;
-			children = (
-				CB4D46FD281E3B6800B3BF4A /* WelcomeView.swift */,
+				CB0C856D28D574D60063AAFB /* WelcomeView.swift */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
 		};
-		CB4D4701281FAB4800B3BF4A /* Event */ = {
+		CB0C856E28D574D60063AAFB /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				CB4D4702281FABFF00B3BF4A /* EventView.swift */,
-				CB4D4704281FB02700B3BF4A /* Elements */,
+				CB0C856F28D574D60063AAFB /* Elements */,
 			);
-			path = Event;
+			path = Common;
 			sourceTree = "<group>";
 		};
-		CB4D4704281FB02700B3BF4A /* Elements */ = {
+		CB0C856F28D574D60063AAFB /* Elements */ = {
 			isa = PBXGroup;
 			children = (
-				CB4D4705281FB04C00B3BF4A /* EventLocationElement.swift */,
-				CB430A5528237F4A00B7EB8C /* EventListElement.swift */,
+				CB0C857028D574D60063AAFB /* GeneralElements.swift */,
+				CB0C857128D574D60063AAFB /* TextElements.swift */,
+				CB0C857228D574D60063AAFB /* CardElement.swift */,
+				CB0C857328D574D60063AAFB /* ProgressElements.swift */,
+				CB0C857428D574D60063AAFB /* ProfileElements.swift */,
+				CB0C857528D574D60063AAFB /* ButtonElements.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
 		};
-		CB7483052855E2AE00BB0C48 /* Map */ = {
+		CB0C857628D574D60063AAFB /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				CB7483062855E2BB00BB0C48 /* MapView.swift */,
+				CB0C857728D574D60063AAFB /* MapView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
 		};
-		CB92052F285194A100C9A693 /* Common */ = {
+		CB0C857828D574D60063AAFB /* Barcode */ = {
 			isa = PBXGroup;
 			children = (
-				CB920530285194C700C9A693 /* Refreshable.swift */,
+				CB0C857928D574D60063AAFB /* Elements */,
+				CB0C857B28D574D60063AAFB /* BarcodeView.swift */,
 			);
-			path = Common;
+			path = Barcode;
+			sourceTree = "<group>";
+		};
+		CB0C857928D574D60063AAFB /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				CB0C857A28D574D60063AAFB /* BarcodeCardElement.swift */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
+		CB0C857C28D574D60063AAFB /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				CB0C857D28D574D60063AAFB /* Elements */,
+				CB0C857F28D574D60063AAFB /* MainView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		CB0C857D28D574D60063AAFB /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				CB0C857E28D574D60063AAFB /* MainProgressElement.swift */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
+		CB0C858028D574D60063AAFB /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				CB0C858128D574D60063AAFB /* EventView.swift */,
+				CB0C858228D574D60063AAFB /* Elements */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		CB0C858228D574D60063AAFB /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				CB0C858328D574D60063AAFB /* EventLocationElement.swift */,
+				CB0C858428D574D60063AAFB /* EventListElement.swift */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
+		CB0C858528D574D60063AAFB /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				CB0C858628D574D60063AAFB /* HelpView.swift */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
+		CB40D14628D5723000995E8B /* ParkRunnings Watch AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				CB40D14728D5723000995E8B /* RunnerController_Tests.swift */,
+			);
+			path = "ParkRunnings Watch AppTests";
 			sourceTree = "<group>";
 		};
 		CBAE8F0227F7CECE00A66830 = {
 			isa = PBXGroup;
 			children = (
-				CBAE8F1127F7CECE00A66830 /* ParkRunnings WatchKit App */,
-				CBAE8F1C27F7CED100A66830 /* ParkRunnings WatchKit Extension */,
-				CBCBB1B428A64210008CCABB /* ParkRunnings Tests */,
+				CB0C853928D574D60063AAFB /* ParkRunnings Watch App */,
+				CB40D14628D5723000995E8B /* ParkRunnings Watch AppTests */,
 				CBAE8F0A27F7CECE00A66830 /* Products */,
 				CBE106AD27FD575B008AF35B /* Frameworks */,
 			);
@@ -309,78 +444,11 @@
 		CBAE8F0A27F7CECE00A66830 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CBAE8F0927F7CECE00A66830 /* ParkRunnings.app */,
-				CBAE8F0D27F7CECE00A66830 /* ParkRunnings.app */,
-				CBAE8F1827F7CED100A66830 /* ParkRunnings WatchKit Extension.appex */,
-				CBCBB1B328A64210008CCABB /* ParkRunnings Tests.xctest */,
+				CB40D12C28D5722F00995E8B /* ParkRunnings.app */,
+				CB40D13128D5723000995E8B /* ParkRunnings Watch App.app */,
+				CB40D14328D5723000995E8B /* ParkRunnings Watch AppTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		CBAE8F1127F7CECE00A66830 /* ParkRunnings WatchKit App */ = {
-			isa = PBXGroup;
-			children = (
-				CBAE8F1227F7CED000A66830 /* Assets.xcassets */,
-			);
-			path = "ParkRunnings WatchKit App";
-			sourceTree = "<group>";
-		};
-		CBAE8F1C27F7CED100A66830 /* ParkRunnings WatchKit Extension */ = {
-			isa = PBXGroup;
-			children = (
-				CBE6C1D0280151880080CDC8 /* Extensions */,
-				CBE6C1CC280109AB0080CDC8 /* Data */,
-				CBAE8F7127F90C7700A66830 /* Views */,
-				CBAE8F1D27F7CED100A66830 /* ParkRunApp.swift */,
-				CBAE8F2127F7CED100A66830 /* NotificationController.swift */,
-				CBAE8F2327F7CED100A66830 /* NotificationView.swift */,
-				CBAE8F2527F7CED100A66830 /* ComplicationController.swift */,
-				CBAE8F2727F7CED100A66830 /* Assets.xcassets */,
-				CBAE8F2D27F7CED100A66830 /* PushNotificationPayload.apns */,
-				CBAE8F2927F7CED100A66830 /* Preview Content */,
-			);
-			path = "ParkRunnings WatchKit Extension";
-			sourceTree = "<group>";
-		};
-		CBAE8F2927F7CED100A66830 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				CBAE8F2A27F7CED100A66830 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		CBAE8F7127F90C7700A66830 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				CB7483052855E2AE00BB0C48 /* Map */,
-				CB430A572823DEFF00B7EB8C /* Help */,
-				CB4D4701281FAB4800B3BF4A /* Event */,
-				CB4D46FA281E395000B3BF4A /* Welcome */,
-				CB4D46E8281D177700B3BF4A /* Setup */,
-				CBAE8F8127FA6B6900A66830 /* Main */,
-				CBE106C127FEA07C008AF35B /* Input */,
-				CBE106B327FE53F3008AF35B /* Barcode */,
-				CB4D46EC281D1A3700B3BF4A /* Common */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		CBAE8F8127FA6B6900A66830 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				CBAE8F1F27F7CED100A66830 /* MainView.swift */,
-				CBE106B227FE5206008AF35B /* Elements */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
-		CBCBB1B428A64210008CCABB /* ParkRunnings Tests */ = {
-			isa = PBXGroup;
-			children = (
-				CBCBB1BC28A642D5008CCABB /* RunnerController_Tests.swift */,
-			);
-			path = "ParkRunnings Tests";
 			sourceTree = "<group>";
 		};
 		CBE106AD27FD575B008AF35B /* Frameworks */ = {
@@ -390,182 +458,63 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CBE106B227FE5206008AF35B /* Elements */ = {
-			isa = PBXGroup;
-			children = (
-				CB9205322851FB2E00C9A693 /* MainProgressElement.swift */,
-			);
-			path = Elements;
-			sourceTree = "<group>";
-		};
-		CBE106B327FE53F3008AF35B /* Barcode */ = {
-			isa = PBXGroup;
-			children = (
-				CBE106B427FE5405008AF35B /* BarcodeView.swift */,
-				CBE106B827FE5465008AF35B /* Elements */,
-			);
-			path = Barcode;
-			sourceTree = "<group>";
-		};
-		CBE106B827FE5465008AF35B /* Elements */ = {
-			isa = PBXGroup;
-			children = (
-				CBE106BD27FE55F2008AF35B /* BarcodeCardElement.swift */,
-			);
-			path = Elements;
-			sourceTree = "<group>";
-		};
-		CBE106C127FEA07C008AF35B /* Input */ = {
-			isa = PBXGroup;
-			children = (
-				CBE106C227FEA09F008AF35B /* InputView.swift */,
-				CBE106C627FEA0BB008AF35B /* Elements */,
-			);
-			path = Input;
-			sourceTree = "<group>";
-		};
-		CBE106C627FEA0BB008AF35B /* Elements */ = {
-			isa = PBXGroup;
-			children = (
-				CBE106C727FEA10E008AF35B /* InputButtonElement.swift */,
-				CB82E79B28277043000881BA /* InputConfirmationElement.swift */,
-			);
-			path = Elements;
-			sourceTree = "<group>";
-		};
-		CBE6C1CC280109AB0080CDC8 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				CB4D46DB281BD6BB00B3BF4A /* ParkRunnings.xcdatamodeld */,
-				CBE6C1CD280109C90080CDC8 /* DataController.swift */,
-				CBE6C21C28026ACB0080CDC8 /* EventController.swift */,
-				CB279144281A01C700D2E65E /* LocationController.swift */,
-				CB4D46E6281CDB0300B3BF4A /* MetaController.swift */,
-				CB82E79D28278261000881BA /* RunnerController.swift */,
-				CB4D46F6281D2BC300B3BF4A /* DesignController.swift */,
-				CB37CD5F28684AF100A7AE33 /* SyncController.swift */,
-				CBE6C21628024DEC0080CDC8 /* Models */,
-				CBE6C21B28025A210080CDC8 /* Enums */,
-				CB4D46DE281CD21A00B3BF4A /* Local */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		CBE6C1D0280151880080CDC8 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				CBE6C1D1280151960080CDC8 /* Values.swift */,
-				CBE6C1D5280158A30080CDC8 /* Colour.swift */,
-				CBE6C2CE28039CC60080CDC8 /* View.swift */,
-				CB279148281BA70E00D2E65E /* Codable.swift */,
-				CB4D46F4281D25C800B3BF4A /* Prefix.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		CBE6C21628024DEC0080CDC8 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				CB92052F285194A100C9A693 /* Common */,
-				CBE6C21728024DFE0080CDC8 /* Runner.swift */,
-				CBE6C219280259B80080CDC8 /* Event.swift */,
-				CB4D46E4281CD95D00B3BF4A /* Meta.swift */,
-				CB7483102855EB8D00BB0C48 /* Course.swift */,
-				CBFCB3CD28616D4F004FE1A1 /* CourseImage.swift */,
-				CB54FA69286EA2D1008BA45F /* Sync.swift */,
-				CBA1500C28AA1A3000D5B30D /* State.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		CBE6C21B28025A210080CDC8 /* Enums */ = {
-			isa = PBXGroup;
-			children = (
-				CBE6C1D3280155F40080CDC8 /* Types.swift */,
-				CB8A399D2830DE8B008A7474 /* Errors.swift */,
-			);
-			path = Enums;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CBAE8F0827F7CECE00A66830 /* ParkRunnings */ = {
+		CB40D12B28D5722F00995E8B /* ParkRunnings */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CBAE8F4E27F7CED100A66830 /* Build configuration list for PBXNativeTarget "ParkRunnings" */;
+			buildConfigurationList = CB40D15928D5723000995E8B /* Build configuration list for PBXNativeTarget "ParkRunnings" */;
 			buildPhases = (
-				CBAE8F0727F7CECE00A66830 /* Resources */,
-				CBAE8F4D27F7CED100A66830 /* Embed Watch Content */,
-				CB4D46DF281CD27500B3BF4A /* ShellScript */,
+				CB40D12A28D5722F00995E8B /* Resources */,
+				CB40D15828D5723000995E8B /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				CBAE8F1027F7CECE00A66830 /* PBXTargetDependency */,
+				CB40D13428D5723000995E8B /* PBXTargetDependency */,
 			);
 			name = ParkRunnings;
-			packageProductDependencies = (
-				CBCBB1A428A630C6008CCABB /* SwiftSoup */,
-				CBCBB1A628A630D3008CCABB /* BarcodeKit */,
-			);
-			productName = ParkRun;
-			productReference = CBAE8F0927F7CECE00A66830 /* ParkRunnings.app */;
+			productName = ParkRunnings;
+			productReference = CB40D12C28D5722F00995E8B /* ParkRunnings.app */;
 			productType = "com.apple.product-type.application.watchapp2-container";
 		};
-		CBAE8F0C27F7CECE00A66830 /* ParkRunnings WatchKit App */ = {
+		CB40D13028D5723000995E8B /* ParkRunnings Watch App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CBAE8F4A27F7CED100A66830 /* Build configuration list for PBXNativeTarget "ParkRunnings WatchKit App" */;
+			buildConfigurationList = CB40D15528D5723000995E8B /* Build configuration list for PBXNativeTarget "ParkRunnings Watch App" */;
 			buildPhases = (
-				CBAE8F0B27F7CECE00A66830 /* Resources */,
-				CBAE8F4927F7CED100A66830 /* Embed App Extensions */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CBAE8F1B27F7CED100A66830 /* PBXTargetDependency */,
-			);
-			name = "ParkRunnings WatchKit App";
-			productName = "ParkRun WatchKit App";
-			productReference = CBAE8F0D27F7CECE00A66830 /* ParkRunnings.app */;
-			productType = "com.apple.product-type.application.watchapp2";
-		};
-		CBAE8F1727F7CED100A66830 /* ParkRunnings WatchKit Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CBAE8F4627F7CED100A66830 /* Build configuration list for PBXNativeTarget "ParkRunnings WatchKit Extension" */;
-			buildPhases = (
-				CBAE8F1427F7CED100A66830 /* Sources */,
-				CBAE8F1527F7CED100A66830 /* Frameworks */,
-				CBAE8F1627F7CED100A66830 /* Resources */,
+				CB40D12D28D5723000995E8B /* Sources */,
+				CB40D12E28D5723000995E8B /* Frameworks */,
+				CB40D12F28D5723000995E8B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "ParkRunnings WatchKit Extension";
+			name = "ParkRunnings Watch App";
 			packageProductDependencies = (
-				CBCBB1A728A630EF008CCABB /* SwiftSoup */,
-				CBCBB1A928A630EF008CCABB /* BarcodeKit */,
+				CB0C85BF28D575C80063AAFB /* SwiftSoup */,
+				CB0C85C128D575C80063AAFB /* BarcodeKit */,
 			);
-			productName = "ParkRun WatchKit Extension";
-			productReference = CBAE8F1827F7CED100A66830 /* ParkRunnings WatchKit Extension.appex */;
-			productType = "com.apple.product-type.watchkit2-extension";
+			productName = "ParkRunnings Watch App";
+			productReference = CB40D13128D5723000995E8B /* ParkRunnings Watch App.app */;
+			productType = "com.apple.product-type.application";
 		};
-		CBCBB1B228A64210008CCABB /* ParkRunnings Tests */ = {
+		CB40D14228D5723000995E8B /* ParkRunnings Watch AppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CBCBB1B928A64210008CCABB /* Build configuration list for PBXNativeTarget "ParkRunnings Tests" */;
+			buildConfigurationList = CB40D15C28D5723000995E8B /* Build configuration list for PBXNativeTarget "ParkRunnings Watch AppTests" */;
 			buildPhases = (
-				CBCBB1AF28A64210008CCABB /* Sources */,
-				CBCBB1B028A64210008CCABB /* Frameworks */,
-				CBCBB1B128A64210008CCABB /* Resources */,
+				CB40D13F28D5723000995E8B /* Sources */,
+				CB40D14028D5723000995E8B /* Frameworks */,
+				CB40D14128D5723000995E8B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				CBCBB1B828A64210008CCABB /* PBXTargetDependency */,
+				CB40D14528D5723000995E8B /* PBXTargetDependency */,
 			);
-			name = "ParkRunnings Tests";
-			productName = "ParkRunnings Tests";
-			productReference = CBCBB1B328A64210008CCABB /* ParkRunnings Tests.xctest */;
+			name = "ParkRunnings Watch AppTests";
+			productName = "ParkRunnings Watch AppTests";
+			productReference = CB40D14328D5723000995E8B /* ParkRunnings Watch AppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -575,23 +524,18 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1340;
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
-					CBAE8F0827F7CECE00A66830 = {
-						CreatedOnToolsVersion = 13.3;
-						LastSwiftMigration = 1330;
+					CB40D12B28D5722F00995E8B = {
+						CreatedOnToolsVersion = 14.0;
 					};
-					CBAE8F0C27F7CECE00A66830 = {
-						CreatedOnToolsVersion = 13.3;
-						LastSwiftMigration = 1330;
+					CB40D13028D5723000995E8B = {
+						CreatedOnToolsVersion = 14.0;
 					};
-					CBAE8F1727F7CED100A66830 = {
-						CreatedOnToolsVersion = 13.3;
-					};
-					CBCBB1B228A64210008CCABB = {
-						CreatedOnToolsVersion = 13.4.1;
-						TestTargetID = CBAE8F1727F7CED100A66830;
+					CB40D14228D5723000995E8B = {
+						CreatedOnToolsVersion = 14.0;
+						TestTargetID = CB40D13028D5723000995E8B;
 					};
 				};
 			};
@@ -612,42 +556,34 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CBAE8F0827F7CECE00A66830 /* ParkRunnings */,
-				CBAE8F0C27F7CECE00A66830 /* ParkRunnings WatchKit App */,
-				CBAE8F1727F7CED100A66830 /* ParkRunnings WatchKit Extension */,
-				CBCBB1B228A64210008CCABB /* ParkRunnings Tests */,
+				CB40D12B28D5722F00995E8B /* ParkRunnings */,
+				CB40D13028D5723000995E8B /* ParkRunnings Watch App */,
+				CB40D14228D5723000995E8B /* ParkRunnings Watch AppTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		CBAE8F0727F7CECE00A66830 /* Resources */ = {
+		CB40D12A28D5722F00995E8B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CBAE8F0B27F7CECE00A66830 /* Resources */ = {
+		CB40D12F28D5723000995E8B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBAE8F1327F7CED000A66830 /* Assets.xcassets in Resources */,
+				CB0C85A228D574D60063AAFB /* map.png in Resources */,
+				CB0C85A328D574D60063AAFB /* master.json in Resources */,
+				CB0C858C28D574D60063AAFB /* Assets.xcassets in Resources */,
+				CB0C858D28D574D60063AAFB /* Preview Assets.xcassets in Resources */,
+				CB0C858828D574D60063AAFB /* PushNotificationPayload.apns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CBAE8F1627F7CED100A66830 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CBFCB3D2286173B2004FE1A1 /* map.png in Resources */,
-				CBAE8F2B27F7CED100A66830 /* Preview Assets.xcassets in Resources */,
-				CB9CFEA4285FF8C500002E71 /* master.json in Resources */,
-				CBAE8F2827F7CED100A66830 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CBCBB1B128A64210008CCABB /* Resources */ = {
+		CB40D14128D5723000995E8B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -656,113 +592,228 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		CB4D46DF281CD27500B3BF4A /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 12;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${SRCROOT}/ParkRun\\ WatchKit\\ Extension/Data/Local/master.json",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Download a local copy of the location master file\ncurl https://storage.googleapis.com/parkrun-au/master.json > ${SRCROOT}/ParkRunnings\\ WatchKit\\ Extension/Data/Local/master.json\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		CBAE8F1427F7CED100A66830 /* Sources */ = {
+		CB40D12D28D5723000995E8B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB82E79E28278261000881BA /* RunnerController.swift in Sources */,
-				CBE6C1CE280109C90080CDC8 /* DataController.swift in Sources */,
-				CB1DBAC828506B7B0059025D /* ProgressElements.swift in Sources */,
-				CB279145281A01C700D2E65E /* LocationController.swift in Sources */,
-				CB279149281BA70E00D2E65E /* Codable.swift in Sources */,
-				CBE6C21828024DFE0080CDC8 /* Runner.swift in Sources */,
-				CB4D46FE281E3B6800B3BF4A /* WelcomeView.swift in Sources */,
-				CB37CD6028684AF100A7AE33 /* SyncController.swift in Sources */,
-				CB4D46EA281D179000B3BF4A /* SetupView.swift in Sources */,
-				CB8A39A02830F7EA008A7474 /* ButtonElements.swift in Sources */,
-				CBE6C21D28026ACB0080CDC8 /* EventController.swift in Sources */,
-				CBAE8F2227F7CED100A66830 /* NotificationController.swift in Sources */,
-				CB4D4703281FABFF00B3BF4A /* EventView.swift in Sources */,
-				CBE6C1D6280158A30080CDC8 /* Colour.swift in Sources */,
-				CBE6C2CF28039CC60080CDC8 /* View.swift in Sources */,
-				CBE106BE27FE55F2008AF35B /* BarcodeCardElement.swift in Sources */,
-				CB54FA6A286EA2D1008BA45F /* Sync.swift in Sources */,
-				CBE6C21A280259B80080CDC8 /* Event.swift in Sources */,
-				CBAE8F2027F7CED100A66830 /* MainView.swift in Sources */,
-				CBE106C327FEA09F008AF35B /* InputView.swift in Sources */,
-				CB7483112855EB8D00BB0C48 /* Course.swift in Sources */,
-				CBFCB3CE28616D4F004FE1A1 /* CourseImage.swift in Sources */,
-				CB920531285194C700C9A693 /* Refreshable.swift in Sources */,
-				CBA1500D28AA1A3000D5B30D /* State.swift in Sources */,
-				CBE6C1D2280151960080CDC8 /* Values.swift in Sources */,
-				CB4D46E7281CDB0300B3BF4A /* MetaController.swift in Sources */,
-				CB82E79C28277043000881BA /* InputConfirmationElement.swift in Sources */,
-				CB4D46DD281BD6BB00B3BF4A /* ParkRunnings.xcdatamodeld in Sources */,
-				CB4D46F5281D25C800B3BF4A /* Prefix.swift in Sources */,
-				CB82E7A028288513000881BA /* ProfileElements.swift in Sources */,
-				CB7483072855E2BB00BB0C48 /* MapView.swift in Sources */,
-				CB4D46FC281E397E00B3BF4A /* TextElements.swift in Sources */,
-				CB8A399E2830DE8B008A7474 /* Errors.swift in Sources */,
-				CB4D46F9281DDA0400B3BF4A /* SetupDetailsElement.swift in Sources */,
-				CB9205332851FB2E00C9A693 /* MainProgressElement.swift in Sources */,
-				CBAE8F2627F7CED100A66830 /* ComplicationController.swift in Sources */,
-				CBAE8F1E27F7CED100A66830 /* ParkRunApp.swift in Sources */,
-				CBAE8F2427F7CED100A66830 /* NotificationView.swift in Sources */,
-				CB430A592823DF0B00B7EB8C /* HelpView.swift in Sources */,
-				CBE106C827FEA10E008AF35B /* InputButtonElement.swift in Sources */,
-				CB4D46EF281D1A8300B3BF4A /* CardElement.swift in Sources */,
-				CB4D46F7281D2BC300B3BF4A /* DesignController.swift in Sources */,
-				CBE6C1D4280155F40080CDC8 /* Types.swift in Sources */,
-				CB430A5628237F4A00B7EB8C /* EventListElement.swift in Sources */,
-				CB4D46E5281CD95D00B3BF4A /* Meta.swift in Sources */,
-				CBE106B527FE5405008AF35B /* BarcodeView.swift in Sources */,
-				CB4D4706281FB04C00B3BF4A /* EventLocationElement.swift in Sources */,
-				CB4D4700281EA1FF00B3BF4A /* GeneralElements.swift in Sources */,
+				CB0C858F28D574D60063AAFB /* Colour.swift in Sources */,
+				CB0C85B728D574D60063AAFB /* MainProgressElement.swift in Sources */,
+				CB0C859D28D574D60063AAFB /* Runner.swift in Sources */,
+				CB0C85B328D574D60063AAFB /* ButtonElements.swift in Sources */,
+				CB0C859628D574D60063AAFB /* DataController.swift in Sources */,
+				CB0C859E28D574D60063AAFB /* State.swift in Sources */,
+				CB0C85BA28D574D60063AAFB /* EventLocationElement.swift in Sources */,
+				CB0C85A928D574D60063AAFB /* InputConfirmationElement.swift in Sources */,
+				CB0C85B128D574D60063AAFB /* ProgressElements.swift in Sources */,
+				CB0C858E28D574D60063AAFB /* View.swift in Sources */,
+				CB0C859928D574D60063AAFB /* Types.swift in Sources */,
+				CB0C859F28D574D60063AAFB /* Refreshable.swift in Sources */,
+				CB0C85A428D574D60063AAFB /* DesignController.swift in Sources */,
+				CB0C85BC28D574D60063AAFB /* HelpView.swift in Sources */,
+				CB0C85A628D574D60063AAFB /* SyncController.swift in Sources */,
+				CB0C85AB28D574D60063AAFB /* SetupView.swift in Sources */,
+				CB0C859728D574D60063AAFB /* ParkRunnings.xcdatamodeld in Sources */,
+				CB0C85A728D574D60063AAFB /* MetaController.swift in Sources */,
+				CB0C859028D574D60063AAFB /* Codable.swift in Sources */,
+				CB0C858B28D574D60063AAFB /* ParkRunApp.swift in Sources */,
+				CB0C85B428D574D60063AAFB /* MapView.swift in Sources */,
+				CB0C85B528D574D60063AAFB /* BarcodeCardElement.swift in Sources */,
+				CB0C85B228D574D60063AAFB /* ProfileElements.swift in Sources */,
+				CB0C859828D574D60063AAFB /* Errors.swift in Sources */,
+				CB0C859C28D574D60063AAFB /* Meta.swift in Sources */,
+				CB0C85BB28D574D60063AAFB /* EventListElement.swift in Sources */,
+				CB0C85A028D574D60063AAFB /* Course.swift in Sources */,
+				CB0C859B28D574D60063AAFB /* Sync.swift in Sources */,
+				CB0C859A28D574D60063AAFB /* Event.swift in Sources */,
+				CB0C85A128D574D60063AAFB /* CourseImage.swift in Sources */,
+				CB0C85AC28D574D60063AAFB /* SetupDetailsElement.swift in Sources */,
+				CB0C85AF28D574D60063AAFB /* TextElements.swift in Sources */,
+				CB0C85B828D574D60063AAFB /* MainView.swift in Sources */,
+				CB0C85A528D574D60063AAFB /* EventController.swift in Sources */,
+				CB0C85B628D574D60063AAFB /* BarcodeView.swift in Sources */,
+				CB0C85B028D574D60063AAFB /* CardElement.swift in Sources */,
+				CB0C859128D574D60063AAFB /* Prefix.swift in Sources */,
+				CB0C858A28D574D60063AAFB /* NotificationController.swift in Sources */,
+				CB0C858928D574D60063AAFB /* ComplicationController.swift in Sources */,
+				CB0C859228D574D60063AAFB /* Values.swift in Sources */,
+				CB0C859428D574D60063AAFB /* LocationController.swift in Sources */,
+				CB0C85AD28D574D60063AAFB /* WelcomeView.swift in Sources */,
+				CB0C85B928D574D60063AAFB /* EventView.swift in Sources */,
+				CB0C85A828D574D60063AAFB /* InputButtonElement.swift in Sources */,
+				CB0C85AA28D574D60063AAFB /* InputView.swift in Sources */,
+				CB0C859528D574D60063AAFB /* RunnerController.swift in Sources */,
+				CB0C859328D574D60063AAFB /* NotificationView.swift in Sources */,
+				CB0C85AE28D574D60063AAFB /* GeneralElements.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CBCBB1AF28A64210008CCABB /* Sources */ = {
+		CB40D13F28D5723000995E8B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBCBB1BD28A642D5008CCABB /* RunnerController_Tests.swift in Sources */,
+				CB40D14828D5723000995E8B /* RunnerController_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		CBAE8F1027F7CECE00A66830 /* PBXTargetDependency */ = {
+		CB40D13428D5723000995E8B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CBAE8F0C27F7CECE00A66830 /* ParkRunnings WatchKit App */;
-			targetProxy = CBAE8F0F27F7CECE00A66830 /* PBXContainerItemProxy */;
+			target = CB40D13028D5723000995E8B /* ParkRunnings Watch App */;
+			targetProxy = CB40D13328D5723000995E8B /* PBXContainerItemProxy */;
 		};
-		CBAE8F1B27F7CED100A66830 /* PBXTargetDependency */ = {
+		CB40D14528D5723000995E8B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CBAE8F1727F7CED100A66830 /* ParkRunnings WatchKit Extension */;
-			targetProxy = CBAE8F1A27F7CED100A66830 /* PBXContainerItemProxy */;
-		};
-		CBCBB1B828A64210008CCABB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CBAE8F1727F7CED100A66830 /* ParkRunnings WatchKit Extension */;
-			targetProxy = CBCBB1B728A64210008CCABB /* PBXContainerItemProxy */;
+			target = CB40D13028D5723000995E8B /* ParkRunnings Watch App */;
+			targetProxy = CB40D14428D5723000995E8B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		CB40D15628D5723000995E8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 11;
+				DEVELOPMENT_ASSET_PATHS = "\"ParkRunnings Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = JW5G6WB9V7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ParkRunnings-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = ParkRunnings;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Used to find nearby ParkRun events";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = schacher.ParkRunnings.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.4;
+			};
+			name = Debug;
+		};
+		CB40D15728D5723000995E8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 11;
+				DEVELOPMENT_ASSET_PATHS = "\"ParkRunnings Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = JW5G6WB9V7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ParkRunnings-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = ParkRunnings;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Used to find nearby ParkRun events";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = schacher.ParkRunnings.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.4;
+			};
+			name = Release;
+		};
+		CB40D15A28D5723000995E8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JW5G6WB9V7;
+				INFOPLIST_KEY_CFBundleDisplayName = ParkRunnings;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = schacher.ParkRunnings;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		CB40D15B28D5723000995E8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JW5G6WB9V7;
+				INFOPLIST_KEY_CFBundleDisplayName = ParkRunnings;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = schacher.ParkRunnings;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		CB40D15D28D5723000995E8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JW5G6WB9V7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "schacher.ParkRunnings-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParkRunnings Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ParkRunnings Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 8.4;
+			};
+			name = Debug;
+		};
+		CB40D15E28D5723000995E8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JW5G6WB9V7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "schacher.ParkRunnings-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParkRunnings Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ParkRunnings Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 8.4;
+			};
+			name = Release;
+		};
 		CBAE8F4427F7CED100A66830 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -875,262 +926,41 @@
 			};
 			name = Release;
 		};
-		CBAE8F4727F7CED100A66830 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
-				DEVELOPMENT_ASSET_PATHS = "\"ParkRunnings WatchKit Extension/Preview Content\"";
-				DEVELOPMENT_TEAM = JW5G6WB9V7;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "ParkRunnings WatchKit Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = ParkRunnings;
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = ParkRunnings_WatchKit_Extension.ComplicationController;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "For finding nearby events";
-				INFOPLIST_KEY_WKWatchOnly = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = schacher.ParkRunnings.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.5;
-			};
-			name = Debug;
-		};
-		CBAE8F4827F7CED100A66830 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
-				DEVELOPMENT_ASSET_PATHS = "\"ParkRunnings WatchKit Extension/Preview Content\"";
-				DEVELOPMENT_TEAM = JW5G6WB9V7;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "ParkRunnings WatchKit Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = ParkRunnings;
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = ParkRunnings_WatchKit_Extension.ComplicationController;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "For finding nearby events";
-				INFOPLIST_KEY_WKWatchOnly = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = schacher.ParkRunnings.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.5;
-			};
-			name = Release;
-		};
-		CBAE8F4B27F7CED100A66830 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
-				DEVELOPMENT_TEAM = JW5G6WB9V7;
-				GENERATE_INFOPLIST_FILE = YES;
-				IBSC_MODULE = ParkRun_WatchKit_Extension;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "For finding nearby events";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MARKETING_VERSION = 0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = schacher.ParkRunnings.watchkitapp;
-				PRODUCT_NAME = ParkRunnings;
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "ParkRun WatchKit Extension/Views/Title/ParkRun WatchKit App-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.5;
-			};
-			name = Debug;
-		};
-		CBAE8F4C27F7CED100A66830 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
-				DEVELOPMENT_TEAM = JW5G6WB9V7;
-				GENERATE_INFOPLIST_FILE = YES;
-				IBSC_MODULE = ParkRun_WatchKit_Extension;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "For finding nearby events";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MARKETING_VERSION = 0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = schacher.ParkRunnings.watchkitapp;
-				PRODUCT_NAME = ParkRunnings;
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "ParkRun WatchKit Extension/Views/Title/ParkRun WatchKit App-Bridging-Header.h";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.5;
-			};
-			name = Release;
-		};
-		CBAE8F4F27F7CED100A66830 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
-				DEVELOPMENT_TEAM = JW5G6WB9V7;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = schacher.ParkRunnings;
-				PRODUCT_NAME = ParkRunnings;
-				SWIFT_OBJC_BRIDGING_HEADER = "ParkRun WatchKit Extension/Views/Title/ParkRun-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		CBAE8F5027F7CED100A66830 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
-				DEVELOPMENT_TEAM = JW5G6WB9V7;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = schacher.ParkRunnings;
-				PRODUCT_NAME = ParkRunnings;
-				SWIFT_OBJC_BRIDGING_HEADER = "ParkRun WatchKit Extension/Views/Title/ParkRun-Bridging-Header.h";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		CBCBB1BA28A64210008CCABB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = JW5G6WB9V7;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "schacher.ParkRunnings-Tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParkRunnings WatchKit Extension.appex/ParkRunnings WatchKit Extension";
-				WATCHOS_DEPLOYMENT_TARGET = 8.5;
-			};
-			name = Debug;
-		};
-		CBCBB1BB28A64210008CCABB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = JW5G6WB9V7;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "schacher.ParkRunnings-Tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParkRunnings WatchKit Extension.appex/ParkRunnings WatchKit Extension";
-				WATCHOS_DEPLOYMENT_TARGET = 8.5;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CB40D15528D5723000995E8B /* Build configuration list for PBXNativeTarget "ParkRunnings Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB40D15628D5723000995E8B /* Debug */,
+				CB40D15728D5723000995E8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB40D15928D5723000995E8B /* Build configuration list for PBXNativeTarget "ParkRunnings" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB40D15A28D5723000995E8B /* Debug */,
+				CB40D15B28D5723000995E8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB40D15C28D5723000995E8B /* Build configuration list for PBXNativeTarget "ParkRunnings Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB40D15D28D5723000995E8B /* Debug */,
+				CB40D15E28D5723000995E8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CBAE8F0627F7CECE00A66830 /* Build configuration list for PBXProject "ParkRunnings" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CBAE8F4427F7CED100A66830 /* Debug */,
 				CBAE8F4527F7CED100A66830 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CBAE8F4627F7CED100A66830 /* Build configuration list for PBXNativeTarget "ParkRunnings WatchKit Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CBAE8F4727F7CED100A66830 /* Debug */,
-				CBAE8F4827F7CED100A66830 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CBAE8F4A27F7CED100A66830 /* Build configuration list for PBXNativeTarget "ParkRunnings WatchKit App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CBAE8F4B27F7CED100A66830 /* Debug */,
-				CBAE8F4C27F7CED100A66830 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CBAE8F4E27F7CED100A66830 /* Build configuration list for PBXNativeTarget "ParkRunnings" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CBAE8F4F27F7CED100A66830 /* Debug */,
-				CBAE8F5027F7CED100A66830 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CBCBB1B928A64210008CCABB /* Build configuration list for PBXNativeTarget "ParkRunnings Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CBCBB1BA28A64210008CCABB /* Debug */,
-				CBCBB1BB28A64210008CCABB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1157,22 +987,12 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CBCBB1A428A630C6008CCABB /* SwiftSoup */ = {
+		CB0C85BF28D575C80063AAFB /* SwiftSoup */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CBCBB1A328A630C6008CCABB /* XCRemoteSwiftPackageReference "SwiftSoup" */;
 			productName = SwiftSoup;
 		};
-		CBCBB1A628A630D3008CCABB /* BarcodeKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CBCBB1A528A630D3008CCABB /* XCRemoteSwiftPackageReference "BarcodeKit" */;
-			productName = BarcodeKit;
-		};
-		CBCBB1A728A630EF008CCABB /* SwiftSoup */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CBCBB1A328A630C6008CCABB /* XCRemoteSwiftPackageReference "SwiftSoup" */;
-			productName = SwiftSoup;
-		};
-		CBCBB1A928A630EF008CCABB /* BarcodeKit */ = {
+		CB0C85C128D575C80063AAFB /* BarcodeKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CBCBB1A528A630D3008CCABB /* XCRemoteSwiftPackageReference "BarcodeKit" */;
 			productName = BarcodeKit;
@@ -1180,12 +1000,12 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		CB4D46DB281BD6BB00B3BF4A /* ParkRunnings.xcdatamodeld */ = {
+		CB0C854C28D574D60063AAFB /* ParkRunnings.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				CB4D46DC281BD6BB00B3BF4A /* Data.xcdatamodel */,
+				CB0C854D28D574D60063AAFB /* Data.xcdatamodel */,
 			);
-			currentVersion = CB4D46DC281BD6BB00B3BF4A /* Data.xcdatamodel */;
+			currentVersion = CB0C854D28D574D60063AAFB /* Data.xcdatamodel */;
 			path = ParkRunnings.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
