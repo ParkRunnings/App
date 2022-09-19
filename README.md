@@ -8,4 +8,4 @@ ParkRunnings is not affiliated with either ParkRun or ❄️🇯🇲 [Cool Runni
 
 ---
 
-[Website](https://letterboxd.com/film/cool-runnings/)
+[Website](https://schacher.dev/park-runnings/)
