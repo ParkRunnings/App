@@ -242,6 +242,7 @@ struct TitleElement: View {
 }
 
 struct TextElements_Previews: PreviewProvider {
+    
     static var previews: some View {
         
         ProgressTextElement(text: "SAT 04")

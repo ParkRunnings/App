@@ -63,8 +63,14 @@ struct MainDistanceProgress: View {
 }
 
 struct MainProgressElement_Previews: PreviewProvider {
+    
+    static let design = DesignController()
+    
     static var previews: some View {
-        MainTimeProgress(progress: .constant(0.73), start: .constant("08:30"))
+        MainTimeProgress(progress: .constant(1.0), start: .constant("08:30"))
+            .environmentObject(design)
         MainDistanceProgress(progress: .constant(0.1), distance: .constant("14.2"))
+            .environmentObject(design)
     }
+    
 }

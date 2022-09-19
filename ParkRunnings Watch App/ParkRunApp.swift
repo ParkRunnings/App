@@ -8,16 +8,6 @@
 import SwiftUI
 import UIKit
 
-//@main
-//struct ParkRunnings_Watch_AppApp: App {
-//    var body: some Scene {
-//        WindowGroup {
-//            ContentView()
-//        }
-//    }
-//}
-
-
 @main
 struct ParkRunApp: App {
     
@@ -57,7 +47,6 @@ struct ParkRunApp: App {
              
         })
 
-        WKNotificationScene(controller: NotificationController.self, category: "myCategory")
     }
     
 }

@@ -32,8 +32,6 @@ struct ProgressCircleElement: View {
 
     }
     
-//    var colour: Colour = Colour(hex: "#E62E6B") Colour(hex: "#BD1F4E")
-    
     var body: some View {
    
         ZStack(alignment: .center, content: {

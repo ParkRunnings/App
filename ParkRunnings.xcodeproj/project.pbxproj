@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CB0C858828D574D60063AAFB /* PushNotificationPayload.apns in Resources */ = {isa = PBXBuildFile; fileRef = CB0C853A28D574D60063AAFB /* PushNotificationPayload.apns */; };
-		CB0C858928D574D60063AAFB /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C853B28D574D60063AAFB /* ComplicationController.swift */; };
-		CB0C858A28D574D60063AAFB /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C853C28D574D60063AAFB /* NotificationController.swift */; };
 		CB0C858B28D574D60063AAFB /* ParkRunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C853D28D574D60063AAFB /* ParkRunApp.swift */; };
 		CB0C858C28D574D60063AAFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB0C853E28D574D60063AAFB /* Assets.xcassets */; };
 		CB0C858D28D574D60063AAFB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB0C854028D574D60063AAFB /* Preview Assets.xcassets */; };
@@ -18,7 +15,6 @@
 		CB0C859028D574D60063AAFB /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C854428D574D60063AAFB /* Codable.swift */; };
 		CB0C859128D574D60063AAFB /* Prefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C854528D574D60063AAFB /* Prefix.swift */; };
 		CB0C859228D574D60063AAFB /* Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C854628D574D60063AAFB /* Values.swift */; };
-		CB0C859328D574D60063AAFB /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C854728D574D60063AAFB /* NotificationView.swift */; };
 		CB0C859428D574D60063AAFB /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C854928D574D60063AAFB /* LocationController.swift */; };
 		CB0C859528D574D60063AAFB /* RunnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C854A28D574D60063AAFB /* RunnerController.swift */; };
 		CB0C859628D574D60063AAFB /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C854B28D574D60063AAFB /* DataController.swift */; };
@@ -98,9 +94,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		CB0C853A28D574D60063AAFB /* PushNotificationPayload.apns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		CB0C853B28D574D60063AAFB /* ComplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
-		CB0C853C28D574D60063AAFB /* NotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		CB0C853D28D574D60063AAFB /* ParkRunApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkRunApp.swift; sourceTree = "<group>"; };
 		CB0C853E28D574D60063AAFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB0C854028D574D60063AAFB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -109,7 +102,6 @@
 		CB0C854428D574D60063AAFB /* Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
 		CB0C854528D574D60063AAFB /* Prefix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prefix.swift; sourceTree = "<group>"; };
 		CB0C854628D574D60063AAFB /* Values.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Values.swift; sourceTree = "<group>"; };
-		CB0C854728D574D60063AAFB /* NotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		CB0C854928D574D60063AAFB /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		CB0C854A28D574D60063AAFB /* RunnerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunnerController.swift; sourceTree = "<group>"; };
 		CB0C854B28D574D60063AAFB /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
@@ -151,7 +143,7 @@
 		CB0C858328D574D60063AAFB /* EventLocationElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventLocationElement.swift; sourceTree = "<group>"; };
 		CB0C858428D574D60063AAFB /* EventListElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListElement.swift; sourceTree = "<group>"; };
 		CB0C858628D574D60063AAFB /* HelpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
-		CB0C85C528D593780063AAFB /* ParkRunnings-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "ParkRunnings-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		CB0C865E28D85F530063AAFB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		CB40D12C28D5722F00995E8B /* ParkRunnings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkRunnings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB40D13128D5723000995E8B /* ParkRunnings Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ParkRunnings Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB40D14328D5723000995E8B /* ParkRunnings Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ParkRunnings Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,12 +173,7 @@
 		CB0C853928D574D60063AAFB /* ParkRunnings Watch App */ = {
 			isa = PBXGroup;
 			children = (
-				CB0C85C528D593780063AAFB /* ParkRunnings-Watch-App-Info.plist */,
-				CB0C853A28D574D60063AAFB /* PushNotificationPayload.apns */,
-				CB0C853B28D574D60063AAFB /* ComplicationController.swift */,
-				CB0C853C28D574D60063AAFB /* NotificationController.swift */,
 				CB0C853D28D574D60063AAFB /* ParkRunApp.swift */,
-				CB0C854728D574D60063AAFB /* NotificationView.swift */,
 				CB0C853E28D574D60063AAFB /* Assets.xcassets */,
 				CB0C853F28D574D60063AAFB /* Preview Content */,
 				CB0C854828D574D60063AAFB /* Data */,
@@ -438,6 +425,7 @@
 				CB40D14628D5723000995E8B /* ParkRunnings Watch AppTests */,
 				CBAE8F0A27F7CECE00A66830 /* Products */,
 				CBE106AD27FD575B008AF35B /* Frameworks */,
+				CB0C865E28D85F530063AAFB /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -579,7 +567,6 @@
 				CB0C85A328D574D60063AAFB /* master.json in Resources */,
 				CB0C858C28D574D60063AAFB /* Assets.xcassets in Resources */,
 				CB0C858D28D574D60063AAFB /* Preview Assets.xcassets in Resources */,
-				CB0C858828D574D60063AAFB /* PushNotificationPayload.apns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,8 +621,6 @@
 				CB0C85B628D574D60063AAFB /* BarcodeView.swift in Sources */,
 				CB0C85B028D574D60063AAFB /* CardElement.swift in Sources */,
 				CB0C859128D574D60063AAFB /* Prefix.swift in Sources */,
-				CB0C858A28D574D60063AAFB /* NotificationController.swift in Sources */,
-				CB0C858928D574D60063AAFB /* ComplicationController.swift in Sources */,
 				CB0C859228D574D60063AAFB /* Values.swift in Sources */,
 				CB0C859428D574D60063AAFB /* LocationController.swift in Sources */,
 				CB0C85AD28D574D60063AAFB /* WelcomeView.swift in Sources */,
@@ -643,7 +628,6 @@
 				CB0C85A828D574D60063AAFB /* InputButtonElement.swift in Sources */,
 				CB0C85AA28D574D60063AAFB /* InputView.swift in Sources */,
 				CB0C859528D574D60063AAFB /* RunnerController.swift in Sources */,
-				CB0C859328D574D60063AAFB /* NotificationView.swift in Sources */,
 				CB0C85AE28D574D60063AAFB /* GeneralElements.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
