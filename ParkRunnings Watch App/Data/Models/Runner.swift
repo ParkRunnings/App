@@ -10,7 +10,7 @@ import CoreData
 import SwiftSoup
 
 @objc(Runner)
-public class Runner: NSManagedObject, Identifiable, Decodable {
+public class Runner: NSManagedObject, Identifiable {
 
     @NSManaged public var number: String
     @NSManaged public var name: String?
@@ -19,6 +19,7 @@ public class Runner: NSManagedObject, Identifiable, Decodable {
     @NSManaged public var error: String?
     @NSManaged public var created: Date
     @NSManaged public var refreshed: Date?
+    @NSManaged public var results: Array<Run>
     
     var a_number: String { get { return "A\(number)" }}
     var display_name: String { get { return name ?? "Unknown Runner" }}
@@ -26,10 +27,6 @@ public class Runner: NSManagedObject, Identifiable, Decodable {
     var display_fastest: String { get { return fastest ?? "-" }}
     
     static private let CoreName = "Runner"
-    
-    enum CodingKeys: CodingKey {
-        case number, name, fastest, runs, error
-    }
     
     public init(
         context: NSManagedObjectContext,
@@ -39,7 +36,8 @@ public class Runner: NSManagedObject, Identifiable, Decodable {
         fastest: String?,
         error: String?,
         created: Date,
-        refreshed: Date?
+        refreshed: Date?,
+        results: Array<Run>
     ) {
         
         let entity = NSEntityDescription.entity(forEntityName: Runner.CoreName, in: context)!
@@ -52,35 +50,10 @@ public class Runner: NSManagedObject, Identifiable, Decodable {
         self.error = error
         self.created = created
         self.refreshed = refreshed
+        self.results = results
         
     }
 
-    required convenience public init(from decoder: Decoder) throws {
-        
-        guard let container = try? decoder.container(keyedBy: CodingKeys.self) else {
-            fatalError()
-        }
-        
-        let number = try container.decode(String.self, forKey: .number)
-        
-        let context = decoder.userInfo[CodingUserInfoKey.context] as! NSManagedObjectContext
-        let existing = Runner.fetch(context: context, number: number)
-        
-        self.init(
-            context: context,
-            number: number,
-            name: (try? container.decode(String.self, forKey: .name)) ?? existing?.name,
-            runs: (try? container.decode(String.self, forKey: .runs)) ?? existing?.runs,
-            fastest: (try? container.decode(String.self, forKey: .fastest)) ?? existing?.fastest,
-            error: try? container.decode(String.self, forKey: .error),
-            created: existing?.created ?? Date.now,
-            refreshed: Date.now
-        )
-        
-    }
-    
-    
-    
     convenience public init(context: NSManagedObjectContext, number: String, html: String) throws {
         
         let existing = Runner.fetch(context: context, number: number)
@@ -90,6 +63,7 @@ public class Runner: NSManagedObject, Identifiable, Decodable {
         var runs: String?
         var fastest: String?
         var scrape_error: String?
+        var results: Array<Run> = []
         
         do {
             
@@ -111,6 +85,46 @@ public class Runner: NSManagedObject, Identifiable, Decodable {
                 fastest = raw_fastest
             }
             
+            if let raw_tables = try? soup.select("table"),
+               let raw_table = raw_tables.filter({ (try? $0.select("caption").text().strip()) ?? "" == "All Results" }).first,
+               let raw_header = try? raw_table.select("thead").first()?.select("tr").first(),
+               let date_index = try? raw_header.select("th").map({ try? $0.text().strip() }).firstIndex(of: "Run Date"),
+               let event_index = try? raw_header.select("th").map({ try? $0.text().strip() }).firstIndex(of: "Event"),
+               let position_index = try? raw_header.select("th").map({ try? $0.text().strip() }).firstIndex(of: "Pos"),
+               let time_index = try? raw_header.select("th").map({ try? $0.text().strip() }).firstIndex(of: "Time"),
+               let raw_rows = try? raw_table.select("tbody").select("tr") {
+                
+                let formatter = DateFormatter()
+                formatter.dateFormat = "dd/mm/yyyy"
+                
+                for row in raw_rows {
+                   
+                    if let elements = try? row.select("td"),
+                       let date = try? formatter.date(from: elements[date_index].text().strip()),
+                       let event = try? elements[event_index].text().strip(),
+                       let raw_position = try? elements[position_index].text().strip(),
+                       let position = Int16(raw_position),
+                       let components = try? elements[time_index].text().strip().split(separator: ":").map({ Int($0)! })
+                    {
+                     
+                        let hours: Int = components.count == 3 ? components[0] : 0
+                        let minutes: Int = components[1]
+                        let seconds: Int = components[2]
+                        
+                        results.append(Run(
+                            context: context,
+                            date: date,
+                            event: event,
+                            position: position,
+                            time: Int16((hours * 3600) + (minutes * 60) + (seconds))
+                        ))
+                        
+                    }
+                    
+                }
+                
+            }
+            
         } catch {
             scrape_error = "A scraping error occured."
         }
@@ -123,7 +137,8 @@ public class Runner: NSManagedObject, Identifiable, Decodable {
             fastest: fastest ?? existing?.fastest,
             error: scrape_error,
             created: existing?.created ?? Date.now,
-            refreshed: Date.now
+            refreshed: Date.now,
+            results: results
         )
         
     }
@@ -140,7 +155,8 @@ public class Runner: NSManagedObject, Identifiable, Decodable {
             fastest: existing?.fastest,
             error: error,
             created: existing?.created ?? Date.now,
-            refreshed: existing?.refreshed
+            refreshed: existing?.refreshed,
+            results: existing?.results ?? []
         )
         
     }

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		CB0C858B28D574D60063AAFB /* ParkRunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C853D28D574D60063AAFB /* ParkRunApp.swift */; };
 		CB0C858C28D574D60063AAFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB0C853E28D574D60063AAFB /* Assets.xcassets */; };
-		CB0C858D28D574D60063AAFB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB0C854028D574D60063AAFB /* Preview Assets.xcassets */; };
 		CB0C858E28D574D60063AAFB /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C854228D574D60063AAFB /* View.swift */; };
 		CB0C858F28D574D60063AAFB /* Colour.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C854328D574D60063AAFB /* Colour.swift */; };
 		CB0C859028D574D60063AAFB /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C854428D574D60063AAFB /* Codable.swift */; };
@@ -60,6 +59,7 @@
 		CB0C85C228D575C80063AAFB /* BarcodeKit in Frameworks */ = {isa = PBXBuildFile; productRef = CB0C85C128D575C80063AAFB /* BarcodeKit */; };
 		CB40D13228D5723000995E8B /* ParkRunnings Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CB40D13128D5723000995E8B /* ParkRunnings Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CB40D14828D5723000995E8B /* RunnerController_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB40D14728D5723000995E8B /* RunnerController_Tests.swift */; };
+		CBC5F53C28EFCE4E009AA969 /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC5F53B28EFCE4E009AA969 /* Run.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,7 +96,6 @@
 /* Begin PBXFileReference section */
 		CB0C853D28D574D60063AAFB /* ParkRunApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkRunApp.swift; sourceTree = "<group>"; };
 		CB0C853E28D574D60063AAFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CB0C854028D574D60063AAFB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CB0C854228D574D60063AAFB /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		CB0C854328D574D60063AAFB /* Colour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colour.swift; sourceTree = "<group>"; };
 		CB0C854428D574D60063AAFB /* Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
@@ -148,6 +147,7 @@
 		CB40D13128D5723000995E8B /* ParkRunnings Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ParkRunnings Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB40D14328D5723000995E8B /* ParkRunnings Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ParkRunnings Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB40D14728D5723000995E8B /* RunnerController_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerController_Tests.swift; sourceTree = "<group>"; };
+		CBC5F53B28EFCE4E009AA969 /* Run.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,20 +175,12 @@
 			children = (
 				CB0C853D28D574D60063AAFB /* ParkRunApp.swift */,
 				CB0C853E28D574D60063AAFB /* Assets.xcassets */,
-				CB0C853F28D574D60063AAFB /* Preview Content */,
 				CB0C854828D574D60063AAFB /* Data */,
 				CB0C854128D574D60063AAFB /* Extensions */,
 				CB0C856228D574D60063AAFB /* Views */,
+				CBC5F53F28F1547F009AA969 /* Preview Content */,
 			);
 			path = "ParkRunnings Watch App";
-			sourceTree = "<group>";
-		};
-		CB0C853F28D574D60063AAFB /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				CB0C854028D574D60063AAFB /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		CB0C854128D574D60063AAFB /* Extensions */ = {
@@ -233,14 +225,15 @@
 		CB0C855128D574D60063AAFB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CB0C855728D574D60063AAFB /* Common */,
 				CB0C855228D574D60063AAFB /* Event.swift */,
 				CB0C855328D574D60063AAFB /* Sync.swift */,
 				CB0C855428D574D60063AAFB /* Meta.swift */,
-				CB0C855528D574D60063AAFB /* Runner.swift */,
 				CB0C855628D574D60063AAFB /* State.swift */,
-				CB0C855728D574D60063AAFB /* Common */,
 				CB0C855928D574D60063AAFB /* Course.swift */,
 				CB0C855A28D574D60063AAFB /* CourseImage.swift */,
+				CB0C855528D574D60063AAFB /* Runner.swift */,
+				CBC5F53B28EFCE4E009AA969 /* Run.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -439,6 +432,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		CBC5F53F28F1547F009AA969 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		CBE106AD27FD575B008AF35B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -566,7 +566,6 @@
 				CB0C85A228D574D60063AAFB /* map.png in Resources */,
 				CB0C85A328D574D60063AAFB /* master.json in Resources */,
 				CB0C858C28D574D60063AAFB /* Assets.xcassets in Resources */,
-				CB0C858D28D574D60063AAFB /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,6 +619,7 @@
 				CB0C85A528D574D60063AAFB /* EventController.swift in Sources */,
 				CB0C85B628D574D60063AAFB /* BarcodeView.swift in Sources */,
 				CB0C85B028D574D60063AAFB /* CardElement.swift in Sources */,
+				CBC5F53C28EFCE4E009AA969 /* Run.swift in Sources */,
 				CB0C859128D574D60063AAFB /* Prefix.swift in Sources */,
 				CB0C859228D574D60063AAFB /* Values.swift in Sources */,
 				CB0C859428D574D60063AAFB /* LocationController.swift in Sources */,
@@ -663,16 +663,19 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
+				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
 				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "\"ParkRunnings Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
+				DONT_GENERATE_INFOPLIST_FILE = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "ParkRunnings-Watch-App-Info.plist";
+				INFOPLIST_FILE = Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ParkRunnings;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Used to find nearby ParkRun events";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
+				INFOPLIST_PREPROCESS = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -696,16 +699,19 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
+				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
 				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "\"ParkRunnings Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
+				DONT_GENERATE_INFOPLIST_FILE = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "ParkRunnings-Watch-App-Info.plist";
+				INFOPLIST_FILE = Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ParkRunnings;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Used to find nearby ParkRun events";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
+				INFOPLIST_PREPROCESS = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -728,9 +734,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
+				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
+				DONT_GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ParkRunnings;
+				INFOPLIST_PREPROCESS = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = schacher.ParkRunnings;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -744,9 +754,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
+				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
+				DONT_GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ParkRunnings;
+				INFOPLIST_PREPROCESS = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = schacher.ParkRunnings;
 				PRODUCT_NAME = "$(TARGET_NAME)";

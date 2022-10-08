@@ -95,7 +95,7 @@ struct InputConfirmationElement_Previews: PreviewProvider {
     static var previews: some View {
         
         InputConfirmationElement(
-            runner: .constant(Runner(context: DataController.shared.container.viewContext, number: "12345", name: "Charles Schacher", runs: "12", fastest: "23:55", error: nil, created: Date.now, refreshed: Date.now)),
+            runner: .constant(Runner(context: DataController.shared.container.viewContext, number: "12345", name: "Charles Schacher", runs: "12", fastest: "23:55", error: nil, created: Date.now, refreshed: Date.now, results: [])),
             nav_confirmation: .constant(true)
         )
         
