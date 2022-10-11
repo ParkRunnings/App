@@ -23,7 +23,7 @@ struct MainView: View {
     @State private var nav_barcode: Bool = false
     @State private var nav_event: Bool = false
     @State private var nav_map: Bool = false
-    
+    @State private var nav_stats: Bool = false
     
     var body: some View {
         
@@ -70,6 +70,12 @@ struct MainView: View {
                     .padding(.bottom, 4)
                 
             }
+            
+            ButtonNavigation(active: $nav_stats, button: {
+                CardTall(title: "View Stats", symbol: "chart.line.uptrend.xyaxis", colour: Colour(hex: "#20222D"))
+            }, destination: { StatsView() })
+                .simultaneousGesture(TapGesture().onEnded({ nav_stats = true }))
+                .padding(.bottom, 4)
             
             if let coordinates = event.coordinates {
                 

@@ -25,8 +25,8 @@ struct InputConfirmationElement: View {
                 
                 List(content: {
                     
-                    VStack(alignment: .leading, spacing: 2, content: {
-                       
+                    VStack(alignment: .leading, spacing: 6, content: {
+                        
                         AthleteNameTextElement(text: runner.display_name)
                             .padding(.trailing, 6)
                         
@@ -40,16 +40,16 @@ struct InputConfirmationElement: View {
                     if let error = runner.error {
                         SubtitleTextElement(text: error + "\n\nWe were not able to find this runner. Add anyway?")
                             .padding(.bottom, 10)
-                    } else {
-                        VStack(alignment: .leading, spacing: 3, content: {
-                            
-                            ProfileStat(stat: "Runs", value: runner.display_runs)
-                            ProfileStat(stat: "Fastest", value: runner.display_fastest)
-                            
-                        })
-                        .padding(.trailing, 10)
-                        .listRowPlatterColor(.clear)
-                        .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                    }
+                    
+                    if let fastest = runner.results_fastest.first {
+                        StatTitleElement(colour: "#45BB70", symbol: "trophy.fill", header: "Fastest", date: fastest.display_date, value: fastest.display_time)
+                            .padding(.bottom, 4)
+                    }
+                    
+                    if let latest = runner.results_sorted.last {
+                        StatTitleElement(colour: "#7145BA", symbol: "figure.run", header: "Runs", date: latest.display_date, value: String(latest.number))
+                            .padding(.bottom, 4)
                     }
                     
                     BarcodeCardElement(number: runner.a_number)
@@ -60,21 +60,21 @@ struct InputConfirmationElement: View {
                 .listStyle(.plain)
                 
                 ListBottomBlur()
-                    .ignoresSafeArea(.all, edges: .bottom)
+                    .ignoresSafeArea(.all, edges: .all)
                     .frame(height: design.size(size: .confirmation_blur_height), alignment: .bottom)
                     .padding(.bottom, design.size(size: .button_bottom_margin))
                 
                 HStack(alignment: .top, spacing: 4, content: {
-
+                    
                     CardHalf(symbol: "trash.circle.fill", colour: Colour(hex: "#CE4F30"))
                         .simultaneousGesture(TapGesture().onEnded({ nav_confirmation = false }))
-
+                    
                     CardHalf(symbol: "person.crop.circle.fill.badge.plus", colour: Colour(hex: "#5BD96F"))
                         .simultaneousGesture(TapGesture().onEnded({
                             meta.update_runner(runner: runner)
                             presentation.wrappedValue.dismiss()
                         }))
-
+                    
                 })
                 
             })
@@ -92,17 +92,22 @@ struct InputConfirmationElement: View {
 }
 
 struct InputConfirmationElement_Previews: PreviewProvider {
+    
+    static let design = DesignController()
+  
     static var previews: some View {
         
         InputConfirmationElement(
-            runner: .constant(Runner(context: DataController.shared.container.viewContext, number: "12345", name: "Charles Schacher", runs: "12", fastest: "23:55", error: nil, created: Date.now, refreshed: Date.now)),
+            runner: .constant(Runner(context: DataController.shared.container.viewContext, number: "12345", name: "Charles Schacher", error: nil, created: Date.now, refreshed: Date.now, results: [])),
             nav_confirmation: .constant(true)
         )
+        .environmentObject(design)
         
         InputConfirmationElement(
             runner: .constant(nil),
             nav_confirmation: .constant(true)
         )
+        .environmentObject(design)
         
     }
 }

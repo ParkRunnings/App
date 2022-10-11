@@ -158,28 +158,26 @@ struct CardMicro: View {
 //}
 
 struct CardElement_Previews: PreviewProvider {
+    
+    static let design = DesignController()
+    
     static var previews: some View {
         
         CardShort(title: "Continue", symbol: "arrow.forward.circle", colour: Colour(hex: "#31D78B"))
-        
-//        CardMedium(title: "Barcode Setup", symbol: "barcode", colour: Colour(hex: "#D1852B"))
+            .environmentObject(design)
         
         CardTall(title: "Location Setup", symbol: "location.circle.fill", colour: Colour(hex: "#531459"))
+            .environmentObject(design)
         
         HStack(alignment: .top, spacing: 4, content: {
             
             CardHalf(symbol: "hand.thumbsdown.fill", colour: Colour(hex: "#D1852B"))
+                .environmentObject(design)
             
             CardHalf(symbol: "hand.thumbsup.fill", colour: Colour(hex: "#4CEB67"))
+                .environmentObject(design)
             
         })
-        
-//        let cards = CardType.all()
-//
-//        ForEach(0 ..< cards.count, id: \.self, content: { index in
-//            let type = cards[index]
-//            CardElement(type: type)
-//        })
         
     }
 }

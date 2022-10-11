@@ -241,25 +241,82 @@ struct TitleElement: View {
     
 }
 
+struct StatHeaderElement: View {
+    
+    @EnvironmentObject var design: DesignController
+    
+    let text: String
+    
+    var body: some View {
+        
+        Text(text)
+            .font(Font.system(size: 11, weight: .bold, design: .default))  // To-Do: Add this as a design controller size
+            .foregroundColor(Colour(hex: "#FFFFFF"))
+            .listRowPlatterColor(.clear)
+            .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+        
+    }
+    
+}
+
+struct StatTextElement: View {
+    
+    @EnvironmentObject var design: DesignController
+    
+    let text: String
+    
+    var body: some View {
+        
+        Text(text)
+            .italic()
+            .monospacedDigit()
+            .font(Font.system(size: 22, weight: .heavy, design: .monospaced))  // To-Do: Add this as a design controller size
+            .lineLimit(nil)
+            .foregroundColor(Colour(hex: "#FFFFFF"))
+            .listRowPlatterColor(.clear)
+            .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+            .padding(.trailing) // <-- add padding
+            .drawingGroup()
+        
+    }
+    
+}
+
 struct TextElements_Previews: PreviewProvider {
+    
+    static let design = DesignController()
     
     static var previews: some View {
         
-        ProgressTextElement(text: "SAT 04")
-
+//        ProgressTextElement(text: "SAT 04")
+//            .environmentObject(design)
+//
 //        TitleTextElement(text: "ParkRun")
+//            .environmentObject(design)
 //
 //        SubtitleTextElement(text: "Welcome [parkrun.com](https://parkrun.com)")
+//            .environmentObject(design)
 //
 //        HeadingTextElement(text: "1. Barcode Setup")
+//            .environmentObject(design)
 //
 //        SubheadingTextElement(text: "This is some subheading content")
+//            .environmentObject(design)
 //
 //        InputAthleteTextElement(text: "A123456")
+//            .environmentObject(design)
 //
 //        AthleteNumberTextElement(text: "A123456")
+//            .environmentObject(design)
 //
 //        TitleElement(title: "Testing", subtitle: "Poopy butthole")
+//            .environmentObject(design)
+        
+        StatHeaderElement(text: "Runs")
+            .environmentObject(design)
+        
+        StatTextElement(text: "23:33")
+            .environmentObject(design)
         
     }
 }

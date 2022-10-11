@@ -10,8 +10,6 @@ import WatchKit
 
 struct BarcodeView: View {
   
-    @Environment(\.isLuminanceReduced) var isLuminanceReduced
-    
     @EnvironmentObject var runner: RunnerController
     @EnvironmentObject var design: DesignController
     

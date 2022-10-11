@@ -38,6 +38,15 @@ extension Date {
         return Calendar.current.date(bySettingHour: hour, minute: minute, second: 0, of: self)!
         
     }
+    
+    func strftime(format: String) -> String {
+
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+
+        return formatter.string(from: self)
+        
+    }
 
 }
 
@@ -69,6 +78,46 @@ extension UUID {
     
     func string() -> String {
         return self.description.lowercased()
+    }
+    
+}
+
+extension Int16 {
+    
+    func leading_zeros(width: Int) -> String {
+        
+        var number = String(self)
+        
+        if number.count < width {
+            number = String(repeating: "0", count: width - number.count) + number
+        }
+        
+        return number
+        
+    }
+    
+}
+
+extension Array where Element == Double {
+    
+    func sum() -> Double {
+        
+        return self.reduce(0, +)
+        
+    }
+    
+    func mean() -> Double {
+            
+        Double(self.sum()) / Double(self.count)
+        
+    }
+    
+    func stddev() -> Double {
+        
+        let mean = self.mean()
+        
+        return sqrt(self.reduce(0, { $0 + pow((Double($1) - mean), 2) }) / Double(self.count))
+        
     }
     
 }

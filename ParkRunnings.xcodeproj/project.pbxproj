@@ -60,6 +60,14 @@
 		CB0C85C228D575C80063AAFB /* BarcodeKit in Frameworks */ = {isa = PBXBuildFile; productRef = CB0C85C128D575C80063AAFB /* BarcodeKit */; };
 		CB40D13228D5723000995E8B /* ParkRunnings Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CB40D13128D5723000995E8B /* ParkRunnings Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CB40D14828D5723000995E8B /* RunnerController_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB40D14728D5723000995E8B /* RunnerController_Tests.swift */; };
+		CBE207B028F1657900B3D42C /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE207AF28F1657900B3D42C /* Run.swift */; };
+		CBE207B228F1689F00B3D42C /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE207B128F1689F00B3D42C /* Set.swift */; };
+		CBE207B628F2382D00B3D42C /* StatElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE207B528F2382D00B3D42C /* StatElement.swift */; };
+		CBE207B828F2674300B3D42C /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE207B728F2674300B3D42C /* StatsView.swift */; };
+		CBE207BA28F2704E00B3D42C /* MilestoneCounterElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE207B928F2704E00B3D42C /* MilestoneCounterElement.swift */; };
+		CBE207BC28F27ABE00B3D42C /* Milestone.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE207BB28F27ABE00B3D42C /* Milestone.swift */; };
+		CBE207BF28F2878D00B3D42C /* GraphElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE207BE28F2878D00B3D42C /* GraphElement.swift */; };
+		CBE207C228F4C83B00B3D42C /* Charts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE207C128F4C83B00B3D42C /* Charts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +156,14 @@
 		CB40D13128D5723000995E8B /* ParkRunnings Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ParkRunnings Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB40D14328D5723000995E8B /* ParkRunnings Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ParkRunnings Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB40D14728D5723000995E8B /* RunnerController_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerController_Tests.swift; sourceTree = "<group>"; };
+		CBE207AF28F1657900B3D42C /* Run.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
+		CBE207B128F1689F00B3D42C /* Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
+		CBE207B528F2382D00B3D42C /* StatElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatElement.swift; sourceTree = "<group>"; };
+		CBE207B728F2674300B3D42C /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		CBE207B928F2704E00B3D42C /* MilestoneCounterElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneCounterElement.swift; sourceTree = "<group>"; };
+		CBE207BB28F27ABE00B3D42C /* Milestone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milestone.swift; sourceTree = "<group>"; };
+		CBE207BE28F2878D00B3D42C /* GraphElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphElement.swift; sourceTree = "<group>"; };
+		CBE207C128F4C83B00B3D42C /* Charts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,10 +191,10 @@
 			children = (
 				CB0C853D28D574D60063AAFB /* ParkRunApp.swift */,
 				CB0C853E28D574D60063AAFB /* Assets.xcassets */,
-				CB0C853F28D574D60063AAFB /* Preview Content */,
 				CB0C854828D574D60063AAFB /* Data */,
 				CB0C854128D574D60063AAFB /* Extensions */,
 				CB0C856228D574D60063AAFB /* Views */,
+				CB0C853F28D574D60063AAFB /* Preview Content */,
 			);
 			path = "ParkRunnings Watch App";
 			sourceTree = "<group>";
@@ -199,6 +215,7 @@
 				CB0C854428D574D60063AAFB /* Codable.swift */,
 				CB0C854528D574D60063AAFB /* Prefix.swift */,
 				CB0C854628D574D60063AAFB /* Values.swift */,
+				CBE207B128F1689F00B3D42C /* Set.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -233,14 +250,17 @@
 		CB0C855128D574D60063AAFB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CB0C855728D574D60063AAFB /* Common */,
 				CB0C855228D574D60063AAFB /* Event.swift */,
 				CB0C855328D574D60063AAFB /* Sync.swift */,
 				CB0C855428D574D60063AAFB /* Meta.swift */,
 				CB0C855528D574D60063AAFB /* Runner.swift */,
 				CB0C855628D574D60063AAFB /* State.swift */,
-				CB0C855728D574D60063AAFB /* Common */,
 				CB0C855928D574D60063AAFB /* Course.swift */,
 				CB0C855A28D574D60063AAFB /* CourseImage.swift */,
+				CBE207AF28F1657900B3D42C /* Run.swift */,
+				CBE207BB28F27ABE00B3D42C /* Milestone.swift */,
+				CBE207C128F4C83B00B3D42C /* Charts.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -273,6 +293,7 @@
 				CB0C857828D574D60063AAFB /* Barcode */,
 				CB0C857C28D574D60063AAFB /* Main */,
 				CB0C858028D574D60063AAFB /* Event */,
+				CBE207B328F223D300B3D42C /* Stats */,
 				CB0C858528D574D60063AAFB /* Help */,
 			);
 			path = Views;
@@ -281,8 +302,8 @@
 		CB0C856328D574D60063AAFB /* Input */ = {
 			isa = PBXGroup;
 			children = (
-				CB0C856428D574D60063AAFB /* Elements */,
 				CB0C856728D574D60063AAFB /* InputView.swift */,
+				CB0C856428D574D60063AAFB /* Elements */,
 			);
 			path = Input;
 			sourceTree = "<group>";
@@ -353,8 +374,8 @@
 		CB0C857828D574D60063AAFB /* Barcode */ = {
 			isa = PBXGroup;
 			children = (
-				CB0C857928D574D60063AAFB /* Elements */,
 				CB0C857B28D574D60063AAFB /* BarcodeView.swift */,
+				CB0C857928D574D60063AAFB /* Elements */,
 			);
 			path = Barcode;
 			sourceTree = "<group>";
@@ -446,6 +467,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CBE207B328F223D300B3D42C /* Stats */ = {
+			isa = PBXGroup;
+			children = (
+				CBE207B728F2674300B3D42C /* StatsView.swift */,
+				CBE207B428F223EC00B3D42C /* Elements */,
+			);
+			path = Stats;
+			sourceTree = "<group>";
+		};
+		CBE207B428F223EC00B3D42C /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				CBE207B528F2382D00B3D42C /* StatElement.swift */,
+				CBE207B928F2704E00B3D42C /* MilestoneCounterElement.swift */,
+				CBE207BE28F2878D00B3D42C /* GraphElement.swift */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -473,6 +513,7 @@
 				CB40D12D28D5723000995E8B /* Sources */,
 				CB40D12E28D5723000995E8B /* Frameworks */,
 				CB40D12F28D5723000995E8B /* Resources */,
+				CBE207C028F37E7000B3D42C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -579,16 +620,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CBE207C028F37E7000B3D42C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/master.json",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "curl https://storage.googleapis.com/parkrun-au/master.json | json_pp > $PROJECT_DIR/ParkRunnings\\ Watch\\ App/Data/Local/master.json\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CB40D12D28D5723000995E8B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				CB0C858F28D574D60063AAFB /* Colour.swift in Sources */,
+				CBE207B228F1689F00B3D42C /* Set.swift in Sources */,
 				CB0C85B728D574D60063AAFB /* MainProgressElement.swift in Sources */,
 				CB0C859D28D574D60063AAFB /* Runner.swift in Sources */,
 				CB0C85B328D574D60063AAFB /* ButtonElements.swift in Sources */,
 				CB0C859628D574D60063AAFB /* DataController.swift in Sources */,
+				CBE207BC28F27ABE00B3D42C /* Milestone.swift in Sources */,
 				CB0C859E28D574D60063AAFB /* State.swift in Sources */,
 				CB0C85BA28D574D60063AAFB /* EventLocationElement.swift in Sources */,
 				CB0C85A928D574D60063AAFB /* InputConfirmationElement.swift in Sources */,
@@ -602,10 +666,13 @@
 				CB0C85AB28D574D60063AAFB /* SetupView.swift in Sources */,
 				CB0C859728D574D60063AAFB /* ParkRunnings.xcdatamodeld in Sources */,
 				CB0C85A728D574D60063AAFB /* MetaController.swift in Sources */,
+				CBE207BA28F2704E00B3D42C /* MilestoneCounterElement.swift in Sources */,
 				CB0C859028D574D60063AAFB /* Codable.swift in Sources */,
 				CB0C858B28D574D60063AAFB /* ParkRunApp.swift in Sources */,
+				CBE207C228F4C83B00B3D42C /* Charts.swift in Sources */,
 				CB0C85B428D574D60063AAFB /* MapView.swift in Sources */,
 				CB0C85B528D574D60063AAFB /* BarcodeCardElement.swift in Sources */,
+				CBE207BF28F2878D00B3D42C /* GraphElement.swift in Sources */,
 				CB0C85B228D574D60063AAFB /* ProfileElements.swift in Sources */,
 				CB0C859828D574D60063AAFB /* Errors.swift in Sources */,
 				CB0C859C28D574D60063AAFB /* Meta.swift in Sources */,
@@ -615,8 +682,11 @@
 				CB0C859A28D574D60063AAFB /* Event.swift in Sources */,
 				CB0C85A128D574D60063AAFB /* CourseImage.swift in Sources */,
 				CB0C85AC28D574D60063AAFB /* SetupDetailsElement.swift in Sources */,
+				CBE207B028F1657900B3D42C /* Run.swift in Sources */,
+				CBE207B828F2674300B3D42C /* StatsView.swift in Sources */,
 				CB0C85AF28D574D60063AAFB /* TextElements.swift in Sources */,
 				CB0C85B828D574D60063AAFB /* MainView.swift in Sources */,
+				CBE207B628F2382D00B3D42C /* StatElement.swift in Sources */,
 				CB0C85A528D574D60063AAFB /* EventController.swift in Sources */,
 				CB0C85B628D574D60063AAFB /* BarcodeView.swift in Sources */,
 				CB0C85B028D574D60063AAFB /* CardElement.swift in Sources */,
@@ -663,13 +733,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ParkRunnings Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ParkRunnings-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ParkRunnings;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Used to find nearby ParkRun events";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Used to find nearby ParkRun events";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
@@ -677,7 +748,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = schacher.ParkRunnings.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -685,7 +756,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
@@ -696,13 +767,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ParkRunnings Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ParkRunnings-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ParkRunnings;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Used to find nearby ParkRun events";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Used to find nearby ParkRun events";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
@@ -710,7 +782,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = schacher.ParkRunnings.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -718,7 +790,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};
@@ -731,7 +803,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				INFOPLIST_KEY_CFBundleDisplayName = ParkRunnings;
-				MARKETING_VERSION = 1.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = schacher.ParkRunnings;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -747,7 +820,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				INFOPLIST_KEY_CFBundleDisplayName = ParkRunnings;
-				MARKETING_VERSION = 1.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = schacher.ParkRunnings;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -764,7 +838,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "schacher.ParkRunnings-Watch-AppTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -786,7 +860,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "schacher.ParkRunnings-Watch-AppTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;

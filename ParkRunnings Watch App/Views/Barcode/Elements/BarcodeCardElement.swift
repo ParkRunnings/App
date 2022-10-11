@@ -75,13 +75,13 @@ struct BarcodeCardElement: View {
                     .foregroundColor(Colour(hex: "#A9AEBE"))
                 
             })
-            .padding(design.size(size: .barcode_horizontal_padding))
+            .padding(design.size(size: .barcode_horizontal_padding) - 1)
             
         })
         .background(
             RoundedRectangle(cornerRadius: design.size(size: .barcode_card_radius))
                 .fill(Color.white)
-                .shadow(radius: 3)
+//                .shadow(radius: 3)
         )
         .listRowPlatterColor(.clear)
         .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))

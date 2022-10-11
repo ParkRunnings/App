@@ -14,9 +14,19 @@ class RunnerController: NSObject, ObservableObject {
     
     var current: Runner?
     
+    @Published var name: String!
     @Published var number: String!
     @Published var a_number: String!
-    @Published var name: String!
+    
+    @Published var results_sorted: Array<Run>!
+    @Published var results_fastest: Array<Run>!
+    
+    @Published var fastest: Run?
+    @Published var latest: Run?
+    @Published var runs: Int!
+    
+    @Published var current_milestone: Milestone?
+    @Published var next_milestone: Milestone?
     
     override init() {
         
@@ -48,10 +58,20 @@ class RunnerController: NSObject, ObservableObject {
     
     func update() {
         
+        name = current?.name ?? "-"
         number = current?.number ?? "?"
         a_number = current?.a_number ?? "A?"
-        name = current?.name ?? "-"
-       
+        
+        results_sorted = current?.results_sorted ?? []
+        results_fastest = current?.results_fastest ?? []
+        
+        fastest = results_fastest.first
+        latest = results_sorted.last
+        runs = results_sorted.count
+        
+        current_milestone = Milestone.current(runs: runs)
+        next_milestone = Milestone.next(runs: runs)
+        
     }
     
     func scrape(number: String) async throws -> Runner {

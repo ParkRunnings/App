@@ -8,18 +8,22 @@
 import SwiftUI
 
 struct NoButtonStyle: ButtonStyle {
+    
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
     }
+    
 }
 
 extension View {
+    
     func delayTouches() -> some View {
         Button(action: {}) {
             highPriorityGesture(TapGesture())
         }
         .buttonStyle(NoButtonStyle())
     }
+    
 }
 
 struct ButtonElement<A: View>: View {
