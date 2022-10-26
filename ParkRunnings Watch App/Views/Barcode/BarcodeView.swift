@@ -10,8 +10,8 @@ import WatchKit
 
 struct BarcodeView: View {
   
-    @EnvironmentObject var runner: RunnerController
     @EnvironmentObject var design: DesignController
+    @EnvironmentObject var runner: RunnerController
     
     var body: some View {
         
@@ -23,13 +23,19 @@ struct BarcodeView: View {
         }).onDisappear(perform: {
             WKExtension.shared().isAutorotating = false
         })
-        .padding(.top, design.size(size: .barcode_rotated_margin))
+        .padding(.top, design.watch.status_height / 2)
     }
     
 }
 
 struct BarcodeView_Previews: PreviewProvider {
+    
+    static let design = DesignController()
+    static let runner = RunnerController()
+    
     static var previews: some View {
         BarcodeView()
+            .environmentObject(design)
+            .environmentObject(runner)
     }
 }

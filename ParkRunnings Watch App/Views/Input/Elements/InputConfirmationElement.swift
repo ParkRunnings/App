@@ -42,15 +42,15 @@ struct InputConfirmationElement: View {
                             .padding(.bottom, 10)
                     }
                     
-                    if let fastest = runner.results_fastest.first {
-                        StatTitleElement(colour: "#45BB70", symbol: "trophy.fill", header: "Fastest", date: fastest.display_date, value: fastest.display_time)
-                            .padding(.bottom, 4)
-                    }
-                    
-                    if let latest = runner.results_sorted.last {
-                        StatTitleElement(colour: "#7145BA", symbol: "figure.run", header: "Runs", date: latest.display_date, value: String(latest.number))
-                            .padding(.bottom, 4)
-                    }
+//                    if let fastest = runner.results_fastest.first {
+//                        StatValueElement(colour: "#45BB70", symbol: design.watch.version >= 9.0 ? "trophy.fill" : "timer", header: "Fastest", detail: fastest.display_date, value: fastest.display_time)
+//                            .padding(.bottom, 4)
+//                    }
+//
+//                    if let latest = runner.results_sorted.last {
+//                        StatValueElement(colour: "#7145BA", symbol: design.watch.version >= 9.0 ? "figure.run" : "figure.walk", header: "Runs", detail: latest.display_date, value: String(latest.number))
+//                            .padding(.bottom, 4)
+//                    }
                     
                     BarcodeCardElement(number: runner.a_number)
                     
@@ -98,7 +98,7 @@ struct InputConfirmationElement_Previews: PreviewProvider {
     static var previews: some View {
         
         InputConfirmationElement(
-            runner: .constant(Runner(context: DataController.shared.container.viewContext, number: "12345", name: "Charles Schacher", error: nil, created: Date.now, refreshed: Date.now, results: [])),
+            runner: .constant(Runner(context: DataController.shared.container.viewContext, number: "12345", name: "Charles Schacher", error: nil, created: Date.now, refreshed: Date.now)),
             nav_confirmation: .constant(true)
         )
         .environmentObject(design)

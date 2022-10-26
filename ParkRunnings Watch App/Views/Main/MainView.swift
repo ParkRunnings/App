@@ -24,77 +24,94 @@ struct MainView: View {
     @State private var nav_event: Bool = false
     @State private var nav_map: Bool = false
     @State private var nav_stats: Bool = false
+    @State private var nav_results: Bool = false
     
     var body: some View {
         
-        List(content: {
+        ScrollViewReader(content: { reader in
             
-            VStack(alignment: .leading, content: {
+            List(content: {
                 
-                TitleTextElement(text: event.name)
-                
-                HStack(alignment: .center, spacing: design.size(size: .progress_item_spacing), content: {
+                VStack(alignment: .leading, content: {
                     
-                    MainTimeProgress(progress: $event.time_progress, start: $event.time_display)
+                    TitleTextElement(text: event.name)
                     
-                    MainDistanceProgress(progress: $event.distance_progress, distance: $event.distance_display)
-                        .hidden(!location.enabled)
-                    
-                    Spacer()
-                    
-                    ButtonNavigation(active: $nav_event, button: {
-                        CardMicro(symbol: "pencil.circle.fill")
-                    }, destination: { EventView() })
-                        .simultaneousGesture(TapGesture().onEnded({ nav_event = true }))
-                    
+                    HStack(alignment: .center, spacing: design.size(size: .progress_item_spacing), content: {
+                        
+                        MainTimeProgress(progress: $event.time_progress, start: $event.time_display)
+                        
+                        MainDistanceProgress(progress: $event.distance_progress, distance: $event.distance_display)
+                            .hidden(!location.enabled)
+                        
+                        Spacer()
+                        
+                        ButtonNavigation(active: $nav_event, button: {
+                            CardMicro(symbol: "pencil.circle.fill")
+                        }, destination: { EventView() })
+                            .simultaneousGesture(TapGesture().onEnded({ nav_event = true }))
+                        
+                    })
+                  
                 })
+                .listRowPlatterColor(.clear)
+                .padding(.bottom, 10)
+                .id("title")
                 
-    //            MarqueeText(text: "Pay money wubby is a bad boy", font: UIFont.boldSystemFont(ofSize: 31), leftFade: 10, rightFade: 10, startDelay: 2, alignment: .leading)
-              
-            })
-            .listRowPlatterColor(.clear)
-            .padding(.bottom, 10)
-            
-            ButtonNavigation(active: $nav_barcode, button: {
-                CardTall(title: "View Barcode", symbol: "barcode.viewfinder", colour: Colour(hex: "#CE4F30"))
-            }, destination: { BarcodeView() })
-                .simultaneousGesture(TapGesture().onEnded({ nav_barcode = true }))
-                .padding(.bottom, 4)
-            
-            if event.image {
-                
-                ButtonNavigation(active: $nav_map, button: {
-                    CardTall(title: "View Course", symbol: "map.fill", colour: Colour(hex: "#3F5FB7"))
-                }, destination: { MapView(uuid: event.uuid) })
-                    .simultaneousGesture(TapGesture().onEnded({ nav_map = true }))
+                ButtonNavigation(active: $nav_barcode, button: {
+                    CardTall(title: "View Barcode", symbol: "barcode.viewfinder", colour: Colour(hex: "#D03425"))
+                }, destination: { BarcodeView() })
+                    .simultaneousGesture(TapGesture().onEnded({ nav_barcode = true }))
                     .padding(.bottom, 4)
                 
-            }
-            
-            ButtonNavigation(active: $nav_stats, button: {
-                CardTall(title: "View Stats", symbol: "chart.line.uptrend.xyaxis", colour: Colour(hex: "#20222D"))
-            }, destination: { StatsView() })
-                .simultaneousGesture(TapGesture().onEnded({ nav_stats = true }))
-                .padding(.bottom, 4)
-            
-            if let coordinates = event.coordinates {
+                ButtonNavigation(active: $nav_stats, button: {
+                    CardTall(title: "Statistics", symbol: "chart.line.uptrend.xyaxis", colour: Colour(hex: "#3925C3"))
+                }, destination: { StatsView() })
+                    .simultaneousGesture(TapGesture().onEnded({ nav_stats = true }))
+                    .padding(.bottom, 4)
                 
-                CardTall(title: "Get Directions", symbol: "location.fill", colour: Colour(hex: "#42B961"))
+                ButtonNavigation(active: $nav_results, button: {
+                    CardTall(title: "Past Results", symbol: "timer", colour: Colour(hex: "#26A363"))
+                }, destination: { ResultsView(results: ResultBreakdown(results: runner.results_sorted)) })
+                    .simultaneousGesture(TapGesture().onEnded({ nav_results = true }))
+                    .padding(.bottom, 4)
+                
+                if event.image {
+                    
+                    ButtonNavigation(active: $nav_map, button: {
+                        CardTall(title: "View Course", symbol: "map.fill", colour: Colour(hex: "#E3951C"))
+                    }, destination: { MapView(uuid: event.uuid) })
+                        .simultaneousGesture(TapGesture().onEnded({ nav_map = true }))
+                        .padding(.bottom, 4)
+                    
+                }
+                
+                if let coordinates = event.coordinates {
+                    
+                    CardTall(title: "Get Directions", symbol: "location.fill", colour: Colour(hex: "#981352"))
+                        .simultaneousGesture(TapGesture().onEnded({
+                            openURL(URL(string: "http://maps.apple.com/?q=\(coordinates.0),\(coordinates.1)&ll=\(coordinates.0),\(coordinates.1)&z=15")!)
+                        }))
+                        .padding(.bottom, 4)
+                    
+                }
+                
+                CardTall(title: "Reset App", symbol: "trash.fill", colour: Colour(hex: "#20222D"))
                     .simultaneousGesture(TapGesture().onEnded({
-                        openURL(URL(string: "http://maps.apple.com/?q=\(coordinates.0),\(coordinates.1)&ll=\(coordinates.0),\(coordinates.1)&z=15")!)
+                        meta.reset()
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                            reader.scrollTo("title")
+                        })
+                        
                     }))
                     .padding(.bottom, 4)
                 
-            }
-            
-            CardTall(title: "Reset App", symbol: "trash.fill", colour: Colour(hex: "#20222D"))
-                .simultaneousGesture(TapGesture().onEnded({ meta.reset() }))
-                .padding(.bottom, 4)
-            
-            ListOverscroll()
+                ListOverscroll()
+                
+            })
+            .listStyle(.carousel)
             
         })
-        .listStyle(.carousel)
         .sheet(isPresented: !$meta.setup, content: {
             WelcomeView()
                 .interactiveDismissDisabled()
@@ -113,8 +130,8 @@ struct MainView: View {
     
 }
 
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
-    }
-}
+//struct MainView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MainView()
+//    }
+//}

@@ -92,7 +92,7 @@ class LocationController: NSObject, ObservableObject, CLLocationManagerDelegate 
         enabled = LocationController.check_enabled(status: manager.authorizationStatus)
         MetaController.shared.setup_location = status != .notDetermined
         
-        if !enabled {
+        if !enabled && !MetaController.simulator {
             EventController.shared.clear()
         }
         

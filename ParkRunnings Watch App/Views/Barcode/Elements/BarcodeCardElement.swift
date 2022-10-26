@@ -55,7 +55,7 @@ struct BarcodeCardElement: View {
                 .renderingMode(.original)
                 .resizable()
                 .clipped()
-                .aspectRatio(ratio, contentMode: design.group == .square ? .fit :  .fill)
+                .aspectRatio(ratio, contentMode: design.watch.group == .square ? .fit :  .fill)
                 .cornerRadius(4)
                 .padding(.horizontal, design.size(size: .barcode_horizontal_padding))
                 .padding(.top, design.size(size: .barcode_vertical_padding))

@@ -12,13 +12,13 @@ import SwiftSoup
 @objc(Run)
 public class Run: NSManagedObject, Identifiable {
     
+    @NSManaged public var number: String
     @NSManaged public var date: Date
     @NSManaged public var event: String
     @NSManaged public var position: Int16
     @NSManaged public var time: Int16
-    @NSManaged public var number: Int16
     @NSManaged public var pb: Bool
-    @NSManaged public var runner: Runner?
+    @NSManaged public var streak: Int16
     
     var display_time: String {
         get {
@@ -38,25 +38,25 @@ public class Run: NSManagedObject, Identifiable {
     
     public init(
         context: NSManagedObjectContext,
+        number: String,
         date: Date,
         event: String,
         position: Int16,
         time: Int16,
-        number: Int16 = 0,
-        pb: Bool = false,
-        runner: Runner? = nil
+        pb: Bool,
+        streak: Int16
     ) {
         
         let entity = NSEntityDescription.entity(forEntityName: Run.CoreName, in: context)!
         super.init(entity: entity, insertInto: context)
         
+        self.number = number
         self.date = date
         self.event = event
         self.position = position
         self.time = time
-        self.number = number
+        self.streak = streak
         self.pb = pb
-        self.runner = runner
         
     }
     

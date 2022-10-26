@@ -13,20 +13,18 @@ class DesignController: NSObject, ObservableObject {
     static let shared = DesignController()
     
     let watch: Watch!
-    let group: WatchGroup!
     let wrist: WKInterfaceDeviceWristLocation
     
     override init() {
         
         watch = Watch(rawValue: WKInterfaceDevice.current().screenBounds.size)!
-        group = WatchGroup(watch: watch)
         wrist = WKInterfaceDevice.current().wristLocation
         
     }
     
     func size(text: TextElement) -> CGFloat {
 
-        switch (text, group!) {
+        switch (text, watch.group) {
             
             case (.title, .large_curved): return 28
             case (.title, .small_curved): return 24
@@ -76,13 +74,33 @@ class DesignController: NSObject, ObservableObject {
             case (.progress_detail, .small_curved): return 10
             case (.progress_detail, .square): return 9
             
+            case (.stat_header, .large_curved): return 13
+            case (.stat_header, .small_curved): return 11
+            case (.stat_header, .square): return 9
+            
+            case (.stat_icon, .large_curved): return 11
+            case (.stat_icon, .small_curved): return 9
+            case (.stat_icon, .square): return 8
+            
+            case (.stat_value, .large_curved): return 26
+            case (.stat_value, .small_curved): return 22
+            case (.stat_value, .square): return 18
+            
+            case (.stat_legend, .large_curved): return 9
+            case (.stat_legend, .small_curved): return 8
+            case (.stat_legend, .square): return 6
+            
+            case (.result_time, .large_curved): return 14
+            case (.result_time, .small_curved): return 13
+            case (.result_time, .square): return 11
+            
         }
 
     }
     
     func size(size: SizeElement) -> CGFloat {
         
-        switch (size, group!) {
+        switch (size, watch.group) {
             
             case (.button_bottom_margin, .large_curved): return 20
             case (.button_bottom_margin, .small_curved): return 20
@@ -184,6 +202,22 @@ class DesignController: NSObject, ObservableObject {
             case (.progress_item_spacing, .small_curved): return 6
             case (.progress_item_spacing, .square): return 4
             
+            case (.stat_vertical_padding, .large_curved): return 14
+            case (.stat_vertical_padding, .small_curved): return 12
+            case (.stat_vertical_padding, .square): return 8
+            
+            case (.stat_horizontal_padding, .large_curved): return 13
+            case (.stat_horizontal_padding, .small_curved): return 12
+            case (.stat_horizontal_padding, .square): return 10
+            
+            case (.card_graph_height, .large_curved): return 140
+            case (.card_graph_height, .small_curved): return 130
+            case (.card_graph_height, .square): return 110
+
+            case (.stat_legend_circle, .large_curved): return 8
+            case (.stat_legend_circle, .small_curved): return 130
+            case (.stat_legend_circle, .square): return 110
+
         }
         
     }

@@ -54,14 +54,15 @@
     <entity name="Run" representedClassName="Run" syncable="YES">
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="event" attributeType="String"/>
-        <attribute name="number" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="number" attributeType="String"/>
         <attribute name="pb" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="position" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="streak" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="time" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="runner" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Runner" inverseName="results" inverseEntity="Runner"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="number"/>
+                <constraint value="date"/>
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
@@ -73,7 +74,6 @@
         <attribute name="number" attributeType="String"/>
         <attribute name="refreshed" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="runs" optional="YES" attributeType="String"/>
-        <relationship name="results" toMany="YES" deletionRule="Cascade" destinationEntity="Run" inverseName="runner" inverseEntity="Run"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="number"/>

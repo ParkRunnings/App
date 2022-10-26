@@ -60,14 +60,24 @@
 		CB0C85C228D575C80063AAFB /* BarcodeKit in Frameworks */ = {isa = PBXBuildFile; productRef = CB0C85C128D575C80063AAFB /* BarcodeKit */; };
 		CB40D13228D5723000995E8B /* ParkRunnings Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CB40D13128D5723000995E8B /* ParkRunnings Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CB40D14828D5723000995E8B /* RunnerController_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB40D14728D5723000995E8B /* RunnerController_Tests.swift */; };
+		CB754A7D28FE03FF00697B42 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB754A7C28FE03FF00697B42 /* Results.swift */; };
+		CB754A7F28FF4C3A00697B42 /* ResultTimelineElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB754A7E28FF4C3A00697B42 /* ResultTimelineElement.swift */; };
+		CB754A8129011F6300697B42 /* ResultTitleElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB754A8029011F6300697B42 /* ResultTitleElement.swift */; };
+		CBB6106428F8BB3B001D55A9 /* StatTitleElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB6106328F8BB3B001D55A9 /* StatTitleElement.swift */; };
+		CBB6106628F8CB52001D55A9 /* StatRefreshElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB6106528F8CB52001D55A9 /* StatRefreshElement.swift */; };
+		CBB6106828FA53CB001D55A9 /* Watch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB6106728FA53CB001D55A9 /* Watch.swift */; };
+		CBB6106B28FCDD2E001D55A9 /* StatBurndownChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB6106A28FCDD2E001D55A9 /* StatBurndownChart.swift */; };
+		CBB6106D28FCDD4B001D55A9 /* StatLegendElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB6106C28FCDD4B001D55A9 /* StatLegendElement.swift */; };
+		CBB6107028FD36A0001D55A9 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB6106F28FD36A0001D55A9 /* ResultsView.swift */; };
+		CBB6107428FD3715001D55A9 /* ResultRunElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB6107328FD3715001D55A9 /* ResultRunElement.swift */; };
 		CBE207B028F1657900B3D42C /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE207AF28F1657900B3D42C /* Run.swift */; };
 		CBE207B228F1689F00B3D42C /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE207B128F1689F00B3D42C /* Set.swift */; };
-		CBE207B628F2382D00B3D42C /* StatElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE207B528F2382D00B3D42C /* StatElement.swift */; };
+		CBE207B628F2382D00B3D42C /* StatValueElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE207B528F2382D00B3D42C /* StatValueElement.swift */; };
 		CBE207B828F2674300B3D42C /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE207B728F2674300B3D42C /* StatsView.swift */; };
-		CBE207BA28F2704E00B3D42C /* MilestoneCounterElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE207B928F2704E00B3D42C /* MilestoneCounterElement.swift */; };
+		CBE207BA28F2704E00B3D42C /* StatMilestoneElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE207B928F2704E00B3D42C /* StatMilestoneElement.swift */; };
 		CBE207BC28F27ABE00B3D42C /* Milestone.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE207BB28F27ABE00B3D42C /* Milestone.swift */; };
-		CBE207BF28F2878D00B3D42C /* GraphElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE207BE28F2878D00B3D42C /* GraphElement.swift */; };
-		CBE207C228F4C83B00B3D42C /* Charts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE207C128F4C83B00B3D42C /* Charts.swift */; };
+		CBE207BF28F2878D00B3D42C /* StatMonthlyChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE207BE28F2878D00B3D42C /* StatMonthlyChart.swift */; };
+		CBE207C228F4C83B00B3D42C /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE207C128F4C83B00B3D42C /* Stats.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,14 +166,24 @@
 		CB40D13128D5723000995E8B /* ParkRunnings Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ParkRunnings Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB40D14328D5723000995E8B /* ParkRunnings Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ParkRunnings Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB40D14728D5723000995E8B /* RunnerController_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerController_Tests.swift; sourceTree = "<group>"; };
+		CB754A7C28FE03FF00697B42 /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
+		CB754A7E28FF4C3A00697B42 /* ResultTimelineElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTimelineElement.swift; sourceTree = "<group>"; };
+		CB754A8029011F6300697B42 /* ResultTitleElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTitleElement.swift; sourceTree = "<group>"; };
+		CBB6106328F8BB3B001D55A9 /* StatTitleElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatTitleElement.swift; sourceTree = "<group>"; };
+		CBB6106528F8CB52001D55A9 /* StatRefreshElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatRefreshElement.swift; sourceTree = "<group>"; };
+		CBB6106728FA53CB001D55A9 /* Watch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch.swift; sourceTree = "<group>"; };
+		CBB6106A28FCDD2E001D55A9 /* StatBurndownChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatBurndownChart.swift; sourceTree = "<group>"; };
+		CBB6106C28FCDD4B001D55A9 /* StatLegendElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatLegendElement.swift; sourceTree = "<group>"; };
+		CBB6106F28FD36A0001D55A9 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
+		CBB6107328FD3715001D55A9 /* ResultRunElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultRunElement.swift; sourceTree = "<group>"; };
 		CBE207AF28F1657900B3D42C /* Run.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
 		CBE207B128F1689F00B3D42C /* Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
-		CBE207B528F2382D00B3D42C /* StatElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatElement.swift; sourceTree = "<group>"; };
+		CBE207B528F2382D00B3D42C /* StatValueElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatValueElement.swift; sourceTree = "<group>"; };
 		CBE207B728F2674300B3D42C /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
-		CBE207B928F2704E00B3D42C /* MilestoneCounterElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneCounterElement.swift; sourceTree = "<group>"; };
+		CBE207B928F2704E00B3D42C /* StatMilestoneElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatMilestoneElement.swift; sourceTree = "<group>"; };
 		CBE207BB28F27ABE00B3D42C /* Milestone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milestone.swift; sourceTree = "<group>"; };
-		CBE207BE28F2878D00B3D42C /* GraphElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphElement.swift; sourceTree = "<group>"; };
-		CBE207C128F4C83B00B3D42C /* Charts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charts.swift; sourceTree = "<group>"; };
+		CBE207BE28F2878D00B3D42C /* StatMonthlyChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatMonthlyChart.swift; sourceTree = "<group>"; };
+		CBE207C128F4C83B00B3D42C /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +263,7 @@
 			children = (
 				CB0C854F28D574D60063AAFB /* Errors.swift */,
 				CB0C855028D574D60063AAFB /* Types.swift */,
+				CBB6106728FA53CB001D55A9 /* Watch.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -260,7 +281,8 @@
 				CB0C855A28D574D60063AAFB /* CourseImage.swift */,
 				CBE207AF28F1657900B3D42C /* Run.swift */,
 				CBE207BB28F27ABE00B3D42C /* Milestone.swift */,
-				CBE207C128F4C83B00B3D42C /* Charts.swift */,
+				CBE207C128F4C83B00B3D42C /* Stats.swift */,
+				CB754A7C28FE03FF00697B42 /* Results.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -285,15 +307,16 @@
 		CB0C856228D574D60063AAFB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CB0C857C28D574D60063AAFB /* Main */,
 				CB0C856328D574D60063AAFB /* Input */,
 				CB0C856828D574D60063AAFB /* Setup */,
 				CB0C856C28D574D60063AAFB /* Welcome */,
 				CB0C856E28D574D60063AAFB /* Common */,
 				CB0C857628D574D60063AAFB /* Map */,
 				CB0C857828D574D60063AAFB /* Barcode */,
-				CB0C857C28D574D60063AAFB /* Main */,
 				CB0C858028D574D60063AAFB /* Event */,
 				CBE207B328F223D300B3D42C /* Stats */,
+				CBB6106E28FD35DC001D55A9 /* Results */,
 				CB0C858528D574D60063AAFB /* Help */,
 			);
 			path = Views;
@@ -460,6 +483,35 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		CBB6106928FCDD18001D55A9 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				CBB6106C28FCDD4B001D55A9 /* StatLegendElement.swift */,
+				CBE207BE28F2878D00B3D42C /* StatMonthlyChart.swift */,
+				CBB6106A28FCDD2E001D55A9 /* StatBurndownChart.swift */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
+		CBB6106E28FD35DC001D55A9 /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				CBB6106F28FD36A0001D55A9 /* ResultsView.swift */,
+				CBB6107228FD36DF001D55A9 /* Elements */,
+			);
+			path = Results;
+			sourceTree = "<group>";
+		};
+		CBB6107228FD36DF001D55A9 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				CBB6107328FD3715001D55A9 /* ResultRunElement.swift */,
+				CB754A7E28FF4C3A00697B42 /* ResultTimelineElement.swift */,
+				CB754A8029011F6300697B42 /* ResultTitleElement.swift */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
 		CBE106AD27FD575B008AF35B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -479,9 +531,11 @@
 		CBE207B428F223EC00B3D42C /* Elements */ = {
 			isa = PBXGroup;
 			children = (
-				CBE207B528F2382D00B3D42C /* StatElement.swift */,
-				CBE207B928F2704E00B3D42C /* MilestoneCounterElement.swift */,
-				CBE207BE28F2878D00B3D42C /* GraphElement.swift */,
+				CBB6106928FCDD18001D55A9 /* Charts */,
+				CBE207B928F2704E00B3D42C /* StatMilestoneElement.swift */,
+				CBB6106528F8CB52001D55A9 /* StatRefreshElement.swift */,
+				CBB6106328F8BB3B001D55A9 /* StatTitleElement.swift */,
+				CBE207B528F2382D00B3D42C /* StatValueElement.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -648,7 +702,9 @@
 			files = (
 				CB0C858F28D574D60063AAFB /* Colour.swift in Sources */,
 				CBE207B228F1689F00B3D42C /* Set.swift in Sources */,
+				CB754A7D28FE03FF00697B42 /* Results.swift in Sources */,
 				CB0C85B728D574D60063AAFB /* MainProgressElement.swift in Sources */,
+				CBB6106428F8BB3B001D55A9 /* StatTitleElement.swift in Sources */,
 				CB0C859D28D574D60063AAFB /* Runner.swift in Sources */,
 				CB0C85B328D574D60063AAFB /* ButtonElements.swift in Sources */,
 				CB0C859628D574D60063AAFB /* DataController.swift in Sources */,
@@ -666,19 +722,23 @@
 				CB0C85AB28D574D60063AAFB /* SetupView.swift in Sources */,
 				CB0C859728D574D60063AAFB /* ParkRunnings.xcdatamodeld in Sources */,
 				CB0C85A728D574D60063AAFB /* MetaController.swift in Sources */,
-				CBE207BA28F2704E00B3D42C /* MilestoneCounterElement.swift in Sources */,
+				CBE207BA28F2704E00B3D42C /* StatMilestoneElement.swift in Sources */,
 				CB0C859028D574D60063AAFB /* Codable.swift in Sources */,
 				CB0C858B28D574D60063AAFB /* ParkRunApp.swift in Sources */,
-				CBE207C228F4C83B00B3D42C /* Charts.swift in Sources */,
+				CBE207C228F4C83B00B3D42C /* Stats.swift in Sources */,
 				CB0C85B428D574D60063AAFB /* MapView.swift in Sources */,
 				CB0C85B528D574D60063AAFB /* BarcodeCardElement.swift in Sources */,
-				CBE207BF28F2878D00B3D42C /* GraphElement.swift in Sources */,
+				CBE207BF28F2878D00B3D42C /* StatMonthlyChart.swift in Sources */,
+				CBB6106628F8CB52001D55A9 /* StatRefreshElement.swift in Sources */,
+				CBB6106828FA53CB001D55A9 /* Watch.swift in Sources */,
 				CB0C85B228D574D60063AAFB /* ProfileElements.swift in Sources */,
+				CBB6106D28FCDD4B001D55A9 /* StatLegendElement.swift in Sources */,
 				CB0C859828D574D60063AAFB /* Errors.swift in Sources */,
 				CB0C859C28D574D60063AAFB /* Meta.swift in Sources */,
 				CB0C85BB28D574D60063AAFB /* EventListElement.swift in Sources */,
 				CB0C85A028D574D60063AAFB /* Course.swift in Sources */,
 				CB0C859B28D574D60063AAFB /* Sync.swift in Sources */,
+				CBB6106B28FCDD2E001D55A9 /* StatBurndownChart.swift in Sources */,
 				CB0C859A28D574D60063AAFB /* Event.swift in Sources */,
 				CB0C85A128D574D60063AAFB /* CourseImage.swift in Sources */,
 				CB0C85AC28D574D60063AAFB /* SetupDetailsElement.swift in Sources */,
@@ -686,11 +746,15 @@
 				CBE207B828F2674300B3D42C /* StatsView.swift in Sources */,
 				CB0C85AF28D574D60063AAFB /* TextElements.swift in Sources */,
 				CB0C85B828D574D60063AAFB /* MainView.swift in Sources */,
-				CBE207B628F2382D00B3D42C /* StatElement.swift in Sources */,
+				CBE207B628F2382D00B3D42C /* StatValueElement.swift in Sources */,
 				CB0C85A528D574D60063AAFB /* EventController.swift in Sources */,
+				CBB6107428FD3715001D55A9 /* ResultRunElement.swift in Sources */,
+				CB754A8129011F6300697B42 /* ResultTitleElement.swift in Sources */,
 				CB0C85B628D574D60063AAFB /* BarcodeView.swift in Sources */,
+				CB754A7F28FF4C3A00697B42 /* ResultTimelineElement.swift in Sources */,
 				CB0C85B028D574D60063AAFB /* CardElement.swift in Sources */,
 				CB0C859128D574D60063AAFB /* Prefix.swift in Sources */,
+				CBB6107028FD36A0001D55A9 /* ResultsView.swift in Sources */,
 				CB0C859228D574D60063AAFB /* Values.swift in Sources */,
 				CB0C859428D574D60063AAFB /* LocationController.swift in Sources */,
 				CB0C85AD28D574D60063AAFB /* WelcomeView.swift in Sources */,
@@ -733,7 +797,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"ParkRunnings Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				ENABLE_PREVIEWS = YES;
@@ -756,7 +820,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 8.3;
 			};
 			name = Debug;
 		};
@@ -767,7 +831,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"ParkRunnings Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				ENABLE_PREVIEWS = YES;
@@ -790,7 +854,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 8.3;
 			};
 			name = Release;
 		};
@@ -800,7 +864,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				INFOPLIST_KEY_CFBundleDisplayName = ParkRunnings;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -817,7 +881,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				INFOPLIST_KEY_CFBundleDisplayName = ParkRunnings;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -835,7 +899,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.1;
@@ -857,7 +921,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.1;

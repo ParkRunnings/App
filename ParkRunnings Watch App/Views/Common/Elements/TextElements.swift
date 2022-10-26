@@ -250,7 +250,7 @@ struct StatHeaderElement: View {
     var body: some View {
         
         Text(text)
-            .font(Font.system(size: 11, weight: .bold, design: .default))  // To-Do: Add this as a design controller size
+            .font(Font.system(size: design.size(text: .stat_header), weight: .bold, design: .default))
             .foregroundColor(Colour(hex: "#FFFFFF"))
             .listRowPlatterColor(.clear)
             .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
@@ -268,15 +268,37 @@ struct StatTextElement: View {
     var body: some View {
         
         Text(text)
-            .italic()
-            .monospacedDigit()
-            .font(Font.system(size: 22, weight: .heavy, design: .monospaced))  // To-Do: Add this as a design controller size
-            .lineLimit(nil)
+            .font(Font.system(size: design.size(text: .stat_value), weight: .heavy, design: .monospaced))
+//            .italic()
             .foregroundColor(Colour(hex: "#FFFFFF"))
             .listRowPlatterColor(.clear)
             .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-            .padding(.trailing) // <-- add padding
+            .padding(.trailing)
             .drawingGroup()
+        
+    }
+    
+}
+
+struct ResultTimeElement: View {
+    
+    @EnvironmentObject var design: DesignController
+    
+    let text: String
+    let colour: String
+    
+    init(text: String, colour: String = "#A7DABD") {
+        self.text = text
+        self.colour = colour
+    }
+    
+    var body: some View {
+        
+        Text(.init(text))
+            .font(Font.system(size: design.size(text: .result_time), weight: .bold, design: .rounded))
+            .foregroundColor(Colour(hex: colour))
+            .listRowPlatterColor(.clear)
+            .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
         
     }
     

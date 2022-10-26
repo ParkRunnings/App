@@ -103,13 +103,16 @@ class MetaController: NSObject, ObservableObject {
         let context = DataController.shared.container.viewContext
         
         context.delete(current)
+        
+        if let current = RunnerController.shared.current {
+            context.delete(current)
+        }
+        
         refresh()
         
         current.launches += 1
         
         DataController.shared.save()
-        
-        print(current.created)
         
     }
     
@@ -133,10 +136,12 @@ class MetaController: NSObject, ObservableObject {
     }
     
     func update_runner(runner: Runner) {
+        
         runner_number = runner.number
+        
         DataController.shared.save()
-        RunnerController.shared.current = runner
         RunnerController.shared.update()
+        
     }
     
 }

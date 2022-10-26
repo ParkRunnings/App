@@ -17,13 +17,9 @@ public class Runner: NSManagedObject, Identifiable {
     @NSManaged public var error: String?
     @NSManaged public var created: Date
     @NSManaged public var refreshed: Date?
-    @NSManaged public var results: Set<Run>
     
     var a_number: String { get { return "A\(number)" }}
     var display_name: String { get { return name ?? "Unknown Runner" }}
-    
-    var results_sorted: Array<Run> { get { return self.results.sorted(by: { $0.date < $1.date }) } }
-    var results_fastest: Array<Run> { get { return self.results.sorted(by: { $0.time < $1.time }) } }
     
     static private let CoreName = "Runner"
     
@@ -33,8 +29,7 @@ public class Runner: NSManagedObject, Identifiable {
         name: String?,
         error: String?,
         created: Date,
-        refreshed: Date?,
-        results: Set<Run>? = nil
+        refreshed: Date?
     ) {
         
         let entity = NSEntityDescription.entity(forEntityName: Runner.CoreName, in: context)!
@@ -45,7 +40,6 @@ public class Runner: NSManagedObject, Identifiable {
         self.error = error
         self.created = created
         self.refreshed = refreshed
-        self.results = results ?? Set()
         
     }
 
@@ -78,29 +72,50 @@ public class Runner: NSManagedObject, Identifiable {
                 let formatter = DateFormatter()
                 formatter.dateFormat = "dd/MM/yyyy HH:mm:ssZ"
                 
-                for row in raw_rows {
-                   
-                    if let elements = try? row.select("td"),
-                       let date = try? formatter.date(from: elements[date_index].text().strip() + " 00:00:00+0000"),
+                var fastest: Int16? = nil
+                var last_run: Date? = nil
+                var streak: Int16 = 1
+                
+                for (date, row) in raw_rows.map({ (formatter.date(from: (try? $0.select("td")[date_index].text().strip() + " 00:00:00+0000") ?? ""), $0) }).filter({ $0.0 != nil }).sorted(by: { $0.0! < $1.0! }) {
+                 
+                    if let date = date,
+                       let elements = try? row.select("td"),
                        let event = try? elements[event_index].text().strip(),
                        let raw_position = try? elements[position_index].text().strip(),
                        let position = Int16(raw_position),
-                       var components = try? elements[time_index].text().strip().split(separator: ":").map({ Int($0)! })
-                    {
-                     
-                        let hours: Int = components.count == 3 ? components.remove(at: 0) : 0
-                        let minutes: Int = components.remove(at: 0)
-                        let seconds: Int = components.remove(at: 0)
+                       var components = try? elements[time_index].text().strip().split(separator: ":").map({ Int($0)! }) {
+                        
+                        let hours = components.count == 3 ? components.remove(at: 0) : 0
+                        let minutes = components.remove(at: 0)
+                        let seconds = components.remove(at: 0)
+                        
+                        let time = Int16((hours * 3600) + (minutes * 60) + (seconds))
+                        var pb: Bool = false
+                        
+                        if fastest ?? Int16.max > time {
+                            fastest = time
+                            pb = true
+                        }
+                        
+                        if (date - (last_run ?? Date(timeIntervalSince1970: TimeInterval(0)))) / 86_400 < 14 {
+                            streak += 1
+                        } else {
+                            streak = 1
+                        }
                         
                         results.append(Run(
                             context: context,
+                            number: number,
                             date: date,
                             event: event,
                             position: position,
-                            time: Int16((hours * 3600) + (minutes * 60) + (seconds)),
-                            runner: nil
+                            time: time,
+                            pb: pb,
+                            streak: streak
                         ))
                         
+                        last_run = date
+                     
                     }
                     
                 }
@@ -120,22 +135,6 @@ public class Runner: NSManagedObject, Identifiable {
             refreshed: Date.now
         )
         
-        var fastest: Int16 = Int16.max
-        
-        for (index, result) in results.sorted(by: { $0.date < $1.date }).enumerated() {
-            
-            result.runner = self
-            result.number = Int16(index) + 1
-            
-            if fastest > result.time {
-                fastest = result.time
-                result.pb = true
-            }
-            
-        }
-        
-        self.results = Set(results)
-        
     }
     
     convenience public init(context: NSManagedObjectContext, number: String, error: String) {
@@ -148,8 +147,7 @@ public class Runner: NSManagedObject, Identifiable {
             name: existing?.name,
             error: error,
             created: existing?.created ?? Date.now,
-            refreshed: existing?.refreshed,
-            results: existing?.results
+            refreshed: existing?.refreshed
         )
         
     }

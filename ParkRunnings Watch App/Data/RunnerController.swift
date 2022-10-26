@@ -5,6 +5,7 @@
 //  Created by Charlie on 8/5/2022.
 //
 
+import SwiftUI
 import CoreData
 import SwiftSoup
 
@@ -23,7 +24,9 @@ class RunnerController: NSObject, ObservableObject {
     
     @Published var fastest: Run?
     @Published var latest: Run?
+    @Published var streak: Run?
     @Published var runs: Int!
+    @Published var refreshed: Date?
     
     @Published var current_milestone: Milestone?
     @Published var next_milestone: Milestone?
@@ -31,8 +34,7 @@ class RunnerController: NSObject, ObservableObject {
     override init() {
         
         super.init()
-        
-        current = self.fetch()
+      
         self.update()
         
     }
@@ -42,6 +44,8 @@ class RunnerController: NSObject, ObservableObject {
         let context = DataController.shared.container.viewContext
         
         guard let number = MetaController.shared.runner_number else { return nil }
+        
+        print("Fetch: \(number)")
         
         let request = Runner.request()
         request.predicate = NSPredicate(format: "number = %@", argumentArray: [number])
@@ -56,18 +60,39 @@ class RunnerController: NSObject, ObservableObject {
         
     }
     
+    func fetch(sort: Array<NSSortDescriptor> = []) -> Array<Run> {
+        
+        let context = DataController.shared.container.viewContext
+        
+        let request = Run.request()
+        request.predicate = NSPredicate(format: "number = %@", argumentArray: [number as String])
+        request.sortDescriptors = sort
+        
+        guard let results = try? context.fetch(request) else { return [] }
+        
+        return results
+        
+    }
+    
     func update() {
+        
+        current = self.fetch()
         
         name = current?.name ?? "-"
         number = current?.number ?? "?"
-        a_number = current?.a_number ?? "A?"
+        a_number = current?.a_number ?? "A490"
         
-        results_sorted = current?.results_sorted ?? []
-        results_fastest = current?.results_fastest ?? []
+        // To-Do: Add a runner refresh op to the timer task
+        
+        results_sorted = fetch(sort: [NSSortDescriptor(key: "date", ascending: true)])
+        results_fastest = fetch(sort: [NSSortDescriptor(key: "time", ascending: true), NSSortDescriptor(key: "date", ascending: true)])
         
         fastest = results_fastest.first
         latest = results_sorted.last
+        streak = results_sorted.sorted(by: { ($0.streak, $0.date) > ($1.streak, $1.date) }).first
+        
         runs = results_sorted.count
+        refreshed = current?.refreshed
         
         current_milestone = Milestone.current(runs: runs)
         next_milestone = Milestone.next(runs: runs)
