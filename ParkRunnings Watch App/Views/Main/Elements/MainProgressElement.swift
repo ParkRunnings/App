@@ -53,7 +53,6 @@ struct MainDistanceProgress: View {
             VStack(alignment: .leading, spacing: 0, content: {
                 ProgressTextElement(text: distance)
                 ProgressTextElement(text: "KM", colour: "#858585")
-                
             })
             
         })

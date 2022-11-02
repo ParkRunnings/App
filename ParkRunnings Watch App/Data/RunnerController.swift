@@ -99,7 +99,7 @@ class RunnerController: NSObject, ObservableObject {
         
     }
     
-    func scrape(number: String) async throws -> Runner {
+    func scrape(number: String) async throws -> (Runner, Array<Run>) {
         
         var parkrun_request = URLRequest(url: URL(string: "https://www.parkrun.com.au/parkrunner/\(number)/all/")!)
         
@@ -110,7 +110,10 @@ class RunnerController: NSObject, ObservableObject {
             )
         })
         
-        return try Runner(context: DataController.shared.container.viewContext, number: number, html: html)
+        return (
+            try Runner(context: DataController.shared.container.viewContext, number: number, html: html),
+            try Run.from_scrape(context: DataController.shared.container.viewContext, number: number, html: html)
+        )
         
     }
     

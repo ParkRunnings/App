@@ -19,11 +19,13 @@ struct EventListElement: View {
     @Environment(\.openURL) private var openURL
     
     @FetchRequest var events: FetchedResults<Event>
+    
+    @State private var nav_permissions: Bool = false
 
-    init(search: String) {
+    init(search: String, location_enabled: Bool) {
         
         _events = FetchRequest<Event>(
-            sortDescriptors: [NSSortDescriptor(key: "distance", ascending: true), NSSortDescriptor(key: "name", ascending: true)],
+            sortDescriptors: location_enabled ? [NSSortDescriptor(key: "distance", ascending: true)] : [NSSortDescriptor(key: "name", ascending: true)],
             predicate: search.isEmpty ? nil : NSPredicate(format: "name CONTAINS %@", search),
             animation: .default
         )
@@ -34,10 +36,26 @@ struct EventListElement: View {
         
         List(content: {
             
-            TitleElement(title: "Events", subtitle: location.enabled ? nil : "Enable location services on your iPhone for nearby event sorting")
+            if location.enabled {
+                TitleElement(title: "Events", subtitle: nil)
+            } else {
+                
+                let event_title = TitleElement(title: "Events", subtitle: "🚫 Enable location services for nearby event sorting")
+                
+                if location.status == .notDetermined {
+                    event_title
+                        .simultaneousGesture(TapGesture().onEnded({ location.authorise() }))
+                } else {
+                    ButtonNavigation(active: $nav_permissions, button: {
+                        event_title
+                    }, destination: { PermissionView() })
+                        .simultaneousGesture(TapGesture().onEnded({ nav_permissions = true }))
+                }
+              
+            }
             
             ForEach(events, content: { each in
-                EventLocationElement(name: each.name, country: each.country, meters: Int(each.distance))
+                EventLocationElement(name: each.name, country: each.country, meters: location.enabled ? Int(each.distance) : -1)
                     .simultaneousGesture(TapGesture().onEnded({
                         meta.update_home(event: each)
                         presentation.wrappedValue.dismiss()
@@ -50,10 +68,3 @@ struct EventListElement: View {
     }
     
 }
-
-struct EventListElement_Previews: PreviewProvider {
-    static var previews: some View {
-        EventListElement(search: "Shit")
-    }
-}
-

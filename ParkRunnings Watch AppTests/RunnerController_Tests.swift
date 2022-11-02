@@ -52,12 +52,11 @@ class RunnerController_Tests: XCTestCase {
      
         for test in tests {
             
-            let runner = try await RunnerController.shared.scrape(number: test.number)
+            let (runner, runs) = try await RunnerController.shared.scrape(number: test.number)
             
             XCTAssertEqual(runner.number, test.number)
             XCTAssertEqual(runner.name, test.name)
-            XCTAssertNotNil(runner.runs)
-            XCTAssertNotNil(runner.fastest)
+            XCTAssertGreaterThan(runs.count, 0)
             XCTAssertNil(runner.error)
         
         }
@@ -72,12 +71,11 @@ class RunnerController_Tests: XCTestCase {
         
         for test in tests {
             
-            let runner = try await RunnerController.shared.scrape(number: test.number)
+            let (runner, runs) = try await RunnerController.shared.scrape(number: test.number)
             
             XCTAssertEqual(runner.number, test.number)
             XCTAssertEqual(runner.name, test.name)
-            XCTAssertEqual(runner.runs, test.runs)
-            XCTAssertEqual(runner.fastest, test.fastest)
+            XCTAssertEqual(runs.count, 0)
             XCTAssertNil(runner.error)
         
         }
@@ -92,12 +90,12 @@ class RunnerController_Tests: XCTestCase {
      
         for test in tests {
             
-            let runner = try await RunnerController.shared.scrape(number: test.number)
+            let (runner, runs) = try await RunnerController.shared.scrape(number: test.number)
             
             XCTAssertEqual(runner.number, test.number)
             XCTAssertEqual(runner.name, test.name)
-            XCTAssertNotNil(runner.runs)
-            XCTAssertEqual(runner.fastest, test.fastest)
+            XCTAssertGreaterThan(runs.count, 0)
+            XCTAssertEqual(runs.sorted(by: { $0.time < $1.time}).first!.display_time, test.fastest)
             XCTAssertNil(runner.error)
             
         }
@@ -113,12 +111,11 @@ class RunnerController_Tests: XCTestCase {
         
         for test in tests {
             
-            let runner = try await RunnerController.shared.scrape(number: test.number)
+            let (runner, runs) = try await RunnerController.shared.scrape(number: test.number)
             
             XCTAssertEqual(runner.number, test.number)
             XCTAssertEqual(runner.name, test.name)
-            XCTAssertEqual(runner.runs, test.runs)
-            XCTAssertEqual(runner.fastest, test.fastest)
+            XCTAssertEqual(runs.count, 0)
             XCTAssertNotNil(runner.error)
             
         }

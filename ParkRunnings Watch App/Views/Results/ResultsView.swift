@@ -62,6 +62,24 @@ struct ResultsView: View {
                     
                 })
                 
+                if results.data.count == 0 {
+                    
+                    ResultTimeElement(text: "NO RUNS YET", colour: "#D6D6D6")
+                        .padding(.trailing, 10)
+                        .padding(.leading, 10)
+                        .padding(.top, 3)
+                        .padding(.bottom, 4)
+                        .background(content: {
+                            Colour(hex: "#333333")
+                                .cornerRadius(10)
+                                .shadow(color: Color(hex: "#000000").opacity(0.8), radius: 4, x: 2, y: 2)
+                        })
+                        .padding(.leading, 2)
+                        .padding(.bottom, 10)
+                        .padding(.top, -30)
+                    
+                }
+                
             })
             .frame(height: design.watch.size.height - design.watch.status_height)
             
@@ -73,7 +91,7 @@ struct ResultsView: View {
                 
                 do {
                     
-                    let runner_ = try await runner.scrape(number: runner.number)
+                    let (runner_, _) = try await runner.scrape(number: runner.number)
                     
                     if let error = runner_.error {
                         throw RunnerControllerError.scrape(title: error)

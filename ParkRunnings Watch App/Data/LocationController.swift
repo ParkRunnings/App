@@ -47,6 +47,8 @@ class LocationController: NSObject, ObservableObject, CLLocationManagerDelegate 
     
     func authorise() {
         
+        MetaController.shared.update_location_requested()
+        
         if status == .notDetermined {
             manager.requestWhenInUseAuthorization()
         }
@@ -90,7 +92,8 @@ class LocationController: NSObject, ObservableObject, CLLocationManagerDelegate 
         status = manager.authorizationStatus
         
         enabled = LocationController.check_enabled(status: manager.authorizationStatus)
-        MetaController.shared.setup_location = status != .notDetermined
+        
+        MetaController.shared.setup_location = MetaController.shared.location_requested || status != .notDetermined
         
         if !enabled && !MetaController.simulator {
             EventController.shared.clear()

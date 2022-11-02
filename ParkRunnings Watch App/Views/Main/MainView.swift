@@ -14,8 +14,8 @@ struct MainView: View {
     @Environment(\.managedObjectContext) var context
     @Environment(\.openURL) private var openURL
     
-    @EnvironmentObject var location: LocationController
     @EnvironmentObject var meta: MetaController
+    @EnvironmentObject var location: LocationController
     @EnvironmentObject var runner: RunnerController
     @EnvironmentObject var event: EventController
     @EnvironmentObject var design: DesignController
@@ -25,6 +25,7 @@ struct MainView: View {
     @State private var nav_map: Bool = false
     @State private var nav_stats: Bool = false
     @State private var nav_results: Bool = false
+    @State private var nav_permissions: Bool = false
     
     var body: some View {
         
@@ -40,8 +41,24 @@ struct MainView: View {
                         
                         MainTimeProgress(progress: $event.time_progress, start: $event.time_display)
                         
-                        MainDistanceProgress(progress: $event.distance_progress, distance: $event.distance_display)
-                            .hidden(!location.enabled)
+                        if location.enabled {
+                            MainDistanceProgress(progress: $event.distance_progress, distance: $event.distance_display)
+                        } else {
+                            
+                            let options = ["🤷‍♀️", "🤷🏻‍♀️", "🤷🏼‍♀️", "🤷🏽‍♀️", "🤷🏾‍♀️", "🤷🏿‍♀️", "🤷‍♂️", "🤷🏻‍♂️", "🤷🏼‍♂️", "🤷🏽‍♂️", "🤷🏾‍♂️", "🤷🏿‍♂️"]
+                            var seed = RandomNumberGeneratorWithSeed(seed: Int(Date().timeIntervalSince1970 / 86400))
+                            
+                            var progress = MainDistanceProgress(progress: .constant(0.0), distance: .constant(options[Int.random(in: 0 ..< options.count, using: &seed)]))
+                            
+                            if location.status == .notDetermined {
+                                progress
+                                    .simultaneousGesture(TapGesture().onEnded({ location.authorise() }))
+                            } else {
+                                ButtonNavigation(active: $nav_permissions, button: { progress }, destination: { PermissionView() })
+                                    .simultaneousGesture(TapGesture().onEnded({ nav_permissions = true }))
+                            }
+                            
+                        }
                         
                         Spacer()
                         
@@ -112,7 +129,7 @@ struct MainView: View {
             .listStyle(.carousel)
             
         })
-        .sheet(isPresented: !$meta.setup, content: {
+        .sheet(isPresented: !$meta.nav_setup, content: {
             WelcomeView()
                 .interactiveDismissDisabled()
                 .toolbar(content: {
@@ -121,9 +138,25 @@ struct MainView: View {
                     })
                 })
         })
+        .sheet(isPresented: $meta.nav_version, content: {
+            VersionView()
+                .interactiveDismissDisabled()
+                .toolbar(content: {
+                    ToolbarItem(id: "x", placement: .cancellationAction, showsByDefault: false, content: {
+                        Text("")
+                    })
+                })
+        })
+        
         .onLoad(perform: {
             location.register_sync()
             event.register_sync()
+            print(meta.acknowledged_version)
+            print(Watch.app_version)
+            print(meta.acknowledged_version < Watch.app_version)
+            print(meta.nav_version)
+            
+            
         })
         
     }

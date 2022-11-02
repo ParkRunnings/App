@@ -20,22 +20,26 @@ class MetaController: NSObject, ObservableObject {
             current.refresh(ref: &current.runner_number, value: runner_number)
         }
     }
+    
     @Published var event_home: UUID? {
         didSet {
             setup_home = event_home != nil
             current.refresh(ref: &current.event_home, value: event_home)
         }
     }
-    @Published var event_master: UUID? {
+    
+    @Published var location_requested: Bool! {
         didSet {
-            current.refresh(ref: &current.event_master, value: event_master)
+            setup_location = current.location_requested || LocationController.shared.status != .notDetermined
+            current.refresh(ref: &current.location_requested, value: location_requested)
         }
     }
-    @Published var setup: Bool! {
-        didSet {
-            current.refresh(ref: &current.setup, value: setup)
-        }
-    }
+    
+    @Published var event_master: UUID? { didSet { current.refresh(ref: &current.event_master, value: event_master) } }
+    @Published var acknowledged_version: String! { didSet { current.refresh(ref: &current.acknowledged_version, value: acknowledged_version) } }
+    
+    @Published var nav_setup: Bool! { didSet { current.refresh(ref: &current.setup, value: nav_setup) } }
+    @Published var nav_version: Bool = false
     
     @Published var setup_barcode: Bool! { didSet { update_setup_complete() } }
     @Published var setup_location: Bool! { didSet { update_setup_complete() } }
@@ -82,12 +86,16 @@ class MetaController: NSObject, ObservableObject {
         runner_number = current.runner_number
         event_home = current.event_home
         event_master = current.event_master
+        location_requested = current.location_requested
+        acknowledged_version = current.acknowledged_version
         
         setup_barcode = current.runner_number != nil
-        setup_location = LocationController.shared.status != .notDetermined
+        setup_location = current.location_requested || LocationController.shared.status != .notDetermined
         setup_home = current.event_home != nil
         setup_complete = setup_barcode && setup_location && setup_home
-        setup = current.setup && setup_complete
+        
+        nav_setup = current.setup && setup_complete
+        nav_version = nav_setup && Watch.app_version == VersionView.version && current.acknowledged_version != Watch.app_version
         
     }
     
@@ -117,7 +125,13 @@ class MetaController: NSObject, ObservableObject {
     }
     
     func complete_setup() {
-        setup = true
+        nav_setup = true
+        DataController.shared.save()
+    }
+    
+    func acknowledge_version() {
+        nav_version = false
+        acknowledged_version = Watch.app_version
         DataController.shared.save()
     }
     
@@ -130,17 +144,25 @@ class MetaController: NSObject, ObservableObject {
     }
     
     func update_home(event: Event) {
+        
         event_home = event.uuid
         DataController.shared.save()
         EventController.shared.update(event: event)
+        
     }
     
     func update_runner(runner: Runner) {
         
         runner_number = runner.number
-        
         DataController.shared.save()
         RunnerController.shared.update()
+        
+    }
+    
+    func update_location_requested() {
+        
+        location_requested = true
+        DataController.shared.save()
         
     }
     

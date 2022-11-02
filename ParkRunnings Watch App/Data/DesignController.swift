@@ -83,7 +83,7 @@ class DesignController: NSObject, ObservableObject {
             case (.stat_icon, .square): return 8
             
             case (.stat_value, .large_curved): return 26
-            case (.stat_value, .small_curved): return 22
+            case (.stat_value, .small_curved): return 26
             case (.stat_value, .square): return 18
             
             case (.stat_legend, .large_curved): return 9

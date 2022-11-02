@@ -70,7 +70,7 @@ struct MapView: View {
     
     @State var fallback: Data?
     
-    @State var scale: CGFloat = 1.2
+    @State var scale: CGFloat = 1.0
     @State var vertical = DragAxis(previous: 0, current: 0)
     @State var horizontal = DragAxis(previous: 0, current: 0)
     

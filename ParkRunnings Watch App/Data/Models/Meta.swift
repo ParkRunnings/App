@@ -19,6 +19,8 @@ public class Meta: NSManagedObject, Identifiable, Refreshable {
     @NSManaged public var event_master: UUID?
     @NSManaged public var event_home: UUID?
     @NSManaged public var runner_number: String?
+    @NSManaged public var acknowledged_version: String
+    @NSManaged public var location_requested: Bool
     
     static private let CoreName = "Meta"
     
@@ -30,7 +32,9 @@ public class Meta: NSManagedObject, Identifiable, Refreshable {
         setup: Bool,
         event_master: UUID?,
         event_home: UUID?,
-        runner_number: String?
+        runner_number: String?,
+        acknowledged_version: String,
+        location_requested: Bool
     ) {
         
         super.init(
@@ -44,25 +48,11 @@ public class Meta: NSManagedObject, Identifiable, Refreshable {
         self.event_master = event_master
         self.event_home = event_home
         self.runner_number = runner_number
+        self.acknowledged_version = acknowledged_version
+        self.location_requested = location_requested
  
     }
-//
-//    private init() {
-//
-//        super.init(entity: NSEntityDescription(
-//
-//            .entity(forEntityName: <#T##String#>, in: <#T##NSManagedObjectContext#>), insertInto: nil)
-//
-//        self.id = "loading-meta"
-//        self.launches = 0
-//        self.created = Date.now
-//        self.setup = false
-//        self.event_master = nil
-//        self.event_home = nil
-//        self.runner_number = nil
-//
-//    }
-//
+
     convenience init(
         context: NSManagedObjectContext,
         id: String
@@ -76,7 +66,9 @@ public class Meta: NSManagedObject, Identifiable, Refreshable {
             setup: false,
             event_master: nil,
             event_home: nil,
-            runner_number: nil
+            runner_number: nil,
+            acknowledged_version: Watch.app_version,
+            location_requested: false
         )
         
     }

@@ -32,13 +32,13 @@ struct StatsView: View {
             }
             
             if let fastest = runner.fastest {
-                StatValueElement(colour: "#28C563", symbol: design.watch.version >= 9.0 ? "trophy.fill" : "timer", header: "Fastest", detail: fastest.display_date, value: fastest.display_time)
+                StatValueElement(colour: "#28C563", symbol: Watch.os_version >= 9.0 ? "trophy.fill" : "timer", header: "Fastest", detail: fastest.display_date, value: fastest.display_time)
                     .padding(.bottom, 4)
             }
 
             VStack(alignment: .leading, spacing: 10, content: {
 
-                StatValueElement(colour: "#4622AD", symbol: design.watch.version >= 9.0 ? "figure.run" : "figure.walk", header: "Runs", detail: runner.latest?.display_date ?? "-", value: String(runner.runs))
+                StatValueElement(colour: "#4622AD", symbol: Watch.os_version >= 9.0 ? "figure.run" : "figure.walk", header: "Runs", detail: runner.latest?.display_date ?? "-", value: String(runner.runs))
 
                 StatMilestoneElement(runs: runner.runs, current_milestone: runner.current_milestone, next_milestone: runner.next_milestone)
 
@@ -79,7 +79,7 @@ struct StatsView: View {
                 
                 do {
                     
-                    let runner_ = try await runner.scrape(number: runner.number)
+                    let (runner_, _) = try await runner.scrape(number: runner.number)
                     
                     if let error = runner_.error {
                         throw RunnerControllerError.scrape(title: error)

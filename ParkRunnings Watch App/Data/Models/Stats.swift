@@ -78,9 +78,14 @@ struct StatMonthly {
         // Filter the values that will be displayed on the chart to 3 standard deviations
         let scope_values = values.filter({ abs(mean - $0) <= deviation * 3 })
 
-        self.scale_x = 0 ... raw.count + 1
-        self.scale_y = scope_values.min()! - min(deviation, 3) ... scope_values.max()! + min(deviation, 3) // To-Do: This could cause issues on runners who have not run for a year
-
+        if scope_values.count > 0 {
+            self.scale_x = 0 ... raw.count + 1
+            self.scale_y = scope_values.min()! - min(deviation, 3) ... scope_values.max()! + min(deviation, 3) // To-Do: This could cause issues on runners who have not run for a year
+        } else {
+            self.scale_x = 0 ... raw.count + 1
+            self.scale_y = 0.0 ... 60.0
+        }
+        
         self.marks = raw.sorted(by: { $0.key < $1.key }).enumerated().map({
             StatMonthlyMark(id: $0.offset + 1, date: $0.element.key, mean: mean, deviation: deviation, values: $0.element.value)
         })

@@ -20,11 +20,19 @@ extension Watch: RawRepresentable {
     
     typealias RawValue = CGSize
     
-    var version: Double {
+    static var os_version: Double {
         
         get {
             let os = ProcessInfo().operatingSystemVersion
             return Double(os.majorVersion) + (Double(os.minorVersion) / 10.0)
+        }
+        
+    }
+    
+    static var app_version: String {
+        
+        get {    
+            return Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
         }
         
     }
