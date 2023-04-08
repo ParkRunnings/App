@@ -215,8 +215,8 @@ class DesignController: NSObject, ObservableObject {
             case (.card_graph_height, .square): return 110
 
             case (.stat_legend_circle, .large_curved): return 8
-            case (.stat_legend_circle, .small_curved): return 130
-            case (.stat_legend_circle, .square): return 110
+            case (.stat_legend_circle, .small_curved): return 6
+            case (.stat_legend_circle, .square): return 5
 
         }
         

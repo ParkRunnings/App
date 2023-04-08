@@ -36,9 +36,8 @@ struct StatMonthly {
     init(results: Array<Run>, months: Int) {
 
         let now = Date.now
-        var calendar = Calendar.current
-        calendar.timeZone = TimeZone(abbreviation: "UTC")!
-
+        let calendar = Calendar.current
+        
         let month = calendar.component(.month, from: now)
         let year = calendar.component(.year, from: now)
 
@@ -80,7 +79,7 @@ struct StatMonthly {
 
         if scope_values.count > 0 {
             self.scale_x = 0 ... raw.count + 1
-            self.scale_y = scope_values.min()! - min(deviation, 3) ... scope_values.max()! + min(deviation, 3) // To-Do: This could cause issues on runners who have not run for a year
+            self.scale_y = floor(scope_values.min()! - min(deviation, 3)) ... ceil(scope_values.max()! + min(deviation, 3)) // To-Do: This could cause issues on runners who have not run for a year
         } else {
             self.scale_x = 0 ... raw.count + 1
             self.scale_y = 0.0 ... 60.0
@@ -89,6 +88,8 @@ struct StatMonthly {
         self.marks = raw.sorted(by: { $0.key < $1.key }).enumerated().map({
             StatMonthlyMark(id: $0.offset + 1, date: $0.element.key, mean: mean, deviation: deviation, values: $0.element.value)
         })
+        
+        print(scale_x, scale_y)
 
     }
 
@@ -99,9 +100,9 @@ struct StatMonthlyMark: Identifiable {
     var id: Int
 
     var date: Date
-    var min: Double
-    var max: Double
-    var mean: Double
+    var min: Double?
+    var max: Double?
+    var mean: Double?
     var outliers: Array<StatSingleValue>
     var excluded: Int
 
@@ -111,14 +112,16 @@ struct StatMonthlyMark: Identifiable {
         let outliers = values.filter({ abs(mean - $0) > deviation * 2 && abs(mean - $0) <= deviation * 3 })
         let excluded = values.filter({ abs(mean - $0) > deviation * 3 })
 
+        let monthly_mean = values.mean()
+        
         self.id = id
-        self.date = date  //.strftime(format: "MMMMM")
-        self.min = inliers.min() ?? 0
-        self.max = inliers.max() ?? 0
-        self.mean = values.mean()
+        self.date = date
+        self.min = inliers.min()
+        self.max = inliers.max()
+        self.mean = monthly_mean.isNaN ? nil : monthly_mean
         self.outliers = outliers.map({ StatSingleValue(y: $0) })
         self.excluded = excluded.count
-
+        
     }
 
 }

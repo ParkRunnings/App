@@ -46,8 +46,6 @@ struct DragAxis {
                 previous = gesture
             }
             
-        } else {
-            print(3, round(current), round(new), round(previous), round(absolute))
         }
         
 //

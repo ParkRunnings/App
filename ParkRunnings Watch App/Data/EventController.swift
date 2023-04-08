@@ -139,7 +139,7 @@ class EventController: NSObject, ObservableObject {
     func scrape_course() async -> Course? {
         
         guard let event = event, let course = try? await DataController.shared.json(
-            url: "https://storage.googleapis.com/parkrun-au/maps/\(event.uuid.string()).json",
+            url: URL(string: "https://storage.googleapis.com/parkrun-au/maps/\(event.uuid.string()).json")!,
             as: Course.self
         ) else { return nil }
         
@@ -153,7 +153,7 @@ class EventController: NSObject, ObservableObject {
         
         // Scrape the event master data
         guard let master = try? await DataController.shared.json(
-            url: "https://storage.googleapis.com/parkrun-au/\(self.target).json",
+            url: URL(string: "https://storage.googleapis.com/parkrun-au/\(self.target).json")!,
             as: EventMeta.self
         ) else { return nil }
         
@@ -210,7 +210,7 @@ class EventController: NSObject, ObservableObject {
     func scrape_master_state() async -> MasterState? {
         
         guard let master_state = try? await DataController.shared.json(
-            url: "https://storage.googleapis.com/parkrun-au/state/\(self.target).json",
+            url: URL(string: "https://storage.googleapis.com/parkrun-au/state/\(self.target).json")!,
             as: MasterState.self
         ) else { return nil }
         
@@ -221,7 +221,7 @@ class EventController: NSObject, ObservableObject {
     func scrape_event_state() async -> EventState? {
         
         guard let event = event, let event_state = try? await DataController.shared.json(
-            url: "https://storage.googleapis.com/parkrun-au/state/\(event.uuid.string()).json",
+            url: URL(string: "https://storage.googleapis.com/parkrun-au/state/\(event.uuid.string()).json")!,
             as: EventState.self
         ) else { return nil }
         

@@ -60,7 +60,7 @@ extension String {
     
     func namecased() -> Self {
         
-        var names = self.lowercased().split(separator: " ").map({ String($0) })
+        var names = self.lowercased().strip().split(separator: " ").map({ String($0) })
         
         for index in names.indices {
             for separator in ["-", "'"] {
@@ -108,7 +108,7 @@ extension Array where Element == Double {
     
     func mean() -> Double {
             
-        Double(self.sum()) / Double(self.count)
+        return Double(self.sum()) / Double(self.count)
         
     }
     

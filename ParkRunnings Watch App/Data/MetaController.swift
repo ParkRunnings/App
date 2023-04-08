@@ -14,9 +14,12 @@ class MetaController: NSObject, ObservableObject {
     static let shared = MetaController()
     static let id = "parkrunnings-meta"
     
+    private let defaults = UserDefaults.standard
+    
     @Published var runner_number: String? {
         didSet {
             setup_barcode = runner_number != nil
+            defaults.set(runner_number, forKey: "runner_number")
             current.refresh(ref: &current.runner_number, value: runner_number)
         }
     }
@@ -83,11 +86,13 @@ class MetaController: NSObject, ObservableObject {
     
     func update() {
         
-        runner_number = current.runner_number
+        runner_number = current.runner_number ?? defaults.string(forKey: "runner_number")
         event_home = current.event_home
         event_master = current.event_master
         location_requested = current.location_requested
         acknowledged_version = current.acknowledged_version
+        
+        print("Setup barcode", current.runner_number)
         
         setup_barcode = current.runner_number != nil
         setup_location = current.location_requested || LocationController.shared.status != .notDetermined
@@ -115,6 +120,8 @@ class MetaController: NSObject, ObservableObject {
         if let current = RunnerController.shared.current {
             context.delete(current)
         }
+        
+        defaults.set(nil, forKey: "runner_number")
         
         refresh()
         

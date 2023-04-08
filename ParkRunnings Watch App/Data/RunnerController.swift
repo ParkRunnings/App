@@ -51,8 +51,6 @@ class RunnerController: NSObject, ObservableObject {
         request.predicate = NSPredicate(format: "number = %@", argumentArray: [number])
         
         guard let runner = try! context.fetch(request).first else {
-            MetaController.shared.runner_number = nil
-            DataController.shared.save()
             return nil
         }
         
@@ -79,7 +77,7 @@ class RunnerController: NSObject, ObservableObject {
         current = self.fetch()
         
         name = current?.name ?? "-"
-        number = current?.number ?? "?"
+        number = current?.number ?? MetaController.shared.runner_number ?? "?"
         a_number = current?.a_number ?? "A490"
         
         // To-Do: Add a runner refresh op to the timer task
@@ -101,18 +99,23 @@ class RunnerController: NSObject, ObservableObject {
     
     func scrape(number: String) async throws -> (Runner, Array<Run>) {
         
-        var parkrun_request = URLRequest(url: URL(string: "https://www.parkrun.com.au/parkrunner/\(number)/all/")!)
-        
-        let html = try await scrape_catch(request: {
+        async let all_events_html = try scrape_catch(request: {
             return await String(
-                decoding: try DataController.shared.request(body: &parkrun_request),
+                decoding: try DataController.shared.request(url: URL(string: "https://www.parkrun.com.au/parkrunner/\(number)/all/")!),
                 as: UTF8.self
             )
         })
         
-        return (
-            try Runner(context: DataController.shared.container.viewContext, number: number, html: html),
-            try Run.from_scrape(context: DataController.shared.container.viewContext, number: number, html: html)
+        async let summary_events_html = try scrape_catch(request: {
+            return await String(
+                decoding: try DataController.shared.request(url: URL(string: "https://www.parkrun.com.au/parkrunner/\(number)/")!),
+                as: UTF8.self
+            )
+        })
+        
+        return await (
+            try Runner(context: DataController.shared.container.viewContext, number: number, all_events_html: all_events_html),
+            try Run.from_scrape(context: DataController.shared.container.viewContext, number: number, all_events_html: all_events_html, summary_events_html: summary_events_html)
         )
         
     }

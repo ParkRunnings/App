@@ -43,23 +43,21 @@ public class Runner: NSManagedObject, Identifiable {
         
     }
 
-    convenience public init(context: NSManagedObjectContext, number: String, html: String) throws {
+    convenience public init(context: NSManagedObjectContext, number: String, all_events_html: String) throws {
         
         let existing = Runner.fetch(context: context, number: number)
-        let soup = try SwiftSoup.parse(html)
+        let soup = try SwiftSoup.parse(all_events_html)
         
         var name: String?
         var scrape_error: String?
         
         do {
             
-            if let raw_name = try soup.select("h2").first()?.text().namecased(), raw_name != "" {
+            if let raw_name = try soup.select("h2").first()?.text().replacingOccurrences(of: "(A\(number))", with: "").namecased(), raw_name != "" {
                 name = raw_name
             } else {
                 throw RunnerControllerError.scrape(title: "No name")
             }
-            
-            _ = try Run.from_scrape(context: context, number: number, html: html)
             
         } catch {
             scrape_error = "A scraping error occured."

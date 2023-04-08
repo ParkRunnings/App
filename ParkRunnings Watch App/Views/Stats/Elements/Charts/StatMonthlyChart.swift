@@ -34,19 +34,24 @@ struct StatMonthlyChart: View {
                     RuleMark(x: .value("Month", mark.id), yStart: .value("Start Time", data.scale_y.lowerBound), yEnd: .value("End Time", data.scale_y.upperBound))
                         .lineStyle(StrokeStyle(lineWidth: 1))
                         .foregroundStyle(Colour(hex: "#5C5D69"))
-//                        .opacity(0.5)
 
-                    BarMark(
-                        x: .value("Month", mark.id),
-                        yStart: .value("Start Time", mark.min),
-                        yEnd: .value("End Time", mark.max)
-                    )
-                    .cornerRadius(2)
-                    .foregroundStyle(Color(hex: "#681631"))
-
-                    RuleMark(xStart: .value("Month", Double(mark.id) - 0.4), xEnd: .value("Month", Double(mark.id) + 0.4), y: .value("Median", mark.mean))
+                    if let min = mark.min, let max = mark.max {
+                        
+                        BarMark(
+                            x: .value("Month", mark.id),
+                            yStart: .value("Start Time", min),
+                            yEnd: .value("End Time", max)
+                        )
                         .cornerRadius(2)
-                        .foregroundStyle(Colour(hex: "#ED0B57"))
+                        .foregroundStyle(Color(hex: "#681631"))
+                        
+                    }
+
+                    if let mean = mark.mean {
+                        RuleMark(xStart: .value("Month", Double(mark.id) - 0.4), xEnd: .value("Month", Double(mark.id) + 0.4), y: .value("Median", mean))
+                            .cornerRadius(2)
+                            .foregroundStyle(Colour(hex: "#ED0B57"))
+                    }
 
                     ForEach(mark.outliers, content: { outlier in
                         PointMark(x: .value("Month", mark.id), y: .value("Time", outlier.y))

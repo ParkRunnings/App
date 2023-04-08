@@ -48,7 +48,7 @@ struct MainView: View {
                             let options = ["🤷‍♀️", "🤷🏻‍♀️", "🤷🏼‍♀️", "🤷🏽‍♀️", "🤷🏾‍♀️", "🤷🏿‍♀️", "🤷‍♂️", "🤷🏻‍♂️", "🤷🏼‍♂️", "🤷🏽‍♂️", "🤷🏾‍♂️", "🤷🏿‍♂️"]
                             var seed = RandomNumberGeneratorWithSeed(seed: Int(Date().timeIntervalSince1970 / 86400))
                             
-                            var progress = MainDistanceProgress(progress: .constant(0.0), distance: .constant(options[Int.random(in: 0 ..< options.count, using: &seed)]))
+                            let progress = MainDistanceProgress(progress: .constant(0.0), distance: .constant(options[Int.random(in: 0 ..< options.count, using: &seed)]))
                             
                             if location.status == .notDetermined {
                                 progress
@@ -151,12 +151,6 @@ struct MainView: View {
         .onLoad(perform: {
             location.register_sync()
             event.register_sync()
-            print(meta.acknowledged_version)
-            print(Watch.app_version)
-            print(meta.acknowledged_version < Watch.app_version)
-            print(meta.nav_version)
-            
-            
         })
         
     }

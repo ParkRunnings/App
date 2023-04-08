@@ -31,7 +31,7 @@ class RunnerController_Tests: XCTestCase {
             ("Charlie SCHACHER", "Charlie Schacher"),
             ("Neal JORDAN-CAWS", "Neal Jordan-Caws"),
             ("JOHNO'NEIL", "Johno'Neil"),
-            ("JOHNO-'NEIL", "Johno-'Neil"),
+            ("JOHNO-'NEIL ", "Johno-'Neil"),
 //            ("john oneil'", "John Oneil'")  // Uncovered edge case
         ]
         
