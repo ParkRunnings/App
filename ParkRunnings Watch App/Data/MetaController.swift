@@ -92,8 +92,6 @@ class MetaController: NSObject, ObservableObject {
         location_requested = current.location_requested
         acknowledged_version = current.acknowledged_version
         
-        print("Setup barcode", current.runner_number)
-        
         setup_barcode = current.runner_number != nil
         setup_location = current.location_requested || LocationController.shared.status != .notDetermined
         setup_home = current.event_home != nil

@@ -26,6 +26,7 @@ struct MainView: View {
     @State private var nav_stats: Bool = false
     @State private var nav_results: Bool = false
     @State private var nav_permissions: Bool = false
+    @State private var nav_about: Bool = false
     
     var body: some View {
         
@@ -121,6 +122,12 @@ struct MainView: View {
                         })
                         
                     }))
+                    .padding(.bottom, 4)
+                
+                ButtonNavigation(active: $nav_about, button: {
+                    CardTall(title: "About", symbol: "info.circle", colour: Colour(hex: "#CACAED"), foreground_colour: Colour(hex: "#1D183D"))
+                }, destination: { AboutView() })
+                    .simultaneousGesture(TapGesture().onEnded({ nav_about = true }))
                     .padding(.bottom, 4)
                 
                 ListOverscroll()

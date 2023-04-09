@@ -13,6 +13,12 @@ struct CardIcon: View {
     @EnvironmentObject var design: DesignController
     
     let symbol: String
+    let foreground_colour: Colour
+    
+    init(symbol: String, foreground_colour: Colour? = nil) {
+        self.symbol = symbol
+        self.foreground_colour = foreground_colour ?? Colour(hex: "#FFFFFF")
+    }
     
     var body: some View {
    
@@ -22,7 +28,7 @@ struct CardIcon: View {
                 weight: .bold,
                 design: .default
             ))
-            .foregroundColor(Colour(hex: "#FFFFFF"))
+            .foregroundColor(foreground_colour)
             .frame(width: design.size(text: .card_icon), height: design.size(text: .card_icon))
         
     }
@@ -33,16 +39,23 @@ struct CardContent: View {
     
     let title: String
     let symbol: String
+    private let foreground_colour: Colour?
+    
+    init(title: String, symbol: String, foreground_colour: Colour? = nil) {
+        self.title = title
+        self.symbol = symbol
+        self.foreground_colour = foreground_colour
+    }
     
     var body: some View {
         
         HStack(content: {
             
-            HeadingTextElement(text: title)
+            HeadingTextElement(text: title, foreground_colour: foreground_colour)
             
             Spacer()
             
-            CardIcon(symbol: symbol)
+            CardIcon(symbol: symbol, foreground_colour: foreground_colour)
             
         })
         
@@ -98,11 +111,19 @@ struct CardTall: View {
     let title: String
     let symbol: String
     let colour: Colour
+    private let foreground_colour: Colour?
+    
+    init(title: String, symbol: String, colour: Colour, foreground_colour: Colour? = nil) {
+        self.title = title
+        self.symbol = symbol
+        self.colour = colour
+        self.foreground_colour = foreground_colour
+    }
     
     var body: some View {
         
         ButtonElement(colour: colour, radius: design.size(size: .card_tall_radius), content: {
-            CardContent(title: title, symbol: symbol)
+            CardContent(title: title, symbol: symbol, foreground_colour: foreground_colour)
             .frame(height: design.size(size: .card_tall_height), alignment: .bottom)
             .padding(.all, design.size(size: .card_tall_padding))
         })

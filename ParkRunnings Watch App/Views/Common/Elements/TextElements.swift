@@ -51,12 +51,18 @@ struct HeadingTextElement: View {
     @EnvironmentObject var design: DesignController
     
     let text: String
+    let foreground_colour: Colour
+    
+    init(text: String, foreground_colour: Colour? = nil) {
+        self.text = text
+        self.foreground_colour = foreground_colour ?? Colour(hex: "#FFFFFF")
+    }
     
     var body: some View {
         
         Text(text)
             .font(Font.system(size: design.size(text: .heading), weight: .bold, design: .default))
-            .foregroundColor(Colour(hex: "#FFFFFF"))
+            .foregroundColor(foreground_colour)
             .listRowPlatterColor(.clear)
             .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
         
