@@ -125,7 +125,7 @@ struct MainView: View {
                     .padding(.bottom, 4)
                 
                 ButtonNavigation(active: $nav_about, button: {
-                    CardTall(title: "About", symbol: "info.circle", colour: Colour(hex: "#CACAED"), foreground_colour: Colour(hex: "#1D183D"))
+                    CardTall(title: "About", symbol: "info.circle", colour: Colour(hex: "#7F7181"))
                 }, destination: { AboutView() })
                     .simultaneousGesture(TapGesture().onEnded({ nav_about = true }))
                     .padding(.bottom, 4)

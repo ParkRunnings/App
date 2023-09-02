@@ -20,6 +20,7 @@ struct AboutView: View {
                     "",
                     "👨🏽‍💻  Charles Schacher",
                     "📍  Sydney, Australia",
+                    "",
                     "📮  hello@schacher.dev"
                 ].joined(separator: "\n")
             )
