@@ -114,7 +114,7 @@ struct SetupView: View {
 //            location.request()
 //            Event.scrape(context: context)
         })
-          
+                
     }
     
 }

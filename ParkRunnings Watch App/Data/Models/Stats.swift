@@ -40,9 +40,12 @@ struct StatMonthly {
         
         let month = calendar.component(.month, from: now)
         let year = calendar.component(.year, from: now)
-
-        let months = Array(repeating: (1 ... 12).reversed(), count: Int(ceil(Double(months + month) / Double(12)))).flatMap({ $0 })[12 - month ..< 12 - month + months]
         
+        let months = Array(
+            repeating: (1 ... 12).reversed(),
+            count: Int(ceil(Double(months + month) / Double(12)))
+        ).flatMap({ $0 })[12 - month ..< 12 - month + months]
+
         let dates = months.enumerated().map({
             calendar.date(from: DateComponents(
                 calendar: calendar,
