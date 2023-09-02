@@ -57,6 +57,7 @@ struct WelcomeView: View {
         .onAppear(perform: {
             nav_continue = false
         })
+    
     }
     
 }
