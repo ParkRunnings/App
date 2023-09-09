@@ -21,7 +21,7 @@ jobs:
             
               - name: Version
                 id: version
-                run: echo "${{ github.event.pull_request.head.ref }}" | perl -nle 'm/feature\/(\d+\.\d+\.\d+)/; print "number=",$1' >> "$GITHUB_OUTPUT"
+                run: echo "${{ github.event.pull_request.head.ref }}" | perl -nle 'm/ffeature\/(\d+\.\d+\.\d+)/; print "number=",$1' >> "$GITHUB_OUTPUT"
             
               - name: Check Changelog
                 id: changelog
