@@ -18,9 +18,14 @@ jobs:
                 uses: actions/checkout@v4
                 with:
                     ref: ${{ github.event.pull_request.head.ref }}
-                    
+            
+              - name: Version
+                id: version
+                run: echo "${{ github.event.pull_request.head.ref }}" | perl -nle 'm/feature\/(\d+\.\d+\.\d+)/; print "number=",$1' >> "$GITHUB_OUTPUT"
+            
               - name: Check Changelog
                 id: changelog
-                run: echo "${{ github.event.pull_request.head.ref }}"
+                if: steps.version.outputs.number != ""
+                run: echo ${{ steps.version.outputs.number }}
                 
               - run: git branch
