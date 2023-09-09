@@ -43,17 +43,16 @@ jobs:
                 id: test
                 if: ${{ steps.changelog.outputs.count != 1 }}
                 run: echo "Found ${{ steps.changelog.outputs.count }} changelog lines for version ${{ needs.setup.outputs.number }} in CHANGELOG.md"; exit 1
-                
+       
               - name: Git Tag
                 id: tag
                 run: git tag ${{ needs.setup.outputs.tag }}; git push --force origin ${{ needs.setup.outputs.tag }}
                 
               - name: Git Release
                 id: release
-                run: gh release create ${{ needs.setup.outputs.tag }} --draft --title "${{ needs.setup.outputs.tag }}" --notes-file CHANGELOG.md
+                run: gh release create ${{ needs.setup.outputs.tag }} --draft --title "${{ needs.setup.outputs.tag }}" --notes $(perl -0777 -ne 'print "$1\n" while /## v1.3.0(.*?)## v/gs' CHANGELOG.md | perl -pe 'chomp if eof')
                 env:
                     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                    
                     
             # name: Publish Release
             # on:
