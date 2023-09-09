@@ -32,7 +32,7 @@ jobs:
             
               - name: Check Changelog
                 id: changelog
-                run: echo "count="$(cat CHANGELOG.md | grep -E -c "## v${{ steps.version.outputs.number }}") >> "$GITHUB_OUTPUT"
+                run: echo "count="$(cat CHANGELOG.md | grep -E -c "## v${{ needs.setup.outputs.version }}") >> "$GITHUB_OUTPUT"
                 
               - name: Changelog Test
                 id: test
