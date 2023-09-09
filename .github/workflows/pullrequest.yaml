@@ -21,11 +21,14 @@ jobs:
             
               - name: Version
                 id: version
-                run: echo "${{ github.event.pull_request.head.ref }}" | perl -nle 'm/ffeature\/(\d+\.\d+\.\d+)/; print "number=",$1' >> "$GITHUB_OUTPUT"
+                run: echo "${{ github.event.pull_request.head.ref }}" | perl -nle 'm/feature\/(\d+\.\d+\.\d+)/; print "number=",$1' >> "$GITHUB_OUTPUT"
             
               - name: Check Changelog
                 id: changelog
                 if: ${{ steps.version.outputs.number != '' }}
-                run: echo ${{ steps.version.outputs.number }}
+                run: echo "count="$(cat CHANGELOG.md | grep -E -c "## v${{ steps.version.outputs.number }}") >> "$GITHUB_OUTPUT"
                 
-              - run: git branch
+              - name: Changelog Test
+                id: test
+                if: ${{ steps.version.outputs.number != '' && steps.changelog.outputs.count != 1 }}
+                run: echo "Found ${{ steps.changelog.outputs.count }} changelog lines for version ${{ steps.version.outputs.number }} in CHANGELOG.md"; exit 1
