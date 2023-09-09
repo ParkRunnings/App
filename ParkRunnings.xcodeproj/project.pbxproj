@@ -178,6 +178,7 @@
 		CB82222D2911DA1600C419D9 /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		CB82222F291227D400C419D9 /* VersionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionView.swift; sourceTree = "<group>"; };
 		CB9691862AAC07D3004DDB7C /* EventController_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventController_Tests.swift; sourceTree = "<group>"; };
+		CB96918A2AAC107B004DDB7C /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		CBA509DB29DFBD320005B189 /* ParkRunnings-Watch-AppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "ParkRunnings-Watch-AppTests-Info.plist"; sourceTree = SOURCE_ROOT; };
 		CBA509DD29E233D90005B189 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		CBB6106328F8BB3B001D55A9 /* StatTitleElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatTitleElement.swift; sourceTree = "<group>"; };
@@ -511,6 +512,7 @@
 				CBAE8F0A27F7CECE00A66830 /* Products */,
 				CBE106AD27FD575B008AF35B /* Frameworks */,
 				CB0C865E28D85F530063AAFB /* README.md */,
+				CB96918A2AAC107B004DDB7C /* CHANGELOG.md */,
 			);
 			sourceTree = "<group>";
 		};

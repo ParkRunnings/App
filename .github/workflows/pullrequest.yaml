@@ -10,7 +10,7 @@ jobs:
             name: Setup
             runs-on: ubuntu-latest
             outputs:
-                version: ${{ steps.version.number }}
+                version: ${{ steps.version.outputs.number }}
             steps:
             
               - name: Version
