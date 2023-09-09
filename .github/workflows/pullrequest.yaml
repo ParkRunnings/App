@@ -55,7 +55,7 @@ jobs:
               - name: Git Release
                 id: publish
                 run: |
-                    gh release ${{ steps.release.outputs.exists == 0 && "create" || "edit" }} ${{ needs.setup.outputs.tag }} \
+                    gh release ${{ steps.release.outputs.exists == 0 && 'create' || 'edit' }} ${{ needs.setup.outputs.tag }} \
                         --draft \
                         --title "${{ needs.setup.outputs.tag }}" \
                         --notes $(perl -0777 -ne 'print "$1\n" while /## v1.3.0(.*?)## v/gs' CHANGELOG.md | perl -pe 'chomp if eof')
