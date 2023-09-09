@@ -10,18 +10,23 @@ jobs:
             name: Setup
             runs-on: ubuntu-latest
             outputs:
-                version: ${{ steps.version.outputs.number }}
+                version: ${{ steps.number.outputs.number }}
+                tag: ${{ steps.tag.outputs.tag }}
             steps:
             
-              - name: Version
-                id: version
+              - name: Number
+                id: number
                 run: echo "${{ github.event.pull_request.head.ref }}" | perl -nle 'm/feature\/(\d+\.\d+\.\d+)/; print "number=",$1' >> "$GITHUB_OUTPUT"
+                
+              - name: Tag
+                id: tag
+                run: echo "tag=v"${{ steps.number.outputs.number }}
         
         test:
             name: Test Versioning
             runs-on: ubuntu-latest
             needs: setup
-            if: needs.setup.outputs.version != ''
+            if: needs.setup.outputs.number != ''
             steps:
         
               - name: Checkout
@@ -32,17 +37,24 @@ jobs:
             
               - name: Check Changelog
                 id: changelog
-                run: echo "count="$(cat CHANGELOG.md | grep -E -c "## v${{ needs.setup.outputs.version }}") >> "$GITHUB_OUTPUT"
+                run: echo "count="$(cat CHANGELOG.md | grep -E -c "## ${{ needs.setup.outputs.tag }}") >> "$GITHUB_OUTPUT"
                 
               - name: Changelog Test
                 id: test
                 if: ${{ steps.changelog.outputs.count != 1 }}
-                run: echo "Found ${{ steps.changelog.outputs.count }} changelog lines for version ${{ needs.setup.outputs.version }} in CHANGELOG.md"; exit 1
+                run: echo "Found ${{ steps.changelog.outputs.count }} changelog lines for version ${{ needs.setup.outputs.number }} in CHANGELOG.md"; exit 1
                 
               - name: Git Tag
                 id: tag
-                run: git tag v${{ needs.setup.outputs.version }}; git push --force origin v${{ needs.setup.outputs.version }}
+                run: git tag ${{ needs.setup.outputs.tag }}; git push --force origin ${{ needs.setup.outputs.tag }}
                 
+              - name: Git Release
+                id: release
+                run: gh release create ${{ needs.setup.outputs.tag }} --draft --title "${{ needs.setup.outputs.tag }}" --notes-file CHANGELOG.md
+                env:
+                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                    
+                    
             # name: Publish Release
             # on:
             #   push:
