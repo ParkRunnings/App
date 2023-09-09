@@ -41,7 +41,7 @@ jobs:
                 
               - name: Git Tag
                 id: tag
-                run: git tag ${{ needs.setup.outputs.version }}; git push --force
+                run: git tag v${{ needs.setup.outputs.version }}; git push --force origin v${{ needs.setup.outputs.version }}
                 
             # name: Publish Release
             # on:
