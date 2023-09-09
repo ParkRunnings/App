@@ -1,5 +1,10 @@
 #  CHANGELOG
 
+## v1.3.0
+→ Updated for WatchOS 10 compatibility
+→ Resolved several CoreData concurrency issues
+→ Resolved a rare date based issue causing crashes for users in Australia/NZ
+
 ## v1.2.0
 This version contains several minor bug fixes. Thanks to u/TheTechBox & u/Foulenough1 for reporting them!
 
