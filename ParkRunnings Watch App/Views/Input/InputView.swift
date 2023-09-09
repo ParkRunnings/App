@@ -57,22 +57,23 @@ struct InputView: View {
                                     nav_confirmation = true
                                     
                                     Task(operation: {
-                                        
+
                                         do {
+                                            print("HERE1")
                                             let (runner_, _) = try await RunnerController.shared.scrape(number: number)
-                                            
+                                            print("HERE2", runner)
                                             if runner_.number == polling_for {
                                                 runner = runner_
                                                 polling_for = nil
                                             }
-                                            
+
                                         } catch RunnerControllerError.scrape(let title) {
-                                            
+
                                             runner = Runner.init(context: context, number: number, error: title)
                                             polling_for = nil
-                                        
+
                                         }
-                                        
+
                                     })
                                     
                                 case (.delete, 1 ... .max):
@@ -108,6 +109,7 @@ struct InputView: View {
                             Text("")
                         })
                     })
+                    .interactiveDismissDisabled()
             })
             .padding(.bottom, 2)
             .padding(.horizontal, 2)

@@ -30,183 +30,146 @@ class EventController: NSObject, ObservableObject {
     @Published var image: Bool!
     @Published var coordinates: (Double, Double)?
     
+    
+    // New methods
+    
     override init() {
         super.init()
         
-        event = fetch()
-        course = fetch()
+        event = fetch_event()
+        course = fetch_course(uuid: event?.uuid)
+        
         refresh()
         
     }
     
-    func fetch() -> Event? {
-        
+    
+    // Core Data Fetch Methods
+    
+    func fetch_event() -> Event? {
+
         let context = DataController.shared.container.viewContext
-        
+
         guard let home = MetaController.shared.event_home else { return nil }
-        
+
         let request = Event.request()
         request.predicate = NSPredicate(format: "uuid = %@", argumentArray: [home])
-        
+
         guard let event = try! context.fetch(request).first else {
             MetaController.shared.event_home = nil
-            DataController.shared.save()
+            DataController.shared.save(context: context)
             return nil
         }
-        
+
         return event
-        
+
     }
     
-    func fetch() -> Course? {
+    func fetch_course(uuid: UUID?) -> Course? {
+        
+        guard let uuid else { return nil }
         
         let context = DataController.shared.container.viewContext
-        
-        guard let event = event else { return nil }
         
         let request = Course.request()
-        request.predicate = NSPredicate(format: "uuid = %@", argumentArray: [event.uuid])
+        request.predicate = NSPredicate(format: "uuid = %@", argumentArray: [uuid])
         
-        if let course = try? context.fetch(request).first {
-            return course
-        } else {
-            
-            Task(operation: {
-                guard let course = await scrape_course() else { return }
-                DispatchQueue.main.async(execute: { [weak self] in
-                    guard let self = self else { return }
-                    self.update(course: course)
-                })
-            })
-            
-            return nil
-            
-        }
-        
-    }
-    
-    func update(event: Event) {
-        
-        self.event = event
-        DataController.shared.save()
-        course = fetch()
-        
-        refresh()
-        
-    }
-    
-    func update(course: Course) {
-        
-        self.course = course
-        DataController.shared.save()
-        
-        refresh()
-        
-    }
-    
-    func update(new: CLLocation) {
-        
-        let request = Event.request()
-        let context = DataController.shared.container.viewContext
-            
-        for event in try! context.fetch(request) {
-            event.distance = new.distance(from: CLLocation(latitude: event.latitude, longitude: event.longitude))
-        }
-            
-        try! context.save()
-            
-        refresh()
-        
-    }
-    
-    func clear() {
-        
-        let request = Event.request()
-        let context = DataController.shared.container.viewContext
-            
-        for event in try! context.fetch(request) {
-            event.distance = -1
-        }
-            
-        try! context.save()
-            
-        refresh()
-        
-    }
-    
-    // Scraping methods
-    
-    func scrape_course() async -> Course? {
-        
-        guard let event = event, let course = try? await DataController.shared.json(
-            url: URL(string: "https://storage.googleapis.com/parkrun-au/maps/\(event.uuid.string()).json")!,
-            as: Course.self
-        ) else { return nil }
-        
-        DataController.shared.save()
+        guard let course = try? context.fetch(request).first else { return nil }
         
         return course
         
     }
     
-    func scrape_master() async -> EventMeta? {
+    
+    
+    // HTTP Scrape Methods
+    
+    func scrape_course(uuid: UUID) {
         
-        // Scrape the event master data
-        guard let master = try? await DataController.shared.json(
-            url: URL(string: "https://storage.googleapis.com/parkrun-au/\(self.target).json")!,
-            as: EventMeta.self
-        ) else { return nil }
+        Task(operation: {
+            
+            let _ = try? await DataController.shared.json(
+                url: URL(string: "https://storage.googleapis.com/parkrun-au/maps/\(uuid.string()).json")!,
+                as: Course.self
+            )
+            
+            DispatchQueue.main.async(execute: { [weak self] in
+                guard let self else { return }
+                self.course = fetch_course(uuid: uuid)
+                self.refresh()
+            })
+            
+        })
         
-        let request = Event.request()
-        let context = DataController.shared.container.viewContext
+    }
+    
+    func scrape_master() {
         
-        // Current event UUIDs for fast lookup
-        let lookup = Set(master.events.map({ $0.uuid }))
-        
-        DispatchQueue.main.async(execute: {
+        Task(operation: {
             
-            // Refresh the new master event state
-            MetaController.shared.event_master = master.state
+            guard let master = try? await DataController.shared.json(
+                url: URL(string: "https://storage.googleapis.com/parkrun-au/\(self.target).json")!,
+                as: EventMeta.self
+            ) else { return }
             
-            // Check if the users home event has been deleted from the remote server
-            if let event_home = MetaController.shared.event_home, !lookup.contains(event_home) {
-                print("Home event has been deleted from remote server")
-                MetaController.shared.event_home = nil
-                EventController.shared.event = nil
-            }
+            // Current event UUIDs for fast lookup
+            let lookup = Set(master.events.map({ $0.uuid }))
             
-            DataController.shared.save()
-            
-            if let current = LocationController.shared.current {
-                EventController.shared.update(new: current)
-            }
-            
-            DataController.shared.save()
-            MetaController.shared.refresh()
-            
-            if let existing = try? context.fetch(request) {
+            DispatchQueue.main.async(execute: { [weak self] in
                 
-                for index in 0 ..< existing.count {
+                if let self {
                     
-                    let event = existing[index]
+                    let request = Event.request()
+                    let context = DataController.shared.container.viewContext
                     
-                    // Check if the lookup does not contains the existing uuid, meaning it has been removed from the remote server
-                    if !lookup.contains(event.uuid) {
-                        context.delete(event)
+                    // Refresh the new master event state
+                    MetaController.shared.event_master = master.state
+                    
+                    // Check if the users home event has been deleted from the remote server
+                    if let event_home = MetaController.shared.event_home, !lookup.contains(event_home) {
+                        print("Home event has been deleted from remote server")
+                        MetaController.shared.event_home = nil
+                        EventController.shared.event = nil
+                    }
+                    
+                    DataController.shared.save(context: context)
+                    
+                    if let current = LocationController.shared.current {
+                        EventController.shared.update_location(new: current)
+                    }
+                    
+                    DataController.shared.save(context: context)
+                    MetaController.shared.refresh()
+                    
+                    if let existing = try? context.fetch(request) {
+                        
+                        for index in 0 ..< existing.count {
+                            
+                            let event = existing[index]
+                            
+                            // Check if the lookup does not contains the existing uuid, meaning it has been removed from the remote server
+                            if !lookup.contains(event.uuid) {
+                                context.delete(event)
+                            }
+                            
+                        }
+                        
+                        DataController.shared.save(context: context)
+                        
+                    }
+                    
+                    if let event = self.fetch_event() {
+                        self.update_event(event: event)
                     }
                     
                 }
                 
-                DataController.shared.save()
-                
-            }
+            })
             
         })
         
-        return master
-        
     }
-    
+
     func scrape_master_state() async -> MasterState? {
         
         guard let master_state = try? await DataController.shared.json(
@@ -218,14 +181,65 @@ class EventController: NSObject, ObservableObject {
         
     }
     
-    func scrape_event_state() async -> EventState? {
+    func scrape_event_state(uuid: UUID) async -> EventState? {
         
-        guard let event = event, let event_state = try? await DataController.shared.json(
-            url: URL(string: "https://storage.googleapis.com/parkrun-au/state/\(event.uuid.string()).json")!,
+        guard let event_state = try? await DataController.shared.json(
+            url: URL(string: "https://storage.googleapis.com/parkrun-au/state/\(uuid.string()).json")!,
             as: EventState.self
         ) else { return nil }
         
         return event_state
+        
+    }
+    
+      
+    // Update Methods
+    
+    func update_location(new: CLLocation) {
+        
+        let request = Event.request()
+        let context = DataController.shared.container.viewContext
+            
+        for event in try! context.fetch(request) {
+            event.distance = new.distance(from: CLLocation(latitude: event.latitude, longitude: event.longitude))
+        }
+            
+        DataController.shared.save(context: context)
+            
+        refresh()
+        
+    }
+    
+    func update_event(event: Event) {
+        
+        self.event = event
+        
+        if let course = fetch_course(uuid: event.uuid) {
+            self.course = course
+        } else {
+            scrape_course(uuid: event.uuid)
+        }
+        
+        refresh()
+        
+    }
+    
+    
+    
+    // Other Methods
+    
+    func clear() {
+        
+        let request = Event.request()
+        let context = DataController.shared.container.viewContext
+            
+        for event in try! context.fetch(request) {
+            event.distance = -1
+        }
+            
+        DataController.shared.save(context: context)
+            
+        refresh()
         
     }
     
@@ -244,64 +258,42 @@ class EventController: NSObject, ObservableObject {
             let data = try! decoder.decode(EventMeta.self, from: json)
             MetaController.shared.event_master = data.state
             
-            DataController.shared.save()
+            DataController.shared.save(context: context)
             
             if let current = LocationController.shared.current {
-                EventController.shared.update(new: current)
+                EventController.shared.update_location(new: current)
             }
             
             print("Loaded master data from local")
             
         }
         
+        // Retrieving the event uuid & course state outside the task context to prevent CoreData issue
+        let event_uuid = event?.uuid
+        let course_state = course?.state
+        
         Task(operation: {
             
-            var state_change: Bool = false
-            
-            if let master_state = await scrape_master_state(), master_state.state != MetaController.shared.event_master  {
-                
-                print("Master data is out of date, starting refresh")
-                _ = await scrape_master()
-                state_change = true
-                print("Finished master data refresh")
-                
-            }
-            
-            if let event_state = await scrape_event_state(), event_state.course != course?.state {
-                
-                print("Course data is out of date, starting refresh")
-                course = await scrape_course()
-                state_change = true
-                print("Finished course data refresh")
-                
-            }
-            
-            if state_change {
-                
-                DispatchQueue.main.async(execute: { [weak self] in
-                    
-                    guard let self = self else { return }
-                    
-                    if let event: Event = self.fetch() {
-                        self.update(event: event)
-                    }
-                    
-                })
-                
+            if let master_state = await scrape_master_state(), master_state.state != MetaController.shared.event_master {
+                print("Refreshing master")
+                scrape_master()
+            } else if let event_uuid, let event_state = await scrape_event_state(uuid: event_uuid), event_state.course != course_state {
+                print("Refreshing course")
+                scrape_course(uuid: event_uuid)
             }
             
         })
     }
     
     func register_sync() {
-        
+
         SyncController.shared.add(
             id: "event-sync",
             method: sync,
             sources: [.register, .foreground],
             schedule: SyncSchedule(base: MetaController.simulator ? 10 : 1800)
         )
-        
+
     }
     
     func refresh() {

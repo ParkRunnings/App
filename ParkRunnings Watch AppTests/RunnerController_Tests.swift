@@ -6,18 +6,11 @@
 //
 
 import XCTest
+import CoreData
 @testable import ParkRunnings_Watch_App
 
 class RunnerController_Tests: XCTestCase {
     
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
     struct RunnerTest {
         var number: String
         var name: String? = nil
@@ -52,72 +45,100 @@ class RunnerController_Tests: XCTestCase {
      
         for test in tests {
             
-            let (runner, runs) = try await RunnerController.shared.scrape(number: test.number)
+            let runner_all_html = try await RunnerController.shared.scrape_runner_all_html(number: test.number)
+            let runner_summary_html = try await RunnerController.shared.scrape_runner_summary_html(number: test.number)
             
-            XCTAssertEqual(runner.number, test.number)
-            XCTAssertEqual(runner.name, test.name)
-            XCTAssertGreaterThan(runs.count, 0)
-            XCTAssertNil(runner.error)
+            try await DataController.shared.container.performBackgroundTask({ context in
+                
+                let (runner, runs) = try RunnerController.shared.convert_html(context: context, number: test.number, runner_all_html: runner_all_html, runner_summary_html: runner_summary_html)
+         
+                XCTAssertEqual(runner.number, test.number)
+                XCTAssertEqual(runner.name, test.name)
+                XCTAssertGreaterThan(runs.count, 0)
+                XCTAssertNil(runner.error)
+                
+            })
         
         }
         
     }
     
     func test_runner_scrape_no_runs() async throws {
-        
+
         let tests: Array<(RunnerTest)> = [
             RunnerTest(number: "34513", name: "Julia Carter", runs: nil, fastest: nil)
         ]
-        
+
         for test in tests {
             
-            let (runner, runs) = try await RunnerController.shared.scrape(number: test.number)
+            let runner_all_html = try await RunnerController.shared.scrape_runner_all_html(number: test.number)
+            let runner_summary_html = try await RunnerController.shared.scrape_runner_summary_html(number: test.number)
             
-            XCTAssertEqual(runner.number, test.number)
-            XCTAssertEqual(runner.name, test.name)
-            XCTAssertEqual(runs.count, 0)
-            XCTAssertNil(runner.error)
+            try await DataController.shared.container.performBackgroundTask({ context in
+                
+                let (runner, runs) = try RunnerController.shared.convert_html(context: context, number: test.number, runner_all_html: runner_all_html, runner_summary_html: runner_summary_html)
+         
+                XCTAssertEqual(runner.number, test.number)
+                XCTAssertEqual(runner.name, test.name)
+                XCTAssertEqual(runs.count, 0)
+                XCTAssertNil(runner.error)
+                
+            })
         
         }
-        
+
     }
-    
+
     func test_runner_scrape_fastest() async throws {
-        
+
         let tests: Array<(RunnerTest)> = [
             RunnerTest(number: "237765", name: "Liam Doyle", fastest: "20:44")
         ]
-     
+
         for test in tests {
             
-            let (runner, runs) = try await RunnerController.shared.scrape(number: test.number)
+            let runner_all_html = try await RunnerController.shared.scrape_runner_all_html(number: test.number)
+            let runner_summary_html = try await RunnerController.shared.scrape_runner_summary_html(number: test.number)
             
-            XCTAssertEqual(runner.number, test.number)
-            XCTAssertEqual(runner.name, test.name)
-            XCTAssertGreaterThan(runs.count, 0)
-            XCTAssertEqual(runs.sorted(by: { $0.time < $1.time}).first!.display_time, test.fastest)
-            XCTAssertNil(runner.error)
-            
+            try await DataController.shared.container.performBackgroundTask({ context in
+                
+                let (runner, runs) = try RunnerController.shared.convert_html(context: context, number: test.number, runner_all_html: runner_all_html, runner_summary_html: runner_summary_html)
+         
+                XCTAssertEqual(runner.number, test.number)
+                XCTAssertEqual(runner.name, test.name)
+                XCTAssertGreaterThan(runs.count, 0)
+                XCTAssertEqual(runs.sorted(by: { $0.time < $1.time}).first!.display_time, test.fastest)
+                XCTAssertNil(runner.error)
+                
+            })
+        
         }
-        
+
     }
-    
+
     func test_runner_scrape_failing() async throws {
-        
+
         let tests: Array<RunnerTest> = [
             RunnerTest(number: "1"),
             RunnerTest(number: "1000000000")
         ]
-        
+
         for test in tests {
             
-            let (runner, runs) = try await RunnerController.shared.scrape(number: test.number)
+            let runner_all_html = try await RunnerController.shared.scrape_runner_all_html(number: test.number)
+            let runner_summary_html = try await RunnerController.shared.scrape_runner_summary_html(number: test.number)
             
-            XCTAssertEqual(runner.number, test.number)
-            XCTAssertEqual(runner.name, test.name)
-            XCTAssertEqual(runs.count, 0)
-            XCTAssertNotNil(runner.error)
-            
+            try await DataController.shared.container.performBackgroundTask({ context in
+                
+                let (runner, runs) = try RunnerController.shared.convert_html(context: context, number: test.number, runner_all_html: runner_all_html, runner_summary_html: runner_summary_html)
+         
+                XCTAssertEqual(runner.number, test.number)
+                XCTAssertEqual(runner.name, test.name)
+                XCTAssertEqual(runs.count, 0)
+                XCTAssertNotNil(runner.error)
+                
+            })
+        
         }
         
     }
