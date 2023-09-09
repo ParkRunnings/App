@@ -20,7 +20,7 @@ jobs:
                 
               - name: Tag
                 id: tag
-                run: echo "tag=v"${{ steps.number.outputs.number }}
+                run: echo "tag=v"${{ steps.number.outputs.number }} >> "$GITHUB_OUTPUT"
         
         test:
             name: Test Versioning
