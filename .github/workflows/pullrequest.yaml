@@ -25,7 +25,7 @@ jobs:
             
               - name: Check Changelog
                 id: changelog
-                if: ${{ steps.version.outputs.number != "" }}
+                if: ${{ steps.version.outputs.number != '' }}
                 run: echo ${{ steps.version.outputs.number }}
                 
               - run: git branch
