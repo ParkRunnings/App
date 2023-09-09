@@ -134,6 +134,7 @@ struct MainView: View {
                 
             })
             .listStyle(.carousel)
+            .hidden(!meta.nav_setup)
             
         })
         .sheet(isPresented: !$meta.nav_setup, content: {
@@ -152,6 +153,10 @@ struct MainView: View {
                     ToolbarItem(id: "x", placement: .cancellationAction, showsByDefault: false, content: {
                         Text("")
                     })
+                })
+                .background(ignoresSafeAreaEdges: .all)
+                .background(content: {
+                    Colour.black
                 })
         })
         

@@ -114,7 +114,7 @@ class DesignController: NSObject, ObservableObject {
             case (.card_short_horizontal, .small_curved): return 10
             case (.card_short_horizontal, .square): return 10
                 
-            case (.card_short_radius, .large_curved): return 20
+            case (.card_short_radius, .large_curved): return 24
             case (.card_short_radius, .small_curved): return 16
             case (.card_short_radius, .square): return 14
                 

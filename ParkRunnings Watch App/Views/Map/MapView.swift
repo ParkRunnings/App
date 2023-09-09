@@ -103,7 +103,7 @@ struct MapView: View {
                     .padding(.leading, -(square - geometry.frame(in: .global).size.width) / 2)
                     .scaleEffect(scale)
                     .focusable(true)
-                    .digitalCrownRotation($scale, from: 1, through: 4, by: 0.1, sensitivity: .medium, isContinuous: false, isHapticFeedbackEnabled: true)
+                    .digitalCrownRotation($scale, from: 1.0, through: 4, by: 0.1, sensitivity: .medium, isContinuous: false, isHapticFeedbackEnabled: true)
                     .gesture(DragGesture()
                         .onChanged { gesture in
                             
@@ -127,7 +127,7 @@ struct MapView: View {
                         })
                 
             })
-            .edgesIgnoringSafeArea(.bottom)
+            .edgesIgnoringSafeArea(.vertical)
             
         }
         
