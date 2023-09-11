@@ -53,7 +53,7 @@ jobs:
             
           - name: Release Exists
             id: release
-            run: echo "exists="$(gh release list | awk '{print $3}' | grep -c v1.3.0) >> "$GITHUB_OUTPUT"
+            run: echo "exists="$(gh release list | awk '{print $3}' | grep -c ${{ needs.setup.outputs.tag }}) >> "$GITHUB_OUTPUT"
             env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             
@@ -63,6 +63,6 @@ jobs:
                 gh release ${{ steps.release.outputs.exists == 0 && 'create' || 'edit' }} ${{ needs.setup.outputs.tag }} \
                     --draft \
                     --title "${{ needs.setup.outputs.tag }}" \
-                    --notes "$(perl -0777 -ne 'print "$1\n" while /## v1.3.0(.*?)## v/gs' CHANGELOG.md | perl -pe 'chomp if eof')"
+                    --notes "$(perl -0777 -ne 'print "$1\n" while /## ${{ needs.setup.outputs.tag }}(.*?)## v/gs' CHANGELOG.md | perl -pe 'chomp if eof')"
             env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
