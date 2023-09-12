@@ -38,7 +38,6 @@ struct SubtitleTextElement: View {
             .font(Font.system(size: design.size(text: .subtitle), weight: .bold, design: .default))
             .italic()
             .foregroundColor(Colour(hex: "#7D7D7D"))
-            .tint(Colour(hex: "#0785CF"))
             .listRowPlatterColor(.clear)
             .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
         

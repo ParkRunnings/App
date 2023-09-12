@@ -47,7 +47,7 @@ class DesignController: NSObject, ObservableObject {
             case (.card_icon, .square): return 15
                 
             case (.input_digit, .large_curved): return 22
-            case (.input_digit, .small_curved): return 18
+            case (.input_digit, .small_curved): return 16
             case (.input_digit, .square): return 15
                 
             case (.input_icon, .large_curved): return 15
@@ -103,7 +103,7 @@ class DesignController: NSObject, ObservableObject {
         switch (size, watch.group) {
             
             case (.button_bottom_margin, .large_curved): return 16
-            case (.button_bottom_margin, .small_curved): return 20
+            case (.button_bottom_margin, .small_curved): return 12
             case (.button_bottom_margin, .square): return 0
                 
             case (.card_short_vertical, .large_curved): return 14
@@ -175,7 +175,7 @@ class DesignController: NSObject, ObservableObject {
             case (.barcode_rotated_margin, .square): return 10
             
             case (.barcode_rotated_bottom_padding, .large_curved): return 6
-            case (.barcode_rotated_bottom_padding, .small_curved): return 0
+            case (.barcode_rotated_bottom_padding, .small_curved): return 10
             case (.barcode_rotated_bottom_padding, .square): return 0
                 
             case (.confirmation_blur_height, .large_curved): return 80

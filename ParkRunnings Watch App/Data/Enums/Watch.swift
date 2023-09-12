@@ -68,6 +68,8 @@ extension Watch: RawRepresentable {
     
     var status_height: CGFloat {
         
+        // TODO: This might be fucked in WatchOS 10
+        
         get {
             
             switch self {
@@ -103,6 +105,7 @@ extension Watch: RawRepresentable {
             
             if rawValue.width == size.width && rawValue.height == size.height {
                 self = watch
+                print(watch)
                 return
             } else {
                 distance[watch] = (abs(rawValue.height - size.height) + abs(rawValue.width - size.width)) / 2

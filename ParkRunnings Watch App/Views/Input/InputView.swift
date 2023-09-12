@@ -59,9 +59,8 @@ struct InputView: View {
                                     Task(operation: {
 
                                         do {
-                                            print("HERE1")
                                             let (runner_, _) = try await RunnerController.shared.scrape(number: number)
-                                            print("HERE2", runner)
+                                            
                                             if runner_.number == polling_for {
                                                 runner = runner_
                                                 polling_for = nil

@@ -97,7 +97,9 @@ struct MainView: View {
                     
                     ButtonNavigation(active: $nav_map, button: {
                         CardTall(title: "View Course", symbol: "map.fill", colour: Colour(hex: "#E3951C"))
-                    }, destination: { MapView(uuid: event.uuid) })
+                    }, destination: {
+                        MapView(uuid: event.uuid)
+                    })
                         .simultaneousGesture(TapGesture().onEnded({ nav_map = true }))
                         .padding(.bottom, 4)
                     
