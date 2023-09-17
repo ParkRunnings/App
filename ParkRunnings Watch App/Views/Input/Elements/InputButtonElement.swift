@@ -33,7 +33,7 @@ struct InputButtonElement: View {
             }
         
         })
-        .padding(.all, 3)
+        .padding(.all, 2)
             
     }
     

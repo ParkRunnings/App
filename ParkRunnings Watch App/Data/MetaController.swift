@@ -152,7 +152,7 @@ class MetaController: NSObject, ObservableObject {
         
         event_home = event.uuid
         DataController.shared.save()
-        EventController.shared.update(event: event)
+        EventController.shared.update_event(event: event)
         
     }
     

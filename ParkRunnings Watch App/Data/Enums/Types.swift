@@ -56,10 +56,11 @@ enum SizeElement {
     case card_medium_height, card_medium_padding, card_medium_radius
     case card_tall_height, card_tall_radius, card_tall_padding
     case card_half_height, card_half_radius, card_half_padding
-    case barcode_card_radius, barcode_horizontal_padding, barcode_vertical_padding, barcode_rotated_ratio, barcode_rotated_margin
+    case barcode_card_radius, barcode_horizontal_padding, barcode_vertical_padding, barcode_rotated_ratio, barcode_rotated_margin, barcode_rotated_bottom_padding
     case confirmation_blur_height, confirmation_over_scroll
     case progress_circle_size, progress_circle_line, progress_time_leading, progress_distance_leading, progress_item_spacing
     case stat_vertical_padding, stat_horizontal_padding, card_graph_height, stat_legend_circle
+    case result_timeline_top_padding
     
 }
 

@@ -25,6 +25,17 @@ class DataController: ObservableObject {
     
     init() {
         
+        if let in_memory = ProcessInfo.processInfo.environment["COREDATA_IN_MEMORY"], in_memory == "1" {
+            
+            print("Using in memory CoreData container")
+            
+            let description = NSPersistentStoreDescription()
+            description.type = NSInMemoryStoreType
+            
+            container.persistentStoreDescriptions = [description]
+            
+        }
+        
         container.loadPersistentStores(completionHandler: { description, error in
             
             if let error = error {
@@ -65,24 +76,30 @@ class DataController: ObservableObject {
             header: json_header.merging(header, uniquingKeysWith: { (x, _) in x }),
             cache: cache
         )
+            
+        return await DataController.shared.container.performBackgroundTask({ context in
         
-        let context = DataController.shared.container.viewContext
-                
-        let decoder = JSONDecoder()
-        decoder.userInfo[CodingUserInfoKey.context] = context
-        decoder.dateDecodingStrategy = .iso8601
-                
-        return try! decoder.decode(T.self, from: response)
+            let decoder = JSONDecoder()
+            decoder.userInfo[CodingUserInfoKey.context] = context
+            decoder.dateDecodingStrategy = .iso8601
                
+            let object = try! decoder.decode(T.self, from: response)
+            
+            DataController.shared.save(context: context)
+            
+            return object
+            
+        })
+        
     }
     
-    func save() {
+    func save(context: NSManagedObjectContext? = nil) {
         
         // Exit out of CoreData save if running in preview
         if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1" { return }
-        
-        let context = container.viewContext
 
+        let context = context ?? DataController.shared.container.viewContext
+        
         if context.hasChanges {
             try! context.save()
         }

@@ -40,7 +40,7 @@ struct EventListElement: View {
                 TitleElement(title: "Events", subtitle: nil)
             } else {
                 
-                let event_title = TitleElement(title: "Events", subtitle: "🚫 Enable location services for nearby event sorting")
+                let event_title = TitleElement(title: "Events", subtitle: "👉 Tap to enable location services for event sorting")
                 
                 if location.status == .notDetermined {
                     event_title

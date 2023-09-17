@@ -1,0 +1,42 @@
+name: Pull Request - Merged
+
+on:
+    pull_request:
+        types:
+          - closed
+
+jobs:
+
+    setup:
+        name: Setup
+        runs-on: ubuntu-latest
+        outputs:
+            number: ${{ steps.number.outputs.number }}
+            tag: ${{ steps.tag.outputs.tag }}
+        steps:
+        
+          - name: Number
+            id: number
+            run: echo "${{ github.event.pull_request.head.ref }}" | perl -nle 'm/feature\/(\d+\.\d+\.\d+)/; print "number=",$1' >> "$GITHUB_OUTPUT"
+            
+          - name: Tag
+            id: tag
+            run: echo "tag=v"${{ steps.number.outputs.number }} >> "$GITHUB_OUTPUT"
+
+    merge:
+        name: Merge
+        runs-on: ubuntu-latest
+        needs: setup
+        if: github.event.pull_request.merged == true
+        steps:
+            
+          - name: Git Release
+            id: publish
+            run: |
+                gh release edit ${{ needs.setup.outputs.tag }} \
+                    --latest \
+                    --draft=false \
+                    --title "${{ needs.setup.outputs.tag }}" \
+                    --notes "$(perl -0777 -ne 'print "$1\n" while /## v1.3.0(.*?)## v/gs' CHANGELOG.md | perl -pe 'chomp if eof')"
+            env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

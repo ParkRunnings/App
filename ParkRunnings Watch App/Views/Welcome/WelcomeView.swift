@@ -26,10 +26,11 @@ struct WelcomeView: View {
                         subtitle: [
                             "Park Runnings is an unoffical Apple Watch companion for ParkRun - an organised weekly 5km run",
                             "To use this app you need to already have a ParkRun account and barcode.",
-                            "If you don’t, you can sign up for free at [parkrun.com](https://parkrun.com)"
+                            "If you don’t, you can sign up for free at parkrun.com"
                         ].joined(separator: "\n\n")
                     )
                         .padding(.bottom, 10)
+                        .padding(.top, -6)
                     
                 })
                     .padding(.bottom, -design.size(size: .button_bottom_margin))
@@ -57,6 +58,7 @@ struct WelcomeView: View {
         .onAppear(perform: {
             nav_continue = false
         })
+    
     }
     
 }
