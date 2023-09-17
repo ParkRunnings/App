@@ -610,7 +610,7 @@
 				CB40D12D28D5723000995E8B /* Sources */,
 				CB40D12E28D5723000995E8B /* Frameworks */,
 				CB40D12F28D5723000995E8B /* Resources */,
-				CBE207C028F37E7000B3D42C /* ShellScript */,
+				CBE207C028F37E7000B3D42C /* Cache Master File */,
 			);
 			buildRules = (
 			);
@@ -718,7 +718,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		CBE207C028F37E7000B3D42C /* ShellScript */ = {
+		CBE207C028F37E7000B3D42C /* Cache Master File */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -728,6 +728,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Cache Master File";
 			outputFileListPaths = (
 			);
 			outputPaths = (
