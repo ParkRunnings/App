@@ -177,6 +177,8 @@ class EventController: NSObject, ObservableObject {
             as: MasterState.self
         ) else { return nil }
         
+        print(master_state.state)
+        
         return master_state
         
     }
@@ -244,6 +246,8 @@ class EventController: NSObject, ObservableObject {
     }
     
     func sync() {
+        
+        print("Call: event-sync")
         
         if MetaController.shared.event_master == nil {
             

@@ -64,7 +64,7 @@ class DataController: ObservableObject {
         
     }
     
-    func json<T: Decodable>(url: URL, header: Dictionary<String, String> = [:], cache: URLRequest.CachePolicy = .reloadIgnoringLocalAndRemoteCacheData, as: T.Type) async throws -> T {
+    func json<T: Decodable>(url: URL, header: Dictionary<String, String> = [:], cache: URLRequest.CachePolicy = .reloadIgnoringLocalCacheData, as: T.Type) async throws -> T {
         
         let json_header = [
             "Content-Type": "application/json",
@@ -76,6 +76,8 @@ class DataController: ObservableObject {
             header: json_header.merging(header, uniquingKeysWith: { (x, _) in x }),
             cache: cache
         )
+        
+        print(String(decoding: response, as: UTF8.self))
             
         return await DataController.shared.container.performBackgroundTask({ context in
         

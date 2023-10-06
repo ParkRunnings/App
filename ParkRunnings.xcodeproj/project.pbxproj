@@ -736,7 +736,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "curl https://storage.googleapis.com/parkrun-au/master.json | json_pp > $PROJECT_DIR/ParkRunnings\\ Watch\\ App/Data/Local/master.json\n";
+			shellScript = "# curl https://storage.googleapis.com/parkrun-au/master.json | json_pp > $PROJECT_DIR/ParkRunnings\\ Watch\\ App/Data/Local/master.json\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
