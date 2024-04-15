@@ -66,6 +66,8 @@ class DataController: ObservableObject {
     
     func json<T: Decodable>(url: URL, header: Dictionary<String, String> = [:], cache: URLRequest.CachePolicy = .reloadIgnoringLocalCacheData, as: T.Type) async throws -> T {
         
+        print(url)
+        
         let json_header = [
             "Content-Type": "application/json",
             "Accept": "application/json"
@@ -77,8 +79,8 @@ class DataController: ObservableObject {
             cache: cache
         )
         
-        print(String(decoding: response, as: UTF8.self))
-            
+        print(String(decoding: response, as: UTF8.self).prefix(100) + "...")
+        
         return await DataController.shared.container.performBackgroundTask({ context in
         
             let decoder = JSONDecoder()
@@ -95,12 +97,35 @@ class DataController: ObservableObject {
         
     }
     
+    func json2(url: URL, header: Dictionary<String, String> = [:], cache: URLRequest.CachePolicy = .reloadIgnoringLocalCacheData) async throws -> Data {
+        
+        print(url)
+        
+        let json_header = [
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        ]
+        
+        let response = try await request(
+            url: url,
+            header: json_header.merging(header, uniquingKeysWith: { (x, _) in x }),
+            cache: cache
+        )
+        
+        print(String(decoding: response, as: UTF8.self).prefix(100) + "...")
+        
+        return response
+        
+    }
+    
     func save(context: NSManagedObjectContext? = nil) {
         
         // Exit out of CoreData save if running in preview
         if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1" { return }
 
         let context = context ?? DataController.shared.container.viewContext
+        
+        context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         
         if context.hasChanges {
             try! context.save()

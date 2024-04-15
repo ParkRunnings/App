@@ -107,15 +107,30 @@ class EventController: NSObject, ObservableObject {
         
         Task(operation: {
             
-            guard let master = try? await DataController.shared.json(
-                url: URL(string: "https://storage.googleapis.com/parkrun-au/\(self.target).json")!,
-                as: EventMeta.self
-            ) else { return }
-            
-            // Current event UUIDs for fast lookup
-            let lookup = Set(master.events.map({ $0.uuid }))
+            guard let json = try? await DataController.shared.json2(url: URL(string: "https://storage.googleapis.com/parkrun-au/\(self.target).json")!) else { return }
             
             DispatchQueue.main.async(execute: { [weak self] in
+                
+                
+                let context = DataController.shared.container.viewContext
+
+                let decoder = JSONDecoder()
+                decoder.userInfo[CodingUserInfoKey.context] = context
+                decoder.dateDecodingStrategy = .iso8601
+                
+                let master = try! decoder.decode(EventMeta.self, from: json)
+                
+                DataController.shared.save(context: context)
+           
+    //            guard let master = try? await DataController.shared.json(
+    //                url: URL(string: "https://storage.googleapis.com/parkrun-au/\(self.target).json")!,
+    //                as: EventMeta.self
+    //            ) else { return }
+                
+                print(master.events[0].uuid)
+                
+                // Current event UUIDs for fast lookup
+                let lookup = Set(master.events.map({ $0.uuid }))
                 
                 if let self {
                     
