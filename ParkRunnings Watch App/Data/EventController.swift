@@ -103,88 +103,87 @@ class EventController: NSObject, ObservableObject {
         
     }
     
-    func scrape_master() {
+    func scrape_event_meta() async {
         
-        Task(operation: {
-            
-            guard let json = try? await DataController.shared.json2(url: URL(string: "https://storage.googleapis.com/parkrun-au/\(self.target).json")!) else { return }
-            
-            DispatchQueue.main.async(execute: { [weak self] in
-                
-                
-                let context = DataController.shared.container.viewContext
+        guard let json = try? await DataController.shared.json2(
+            url: URL(string: "https://storage.googleapis.com/parkrun-au/\(self.target).json")!
+        ) else { return }
+        
+        let context = DataController.shared.container.viewContext
 
-                let decoder = JSONDecoder()
-                decoder.userInfo[CodingUserInfoKey.context] = context
-                decoder.dateDecodingStrategy = .iso8601
-                
-                let master = try! decoder.decode(EventMeta.self, from: json)
-                
-                DataController.shared.save(context: context)
-           
-    //            guard let master = try? await DataController.shared.json(
-    //                url: URL(string: "https://storage.googleapis.com/parkrun-au/\(self.target).json")!,
-    //                as: EventMeta.self
-    //            ) else { return }
-                
-                print(master.events[0].uuid)
-                
-                // Current event UUIDs for fast lookup
-                let lookup = Set(master.events.map({ $0.uuid }))
-                
-                if let self {
-                    
-                    let request = Event.request()
-                    let context = DataController.shared.container.viewContext
-                    
-                    // Refresh the new master event state
-                    MetaController.shared.event_master = master.state
-                    
-                    // Check if the users home event has been deleted from the remote server
-                    if let event_home = MetaController.shared.event_home, !lookup.contains(event_home) {
-                        print("Home event has been deleted from remote server")
-                        MetaController.shared.event_home = nil
-                        EventController.shared.event = nil
-                    }
-                    
-                    DataController.shared.save(context: context)
-                    
-                    if let current = LocationController.shared.current {
-                        EventController.shared.update_location(new: current)
-                    }
-                    
-                    DataController.shared.save(context: context)
-                    MetaController.shared.refresh()
-                    
-                    if let existing = try? context.fetch(request) {
-                        
-                        for index in 0 ..< existing.count {
-                            
-                            let event = existing[index]
-                            
-                            // Check if the lookup does not contains the existing uuid, meaning it has been removed from the remote server
-                            if !lookup.contains(event.uuid) {
-                                context.delete(event)
-                            }
-                            
-                        }
-                        
-                        DataController.shared.save(context: context)
-                        
-                    }
-                    
-                    if let event = self.fetch_event() {
-                        self.update_event(event: event)
-                    }
-                    
-                }
-                
-            })
+        let master: (UUID, Set<UUID>) = await context.perform({
+            
+            let decoder = JSONDecoder()
+            decoder.userInfo[CodingUserInfoKey.context] = context
+            decoder.dateDecodingStrategy = .iso8601
+
+            let event_meta = try! decoder.decode(EventMeta.self, from: json)
+            
+            //  Current event UUIDs for fast lookup
+            let event_lookup = Set(event_meta.events.map({ $0.uuid }))
+            let master_state = event_meta.state
+            
+            DataController.shared.save(context: context)
+            
+            return (master_state, event_lookup)
             
         })
         
-    }
+        let master_state = master.0
+        let event_lookup = master.1
+        
+        DispatchQueue.main.async(execute: { [weak self] in
+            
+            guard let self else { return }
+            
+            // Refresh the new master event state
+            MetaController.shared.event_master = master_state
+            
+            // Check if the users home event has been deleted from the remote server
+            if let event_home = MetaController.shared.event_home, !event_lookup.contains(event_home) {
+                print("Home event has been deleted from remote server")
+                MetaController.shared.event_home = nil
+                EventController.shared.event = nil
+            }
+            
+            
+            // Update the event locations
+            if let current = LocationController.shared.current {
+                EventController.shared.update_location(new: current)
+            }
+            
+            MetaController.shared.refresh()
+                
+        })
+        
+        await context.perform({
+            
+            if let existing = try? context.fetch(Event.request()) {
 
+                for index in 0 ..< existing.count {
+
+                    let event = existing[index]
+
+                    // Check if the lookup does not contains the existing uuid, meaning it has been removed from the remote server
+                    if !event_lookup.contains(event.uuid) {
+                        print("Deleting event \(event.name) [\(event.uuid)]")
+                        context.delete(event)
+                    }
+
+                }
+
+            }
+            
+            DataController.shared.save(context: context)
+            
+        })
+        
+        if let event = self.fetch_event() {
+            self.update_event(event: event)
+        }
+        
+    }
+    
     func scrape_master_state() async -> MasterState? {
         
         guard let master_state = try? await DataController.shared.json(
@@ -295,7 +294,7 @@ class EventController: NSObject, ObservableObject {
             
             if let master_state = await scrape_master_state(), master_state.state != MetaController.shared.event_master {
                 print("Refreshing master")
-                scrape_master()
+                await scrape_event_meta()
             } else if let event_uuid, let event_state = await scrape_event_state(uuid: event_uuid), event_state.course != course_state {
                 print("Refreshing course")
                 scrape_course(uuid: event_uuid)

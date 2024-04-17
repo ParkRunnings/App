@@ -119,8 +119,8 @@
       </CommandLineArguments>
       <EnvironmentVariables>
          <EnvironmentVariable
-            key = "SQLITE_ENABLE_THREAD_ASSERTIONS 1"
-            value = ""
+            key = "SQLITE_ENABLE_THREAD_ASSERTIONS"
+            value = "1"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
@@ -129,13 +129,13 @@
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
-            key = "SQLITE_AUTO_TRACE 1"
-            value = ""
+            key = "SQLITE_AUTO_TRACE"
+            value = "1"
             isEnabled = "NO">
          </EnvironmentVariable>
          <EnvironmentVariable
-            key = "SQLITE_ENABLE_FILE_ASSERTIONS 1"
-            value = ""
+            key = "SQLITE_ENABLE_FILE_ASSERTIONS"
+            value = "1"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>

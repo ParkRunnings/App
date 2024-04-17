@@ -103,7 +103,10 @@ class RunnerController: NSObject, ObservableObject {
         
         return try await scrape_catch(request: {
             return await String(
-                decoding: try DataController.shared.request(url: URL(string: "https://www.parkrun.com.au/parkrunner/\(number)/all/")!),
+                decoding: try DataController.shared.request(
+                    url: URL(string: "https://www.parkrun.com.au/parkrunner/\(number)/all/")!,
+                    header: ["User-Agent": DataController.shared.user_agent]
+                ),
                 as: UTF8.self
             )
         })
@@ -114,7 +117,10 @@ class RunnerController: NSObject, ObservableObject {
         
         return try await scrape_catch(request: {
             return await String(
-                decoding: try DataController.shared.request(url: URL(string: "https://www.parkrun.com.au/parkrunner/\(number)/")!),
+                decoding: try DataController.shared.request(
+                    url: URL(string: "https://www.parkrun.com.au/parkrunner/\(number)/")!,
+                    header: ["User-Agent": DataController.shared.user_agent]
+                ),
                 as: UTF8.self
             )
         })

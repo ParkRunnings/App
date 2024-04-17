@@ -18,8 +18,8 @@ struct AboutView: View {
                 title: "About",
                 subtitle: [
                     "",
-                    "👨🏽‍💻  Charles Schacher",
-                    "📍  Sydney, Australia",
+                    "👨‍💻  Charles Schacher",
+                    "🗺️  Sydney AUS",
                     "",
                     "📮  hello@schacher.dev"
                 ].joined(separator: "\n")

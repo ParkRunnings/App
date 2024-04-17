@@ -135,8 +135,8 @@ class DesignController: NSObject, ObservableObject {
             case (.card_tall_height, .square): return 54
                 
             case (.card_tall_radius, .large_curved): return 28
-            case (.card_tall_radius, .small_curved): return 20
-            case (.card_tall_radius, .square): return 16
+            case (.card_tall_radius, .small_curved): return 22
+            case (.card_tall_radius, .square): return 18
                 
             case (.card_tall_padding, .large_curved): return 16
             case (.card_tall_padding, .small_curved): return 12

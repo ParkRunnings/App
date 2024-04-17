@@ -119,6 +119,8 @@ class MetaController: NSObject, ObservableObject {
             context.delete(current)
         }
         
+        DataController.shared.save()
+        
         defaults.set(nil, forKey: "runner_number")
         
         refresh()

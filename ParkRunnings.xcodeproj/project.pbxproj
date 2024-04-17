@@ -736,7 +736,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# curl https://storage.googleapis.com/parkrun-au/master.json | json_pp > $PROJECT_DIR/ParkRunnings\\ Watch\\ App/Data/Local/master.json\n";
+			shellScript = "curl https://storage.googleapis.com/parkrun-au/master.json | json_pp > $PROJECT_DIR/ParkRunnings\\ Watch\\ App/Data/Local/master.json\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -847,7 +847,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"ParkRunnings Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				ENABLE_PREVIEWS = YES;
@@ -881,7 +881,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"ParkRunnings Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				ENABLE_PREVIEWS = YES;
