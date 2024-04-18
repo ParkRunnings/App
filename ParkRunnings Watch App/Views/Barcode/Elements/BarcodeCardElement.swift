@@ -15,8 +15,9 @@ struct BarcodeCardElement: View {
     let number: String
     let icon: String
     let ratio: Double
+    let scale: Int
     
-    init(number: String, ratio: Double = 3/1) {
+    init(number: String, ratio: Double = 2/1) {
         
         self.number = number
         self.ratio = ratio
@@ -43,6 +44,19 @@ struct BarcodeCardElement: View {
             
         }
         
+        switch number.count {
+            
+            case 1 ... 3:
+            self.scale = 3
+
+            case 3 ... 8:
+            self.scale = 2
+
+            default:
+            self.scale = 1
+            
+        }
+        
     }
   
     var body: some View {
@@ -50,20 +64,20 @@ struct BarcodeCardElement: View {
         let bc = BK_Barcode128(data: number, type: .code_b)
         
         VStack(spacing: 0.0, content: {
-            
-            Image(uiImage: UIImage(cgImage: bc.generate(scale: 2)))
+        
+            Image(uiImage: UIImage(cgImage: bc.generate(scale: scale)))
                 .renderingMode(.original)
                 .resizable()
                 .clipped()
-                .aspectRatio(ratio, contentMode: design.watch.group == .square ? .fit :  .fill)
                 .cornerRadius(4)
                 .padding(.horizontal, design.size(size: .barcode_horizontal_padding))
                 .padding(.top, design.size(size: .barcode_vertical_padding))
+                .aspectRatio(ratio, contentMode: .fit)
                 
             HStack(content: {
                 
                 AthleteNumberTextElement(text: number, colour: "#A9AEBE")
-                    
+                
                 Spacer()
                 
                 Image(systemName: icon)
@@ -81,7 +95,6 @@ struct BarcodeCardElement: View {
         .background(
             RoundedRectangle(cornerRadius: design.size(size: .barcode_card_radius))
                 .fill(Color.white)
-//                .shadow(radius: 3)
         )
         .listRowPlatterColor(.clear)
         .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
@@ -91,7 +104,11 @@ struct BarcodeCardElement: View {
 }
 
 struct BarcodeCardElement_Previews: PreviewProvider {
+    
+    static let design = DesignController()
+    
     static var previews: some View {
-        BarcodeCardElement(number: "A5470914")
+        BarcodeCardElement(number: "A5")
+            .environmentObject(design)
     }
 }

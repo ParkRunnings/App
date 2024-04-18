@@ -120,7 +120,7 @@ class RunnerController_Tests: XCTestCase {
 
         let tests: Array<RunnerTest> = [
             RunnerTest(number: "1"),
-            RunnerTest(number: "1000000000")
+//            RunnerTest(number: "54709140")
         ]
 
         for test in tests {

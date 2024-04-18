@@ -25,34 +25,46 @@ struct InputConfirmationElement: View {
                 
                 List(content: {
                     
-                    VStack(alignment: .leading, spacing: 6, content: {
-                        
-                        AthleteNameTextElement(text: runner.display_name)
-                            .padding(.trailing, 6)
-                        
-                        AthleteNumberTextElement(text: runner.a_number)
-                            .opacity(0.5)
-                        
-                    })
-                    .listRowPlatterColor(.clear)
-                    .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-                    
-                    if let error = runner.error {
-                        SubtitleTextElement(text: error + "\n\nWe were not able to find this runner. Add anyway?")
-                            .padding(.bottom, 10)
+                    if #available(watchOS 10.0, *) {
+                        VStack(alignment: .leading, spacing: 6, content: {
+                            
+                            AthleteNameTextElement(text: runner.display_name)
+                                .padding(.trailing, 6)
+                            
+                            AthleteNumberTextElement(text: runner.a_number)
+                                .opacity(0.5)
+                            
+                            if let error = runner.error {
+                                SubtitleTextElement(text: error + "\n\nWe were not able to find this runner. Add anyway?")
+                                    .padding(.bottom, 10)
+                            }
+                            
+                            BarcodeCardElement(number: runner.a_number, ratio: 2.6)
+                            
+                        })
+                        .listRowPlatterColor(.clear)
+                        .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                        .padding(.top, -20)
+                    } else {
+                        VStack(alignment: .leading, spacing: 6, content: {
+                            
+                            AthleteNameTextElement(text: runner.display_name)
+                                .padding(.trailing, 6)
+                            
+                            AthleteNumberTextElement(text: runner.a_number)
+                                .opacity(0.5)
+                            
+                            if let error = runner.error {
+                                SubtitleTextElement(text: error + "\n\nWe were not able to find this runner. Add anyway?")
+                                    .padding(.bottom, 10)
+                            }
+                            
+                            BarcodeCardElement(number: runner.a_number, ratio: 2.6)
+                            
+                        })
+                        .listRowPlatterColor(.clear)
+                        .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                     }
-                    
-//                    if let fastest = runner.results_fastest.first {
-//                        StatValueElement(colour: "#45BB70", symbol: design.watch.version >= 9.0 ? "trophy.fill" : "timer", header: "Fastest", detail: fastest.display_date, value: fastest.display_time)
-//                            .padding(.bottom, 4)
-//                    }
-//
-//                    if let latest = runner.results_sorted.last {
-//                        StatValueElement(colour: "#7145BA", symbol: design.watch.version >= 9.0 ? "figure.run" : "figure.walk", header: "Runs", detail: latest.display_date, value: String(latest.number))
-//                            .padding(.bottom, 4)
-//                    }
-                    
-                    BarcodeCardElement(number: runner.a_number)
                     
                     ListOverscroll(height: design.size(size: .confirmation_over_scroll))
                     

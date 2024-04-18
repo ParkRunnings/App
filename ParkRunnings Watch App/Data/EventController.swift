@@ -134,7 +134,7 @@ class EventController: NSObject, ObservableObject {
         
         DispatchQueue.main.async(execute: { [weak self] in
             
-            guard let self else { return }
+            guard self != nil else { return }
             
             // Refresh the new master event state
             MetaController.shared.event_master = master_state

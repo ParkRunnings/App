@@ -3,7 +3,11 @@
 ## v1.3.0
 → Updated for WatchOS 10 compatibility
 → Resolved several CoreData concurrency issues
+→ Resolved issues causing scraping errors when pulling data from ParkRun
 → Resolved a rare date based issue causing crashes for users in Australia/NZ
+→ Various fixes and improvements to the statistics section
+→ Fixes to the events service to surface new park run events
+→ Added an about section with contact details in case you find any issues
 
 ## v1.2.0
 This version contains several minor bug fixes. Thanks to u/TheTechBox & u/Foulenough1 for reporting them!
