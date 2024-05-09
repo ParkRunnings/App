@@ -111,7 +111,7 @@ class LocationController: NSObject, ObservableObject, CLLocationManagerDelegate 
 
         print("Current location: \(new)")
         
-        EventController.shared.update(new: new)
+        EventController.shared.update_location(new: new)
         current = new
         
         stop()

@@ -39,11 +39,11 @@ class RunnerController: NSObject, ObservableObject {
         
     }
     
-    func fetch() -> Runner? {
+    func fetch(context: NSManagedObjectContext? = nil, number: String? = nil) -> Runner? {
         
-        let context = DataController.shared.container.viewContext
+        let context = context ?? DataController.shared.container.viewContext
         
-        guard let number = MetaController.shared.runner_number else { return nil }
+        guard let number = number ?? MetaController.shared.runner_number else { return nil }
         
         print("Fetch: \(number)")
         
@@ -58,9 +58,11 @@ class RunnerController: NSObject, ObservableObject {
         
     }
     
-    func fetch(sort: Array<NSSortDescriptor> = []) -> Array<Run> {
+    func fetch(number: String? = nil, sort: Array<NSSortDescriptor> = []) -> Array<Run> {
         
         let context = DataController.shared.container.viewContext
+        
+        guard let number = number ?? MetaController.shared.runner_number else { return [] }
         
         let request = Run.request()
         request.predicate = NSPredicate(format: "number = %@", argumentArray: [number as String])
@@ -97,29 +99,62 @@ class RunnerController: NSObject, ObservableObject {
         
     }
     
-    func scrape(number: String) async throws -> (Runner, Array<Run>) {
+    func scrape_runner_all_html(number: String) async throws -> String {
         
-        async let all_events_html = try scrape_catch(request: {
+        return try await scrape_catch(request: {
             return await String(
-                decoding: try DataController.shared.request(url: URL(string: "https://www.parkrun.com.au/parkrunner/\(number)/all/")!),
+                decoding: try DataController.shared.request(
+                    url: URL(string: "https://www.parkrun.com.au/parkrunner/\(number)/all/")!,
+                    header: ["User-Agent": DataController.shared.user_agent]
+                ),
                 as: UTF8.self
             )
         })
-        
-        async let summary_events_html = try scrape_catch(request: {
-            return await String(
-                decoding: try DataController.shared.request(url: URL(string: "https://www.parkrun.com.au/parkrunner/\(number)/")!),
-                as: UTF8.self
-            )
-        })
-        
-        return await (
-            try Runner(context: DataController.shared.container.viewContext, number: number, all_events_html: all_events_html),
-            try Run.from_scrape(context: DataController.shared.container.viewContext, number: number, all_events_html: all_events_html, summary_events_html: summary_events_html)
-        )
         
     }
     
+    func scrape_runner_summary_html(number: String) async throws -> String {
+        
+        return try await scrape_catch(request: {
+            return await String(
+                decoding: try DataController.shared.request(
+                    url: URL(string: "https://www.parkrun.com.au/parkrunner/\(number)/")!,
+                    header: ["User-Agent": DataController.shared.user_agent]
+                ),
+                as: UTF8.self
+            )
+        })
+        
+    }
+    
+    func convert_html(context: NSManagedObjectContext, number: String, runner_all_html: String, runner_summary_html: String) throws -> (Runner, Array<Run>) {
+        
+        let runner = try Runner(context: context, number: number, all_events_html: runner_all_html)
+        let runs = try Run.from_scrape(context: context, number: number, all_events_html: runner_all_html, summary_events_html: runner_summary_html)
+        
+        return (runner, runs)
+        
+    }
+    
+    func scrape(number: String) async throws -> (Runner, Array<Run>) {
+
+        async let runner_all_html = scrape_runner_all_html(number: number)
+        async let runner_summary_html = scrape_runner_summary_html(number: number)
+
+        let context = DataController.shared.container.viewContext
+
+        let runner_all_html_await = try await runner_all_html
+        let runner_summary_html_await = try await runner_summary_html
+        
+        return try await context.perform({
+            return (
+                try Runner(context: context, number: number, all_events_html: runner_all_html_await),
+                try Run.from_scrape(context: context, number: number, all_events_html: runner_all_html_await, summary_events_html: runner_summary_html_await)
+            )
+        })
+        
+    }
+
     private func scrape_catch<T>(request: () async throws -> T) async throws -> T {
         
         do {

@@ -1,4 +1,5 @@
 {
+  "originHash" : "86f51dacaa8d22b0e77e0b74ca5728c336482cfdee4974144a67058daf743fb3",
   "pins" : [
     {
       "identity" : "barcodekit",
@@ -14,10 +15,10 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/scinfu/SwiftSoup.git",
       "state" : {
-        "revision" : "6778575285177365cbad3e5b8a72f2a20583cfec",
-        "version" : "2.4.3"
+        "revision" : "028487d4a8a291b2fe1b4392b5425b6172056148",
+        "version" : "2.7.2"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

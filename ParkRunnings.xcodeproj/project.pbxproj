@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB09E0152BD0DA3200CFC62C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = CB09E0142BD0D9C900CFC62C /* PrivacyInfo.xcprivacy */; };
 		CB0C858B28D574D60063AAFB /* ParkRunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C853D28D574D60063AAFB /* ParkRunApp.swift */; };
 		CB0C858C28D574D60063AAFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB0C853E28D574D60063AAFB /* Assets.xcassets */; };
 		CB0C858D28D574D60063AAFB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB0C854028D574D60063AAFB /* Preview Assets.xcassets */; };
@@ -66,6 +67,7 @@
 		CB82222C2911C20500C419D9 /* PermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82222B2911C20500C419D9 /* PermissionView.swift */; };
 		CB82222E2911DA1600C419D9 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82222D2911DA1600C419D9 /* Random.swift */; };
 		CB822230291227D400C419D9 /* VersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB82222F291227D400C419D9 /* VersionView.swift */; };
+		CB9691872AAC07D3004DDB7C /* EventController_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9691862AAC07D3004DDB7C /* EventController_Tests.swift */; };
 		CBA509DE29E233D90005B189 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA509DD29E233D90005B189 /* AboutView.swift */; };
 		CBB6106428F8BB3B001D55A9 /* StatTitleElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB6106328F8BB3B001D55A9 /* StatTitleElement.swift */; };
 		CBB6106628F8CB52001D55A9 /* StatRefreshElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB6106528F8CB52001D55A9 /* StatRefreshElement.swift */; };
@@ -116,6 +118,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CB09E0142BD0D9C900CFC62C /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		CB09E0162BD11E3E00CFC62C /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		CB0C853D28D574D60063AAFB /* ParkRunApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkRunApp.swift; sourceTree = "<group>"; };
 		CB0C853E28D574D60063AAFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB0C854028D574D60063AAFB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -176,6 +180,8 @@
 		CB82222B2911C20500C419D9 /* PermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionView.swift; sourceTree = "<group>"; };
 		CB82222D2911DA1600C419D9 /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		CB82222F291227D400C419D9 /* VersionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionView.swift; sourceTree = "<group>"; };
+		CB9691862AAC07D3004DDB7C /* EventController_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventController_Tests.swift; sourceTree = "<group>"; };
+		CB96918A2AAC107B004DDB7C /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		CBA509DB29DFBD320005B189 /* ParkRunnings-Watch-AppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "ParkRunnings-Watch-AppTests-Info.plist"; sourceTree = SOURCE_ROOT; };
 		CBA509DD29E233D90005B189 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		CBB6106328F8BB3B001D55A9 /* StatTitleElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatTitleElement.swift; sourceTree = "<group>"; };
@@ -220,6 +226,7 @@
 			children = (
 				CB0C853D28D574D60063AAFB /* ParkRunApp.swift */,
 				CB0C853E28D574D60063AAFB /* Assets.xcassets */,
+				CB09E0142BD0D9C900CFC62C /* PrivacyInfo.xcprivacy */,
 				CB0C854828D574D60063AAFB /* Data */,
 				CB0C854128D574D60063AAFB /* Extensions */,
 				CB0C856228D574D60063AAFB /* Views */,
@@ -472,6 +479,7 @@
 			children = (
 				CBA509DB29DFBD320005B189 /* ParkRunnings-Watch-AppTests-Info.plist */,
 				CB40D14728D5723000995E8B /* RunnerController_Tests.swift */,
+				CB9691862AAC07D3004DDB7C /* EventController_Tests.swift */,
 			);
 			path = "ParkRunnings Watch AppTests";
 			sourceTree = "<group>";
@@ -508,6 +516,8 @@
 				CBAE8F0A27F7CECE00A66830 /* Products */,
 				CBE106AD27FD575B008AF35B /* Frameworks */,
 				CB0C865E28D85F530063AAFB /* README.md */,
+				CB09E0162BD11E3E00CFC62C /* TODO.md */,
+				CB96918A2AAC107B004DDB7C /* CHANGELOG.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -605,7 +615,7 @@
 				CB40D12D28D5723000995E8B /* Sources */,
 				CB40D12E28D5723000995E8B /* Frameworks */,
 				CB40D12F28D5723000995E8B /* Resources */,
-				CBE207C028F37E7000B3D42C /* ShellScript */,
+				CBE207C028F37E7000B3D42C /* Cache Master File */,
 			);
 			buildRules = (
 			);
@@ -699,6 +709,7 @@
 				CB0C85A228D574D60063AAFB /* map.png in Resources */,
 				CB0C85A328D574D60063AAFB /* master.json in Resources */,
 				CB0C858C28D574D60063AAFB /* Assets.xcassets in Resources */,
+				CB09E0152BD0DA3200CFC62C /* PrivacyInfo.xcprivacy in Resources */,
 				CB0C858D28D574D60063AAFB /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -713,7 +724,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		CBE207C028F37E7000B3D42C /* ShellScript */ = {
+		CBE207C028F37E7000B3D42C /* Cache Master File */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -723,6 +734,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Cache Master File";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -813,6 +825,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB9691872AAC07D3004DDB7C /* EventController_Tests.swift in Sources */,
 				CB40D14828D5723000995E8B /* RunnerController_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -840,7 +853,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"ParkRunnings Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				ENABLE_PREVIEWS = YES;
@@ -848,6 +861,9 @@
 				INFOPLIST_FILE = "ParkRunnings-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ParkRunnings;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Used to find nearby ParkRun events";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Used to find nearby ParkRun events";
+				INFOPLIST_KEY_NSLocationTemporaryUsageDescriptionDictionary = "Used to find nearby ParkRun events";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Used to find nearby ParkRun events";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Used to find nearby ParkRun events";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
@@ -874,7 +890,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"ParkRunnings Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				ENABLE_PREVIEWS = YES;
@@ -882,6 +898,9 @@
 				INFOPLIST_FILE = "ParkRunnings-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ParkRunnings;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Used to find nearby ParkRun events";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Used to find nearby ParkRun events";
+				INFOPLIST_KEY_NSLocationTemporaryUsageDescriptionDictionary = "Used to find nearby ParkRun events";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Used to find nearby ParkRun events";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Used to find nearby ParkRun events";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
@@ -907,7 +926,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				INFOPLIST_KEY_CFBundleDisplayName = ParkRunnings;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -924,7 +943,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				INFOPLIST_KEY_CFBundleDisplayName = ParkRunnings;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -942,11 +961,15 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ParkRunnings-Watch-AppTests-Info.plist";
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Used to find nearby ParkRun events";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Used to find nearby ParkRun events";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
 				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "schacher.ParkRunnings-Watch-AppTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -966,11 +989,15 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = JW5G6WB9V7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ParkRunnings-Watch-AppTests-Info.plist";
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Used to find nearby ParkRun events";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Used to find nearby ParkRun events";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
 				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "schacher.ParkRunnings-Watch-AppTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1016,6 +1043,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 12;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1033,6 +1061,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Used to find nearby ParkRun events";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Used to find nearby ParkRun events";
+				INFOPLIST_KEY_NSLocationTemporaryUsageDescriptionDictionary = "Used to find nearby ParkRun events";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Used to find nearby ParkRun events";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Used to find nearby ParkRun events";
+				MARKETING_VERSION = 1.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1075,6 +1109,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 12;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1086,6 +1121,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Used to find nearby ParkRun events";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Used to find nearby ParkRun events";
+				INFOPLIST_KEY_NSLocationTemporaryUsageDescriptionDictionary = "Used to find nearby ParkRun events";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Used to find nearby ParkRun events";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Used to find nearby ParkRun events";
+				MARKETING_VERSION = 1.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

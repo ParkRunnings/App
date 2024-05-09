@@ -15,15 +15,37 @@ struct BarcodeView: View {
     
     var body: some View {
         
-        VStack(content: {
+        ZStack(alignment: .center, content: {
+            
+            if #available(watchOS 10, *) {
+                Colour(hex: "#1B0757")
+                    .edgesIgnoringSafeArea(.all)
+            }
+            
             BarcodeCardElement(number: runner.a_number, ratio: design.size(size: .barcode_rotated_ratio))
-                .rotationEffect(Angle(degrees: design.wrist == .right ? 90 : -90 ))
-        }).onAppear(perform: {
+                // .rotationEffect(Angle(degrees: design.wrist == .right ? 90 : -90 ))
+                .shadow(radius: 8)
+                .padding(.horizontal, 4)
+
+            
+        })
+        .onAppear(perform: {
             WKExtension.shared().isAutorotating = true
         }).onDisappear(perform: {
             WKExtension.shared().isAutorotating = false
         })
-        .padding(.top, design.watch.status_height / 2)
+        
+        
+        
+//        
+//        VStack(content: {
+//            BarcodeCardElement(number: runner.a_number, ratio: design.size(size: .barcode_rotated_ratio))
+//
+////                .rotationEffect(Angle(degrees: design.wrist == .right ? 90 : -90 ))
+//                .padding(.bottom, design.size(size: .barcode_rotated_bottom_padding))
+
+        
+    
     }
     
 }

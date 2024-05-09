@@ -119,6 +119,8 @@ class MetaController: NSObject, ObservableObject {
             context.delete(current)
         }
         
+        DataController.shared.save()
+        
         defaults.set(nil, forKey: "runner_number")
         
         refresh()
@@ -152,7 +154,7 @@ class MetaController: NSObject, ObservableObject {
         
         event_home = event.uuid
         DataController.shared.save()
-        EventController.shared.update(event: event)
+        EventController.shared.update_event(event: event)
         
     }
     

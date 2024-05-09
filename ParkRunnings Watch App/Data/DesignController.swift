@@ -47,7 +47,7 @@ class DesignController: NSObject, ObservableObject {
             case (.card_icon, .square): return 15
                 
             case (.input_digit, .large_curved): return 22
-            case (.input_digit, .small_curved): return 18
+            case (.input_digit, .small_curved): return 16
             case (.input_digit, .square): return 15
                 
             case (.input_icon, .large_curved): return 15
@@ -102,8 +102,8 @@ class DesignController: NSObject, ObservableObject {
         
         switch (size, watch.group) {
             
-            case (.button_bottom_margin, .large_curved): return 20
-            case (.button_bottom_margin, .small_curved): return 20
+            case (.button_bottom_margin, .large_curved): return 16
+            case (.button_bottom_margin, .small_curved): return 12
             case (.button_bottom_margin, .square): return 0
                 
             case (.card_short_vertical, .large_curved): return 14
@@ -114,7 +114,7 @@ class DesignController: NSObject, ObservableObject {
             case (.card_short_horizontal, .small_curved): return 10
             case (.card_short_horizontal, .square): return 10
                 
-            case (.card_short_radius, .large_curved): return 20
+            case (.card_short_radius, .large_curved): return 24
             case (.card_short_radius, .small_curved): return 16
             case (.card_short_radius, .square): return 14
                 
@@ -130,15 +130,15 @@ class DesignController: NSObject, ObservableObject {
             case (.card_medium_radius, .small_curved): return 22
             case (.card_medium_radius, .square): return 18
                 
-            case (.card_tall_height, .large_curved): return 72
+            case (.card_tall_height, .large_curved): return 60
             case (.card_tall_height, .small_curved): return 60
             case (.card_tall_height, .square): return 54
                 
-            case (.card_tall_radius, .large_curved): return 24
-            case (.card_tall_radius, .small_curved): return 20
-            case (.card_tall_radius, .square): return 16
+            case (.card_tall_radius, .large_curved): return 28
+            case (.card_tall_radius, .small_curved): return 22
+            case (.card_tall_radius, .square): return 18
                 
-            case (.card_tall_padding, .large_curved): return 14
+            case (.card_tall_padding, .large_curved): return 16
             case (.card_tall_padding, .small_curved): return 12
             case (.card_tall_padding, .square): return 10
                 
@@ -173,6 +173,10 @@ class DesignController: NSObject, ObservableObject {
             case (.barcode_rotated_margin, .large_curved): return 30
             case (.barcode_rotated_margin, .small_curved): return 20
             case (.barcode_rotated_margin, .square): return 10
+            
+            case (.barcode_rotated_bottom_padding, .large_curved): return 6
+            case (.barcode_rotated_bottom_padding, .small_curved): return 10
+            case (.barcode_rotated_bottom_padding, .square): return 0
                 
             case (.confirmation_blur_height, .large_curved): return 80
             case (.confirmation_blur_height, .small_curved): return 60
@@ -210,7 +214,7 @@ class DesignController: NSObject, ObservableObject {
             case (.stat_horizontal_padding, .small_curved): return 12
             case (.stat_horizontal_padding, .square): return 10
             
-            case (.card_graph_height, .large_curved): return 140
+            case (.card_graph_height, .large_curved): return 116
             case (.card_graph_height, .small_curved): return 130
             case (.card_graph_height, .square): return 110
 
@@ -218,6 +222,10 @@ class DesignController: NSObject, ObservableObject {
             case (.stat_legend_circle, .small_curved): return 6
             case (.stat_legend_circle, .square): return 5
 
+            case (.result_timeline_top_padding, .large_curved): return 40
+            case (.result_timeline_top_padding, .small_curved): return 0
+            case (.result_timeline_top_padding, .square): return 0
+            
         }
         
     }

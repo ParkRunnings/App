@@ -72,6 +72,8 @@ struct MapView: View {
     @State var vertical = DragAxis(previous: 0, current: 0)
     @State var horizontal = DragAxis(previous: 0, current: 0)
     
+    private let map_edges_ignore: Edge.Set
+    
     init(uuid: UUID) {
         
         _results = FetchRequest<CourseImage>(
@@ -79,6 +81,12 @@ struct MapView: View {
             predicate: NSPredicate(format: "uuid = %@", uuid as CVarArg),
             animation: .default
         )
+        
+        if #available(watchOS 10, *) {
+            self.map_edges_ignore = .vertical
+        } else {
+            self.map_edges_ignore = .bottom
+        }
         
         if uuid == UUID(uuidString: "00000000-0000-0000-0000-000000000000") {
             fallback = try? Data(contentsOf: Bundle.main.url(forResource: "map", withExtension: "png")!)
@@ -103,7 +111,7 @@ struct MapView: View {
                     .padding(.leading, -(square - geometry.frame(in: .global).size.width) / 2)
                     .scaleEffect(scale)
                     .focusable(true)
-                    .digitalCrownRotation($scale, from: 1, through: 4, by: 0.1, sensitivity: .medium, isContinuous: false, isHapticFeedbackEnabled: true)
+                    .digitalCrownRotation($scale, from: 1.0, through: 4, by: 0.1, sensitivity: .medium, isContinuous: false, isHapticFeedbackEnabled: true)
                     .gesture(DragGesture()
                         .onChanged { gesture in
                             
@@ -127,7 +135,7 @@ struct MapView: View {
                         })
                 
             })
-            .edgesIgnoringSafeArea(.bottom)
+                .edgesIgnoringSafeArea(self.map_edges_ignore)
             
         }
         
